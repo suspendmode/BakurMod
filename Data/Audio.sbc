@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Sounds>
+
+    <!-- magnetizer -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>magnetizer_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\copter_working_start.xwm</Start>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>magnetizer_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>magnetizer_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_end.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+    
+    <!-- planet radar -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>planet_radar_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\copter_working_start.xwm</Start>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>planet_radar_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>planet_radar_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_end.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+
+    <!-- artificial gravity generator -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>artificial_gravity_generator_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\copter_working_start.xwm</Start>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>artificial_gravity_generator_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>artificial_gravity_generator_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_end.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+    
+    <!-- antigravity generator -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>antigravity_generator_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\copter_working_start.xwm</Start>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>antigravity_generator_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>antigravity_generator_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_end.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+    
+    <!-- copter -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>copter_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\copter_working_start.xwm</Start>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>copter_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>copter_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\copter_working_end.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <!-- etheric rudder -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>etheric_rudder_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <End>Audio\etheric_rudder_working_start.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>fetheric_rudder_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <End>Audio\etheric_rudder_working_main.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>etheric_rudder_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <End>Audio\etheric_rudder_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- gyro stabilier -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>gyroscopic_stabiliser_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\gyroscopic_stabiliser_working_start.xwm</Start>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>gyroscopic_stabiliser_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\gyroscopic_stabiliser_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>gyroscopic_stabiliser_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\gyroscopic_stabiliser_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- inertial compensator -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>inertial_compensator_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\inertial_compensator_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>inertial_compensator_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\inertial_compensator_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>inertial_compensator_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\inertial_compensator_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- power coupling -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>power_coupler_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\power_coupler_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>power_coupler_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\power_coupler_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>power_coupler_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\power_coupler_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- repulsor chair -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_chair_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_chair_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_chair_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_chair_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_chair_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_chair_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- repulsor coil -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_coil_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_coil_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_coil_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_coil_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_coil_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_coil_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- repulsor drive -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_drive_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_drive_working_start.xwm</Start>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_drive_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_drive_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_drive_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_drive_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+    
+    <!-- repulsor lift drive -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_drive_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_lift_drive_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_drive_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_lift_drive_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_drive_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_lift_drive_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- repulsor point lift -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_point_lift_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_lift_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_point_lift_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_lift_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_point_lift_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_lift_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+    
+    <!-- repulsor lift -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_lift_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_lift_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_lift_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- repulsor lift coil -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_coil_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_lift_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_coil_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_lift_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_lift_coil_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_lift_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+    
+    <!-- repulsor -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <!-- repulsor jammer -->
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_jammer_working_start</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\repulsor_coil_working_start.xwm</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_jammer_working_loop</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>true</Loopable>
+      <Waves>
+
+        <Wave Type="D3">
+          <Loop>Audio\repulsor_coil_working_main.xwm</Loop>
+        </Wave>
+
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>repulsor_jammer_working_end</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>120</MaxDistance>
+      <Volume>0.10</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <End>Audio\repulsor_coil_working_end.xwm</End>
+        </Wave>
+      </Waves>
+    </Sound>
+    
+  </Sounds>
+</Definitions>

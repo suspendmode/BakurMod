@@ -1,0 +1,1929 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CubeBlocks>
+  
+    <!-- c pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockCPipe</SubtypeId>
+      </Id>
+      <DisplayName>C Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\c_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_c_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_c_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>CPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockIPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockLPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockRPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockTPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockXPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockXIPipe</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockCPipe</SubtypeId>
+      </Id>
+      <DisplayName>C Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\c_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_c_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_c_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>CPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockIPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockLPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockRPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockTPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockXPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockXIPipe</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
+
+    </Definition>
+
+    <!-- fat c pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockFatCPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat C Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_c_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_fat_c_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_fat_c_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatCPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockFatIPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockFatLPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockFatRPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockFatTPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockFatXPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockFatXIPipe</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockFatCPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat C Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_c_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_fat_c_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_fat_c_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatCPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockFatIPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockFatLPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockFatRPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockFatTPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockFatXPipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockFatXIPipe</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
+
+    </Definition>
+
+    <!-- c3 pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockC3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>C3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\c3_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_c3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_c3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>C3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockI3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockL3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockR3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockT3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockX3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockXI3APipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>SmallBlockXIBAPipe</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockC3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>C3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\c3_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_c3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_c3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>C3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <BlockVariants>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockI3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockL3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockR3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockT3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockX3Pipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockXI3APipe</SubtypeId>
+        </BlockVariant>
+        <BlockVariant>
+          <TypeId>CubeBlock</TypeId>
+          <SubtypeId>LargeBlockXIBAPipe</SubtypeId>
+        </BlockVariant>
+      </BlockVariants>
+
+    </Definition>
+
+    <!-- i pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockIPipe</SubtypeId>
+      </Id>
+      <DisplayName>I Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\i_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_i_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_i_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>IPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockIPipe</SubtypeId>
+      </Id>
+      <DisplayName>I Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\i_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_i_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_i_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>IPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- fat i pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockFatIPipe</SubtypeId>
+      </Id>
+      <DisplayName>I Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_i_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_fat_i_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_fat_i_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatIPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockFatIPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat I Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_i_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_fat_i_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_fat_i_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatIPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- i3 pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockI3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>I3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\i3_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_i3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_i3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>I3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockI3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>I3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\i3_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_i3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_i3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>I3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- l pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockLPipe</SubtypeId>
+      </Id>
+      <DisplayName>L Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\l_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_l_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_l_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>LPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockLPipe</SubtypeId>
+      </Id>
+      <DisplayName>L Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\l_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_l_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_l_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>LPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- fat l pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockLPipe</SubtypeId>
+      </Id>
+      <DisplayName>L Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\l_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_l_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_l_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>LPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockLPipe</SubtypeId>
+      </Id>
+      <DisplayName>L Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\l_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_l_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_l_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>LPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- l3 pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockLPipe</SubtypeId>
+      </Id>
+      <DisplayName>L Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\l_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_l_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_l_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>LPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+
+      <GuiVisible>false</GuiVisible>
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockLPipe</SubtypeId>
+      </Id>
+      <DisplayName>L Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\l_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_l_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_l_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>LPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- r pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockRPipe</SubtypeId>
+      </Id>
+      <DisplayName>R Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\r_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_r_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_r_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>RPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockRPipe</SubtypeId>
+      </Id>
+      <DisplayName>R Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\r_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_r_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_r_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>RPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- fat r pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockFatRPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat R Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_r_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_fat_r_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_fat_r_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatRPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockFatRPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat R Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_r_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_fat_r_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_fat_r_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatRPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- r3 pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockR3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>R3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\r3_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_r3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_r3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>R3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockR3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>R Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\r3_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_r3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_r3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>R3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- t pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockTPipe</SubtypeId>
+      </Id>
+      <DisplayName>T Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\t_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_t_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_t_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>TPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockTPipe</SubtypeId>
+      </Id>
+      <DisplayName>T Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\t_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_t_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_t_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>TPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- fat t pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockFatTPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat T Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_t_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_fat_t_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_fat_t_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatTPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockFatTPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat T Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_t_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_fat_t_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_fat_t_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatTPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- t3 pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockT3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>T3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\t3_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_t3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_t3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>T3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockT3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>T3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\t3_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_t3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_t3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>T3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- x pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockXPipe</SubtypeId>
+      </Id>
+      <DisplayName>X Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\x_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_x_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_x_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>XPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockXPipe</SubtypeId>
+      </Id>
+      <DisplayName>X Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\x_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_x_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_x_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>XPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- fat x pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockFatXPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat X Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_x_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_fat_x_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_fat_x_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatXPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockFatXPipe</SubtypeId>
+      </Id>
+      <DisplayName>Fat X Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_x_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_fat_x_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_fat_x_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatXPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- x3 pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockX3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>X3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\x3_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_x3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_x3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>X3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockX3Pipe</SubtypeId>
+      </Id>
+      <DisplayName>X3 Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\x3_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_x3_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_x3_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>X3Pipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- xi pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockXIPipe</SubtypeId>
+      </Id>
+      <DisplayName>XI Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\xi_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_xi_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_xi_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>XIPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockXIPipe</SubtypeId>
+      </Id>
+      <DisplayName>XI Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\xi_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_xi_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_xi_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>XIPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- fat xi pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockFatXIPipe</SubtypeId>
+      </Id>
+      <DisplayName>FatXI Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_xi_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_fat_xi_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_fat_xi_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatXIPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockFatXIPipe</SubtypeId>
+      </Id>
+      <DisplayName>FatXI Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_xi_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_fat_xi_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_fat_xi_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>FatXIPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- xi3a pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockXI3APipe</SubtypeId>
+      </Id>
+      <DisplayName>XI3A Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\xi3a_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_xi3a_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_xi3a_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>XI3APipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockXI3APipe</SubtypeId>
+      </Id>
+      <DisplayName>XI3A Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\xi3a_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_xi3a_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_xi3a_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>XI3APipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <!-- xi3b pipes -->
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>SmallBlockXI3BPipe</SubtypeId>
+      </Id>
+      <DisplayName>XI3B Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\xi3b_pipe.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\small_xi3b_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_xi3b_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>XI3BPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+
+    <Definition xsi:type="MyObjectBuilder_CubeBlockDefinition">
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockXI3BPipe</SubtypeId>
+      </Id>
+      <DisplayName>XI3B Pipe</DisplayName>
+      <Icon>Textures\GUI\Icons\xi3b_pipe.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\large_xi3b_pipe.mwm</Model>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_xi3b_pipe.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+
+      <Components>
+        <Component Subtype="Construction" Count="5" />
+      </Components>
+
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BlockPairName>XI3BPipe</BlockPairName>
+      <Center x="0" y="0" z="0" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <BuildTimeSeconds>2</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <GuiVisible>false</GuiVisible>
+
+    </Definition>
+  </CubeBlocks>
+</Definitions>

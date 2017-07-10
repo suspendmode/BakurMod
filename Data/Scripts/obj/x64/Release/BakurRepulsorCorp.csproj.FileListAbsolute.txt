@@ -1,0 +1,2 @@
+C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\BakurRepuslorTech.exe.config
+C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\obj\x64\Release\BakurRepulsorCorp.csprojResolveAssemblyReference.cache

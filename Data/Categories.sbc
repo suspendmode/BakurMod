@@ -1,0 +1,116 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CategoryClasses>
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>+ Bakur Repulsor Corp</DisplayName>
+      <Name>BakurRepulsorCorp</Name>
+      <ItemIds>
+
+		<string>TerminalBlock/SmallMagnetizer</string>
+        <string>TerminalBlock/LargeMagnetizer</string>
+		
+        <string>TerminalBlock/SmallPlanetRadar</string>
+        <string>TerminalBlock/LargePlanetRadar</string>
+        
+        <string>TerminalBlock/SmallAntiGravityGenerator</string>
+        <string>TerminalBlock/LargeAntiGravityGenerator</string>
+        
+        <string>TerminalBlock/SmallBlockRepulsorCoil</string>
+        <string>TerminalBlock/LargeBlockRepulsorCoil</string>
+
+        <string>TerminalBlock/SmallBlockRepulsorLift</string>
+        <string>TerminalBlock/LargeBlockRepulsorLift</string>
+
+        <string>TerminalBlock/SmallBlockRepulsorDrive</string>
+        <string>TerminalBlock/LargeBlockRepulsorDrive</string>
+		
+		<string>TerminalBlock/SmallBlockRepulsorLiftDrive</string>
+        <string>TerminalBlock/LargeBlockRepulsorLiftDrive</string>
+
+		<string>TerminalBlock/SmallBlockRepulsor</string>
+        <string>TerminalBlock/LargeBlockRepulsor</string>
+
+        <string>TerminalBlock/SmallBlockInertialCompensator</string>
+        <string>TerminalBlock/LargeBlockInertialCompensator</string>
+
+        <string>TerminalBlock/SmallBlockGyroStabiliser</string>
+        <string>TerminalBlock/LargeBlockGyroStabiliser</string>
+
+        <string>TerminalBlock/SmallBlockEthericRudder</string>
+        <string>TerminalBlock/LargeBlockEthericRudder</string>
+
+        <string>TerminalBlock/SmallBlockPowerCoupling</string>
+        <string>TerminalBlock/LargeBlockPowerCoupling</string>
+
+        <string>TerminalBlock/SmallBlockCopter</string>
+        <string>TerminalBlock/LargeBlockCopter</string>
+		
+		 <string>TerminalBlock/SmallBlockRepulsorChair</string>
+        <string>TerminalBlock/LargeBlockRepulsorChair</string>
+      </ItemIds>
+    </Category>
+
+
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>DisplayName_Category_SmallBlocks</DisplayName>
+      <Name>SmallBlocks</Name>
+      <ItemIds>
+        
+        <string>TerminalBlock/SmallBlockRepulsorCoil</string>
+
+        <string>TerminalBlock/SmallBlockRepulsorLift</string>
+
+        <string>TerminalBlock/SmallBlockRepulsorDrive</string>
+
+        <string>TerminalBlock/SmallBlockInertialCompensator</string>
+
+        <string>TerminalBlock/SmallBlockGyroStabiliser</string>
+
+        <string>TerminalBlock/SmallBlockFlightCoupler</string>
+
+        <string>TerminalBlock/SmallBlockPowerCoupling</string>
+
+        <string>TerminalBlock/SmallBlockCopter</string>
+
+      </ItemIds>
+    </Category>
+
+
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>DisplayName_Category_LargeBlocks</DisplayName>
+      <Name>LargeBlocks</Name>
+      <ItemIds>
+
+        <string>TerminalBlock/LargeBlockRepulsorCoil</string>
+
+        <string>TerminalBlock/LargeBlockRepulsorLift</string>
+
+        <string>TerminalBlock/LargeBlockRepulsorDrive</string>
+
+        <string>TerminalBlock/LargeBlockInertialCompensator</string>
+
+        <string>TerminalBlock/LargeBlockGyroStabiliser</string>
+
+        <string>TerminalBlock/LargeBlockFlightCoupler</string>
+
+        <string>TerminalBlock/LargeBlockPowerCoupling</string>
+
+        <string>TerminalBlock/LargeBlockCopter</string>
+        
+      </ItemIds>
+    </Category>
+
+  </CategoryClasses>
+</Definitions>

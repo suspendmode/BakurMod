@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityComponents>
+
+    <EntityComponent xsi:type="MyObjectBuilder_ModStorageComponentDefinition">
+      <Id>
+        <TypeId>ModStorageComponent</TypeId>
+        <SubtypeId>BakurRepulsorCorp</SubtypeId>
+      </Id>
+      <RegisteredStorageGuids>
+        
+        <guid>4f9558ad-e935-4d22-8f58-c72de5916d43</guid>
+        <guid>a3672713-d475-4bd7-ad04-c96ce6b8cc56</guid>
+        <guid>7d747b37-84f0-4f18-872e-a2a1d3c1ceec</guid>
+        <guid>a4f121f2-37ee-4b30-9d04-a0adc17cdfd9</guid>
+        <guid>130652c2-5ce0-4333-8511-08e69abde757</guid>
+        <guid>44126a78-23f0-42ec-ade9-268fc6adb9b0</guid>
+        <guid>4bab8c9c-0b6b-401e-b40b-c73667e5cabb</guid>
+        <guid>e89e8ef9-418a-414b-8198-b8743a4bc275</guid>
+        <guid>920716a3-2e52-4107-bc9d-43dae6c9b1ae</guid>
+        <guid>49b84a0e-e409-4ae9-ac76-aaf6c59fda4e</guid>
+        <guid>bf8957e0-500d-4356-9875-91db9dd4a912</guid>
+        <guid>952f402f-12f4-4828-892e-1918f015629e</guid>
+        <guid>3a95a757-3c62-4d4a-a88e-7fa2a2835922</guid>
+        <guid>e2df91e5-e7c3-447c-a1e0-dd2da257ed06</guid>
+        <guid>a0498045-505d-4691-bb0c-00c515b01793</guid>
+        <guid>fe299648-2f06-4a7e-9a8d-54d3ee991e23</guid>
+        <guid>b0ee9325-b5a6-48c9-8a24-d1a9752addf7</guid>
+        
+      </RegisteredStorageGuids>
+    </EntityComponent>
+
+  </EntityComponents>
+</Definitions>
