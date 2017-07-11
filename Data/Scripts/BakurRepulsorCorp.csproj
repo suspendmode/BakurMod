@@ -230,7 +230,6 @@
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorLift\Actions\Lift_UseRepulsorLiftEnableAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorLift\Actions\Lift_UseRepulsorLiftToggleAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorLift\Controls\Lift_UseRepulsorLiftSwitch.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorLift\RepulsorLiftSession.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorPointLift\Actions\PointLift_UsePointLiftDisableAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorPointLift\Actions\PointLift_UsePointLiftEnableAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorPointLift\Actions\PointLift_UsePointLiftToggleAction.cs" />
@@ -304,9 +303,7 @@
     <Compile Include="BakurRepulsorCorp\Equipment\Sensor\Controls\PlanetSurfaceNormalSensor_SizeBackSlider.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Sensor\Controls\PlanetSurfaceNormalSensor_SizeLeftSlider.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Sensor\Controls\PlanetSurfaceNormalSensor_SizeRightSlider.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\Sensor\Controls\PlanetAltitudeSensor_AltitudeRoundSlider.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Sensor\Controls\PlanetAltitudeSensor_UseBlockPositionSwitch.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\Sensor\Controls\PlanetAltitudeSensor_AltitudeSmoothTimeSlider.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Suspension\Control\Suspension_ImpulseSlider.cs" />
     <Compile Include="BakurRepulsorCorp\PlanetRadarBlock.cs" />
     <Compile Include="BakurRepulsorCorp\CopterBlock.cs" />
@@ -315,12 +312,11 @@
     <Compile Include="BakurRepulsorCorp\Equipment\Copter\Controls\Copter_ModeComboBox.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Copter\Controls\Copter_ResponsivitySlider.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Copter\Controls\Copter_MaxRollAngleSlider.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\AngularGenerator_UseAngularDriveDisableAction.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\AngularGenerator_UseAngularDriveEnableAction.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\AngularGenerator_UseAngularDriveToggleAction.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\LinearGenerator_UseLinearDriveDisableAction.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\LinearGenerator_UseLinearDriveEnableAction.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\LinearGenerator_UseLinearDriveToggleAction.cs" />
+    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\AngularGenerator_UseAngularGeneratorEnableAction.cs" />
+    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\AngularGenerator_UseAngularGeneratorToggleAction.cs" />
+    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\LinearGenerator_UseLinearGeneratorDisableAction.cs" />
+    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\LinearGenerator_UseLinearGeneratorEnableAction.cs" />
+    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\LinearGenerator_UseLinearGeneratorToggleAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Control\AngularGenerator_UseAngularGeneratorSwitch.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Control\LinearGenerator_UseLinearGeneratorSwitch.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Rudder\Actions\VelocityRudder_UseVelocityRudderDisableAction.cs" />
@@ -356,7 +352,7 @@
     <Compile Include="BakurRepulsorCorp\MagnetizerBlock.cs" />
     <Compile Include="BakurRepulsorCorp\RepulsorLiftCoilBlock.cs" />
     <Compile Include="BakurRepulsorCorp\RepulsorLiftBlock.cs" />
-    <Compile Include="BakurRepulsorCorp\RepulsorLiftDriveBlock.cs" />
+    <Compile Include="BakurRepulsorCorp\RepulsorLiftGeneratorBlock.cs" />
     <Compile Include="BakurRepulsorCorp\RepulsorSuspensionBlock.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorCoil\RepulsorCoil.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\InertialCompensator\Actions\Compensator_UseLinearCompensationDisableAction.cs" />
@@ -455,14 +451,14 @@
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorCoil\Controls\Coil_TensionSlider.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorPointLift\Actions\PointLift_DecraseNormalizedDistanceAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorLift\Actions\Lift_NormalizedDistanceSlider.cs" />
-    <Compile Include="BakurSession.cs" />
+    <Compile Include="BakurRepulsorCorp\BakurSession.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Sensor\PlanetsSession.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\Angular\AngularGenerator_DecraseYawAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\Angular\AngularGenerator_IncrasePitchAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\Angular\AngularGenerator_DecrasePitchAction.cs" />
+    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorGenerator\Actions\AngularGenerator_UseAngularGeneratorDisableAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\RepulsorCoil\RepulsorCoilSession.cs" />
-    <Compile Include="RepulsorGeneratorBlock.cs" />
+    <Compile Include="BakurRepulsorCorp\RepulsorGeneratorBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

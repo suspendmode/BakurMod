@@ -9,7 +9,9 @@ namespace BakurRepulsorCorp {
 
     public class RepulsorLinearGenerator : BakurBlockEquipment {
 
-        public RepulsorLinearGenerator(BakurBlock component) : base(component) {
+        public double maxLinearAcceleration;
+
+        public RepulsorLinearGenerator(BakurBlock component, double maxLinearAcceleration) : base(component) {
         }
 
         static Separator<RepulsorLinearGenerator> repulsorLinearGeneratorSeparator;
@@ -487,7 +489,7 @@ namespace BakurRepulsorCorp {
                     desired.Z = 1;
                 }
             } else {
-                desired.X = MathHelper.Clamp(shipController.MoveIndicator.X, -1, 1);
+                desired.X = MathHelper.Clamp(shipController.MoveIndicator.X, 1, -1);
                 desired.Y = MathHelper.Clamp(shipController.MoveIndicator.Y, -1, 1);
                 desired.Z = MathHelper.Clamp(shipController.MoveIndicator.Z, -1, 1);
             }

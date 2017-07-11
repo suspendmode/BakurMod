@@ -65,11 +65,11 @@ namespace BakurRepulsorCorp {
 
         }
 
-        Vector3D desiredAngularAcceleration;
+        Vector3D angularAcceleration;
 
         protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
 
-            desiredAngularAcceleration = Vector3D.Zero;
+            angularAcceleration = Vector3D.Zero;
 
             if (!IsInGravity) {
                 return;
@@ -84,9 +84,12 @@ namespace BakurRepulsorCorp {
 
             Vector3D currentUp = block.WorldMatrix.Up;
             Vector3D desiredUp = gyroStabiliser.GetDesiredUp(planetSurfaceNormalSensor.surfaceNormal);
-            desiredAngularAcceleration = attitudeStabiliser.GetDesiredAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
-            desiredAngularAcceleration = Vector3D.ClampToSphere(this.desiredAngularAcceleration, maxAngularAcceleration);
-            AddAngularAcceleration(desiredAngularAcceleration);
+            angularAcceleration = attitudeStabiliser.GetAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
+            angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
+
+            // apply
+
+            AddAngularAcceleration(angularAcceleration);
         }
 
         protected override string[] soundIds

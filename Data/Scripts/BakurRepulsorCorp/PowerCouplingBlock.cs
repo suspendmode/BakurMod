@@ -58,7 +58,7 @@ namespace BakurRepulsorCorp {
 
             double maxAcceleration = 10f;
             Vector3D currentForward = block.WorldMatrix.Forward;
-            Vector3D angularStabilisationVelocity = attitudeStabiliser.GetDesiredAngularAcceleration(maxAcceleration, currentForward, direction);
+            Vector3D angularStabilisationVelocity = attitudeStabiliser.GetAngularAcceleration(maxAcceleration, currentForward, direction);
             AddAngularAcceleration(angularStabilisationVelocity / physicsDeltaTime);
         }
 

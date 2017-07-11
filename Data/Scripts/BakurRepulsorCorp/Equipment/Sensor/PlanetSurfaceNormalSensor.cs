@@ -238,10 +238,8 @@ namespace BakurRepulsorCorp {
             customInfo.AppendLine();
             customInfo.AppendLine("== Planet Surface Normal Sensor ==");
             customInfo.AppendLine("IsInGravity : " + component.IsInGravity);
-            customInfo.AppendLine("Planets : " + planets.Count);
+            customInfo.AppendLine("Planets : " + PlanetsSession.planets.Count);
             customInfo.AppendLine("Nearest Planet : " + (nearestPlanet != null ? nearestPlanet.Name : "None"));
-            customInfo.AppendLine("Atmosphere : " + Math.Round(atmosphere, 1));
-            customInfo.AppendLine("Atmospheres : " + atmospheres);
             customInfo.AppendLine("Normal : " + surfaceNormal);
         }
 

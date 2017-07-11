@@ -26,7 +26,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            double value = equipment.roll * equipment.maxAngularAcceleration;
+            double value = equipment.roll;
             builder.Append("+Roll " + Math.Round(value, 1) + "°/s");
         }
         protected override bool Visible(IMyTerminalBlock block) { if (!base.Visible(block)) {return false;}

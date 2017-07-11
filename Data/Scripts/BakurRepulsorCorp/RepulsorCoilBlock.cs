@@ -19,10 +19,10 @@ namespace BakurRepulsorCorp {
             base.Initialize();
 
             repulsorCoil = new RepulsorCoil(this);
-            Add(repulsorCoil);            
+            Add(repulsorCoil);
         }
 
-        protected override void Destroy() {            
+        protected override void Destroy() {
 
             base.Destroy();
 
@@ -30,11 +30,26 @@ namespace BakurRepulsorCorp {
             repulsorCoil = null;
         }
 
+        Vector3D coilAcceleration;
+
         protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
 
+            coilAcceleration = Vector3D.Zero;
+
+            if (!IsInGravity) {
+                return;
+            }
+
+            // coil
+
+            coilAcceleration = repulsorCoil.GetLinearAcceleration(physicsDeltaTime);
+
+            // apply
+
+            AddLinearAcceleration(coilAcceleration);
         }
 
-        public void Debug() {
+        protected override void Debug() {
             if (debugEnabled) {
                 IMyCubeGrid grid = block.CubeGrid;
                 DebugDraw.DrawLine(block.GetPosition(), block.GetPosition() + gravityUp * gravity.Length(), Color.DeepSkyBlue, 0.1f);

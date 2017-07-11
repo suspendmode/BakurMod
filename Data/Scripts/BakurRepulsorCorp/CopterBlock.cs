@@ -23,7 +23,6 @@ namespace BakurRepulsorCorp {
 
             base.Initialize();
 
-
             copter = new Copter(this);
             Add(copter);
 
@@ -73,16 +72,14 @@ namespace BakurRepulsorCorp {
             return new Guid("7d747b37-84f0-4f18-872e-a2a1d3c1ceec");
         }
 
-        #region acceleration
+        Vector3D angularAcceleration;
 
-        Vector3D desiredAngularAcceleration;
+        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
 
-        public Vector3D GetAngularAcceleration(double physicsDeltaTime) {
-
-            desiredAngularAcceleration = Vector3D.Zero;
+            angularAcceleration = Vector3D.Zero;
 
             if (!IsInGravity) {
-                return desiredAngularAcceleration;
+                return;
             }
 
             IMyCubeGrid grid = block.CubeGrid;
@@ -94,17 +91,12 @@ namespace BakurRepulsorCorp {
             // stabiliser            
 
             Vector3D currentUp = block.WorldMatrix.Up;
-            desiredAngularAcceleration = attitudeStabiliser.GetDesiredAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
+            angularAcceleration = attitudeStabiliser.GetAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
+            angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
 
-            desiredAngularAcceleration = Vector3D.ClampToSphere(desiredAngularAcceleration, maxAngularAcceleration);
-            return desiredAngularAcceleration;
+            // apply
+
+            AddAngularAcceleration(angularAcceleration);
         }
-
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-
     }
 }

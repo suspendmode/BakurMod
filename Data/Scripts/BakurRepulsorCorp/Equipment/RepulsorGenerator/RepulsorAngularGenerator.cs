@@ -9,7 +9,7 @@ namespace BakurRepulsorCorp {
 
     public class RepulsorAngularGenerator : BakurBlockEquipment {
 
-        public RepulsorAngularGenerator(BakurBlock component) : base(component) {
+        public RepulsorAngularGenerator(BakurBlock component, double maxAngularAcceleration) : base(component) {
         }
 
         static Label<RepulsorAngularGenerator> repulsorAngularGeneratorLabel;
@@ -464,7 +464,7 @@ namespace BakurRepulsorCorp {
 
         public Vector3D desiredAngularAcceleration;
 
-        public Vector3D GetDesiredAngularAcceleration(double maxAngularAcceleration) {
+        public Vector3D GetAngularAcceleration(double physicsDeltaTime, double maxAngularAcceleration) {
 
             IMyCubeGrid grid = block.CubeGrid;
             IMyShipController shipController = BakurBlockUtils.GetShipControllerUnderControl(grid);
@@ -533,8 +533,8 @@ namespace BakurRepulsorCorp {
                 }
 
             } else {
-                desired.X = -shipController.RotationIndicator.X;
-                desired.Y = -shipController.RotationIndicator.Y;
+                desired.X = shipController.RotationIndicator.X;
+                desired.Y = shipController.RotationIndicator.Y;
                 desired.Z = -shipController.RollIndicator;
             }
 

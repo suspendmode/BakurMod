@@ -23,7 +23,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            double value = equipment.roll * equipment.maxAngularAcceleration;
+            double value = equipment.roll;
             builder.Append("Zero Roll");
         }
 

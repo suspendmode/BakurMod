@@ -23,7 +23,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            double value = equipment.yaw * equipment.maxAngularAcceleration;
+            double value = equipment.yaw;
             builder.Append("Zero Yaw");
         }
 

@@ -40,9 +40,14 @@ namespace BakurRepulsorCorp {
         #endregion
 
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
-            //attitudeStabiliser.GetDesiredAngularVelocity;
-            velocityRudder.UpdateBeforeSimulation(physicsDeltaTime, updateDeltaTime);
+        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {            
+
+            if (velocityRudder.useVelocityRudder) {
+                velocityRudder.UpdateBeforeSimulation(physicsDeltaTime, updateDeltaTime);
+            }
+            if (velocityKiller.useVelocityKiller) {
+                velocityKiller.UpdateBeforeSimulation(physicsDeltaTime, updateDeltaTime);
+            }
         }
 
 

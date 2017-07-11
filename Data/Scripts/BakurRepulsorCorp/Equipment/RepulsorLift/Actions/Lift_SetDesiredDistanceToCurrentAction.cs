@@ -15,8 +15,8 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            equipment.normalizedDistance = BakurMathHelper.InverseLerp(0, equipment.maxAltitude, equipment.distance);
-            equipment.desiredDistance = MathHelper.Clamp(equipment.distance, 0, equipment.maxAltitude);
+            equipment.normalizedDistance = BakurMathHelper.InverseLerp(0, equipment.maxDistance, equipment.distance);
+            equipment.desiredDistance = MathHelper.Clamp(equipment.distance, 0, equipment.maxDistance);
         }
 
         public override void Writer(IMyTerminalBlock block, StringBuilder builder) {
@@ -25,7 +25,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            double value = equipment.normalizedDistance * equipment.maxAltitude;
+            double value = equipment.normalizedDistance * equipment.maxDistance;
             builder.Append("Set " + Math.Round(value, 1) + "m");
         }
 

@@ -23,7 +23,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            double value = equipment.pitch * equipment.maxAngularAcceleration;
+            double value = equipment.pitch;
             builder.Append("Zero Pitch");
         }
 

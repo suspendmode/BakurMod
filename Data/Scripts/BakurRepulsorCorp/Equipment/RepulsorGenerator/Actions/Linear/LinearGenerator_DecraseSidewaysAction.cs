@@ -29,6 +29,7 @@ namespace BakurRepulsorCorp {
             double value = equipment.sideways * equipment.maxLinearAcceleration;
             builder.Append("-Side " + Math.Round(value, 1) + "m/s");
         }
+
         protected override bool Visible(IMyTerminalBlock block) { if (!base.Visible(block)) {return false;}
             RepulsorLinearGenerator equipment = GetEquipment(block);
             if (equipment == null) {

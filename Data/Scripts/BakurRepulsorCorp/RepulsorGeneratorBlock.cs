@@ -54,20 +54,23 @@ namespace BakurRepulsorCorp {
             IMyCubeGrid grid = block.CubeGrid;
 
 
-            Vector3D force = Vector3D.Zero;
+            Vector3D linearAcceleration = Vector3D.Zero;
             Vector3D forcePoint = Vector3D.Zero;
 
-            Vector3D torque = Vector3D.Zero;
+            Vector3D angularAcceleration = Vector3D.Zero;
 
             // generator
 
-            force = repulsorLinearGenerator.GetForce(physicsDeltaTime) * maxLinearAcceleration;
-            force = Vector3D.ClampToSphere(force, maxLinearAcceleration);
-            AddLinearAcceleration(force);
+            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime, maxLinearAcceleration);
+            linearAcceleration = Vector3D.ClampToSphere(linearAcceleration, maxLinearAcceleration);
 
-            torque = repulsorAngularGenerator.GetDesiredAngularAcceleration(physicsDeltaTime) * maxAngularAcceleration;
-            torque = Vector3D.ClampToSphere(torque, maxAngularAcceleration);
-            AddAngularAcceleration(torque);
+            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime, maxAngularAcceleration);
+            angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
+
+            // apply
+
+            AddLinearAcceleration(linearAcceleration);
+            AddAngularAcceleration(angularAcceleration);
         }
 
         protected override string[] soundIds

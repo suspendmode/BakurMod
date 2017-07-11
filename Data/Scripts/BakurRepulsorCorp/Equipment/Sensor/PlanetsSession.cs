@@ -89,7 +89,7 @@ namespace BakurRepulsorCorp {
         }
 
 
-        public bool IsNearPlanet(Vector3D point, MyPlanet planet) {
+        public static bool IsNearPlanet(Vector3D point, MyPlanet planet) {
             return Vector3D.Distance(point, planet.WorldMatrix.Translation) < (planet.AtmosphereRadius);
         }
 

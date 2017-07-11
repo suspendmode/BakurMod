@@ -18,7 +18,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            builder.Append(Math.Round(equipment.pitch * equipment.maxAngularAcceleration, 1) + " °/s");
+            builder.Append(Math.Round(equipment.pitch, 1) + " °/s");
         }
 
         protected override float GetValue(RepulsorAngularGenerator equipment) {

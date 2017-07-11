@@ -45,62 +45,6 @@ namespace BakurRepulsorCorp {
 
         #endregion
 
-        #region altitude smooth time
-
-        static PlanetAltitudeSensor_AltitudeSmoothTimeSlider altitudeSmoothTimeSlider;
-
-        public static string ALTITUDE_SMOOTH_TIME_PROPERTY_NAME = "PlanetAltitudeSensor_AltitudeSmoothTime";
-
-        public double defaultAltitudeSmoothTime = PlanetAltitudeSensor_AltitudeSmoothTimeSlider.minSmoothTime;
-
-        public double altitudeSmoothTime
-        {
-            set
-            {
-                string id = GeneratatePropertyId(ALTITUDE_SMOOTH_TIME_PROPERTY_NAME);
-                SetVariable<double>(id, value);
-            }
-            get
-            {
-                string id = GeneratatePropertyId(ALTITUDE_SMOOTH_TIME_PROPERTY_NAME);
-                double result = defaultAltitudeSmoothTime;
-                if (GetVariable<double>(id, out result)) {
-                    return result;
-                }
-                return defaultAltitudeSmoothTime;
-            }
-        }
-
-        #endregion
-
-        #region max altitude round
-
-        static PlanetAltitudeSensor_AltitudeRoundSlider altitudeRoundSlider;
-
-        public static string ALTITUDE_ROUND_PROPERTY_NAME = "PlanetAltitudeSensor_AltitudeRound";
-
-        public double defaultAltitudeRound = PlanetAltitudeSensor_AltitudeRoundSlider.minValue;
-
-        public double altitudeRound
-        {
-            set
-            {
-                string id = GeneratatePropertyId(ALTITUDE_ROUND_PROPERTY_NAME);
-                SetVariable<double>(id, value);
-            }
-            get
-            {
-                string id = GeneratatePropertyId(ALTITUDE_ROUND_PROPERTY_NAME);
-                double result = defaultAltitudeRound;
-                if (GetVariable<double>(id, out result)) {
-                    return result;
-                }
-                return defaultAltitudeRound;
-            }
-        }
-
-        #endregion
-
         #region use block position
 
         static PlanetAltitudeSensor_UseBlockPositionSwitch useBlockPositionSwitch;
@@ -152,16 +96,6 @@ namespace BakurRepulsorCorp {
                 useBlockPositionSwitch.Initialize();
             }
 
-            if (altitudeSmoothTimeSlider == null) {
-                altitudeSmoothTimeSlider = new PlanetAltitudeSensor_AltitudeSmoothTimeSlider();
-                altitudeSmoothTimeSlider.Initialize();
-            }
-
-            if (altitudeRoundSlider == null) {
-                altitudeRoundSlider = new PlanetAltitudeSensor_AltitudeRoundSlider();
-                altitudeRoundSlider.Initialize();
-            }
-
             if (precisionModeSeparator == null) {
                 precisionModeSeparator = new Separator<PlanetAltitudeSensor>("PlanetAltitudeSensor_PrecisionModeSeparator");
                 precisionModeSeparator.Initialize();
@@ -197,7 +131,7 @@ namespace BakurRepulsorCorp {
 
             base.UpdateSensor(physicsDeltaTime);
 
-            if (!component.IsInGravity || nearestPlanet == null ) {
+            if (!component.IsInGravity || nearestPlanet == null) {
                 altitude = double.NaN;
                 return;
             }
@@ -210,15 +144,7 @@ namespace BakurRepulsorCorp {
                 newAltitude = GetAltitude(physicsDeltaTime);
             }
 
-            if (altitudeRound != 0) {
-                newAltitude = ((int)Math.Floor(newAltitude / altitudeRound)) * altitudeRound;
-            }
-
-            if (altitudeSmoothTime > 0) {
-                altitude = MathHelper.Lerp(altitude, newAltitude, altitudeSmoothTime / physicsDeltaTime);
-            } else {
-                altitude = newAltitude;
-            }
+            altitude = newAltitude;
         }
 
         double GetAltitude(double physicsDeltaTime) {
@@ -238,16 +164,11 @@ namespace BakurRepulsorCorp {
         }
 
         public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
-
-            customInfo.AppendLine();
             customInfo.AppendLine("== Planet Altitude Sensor ==");
             customInfo.AppendLine("IsInGravity : " + component.IsInGravity);
-            customInfo.AppendLine("Planets : " + planets.Count);
-            customInfo.AppendLine("Nearest Planet : " + (nearestPlanet != null ? nearestPlanet.Name : "None"));
-            customInfo.AppendLine("Atmosphere : " + Math.Round(atmosphere, 1));
-            customInfo.AppendLine("Atmospheres : " + atmospheres);
+            customInfo.AppendLine("Planets : " + PlanetsSession.planets.Count);
+            customInfo.AppendLine("Nearest Planet : " + (nearestPlanet != null ? nearestPlanet.Name.Substring(0, 10) : "None"));
             customInfo.AppendLine("Altitude : " + Math.Round(altitude, 1));
-            customInfo.AppendLine("Altitude Smooth Time: " + Math.Round(altitudeSmoothTime * 100, 1) + " %");
             //customInfo.AppendLine("MAx Altitude Smooth Speed: " + Math.Round(maxAltitudeSmoothSpeed, 1) + " m/s");
             customInfo.AppendLine("Use Block Position : " + useBlockPosition);
         }

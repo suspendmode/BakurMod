@@ -14,9 +14,8 @@ namespace BakurRepulsorCorp {
 
         private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsorLift", "LargeBlockRepulsorLift" };
 
-        RepulsorCoil repulsorCoil;
-        RepulsorLift repulsorLift;
         PlanetAltitudeSensor altitudeSensor;
+        RepulsorLift repulsorLift;
 
         #region lifecycle
 
@@ -52,7 +51,10 @@ namespace BakurRepulsorCorp {
             base.AppendCustomInfo(block, customInfo);
         }
 
+        Vector3D liftAcceleration = Vector3D.Zero;
         protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+
+            liftAcceleration = Vector3D.Zero;
 
             altitudeSensor.UpdateSensor(physicsDeltaTime);
 
@@ -60,15 +62,13 @@ namespace BakurRepulsorCorp {
                 return;
             }
 
-            IMyCubeGrid grid = block.CubeGrid;
-
-            Vector3D desiredForce = Vector3D.Zero;
-            Vector3D desiredUp = gravityUp;
-
             // lift
 
-            desiredForce = repulsorLift.GetTension(physicsDeltaTime, desiredUp, altitudeSensor.altitude, altitudeSensor.precisionMode, altitudeSensor.nearestPlanet.AtmosphereRadius);
-            AddForce(desiredForce);
+            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.HasAtmosphere ? altitudeSensor.nearestPlanet.AtmosphereAltitude : altitudeSensor.nearestPlanet.MaximumRadius);
+
+            // apply
+
+            AddLinearAcceleration(liftAcceleration);
         }
 
         protected override string[] soundIds

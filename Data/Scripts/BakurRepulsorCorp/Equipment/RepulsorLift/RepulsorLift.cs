@@ -10,6 +10,9 @@ namespace BakurRepulsorCorp {
 
     public class RepulsorLift : BakurBlockEquipment {
 
+        public double maxDistance;
+        //internal int enabledLiftsCount;
+
         public RepulsorLift(BakurBlock component) : base(component) {
         }
 
@@ -151,8 +154,6 @@ namespace BakurRepulsorCorp {
         public static string DERIVATIVE_COEFFICIENT_PROPERTY_NAME = "RepulsorLift_DerivativeCoefficient";
 
         public double defaultDerivativeCoefficient = 0.001;
-        internal int enabledLiftsCount;
-        internal double maxDistance;
 
         public double derivativeCoefficient
         {
@@ -277,7 +278,7 @@ namespace BakurRepulsorCorp {
         public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Lift ==");
-            customInfo.AppendLine("Desired Linear Velocity : " + Math.Round(desiredForce.Length(), 1) + " m/s");
+            customInfo.AppendLine("Desired Linear Velocity : " + Math.Round(desiredLinearAcceleration.Length(), 1) + " m/s");
             customInfo.AppendLine("Altitude : " + Math.Round(distance, 1) + " m");
             customInfo.AppendLine("Desired Altitude : " + Math.Round(desiredDistance, 1) + " m");
             customInfo.AppendLine("Normalized Desired Distance : " + Math.Round(normalizedDistance * 100, 1) + " %");
@@ -352,43 +353,6 @@ namespace BakurRepulsorCorp {
 
         #endregion
 
-        public void GetLinearAcceleration(double physicsDeltaTime, double distance, double maxDistance, double maxLinearAcceleration) {
-
-            UpdateDesiredDistance(distance, maxDistance);
-
-            if (!useLift || !component.IsInGravity) {
-                desiredForce = Vector3D.Zero;
-                Clear();
-                return;
-            }
-
-            //UpdatePrecisionMode(precisionMode);e
-
-            UpdateNormalizedDistanceFromInput(physicsDeltaTime);
-
-            UpdatePID(physicsDeltaTime);
-        }
-
-        private void UpdatePID(double physicsDeltaTime) {
-            // update pid
-
-            altitudePID.Kp = proportionalCoefficient;
-            altitudePID.Ki = integralCoefficient;
-            altitudePID.Kd = derivativeCoefficient;
-
-            altitudePID.clampOutput = true;
-            altitudePID.minOutput = -1;
-            altitudePID.maxOutput = 1;
-
-            // update desired force
-
-            double distanceError = this.desiredDistance - this.distance;
-
-            desiredForce = component.gravityUp * altitudePID.UpdateValue(distanceError, physicsDeltaTime);
-            //desiredForce = Vector3D.ClampToSphere(acc, maxLinearAcceleration);
-        }
-
-        Vector3D desiredForce;
 
         void UpdateNormalizedDistanceFromInput(double physicsDeltaTime) {
             IMyCubeGrid grid = block.CubeGrid;
@@ -401,5 +365,70 @@ namespace BakurRepulsorCorp {
 
             normalizedDistance = BakurMathHelper.Clamp01(normalizedDistance);
         }
+
+        double UpdatePID(double physicsDeltaTime) {
+            // update pid
+
+            altitudePID.Kp = proportionalCoefficient;
+            altitudePID.Ki = integralCoefficient;
+            altitudePID.Kd = derivativeCoefficient;
+
+            altitudePID.clampOutput = true;
+            altitudePID.minOutput = -1;
+            altitudePID.maxOutput = 1;
+
+            // update desired force
+
+            double distanceError = desiredDistance - distance;
+
+            double output = altitudePID.UpdateValue(distanceError, physicsDeltaTime);
+            //MyAPIGateway.Utilities.ShowMessage("pid:", "desiredDistance: " + desiredDistance + ", distance: " + distance + ", distanceError: " + distanceError + ", output: " + output);
+
+            return output;
+        }
+
+        Vector3D desiredLinearAcceleration;
+
+        public Vector3D GetLinearAcceleration(double physicsDeltaTime, double distance, double maxDistance) {
+
+            this.maxDistance = maxDistance;
+            this.distance = distance;
+
+            desiredLinearAcceleration = Vector3D.Zero;
+
+            UpdateDesiredDistance(distance, maxDistance);
+
+
+            if (!useLift || !component.IsInGravity) {
+                Clear();
+                return desiredLinearAcceleration;
+            }
+
+
+            //UpdatePrecisionMode(precisionMode);e
+
+
+            UpdateNormalizedDistanceFromInput(physicsDeltaTime);
+
+            desiredDistance = normalizedDistance * maxDistance;
+
+            double pid = UpdatePID(physicsDeltaTime);
+            desiredLinearAcceleration = pid * -component.gravity * 2;
+
+            /*
+            double aa = PlanetsSession.GetNearestPlanet(block.CubeGrid).AtmosphereAltitude;
+            double ar = PlanetsSession.GetNearestPlanet(block.CubeGrid).AtmosphereRadius;
+            double min = PlanetsSession.GetNearestPlanet(block.CubeGrid).MinimumRadius;
+            double max = PlanetsSession.GetNearestPlanet(block.CubeGrid).MaximumRadius;
+            double av = PlanetsSession.GetNearestPlanet(block.CubeGrid).AverageRadius;
+
+            MyAPIGateway.Utilities.ShowMessage("lift:", "AtmosphereAltitude: " + aa + ", AtmosphereRadius: " + ar + ", MinimumRadius: " + min + ", MaximumRadius: " + max + ", AverageRadius: " + av);
+            */
+
+           // MyAPIGateway.Utilities.ShowMessage("lift:", "desiredDistance: " + desiredDistance + ", distance: " + distance + ", desiredLinearAcceleration: " + desiredLinearAcceleration);
+
+            return desiredLinearAcceleration;
+        }
+
     }
 }

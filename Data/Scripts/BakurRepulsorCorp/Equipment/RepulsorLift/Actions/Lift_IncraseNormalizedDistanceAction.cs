@@ -26,7 +26,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            double value = equipment.normalizedDistance * equipment.maxAltitude;
+            double value = equipment.normalizedDistance * equipment.maxDistance;
             builder.Append("+Alt " + Math.Round(value, 1) + "m");
         }
 

@@ -7,7 +7,7 @@ namespace BakurRepulsorCorp {
     public class Coil_TensionSlider : Slider<RepulsorCoil> {
 
         public static double minTension = 0;
-        public static double maxTension = 2;
+        public static double maxTension = 1;
 
         public Coil_TensionSlider() : base("Coil_TensionSlider", "Tension", Math.Round(minTension, 1) + ".." + Math.Round(maxTension, 1) + ")", (float)minTension, (float)maxTension) {
         }

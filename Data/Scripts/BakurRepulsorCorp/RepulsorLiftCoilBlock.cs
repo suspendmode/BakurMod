@@ -53,34 +53,40 @@ namespace BakurRepulsorCorp {
         }
 
         #endregion
-        
+
         protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Lift Coil Block ==");
-            customInfo.AppendLine("Lift Force : " + Math.Round(liftForce.Length(), 2));
+            customInfo.AppendLine("Lift Force : " + Math.Round(liftAcceleration.Length(), 2));
             base.AppendCustomInfo(block, customInfo);
         }
 
-        
-        Vector3D liftForce = Vector3D.Zero;
+
+        Vector3D coilAcceleration = Vector3D.Zero;
+        Vector3D liftAcceleration = Vector3D.Zero;
 
         protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
 
             altitudeSensor.UpdateSensor(physicsDeltaTime);
-            
-            liftForce = Vector3D.Zero;
+
+            liftAcceleration = Vector3D.Zero;
 
             if (!IsInGravity) {
                 return;
             }
 
-            IMyCubeGrid grid = block.CubeGrid;
+            // coil
 
-            Vector3D desiredUp = gravityUp;
+            coilAcceleration = repulsorCoil.GetLinearAcceleration(physicsDeltaTime);
 
             // lift
-            liftForce = repulsorLift.GetTension(physicsDeltaTime, desiredUp, altitudeSensor.altitude, altitudeSensor.precisionMode, altitudeSensor.nearestPlanet.AtmosphereRadius);
-            AddForce(liftForce);
+
+            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereRadius);
+
+            // apply
+
+            AddLinearAcceleration(liftAcceleration);
+            AddLinearAcceleration(coilAcceleration);
         }
 
 

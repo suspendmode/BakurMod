@@ -148,7 +148,7 @@ namespace BakurRepulsorCorp {
         public Vector3D desiredAcceleration;
         public Vector3D desired;
 
-        public Vector3D GetDesiredAngularAcceleration(double maxAcceleration, Vector3D current, Vector3D desired) {
+        public Vector3D GetAngularAcceleration(double maxAcceleration, Vector3D current, Vector3D desired) {
 
             this.desired = desired;
             this.maxAcceleration = maxAcceleration;

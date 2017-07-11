@@ -25,11 +25,11 @@
         <string>TerminalBlock/SmallBlockRepulsorLift</string>
         <string>TerminalBlock/LargeBlockRepulsorLift</string>
 
-        <string>TerminalBlock/SmallBlockRepulsorDrive</string>
-        <string>TerminalBlock/LargeBlockRepulsorDrive</string>
+        <string>TerminalBlock/SmallBlockRepulsorGenerator</string>
+        <string>TerminalBlock/LargeBlockRepulsorGenerator</string>
 		
-		<string>TerminalBlock/SmallBlockRepulsorLiftDrive</string>
-        <string>TerminalBlock/LargeBlockRepulsorLiftDrive</string>
+		<string>TerminalBlock/SmallBlockRepulsorLiftGenerator</string>
+        <string>TerminalBlock/LargeBlockRepulsorLiftGenerator</string>
 
 		<string>TerminalBlock/SmallBlockRepulsor</string>
         <string>TerminalBlock/LargeBlockRepulsor</string>
@@ -68,7 +68,7 @@
 
         <string>TerminalBlock/SmallBlockRepulsorLift</string>
 
-        <string>TerminalBlock/SmallBlockRepulsorDrive</string>
+        <string>TerminalBlock/SmallBlockRepulsorGenerator</string>
 
         <string>TerminalBlock/SmallBlockInertialCompensator</string>
 
@@ -97,7 +97,7 @@
 
         <string>TerminalBlock/LargeBlockRepulsorLift</string>
 
-        <string>TerminalBlock/LargeBlockRepulsorDrive</string>
+        <string>TerminalBlock/LargeBlockRepulsorGenerator</string>
 
         <string>TerminalBlock/LargeBlockInertialCompensator</string>
 

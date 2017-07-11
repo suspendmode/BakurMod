@@ -10,14 +10,14 @@ namespace BakurRepulsorCorp {
 
     public class RepulsorCoil : BakurBlockEquipment {
 
-        public RepulsorCoil(BakurBlock component) : base(component, double.PositiveInfinity) {
+        public RepulsorCoil(BakurBlock component) : base(component) {
         }
 
         static Separator<RepulsorCoil> coilSeparator;
         static Label<RepulsorCoil> coilLabel;
 
-        public double maxDistance;
-        public int enabledCoilsCount;
+        public static Dictionary<IMyCubeGrid, double> maxDistance = new Dictionary<IMyCubeGrid, double>();
+        public static Dictionary<IMyCubeGrid, int> coilsCount = new Dictionary<IMyCubeGrid, int>();
 
         #region use coil
 
@@ -133,13 +133,22 @@ namespace BakurRepulsorCorp {
                 decraseTensionAction.Initialize();
             }
 
-            RepulsorCoilSession.AddRepulsorCoil(block.CubeGrid, this);
+
+            if (!coilsCount.ContainsKey(block.CubeGrid)) {
+                coilsCount.Add(block.CubeGrid, 1);
+            }
+
+
             base.Initialize();
         }
 
         public override void Destroy() {
             Clear();
-            RepulsorCoilSession.RemoveRepulsorCoil(block.CubeGrid, this);
+
+            coilsCount[block.CubeGrid]--;
+            if (coilsCount[block.CubeGrid] == 0) {
+                coilsCount.Remove(block.CubeGrid);
+            }
             base.Destroy();
         }
 
@@ -162,14 +171,28 @@ namespace BakurRepulsorCorp {
             customInfo.AppendLine("Grid Mass : " + Math.Round(block.CubeGrid.Physics.Mass, 1) + " kg");
         }
 
-        #endregion
+        #endregion        
+        Vector3D acceleration;
 
-        public override bool isModifierEnabled => useCoil;
+        public Vector3D GetLinearAcceleration(double physicsDeltaTime) {
+            acceleration = Vector3D.Zero;
+            if (!RepulsorCoil.coilsCount.ContainsKey(block.CubeGrid)) {
+                return acceleration;
+            }
+            int coilsCount = RepulsorCoil.coilsCount[block.CubeGrid];
+            if (coilsCount == 0) {
+                return acceleration;
+            }
+            acceleration = (component.gravityUp / (double)coilsCount) * tension * component.gravity.Length();
 
-        public override void GetLinearAcceleration(double physicsDeltaTime, out Vector3D acceleration, out Vector3D position) {
-            position = Vector3D.Zero;
-            acceleration = (component.gravityUp / (double)enabledCoilsCount) * tension;
-            Store(acceleration, position);
+            //MyAPIGateway.Utilities.ShowMessage("acceleration:", acceleration.Length() + ", coilsCount: " + coilsCount + ", tension: " + tension);
+
+            /*
+                double max = cubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Large ? largeGridMaxDistance : smallGridMaxDistance;
+                maxDistance += max;        
+            */
+
+            return acceleration;
         }
     }
 }

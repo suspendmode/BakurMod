@@ -406,6 +406,83 @@ namespace BakurRepulsorCorp {
 
         #endregion
 
+        #region force
+
+        public void AddLinearVelocity(Vector3D velocity) {
+            double physicsDeltaTime = MyEngineConstants.PHYSICS_STEP_SIZE_IN_SECONDS;
+            Vector3D acceleration = velocity / physicsDeltaTime;
+            AddLinearAcceleration(acceleration);
+        }
+
+        public void AddLinearVelocity(Vector3D velocity, Vector3D point) {
+            double physicsDeltaTime = MyEngineConstants.PHYSICS_STEP_SIZE_IN_SECONDS;
+            Vector3D acceleration = velocity / physicsDeltaTime;
+            AddLinearAcceleration(acceleration, point);
+        }
+
+        public void AddAngularVelocity(Vector3D velocity) {
+            double physicsDeltaTime = MyEngineConstants.PHYSICS_STEP_SIZE_IN_SECONDS;
+            Vector3D acceleration = velocity / physicsDeltaTime;
+            AddLinearAcceleration(acceleration);
+        }
+
+        public void AddLinearAcceleration(Vector3D acceleration) {
+            IMyCubeGrid grid = block.CubeGrid;
+            double mass = grid.Physics.Mass;
+            AddForce(acceleration * mass);
+        }
+
+        public void AddLinearAcceleration(Vector3D acceleration, Vector3D point) {
+            IMyCubeGrid grid = block.CubeGrid;
+            double mass = grid.Physics.Mass;
+            AddForce(acceleration * mass, point);
+        }
+
+        public void AddAngularAcceleration(Vector3D acceleration) {
+            IMyCubeGrid grid = block.CubeGrid;
+            double mass = grid.Physics.Mass;
+            AddTorque(acceleration * mass);
+        }
+
+        public void AddAngularAcceleration(Vector3D acceleration, Vector3D point) {
+            double physicsDeltaTime = MyEngineConstants.PHYSICS_STEP_SIZE_IN_SECONDS;
+            IMyCubeGrid grid = block.CubeGrid;
+            double mass = grid.Physics.Mass;
+            AddForce(acceleration * mass, point);
+        }
+
+        public void AddForce(Vector3D force) {
+            if (double.IsNaN(force.X) || double.IsNaN(force.Y) || double.IsNaN(force.Z) || force == Vector3.Zero) {
+                return;
+            }
+            IMyCubeGrid grid = block.CubeGrid;
+            MatrixD invWorldRot = grid.PositionComp.WorldMatrixInvScaled.GetOrientation();
+            Vector3D localForce = Vector3D.Transform(force, invWorldRot);
+            block.CubeGrid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, localForce, grid.Physics.CenterOfMassWorld, null);
+        }
+
+        public void AddForce(Vector3D force, Vector3D position) {
+            if (double.IsNaN(force.X) || double.IsNaN(force.Y) || double.IsNaN(force.Z) || force == Vector3.Zero) {
+                return;
+            }
+            IMyCubeGrid grid = block.CubeGrid;
+            MatrixD invWorldRot = grid.PositionComp.WorldMatrixInvScaled.GetOrientation();
+            Vector3D localForce = Vector3D.Transform(force, invWorldRot);
+            block.CubeGrid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, localForce, position, null);
+        }
+
+        public void AddTorque(Vector3D torque) {
+            if (double.IsNaN(torque.X) || double.IsNaN(torque.Y) || double.IsNaN(torque.Z) || torque == Vector3.Zero) {
+                return;
+            }
+            IMyCubeGrid grid = block.CubeGrid;
+            MatrixD invWorldRot = grid.PositionComp.WorldMatrixInvScaled.GetOrientation();
+            Vector3D localTorque = Vector3D.Transform(torque, invWorldRot);
+            block.CubeGrid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, grid.Physics.CenterOfMassWorld, localTorque);
+        }
+
+        #endregion
+
         public void Assert(bool condition, string message) {
             if (!condition) {
                 Exception e = new Exception(message);

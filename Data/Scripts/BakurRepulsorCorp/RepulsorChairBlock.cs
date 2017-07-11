@@ -35,7 +35,7 @@ namespace BakurRepulsorCorp {
             repulsorCoil = new RepulsorCoil(this);
             Add(repulsorCoil);
 
-            repulsorLift = new RepulsorLift(this, maxLinearAcceleration);
+            repulsorLift = new RepulsorLift(this);
             Add(repulsorLift);
 
             repulsorLinearGenerator = new RepulsorLinearGenerator(this, maxLinearAcceleration);
@@ -106,21 +106,29 @@ namespace BakurRepulsorCorp {
             base.UpdateAfterSimulation10();
         }
 
+        Vector3D liftAcceleration;
+
+        Vector3D linearAcceleration;
+        Vector3D angularAcceleration;
+        Vector3D stabiliserAngularAcceleration;
+        Vector3D desiredUp;
+
         protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
 
             if (!IsInGravity) {
                 return;
             }
-            /*
+
             altitudeSensor.UpdateSensor(physicsDeltaTime);
             planetSurfaceNormalSensor.UpdateSensor(physicsDeltaTime);
 
             IMyCubeGrid grid = block.CubeGrid;
 
-            Vector3D liftForce = Vector3D.Zero;
+            liftAcceleration = Vector3D.Zero;
 
-            Vector3D desiredLinearAcceleration = Vector3D.Zero;
-            Vector3D desiredAngularAcceleration = Vector3D.Zero;
+            linearAcceleration = Vector3D.Zero;
+            angularAcceleration = Vector3D.Zero;
+            stabiliserAngularAcceleration = Vector3D.Zero;
 
             // gyro stabiliser
 
@@ -128,26 +136,29 @@ namespace BakurRepulsorCorp {
 
             // lift
 
-            liftForce = repulsorLift.GetTension(physicsDeltaTime, desiredUp, altitudeSensor.altitude, altitudeSensor.precisionMode, altitudeSensor.nearestPlanet.AtmosphereRadius);
-            AddForce(liftForce);
+            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereRadius);
 
             // generator
 
-            desiredLinearAcceleration = repulsorDrive.GetDesiredLinearAcceleration(maxLinearAcceleration);
-            desiredLinearAcceleration = Vector3D.ClampToSphere(desiredLinearAcceleration, maxLinearAcceleration);
-            AddLinearAcceleration(desiredLinearAcceleration);
+            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime, maxLinearAcceleration);
+            linearAcceleration = Vector3D.ClampToSphere(linearAcceleration, maxLinearAcceleration);
+            AddLinearAcceleration(linearAcceleration);
 
-            desiredAngularAcceleration = repulsorDrive.GetDesiredAngularAcceleration(maxAngularAcceleration);
-            desiredAngularAcceleration = Vector3D.ClampToSphere(desiredAngularAcceleration, maxAngularAcceleration);
-            AddAngularAcceleration(desiredAngularAcceleration);
+            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime, maxAngularAcceleration);
+            angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
 
             // attitude stabiliser
 
             Vector3D currentUp = block.WorldMatrix.Up;
-            desiredAngularAcceleration = attitudeStabiliser.GetDesiredAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
-            desiredAngularAcceleration = Vector3D.ClampToSphere(desiredAngularAcceleration, maxAngularAcceleration);
-            AddAngularAcceleration(desiredAngularAcceleration);
-            */
+            stabiliserAngularAcceleration = attitudeStabiliser.GetAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
+            stabiliserAngularAcceleration = Vector3D.ClampToSphere(stabiliserAngularAcceleration, maxAngularAcceleration);
+
+            /// apply
+
+            AddLinearAcceleration(liftAcceleration);
+            AddAngularAcceleration(angularAcceleration);
+            AddAngularAcceleration(stabiliserAngularAcceleration);
+
         }
 
         protected override string[] soundIds

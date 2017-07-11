@@ -15,7 +15,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            builder.Append(Math.Round(equipment.normalizedDistance * equipment.maxAltitude, 1) + " m");
+            builder.Append(Math.Round(equipment.normalizedDistance * equipment.maxDistance, 1) + " m");
         }
 
         protected override float GetValue(RepulsorLift equipment) {

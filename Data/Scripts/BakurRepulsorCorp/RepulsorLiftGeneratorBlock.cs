@@ -29,7 +29,7 @@ namespace BakurRepulsorCorp {
             altitudeSensor = new PlanetAltitudeSensor(this);
             Add(altitudeSensor);
 
-            repulsorLift = new RepulsorLift(this, maxLinearAcceleration);
+            repulsorLift = new RepulsorLift(this);
             Add(repulsorLift);
 
             repulsorLinearGenerator = new RepulsorLinearGenerator(this, maxLinearAcceleration);
@@ -56,12 +56,37 @@ namespace BakurRepulsorCorp {
             altitudeSensor = null;
         }
 
+        Vector3D linearAcceleration;
+        Vector3D angularAcceleration;
+        Vector3D liftAcceleration;
+
         protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
 
             altitudeSensor.UpdateSensor(physicsDeltaTime);
 
             IMyCubeGrid grid = block.CubeGrid;
             Vector3D desiredUp = gravityUp;
+
+            linearAcceleration = Vector3D.Zero;
+            angularAcceleration = Vector3D.Zero;
+            liftAcceleration = Vector3D.Zero;
+
+            // generator
+
+            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime, maxLinearAcceleration);
+            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime, maxAngularAcceleration);
+
+            // lift
+
+            if (IsInGravity) {
+                liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereRadius);
+            }
+
+            // apply
+
+            AddLinearAcceleration(liftAcceleration);
+            AddLinearAcceleration(linearAcceleration);
+            AddAngularAcceleration(angularAcceleration);
         }
 
 
