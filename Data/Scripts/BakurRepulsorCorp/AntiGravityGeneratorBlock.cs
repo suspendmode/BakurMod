@@ -54,9 +54,9 @@ namespace BakurRepulsorCorp {
             base.OnIsWorkingChanged(block);
         }
 
-        protected override void OnEnabledChanged(bool state) {
+        protected override void OnEnabledChanged() {
             resourceSink.Update();
-            base.OnEnabledChanged(state);
+            base.OnEnabledChanged();
         }
 
         protected override void Initialize() {

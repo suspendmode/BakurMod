@@ -64,7 +64,7 @@ namespace BakurRepulsorCorp {
 
             // lift
 
-            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.HasAtmosphere ? altitudeSensor.nearestPlanet.AtmosphereAltitude : altitudeSensor.nearestPlanet.MaximumRadius);
+            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereAltitude / 10);
 
             // apply
 

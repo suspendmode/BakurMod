@@ -48,21 +48,21 @@ namespace BakurRepulsorCorp {
             return s;
         }
 
-        public static Quaternion RotateTowards(Quaternion from, Quaternion to, float maxDegreesDelta) {
-            float num = Angle(from, to);
+        public static Quaternion RotateTowards(Quaternion from, Quaternion to, double maxDegreesDelta) {
+            double num = Angle(from, to);
             Quaternion result;
-            if (num == 0f) {
+            if (num == 0) {
                 result = to;
             } else {
-                float t = Math.Min(1f, maxDegreesDelta / num);
+                float t = (float)Math.Min(1, maxDegreesDelta / num);
                 result = Quaternion.Slerp(from, to, t);
             }
             return result;
         }
 
-        public static float Angle(Quaternion a, Quaternion b) {
+        public static double Angle(Quaternion a, Quaternion b) {
             double f = Quaternion.Dot(a, b);
-            return (float)Math.Acos(Math.Min(Math.Abs(f), 1f)) * 2f * 57.29578f;
+            return Math.Acos(Math.Min(Math.Abs(f), 1)) * 2 * Rad2Deg;
         }
 
         public static float InverseLerp(float a, float b, float value) {

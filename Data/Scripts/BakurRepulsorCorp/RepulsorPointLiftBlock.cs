@@ -47,25 +47,26 @@ namespace BakurRepulsorCorp {
 
         protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
             customInfo.AppendLine();
-            customInfo.AppendLine("== Repulsor Lift Block ==");            
+            customInfo.AppendLine("== Repulsor Lift Block ==");
             base.AppendCustomInfo(block, customInfo);
         }
 
-
+        Vector3D desiredLinearAcceleration;
+        Vector3D desiredUp;
 
         protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
 
-            altitudeSensor.UpdateSensor();            
+            altitudeSensor.UpdateSensor();
 
             IMyCubeGrid grid = block.CubeGrid;
 
-            Vector3D desiredForce = Vector3D.Zero;
-            Vector3D desiredUp = block.WorldMatrix.Up;
+            desiredLinearAcceleration = Vector3D.Zero;
+            desiredUp = block.WorldMatrix.Up;
 
             // lift
 
-            desiredForce = repulsorPointLift.GetForce(physicsDeltaTime, desiredUp, altitudeSensor.altitude, 100);
-            AddForce(desiredForce);
+            desiredLinearAcceleration = repulsorPointLift.GetDesiredLinearAcceleration(physicsDeltaTime, desiredUp, altitudeSensor.altitude, 10);
+            AddLinearAcceleration(desiredLinearAcceleration);
 
         }
 

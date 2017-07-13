@@ -18,7 +18,7 @@ namespace BakurRepulsorCorp {
         public RepulsorLinearGenerator repulsorLinearGenerator;
         public RepulsorAngularGenerator repulsorAngularGenerator;
 
-        double maxLinearAcceleration = 1;
+        double maxLinearAcceleration = 0.5;
         double maxAngularAcceleration = 25;
 
         protected override void Initialize() {
@@ -61,10 +61,10 @@ namespace BakurRepulsorCorp {
 
             // generator
 
-            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime, maxLinearAcceleration);
+            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime);
             linearAcceleration = Vector3D.ClampToSphere(linearAcceleration, maxLinearAcceleration);
 
-            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime, maxAngularAcceleration);
+            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime);
             angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
 
             // apply

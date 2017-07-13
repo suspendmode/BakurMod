@@ -19,7 +19,7 @@ namespace BakurRepulsorCorp {
         RepulsorLinearGenerator repulsorLinearGenerator;
         RepulsorAngularGenerator repulsorAngularGenerator;
 
-        double maxLinearAcceleration = 1;
+        double maxLinearAcceleration = 0.5;
         double maxAngularAcceleration = 25;
 
         protected override void Initialize() {
@@ -73,13 +73,13 @@ namespace BakurRepulsorCorp {
 
             // generator
 
-            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime, maxLinearAcceleration);
-            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime, maxAngularAcceleration);
+            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime);
+            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime);
 
             // lift
 
             if (IsInGravity) {
-                liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereRadius);
+                liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereAltitude / 10);
             }
 
             // apply

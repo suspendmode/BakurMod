@@ -23,8 +23,8 @@ namespace BakurRepulsorCorp {
         AttitudeStabiliser attitudeStabiliser;
         PlanetAltitudeSensor altitudeSensor;
 
-        double maxLinearAcceleration = 0.5;
-        double maxAngularAcceleration = 90;
+        double maxLinearAcceleration = 0.25;
+        double maxAngularAcceleration = 7.5;
 
         #region lifecycle
 
@@ -136,15 +136,15 @@ namespace BakurRepulsorCorp {
 
             // lift
 
-            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereRadius);
+            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereAltitude / 10);
 
             // generator
 
-            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime, maxLinearAcceleration);
+            linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime);
             linearAcceleration = Vector3D.ClampToSphere(linearAcceleration, maxLinearAcceleration);
             AddLinearAcceleration(linearAcceleration);
 
-            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime, maxAngularAcceleration);
+            angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime);
             angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
 
             // attitude stabiliser
