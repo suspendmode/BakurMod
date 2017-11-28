@@ -4,54 +4,60 @@ using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockEthericRudder", "LargeBlockEthericRudder" })]
-    public class EthericRudderBlock : NonStaticBakurBlock {
+    public class EthericRudderBlock : BakurBlock
+    {
 
         VelocityRudder velocityRudder;
         VelocityKiller velocityKiller;
 
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             velocityRudder = new VelocityRudder(this);
-            Add(velocityRudder);
+            AddEquipment(velocityRudder);
 
             velocityKiller = new VelocityKiller(this);
-            Add(velocityKiller);
+            AddEquipment(velocityKiller);
 
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(velocityRudder);
+            RemoveEquipment(velocityRudder);
             velocityRudder = null;
 
-            Remove(velocityKiller);
+            RemoveEquipment(velocityKiller);
             velocityKiller = null;
         }
 
         #endregion
 
-
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {            
-
-            if (velocityRudder.useVelocityRudder) {
-                velocityRudder.UpdateBeforeSimulation(physicsDeltaTime, updateDeltaTime);
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
+            if (velocityRudder.useVelocityRudder)
+            {
+                velocityRudder.UpdateAfterSimulation(physicsDeltaTime);
             }
-            if (velocityKiller.useVelocityKiller) {
-                velocityKiller.UpdateBeforeSimulation(physicsDeltaTime, updateDeltaTime);
+            if (velocityKiller.useVelocityKiller)
+            {
+                velocityKiller.UpdateAfterSimulation(physicsDeltaTime);
             }
         }
 
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Etheric Rudder Block ==");
 
@@ -67,9 +73,9 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("a4f121f2-37ee-4b30-9d04-a0adc17cdfd9");
         }
     }
 }
-

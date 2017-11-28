@@ -131,7 +131,7 @@ namespace BakurRepulsorCorp {
 
             base.UpdateSensor(physicsDeltaTime);
 
-            if (!component.IsInGravity || nearestPlanet == null) {
+            if (!component.rigidbody.IsInGravity || nearestPlanet == null) {
                 altitude = double.NaN;
                 return;
             }
@@ -165,7 +165,7 @@ namespace BakurRepulsorCorp {
 
         public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
             customInfo.AppendLine("== Planet Altitude Sensor ==");
-            customInfo.AppendLine("IsInGravity : " + component.IsInGravity);
+            customInfo.AppendLine("IsInGravity : " + component.rigidbody.IsInGravity);
             customInfo.AppendLine("Planets : " + PlanetsSession.planets.Count);
             customInfo.AppendLine("Nearest Planet : " + (nearestPlanet != null ? nearestPlanet.Name.Substring(0, 10) : "None"));
             customInfo.AppendLine("Altitude : " + Math.Round(altitude, 1));

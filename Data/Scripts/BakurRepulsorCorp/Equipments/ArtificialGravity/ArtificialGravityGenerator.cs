@@ -86,9 +86,7 @@ namespace BakurRepulsorCorp {
         public List<IMyEntity> entitiesInRange = new List<IMyEntity>();
 
         public void UpdateGenerator(double physicsDeltaTime) {
-
-
-
+            
             if (boundingSphere == null) {
                 boundingSphere = new BoundingSphereD();
             }
@@ -112,14 +110,12 @@ namespace BakurRepulsorCorp {
 
                 direction.Normalize();
 
-                Vector3D desiredUp = component.gravityUp;                
+                Vector3D desiredUp = component.rigidbody.gravityUp;
 
-                Vector3D force = desiredUp * (component.gravity.Length() * gravity) * physics.Mass;
+                Vector3D force = desiredUp * (component.rigidbody.gravity.Length() * gravity) * physics.Mass;
 
                 physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, force, null, null);
             }
-
-
         }
 
         public override void Debug() {

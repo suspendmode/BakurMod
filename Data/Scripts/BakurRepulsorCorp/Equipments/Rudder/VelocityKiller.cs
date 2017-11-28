@@ -1,14 +1,13 @@
-﻿using Sandbox.Definitions;
-using Sandbox.ModAPI;
-using System;
+﻿using Sandbox.ModAPI;
 using System.Text;
-using VRage.Game;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class VelocityKiller : BakurBlockEquipment {
+    public class VelocityKiller : BakurBlockEquipment
+    {
 
         #region max angle
 
@@ -20,7 +19,8 @@ namespace BakurRepulsorCorp {
 
         public double defaultMaxDegrees = 1;
 
-        public VelocityKiller(BakurBlock block) : base(block) {
+        public VelocityKiller(BakurBlock block) : base(block)
+        {
         }
 
         public double maxAngle
@@ -34,7 +34,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(MAX_ANGLE_PROPERTY_NAME);
                 double result = defaultMaxDegrees;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultMaxDegrees;
@@ -69,7 +70,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_ETHERIC_RUDDER_COUPLER_PROPERTY_NAME);
                 bool result = defaultUseEthericRudder;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseEthericRudder;
@@ -101,7 +103,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(KILL_FORWARD_PROPERTY_NAME);
                 bool result = defaultKillForward;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultKillForward;
@@ -133,7 +136,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(KILL_SIDEWAYS_PROPERTY_NAME);
                 bool result = defaultKillSideways;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultKillSideways;
@@ -165,7 +169,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(KILL_UP_PROPERTY_NAME);
                 bool result = defaultKillUp;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultKillUp;
@@ -197,7 +202,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(KILL_PITCH_PROPERTY_NAME);
                 bool result = defaultKillPitch;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultKillPitch;
@@ -229,7 +235,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(KILL_YAW_PROPERTY_NAME);
                 bool result = defaultKillYaw;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultKillYaw;
@@ -261,7 +268,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(KILL_ROLL_PROPERTY_NAME);
                 bool result = defaultKillRoll;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultKillRoll;
@@ -293,7 +301,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_VELOCITY_KILLER_PROPERTY_NAME);
                 bool result = defaultUseVelocityKiller;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseVelocityKiller;
@@ -305,58 +314,69 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
             // velocity killer
 
-            if (velocityKillerSeparator == null) {
+            if (velocityKillerSeparator == null)
+            {
                 velocityKillerSeparator = new Separator<VelocityKiller>("VelocityKiller_VelocityKillerSeparator");
                 velocityKillerSeparator.Initialize();
             }
 
-            if (velocityKillerLabel == null) {
+            if (velocityKillerLabel == null)
+            {
                 velocityKillerLabel = new Label<VelocityKiller>("VelocityKiller_VelocityKillerLabel", "Velocity Killer");
                 velocityKillerLabel.Initialize();
             }
 
-            if (useVelocityKillerSwitch == null) {
+            if (useVelocityKillerSwitch == null)
+            {
                 useVelocityKillerSwitch = new VelocityKiller_UseVelocityKillerSwitch();
                 useVelocityKillerSwitch.Initialize();
             }
 
-            if (useVelocityKillerToggleAction == null) {
+            if (useVelocityKillerToggleAction == null)
+            {
                 useVelocityKillerToggleAction = new VelocityKiller_UseVelocityKillerToggleAction();
                 useVelocityKillerToggleAction.Initialize();
             }
 
-            if (useVelocityKillerEnableAction == null) {
+            if (useVelocityKillerEnableAction == null)
+            {
                 useVelocityKillerEnableAction = new VelocityKiller_UseVelocityKillerEnableAction();
                 useVelocityKillerEnableAction.Initialize();
             }
 
-            if (useVelocityKillerDisableAction == null) {
+            if (useVelocityKillerDisableAction == null)
+            {
                 useVelocityKillerDisableAction = new VelocityKiller_UseVelocityKillerDisableAction();
                 useVelocityKillerDisableAction.Initialize();
             }
 
             // foward
 
-            if (killForwardSwitch == null) {
+            if (killForwardSwitch == null)
+            {
                 killForwardSwitch = new VelocityKiller_KillForwardSwitch();
                 killForwardSwitch.Initialize();
             }
 
-            if (killForwardToggleAction == null) {
+            if (killForwardToggleAction == null)
+            {
                 killForwardToggleAction = new VelocityKiller_KillForwardToggleAction();
                 killForwardToggleAction.Initialize();
             }
 
-            if (killForwardEnableAction == null) {
+            if (killForwardEnableAction == null)
+            {
                 killForwardEnableAction = new VelocityKiller_KillForwardEnableAction();
                 killForwardEnableAction.Initialize();
             }
 
-            if (killForwardDisableAction == null) {
+            if (killForwardDisableAction == null)
+            {
                 killForwardDisableAction = new VelocityKiller_KillForwardDisableAction();
                 killForwardDisableAction.Initialize();
 
@@ -364,116 +384,137 @@ namespace BakurRepulsorCorp {
 
             // sideways
 
-            if (killSidewaysSwitch == null) {
+            if (killSidewaysSwitch == null)
+            {
                 killSidewaysSwitch = new VelocityKiller_KillSidewaysSwitch();
                 killSidewaysSwitch.Initialize();
             }
 
-            if (killSidewaysToggleAction == null) {
+            if (killSidewaysToggleAction == null)
+            {
                 killSidewaysToggleAction = new VelocityKiller_KillSidewaysToggleAction();
                 killSidewaysToggleAction.Initialize();
             }
 
-            if (killSidewaysEnableAction == null) {
+            if (killSidewaysEnableAction == null)
+            {
                 killSidewaysEnableAction = new VelocityKiller_KillSidewaysEnableAction();
                 killSidewaysEnableAction.Initialize();
             }
 
-            if (killSidewaysDisableAction == null) {
+            if (killSidewaysDisableAction == null)
+            {
                 killSidewaysDisableAction = new VelocityKiller_KillSidewaysDisableAction();
                 killSidewaysDisableAction.Initialize();
             }
 
             // up
 
-            if (killUpSwitch == null) {
+            if (killUpSwitch == null)
+            {
                 killUpSwitch = new VelocityKiller_KillUpSwitch();
                 killUpSwitch.Initialize();
             }
 
-            if (killUpToggleAction == null) {
+            if (killUpToggleAction == null)
+            {
                 killUpToggleAction = new VelocityKiller_KillUpToggleAction();
                 killUpToggleAction.Initialize();
             }
 
-            if (killUpEnableAction == null) {
+            if (killUpEnableAction == null)
+            {
                 killUpEnableAction = new VelocityKiller_KillUpEnableAction();
                 killUpEnableAction.Initialize();
             }
 
-            if (killUpDisableAction == null) {
+            if (killUpDisableAction == null)
+            {
                 killUpDisableAction = new VelocityKiller_KillUpDisableAction();
                 killUpDisableAction.Initialize();
             }
 
             // pitch
 
-            if (killPitchSwitch == null) {
+            if (killPitchSwitch == null)
+            {
                 killPitchSwitch = new VelocityKiller_KillPitchSwitch();
                 killPitchSwitch.Initialize();
             }
 
-            if (killPitchToggleAction == null) {
+            if (killPitchToggleAction == null)
+            {
                 killPitchToggleAction = new VelocityKiller_KillPitchToggleAction();
                 killPitchToggleAction.Initialize();
             }
 
-            if (killPitchEnableAction == null) {
+            if (killPitchEnableAction == null)
+            {
                 killPitchEnableAction = new VelocityKiller_KillPitchEnableAction();
                 killPitchEnableAction.Initialize();
             }
 
-            if (killPitchDisableAction == null) {
+            if (killPitchDisableAction == null)
+            {
                 killPitchDisableAction = new VelocityKiller_KillPitchDisableAction();
                 killPitchDisableAction.Initialize();
             }
 
             // yaw
 
-            if (killYawSwitch == null) {
+            if (killYawSwitch == null)
+            {
                 killYawSwitch = new VelocityKiller_KillYawSwitch();
                 killYawSwitch.Initialize();
             }
 
-            if (killYawToggleAction == null) {
+            if (killYawToggleAction == null)
+            {
                 killYawToggleAction = new VelocityKiller_KillYawToggleAction();
                 killYawToggleAction.Initialize();
             }
 
-            if (killYawEnableAction == null) {
+            if (killYawEnableAction == null)
+            {
                 killYawEnableAction = new VelocityKiller_KillYawEnableAction();
                 killYawEnableAction.Initialize();
             }
 
-            if (killYawDisableAction == null) {
+            if (killYawDisableAction == null)
+            {
                 killYawDisableAction = new VelocityKiller_KillYawDisableAction();
                 killYawDisableAction.Initialize();
             }
 
             // roll
 
-            if (killRollSwitch == null) {
+            if (killRollSwitch == null)
+            {
                 killRollSwitch = new VelocityKiller_KillRollSwitch();
                 killRollSwitch.Initialize();
             }
 
-            if (killRollToggleAction == null) {
+            if (killRollToggleAction == null)
+            {
                 killRollToggleAction = new VelocityKiller_KillRollToggleAction();
                 killRollToggleAction.Initialize();
             }
 
-            if (killRollEnableAction == null) {
+            if (killRollEnableAction == null)
+            {
                 killRollEnableAction = new VelocityKiller_KillRollEnableAction();
                 killRollEnableAction.Initialize();
             }
 
-            if (killRollDisableAction == null) {
+            if (killRollDisableAction == null)
+            {
                 killRollDisableAction = new VelocityKiller_KillRollDisableAction();
                 killRollDisableAction.Initialize();
             }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
 
         }
 
@@ -481,20 +522,24 @@ namespace BakurRepulsorCorp {
 
         #region update
 
-        public void UpdateBeforeSimulation(double physicsDeltaTime, double updateDeltaTime) {
+        public void UpdateAfterSimulation(double physicsDeltaTime)
+        {
 
-            if (useVelocityKiller) {
+            if (useVelocityKiller)
+            {
                 UpdateVelocityKiller();
             }
         }
 
 
-        void UpdateVelocityKiller() {
+        void UpdateVelocityKiller()
+        {
 
             MatrixD invWorldRot = block.CubeGrid.PositionComp.WorldMatrixInvScaled.GetOrientation();
             MatrixD worldRot = block.CubeGrid.WorldMatrix.GetOrientation();
 
-            if (killSideways || killForward || killSideways) {
+            if (killSideways || killForward || killSideways)
+            {
 
                 Vector3D localLinearVelocity = Vector3D.Transform(block.CubeGrid.Physics.LinearVelocity, invWorldRot);
 
@@ -505,7 +550,8 @@ namespace BakurRepulsorCorp {
                 block.CubeGrid.Physics.LinearVelocity = Vector3.Transform(localLinearVelocity, worldRot);
             }
 
-            if (killPitch || killYaw || killRoll) {
+            if (killPitch || killYaw || killRoll)
+            {
 
                 Vector3D localAngularVelocity = Vector3D.Transform(block.CubeGrid.Physics.AngularVelocity, invWorldRot);
 
@@ -520,7 +566,8 @@ namespace BakurRepulsorCorp {
 
         #endregion
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Velocity Killer ==");
             customInfo.AppendLine("Enabled: " + useVelocityKiller);
@@ -532,8 +579,10 @@ namespace BakurRepulsorCorp {
             customInfo.AppendLine("Kill Roll : " + killRoll);
         }
 
-        public override void Debug() {
-            if (!component.debugEnabled) {
+        public override void Debug()
+        {
+            if (!component.debugEnabled)
+            {
                 return;
             }
 
@@ -548,7 +597,7 @@ namespace BakurRepulsorCorp {
 
             DebugDraw.DrawLine(blockPosition, blockPosition + from.Forward * 100, Color.Red, 0.05f);
             DebugDraw.DrawLine(blockPosition, blockPosition + to.Forward * 100, Color.Green, 0.05f);
-            DebugDraw.DrawLine(blockPosition, blockPosition + velocity * 100, Color.Orange, 0.05f);            
+            DebugDraw.DrawLine(blockPosition, blockPosition + velocity * 100, Color.Orange, 0.05f);
         }
 
     }

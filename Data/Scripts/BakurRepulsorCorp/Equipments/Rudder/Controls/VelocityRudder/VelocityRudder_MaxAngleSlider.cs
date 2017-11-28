@@ -6,8 +6,8 @@ namespace BakurRepulsorCorp {
 
     public class VelocityRudder_MaxAngleSlider : Slider<VelocityRudder> {
 
-        public static float minAngle = 0;
-        public static float maxAngle = 1;
+        public static float minAngle = 1;
+        public static float maxAngle = 45;
 
         public VelocityRudder_MaxAngleSlider() : base("VelocityRudder_MaxAngleSlider", "Max Angle", Math.Round(minAngle, 1) + ".." + Math.Round(maxAngle, 1), (float)minAngle, (float)maxAngle) {
         }
@@ -19,7 +19,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return;
             }
-            builder.Append(Math.Round(equipment.maxAngle * 100, 1) + " %");
+            builder.Append(Math.Round(equipment.maxAngle, 1) + " degrees");
         }
 
         protected override float GetValue(VelocityRudder equipment) {

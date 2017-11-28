@@ -128,7 +128,7 @@
     
     <!-- magnetizer -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockMagnetizer</SubtypeId>
@@ -188,7 +188,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockMagnetizer</SubtypeId>
@@ -250,7 +250,7 @@
 
     <!-- planet radar -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallPlanetRadar</SubtypeId>
@@ -309,7 +309,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargePlanetRadar</SubtypeId>
@@ -370,7 +370,7 @@
 
     <!-- artificial gravity generator -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallArtificialGravityGenerator</SubtypeId>
@@ -431,7 +431,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeArtificialGravityGenerator</SubtypeId>
@@ -493,7 +493,7 @@
 
     <!-- anti gravity generator -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallAntiGravityGenerator</SubtypeId>
@@ -554,7 +554,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeAntiGravityGenerator</SubtypeId>
@@ -616,7 +616,7 @@
 
     <!-- repulsor coil -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_CargoContainer">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockRepulsorCoil</SubtypeId>
@@ -674,7 +674,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockRepulsorCoil</SubtypeId>
@@ -736,7 +736,7 @@
     
     <!-- repulsor point lift -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockRepulsorPointLift</SubtypeId>
@@ -796,7 +796,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockRepulsorPointLift</SubtypeId>
@@ -857,7 +857,7 @@
     
     <!-- repulsor lift -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockRepulsorLift</SubtypeId>
@@ -917,7 +917,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockRepulsorLift</SubtypeId>
@@ -978,7 +978,7 @@
 
     <!-- repulsor lift coil -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockRepulsorLiftCoil</SubtypeId>
@@ -1038,7 +1038,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockRepulsorLiftCoil</SubtypeId>
@@ -1099,7 +1099,7 @@
 
     <!-- repulsor -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockRepulsor</SubtypeId>
@@ -1159,7 +1159,7 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockRepulsor</SubtypeId>
@@ -1217,26 +1217,26 @@
       </Effects>
     </Definition>
 
-    <!-- repulsor generator -->
+    <!-- repulsor drive -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>SmallBlockRepulsorGenerator</SubtypeId>
+        <SubtypeId>SmallBlockRepulsorDrive</SubtypeId>
       </Id>
-      <DisplayName>Repulsor Generator</DisplayName>
-      <Icon>Textures\GUI\Icons\repulsor_generator.dds</Icon>
+      <DisplayName>Repulsor Drive</DisplayName>
+      <Icon>Textures\GUI\Icons\repulsor_drive.dds</Icon>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
       <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\small_repulsor_generator.mwm</Model>
+      <Model>Models\Cubes\small_repulsor_drive.mwm</Model>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.00" File="Models\Cubes\small_block_build_progress_0.mwm" />
         <Model BuildPercentUpperBound="0.25" File="Models\Cubes\small_block_build_progress_25.mwm" />
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\small_block_build_progress_50.mwm" />
         <Model BuildPercentUpperBound="0.75" File="Models\Cubes\small_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_repulsor_generator.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_repulsor_drive.mwm" />
       </BuildProgressModels>
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
@@ -1259,7 +1259,7 @@
         <Component Subtype="Thrust" Count="1" />
       </Components>
       <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>RepulsorGenerator</BlockPairName>
+      <BlockPairName>RepulsorDrive</BlockPairName>
       <Center x="0" y="0" z="0" />
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
@@ -1277,24 +1277,24 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>LargeBlockRepulsorGenerator</SubtypeId>
+        <SubtypeId>LargeBlockRepulsorDrive</SubtypeId>
       </Id>
-      <DisplayName>Repulsor Generator</DisplayName>
-      <Icon>Textures\GUI\Icons\repulsor_generator.dds</Icon>
+      <DisplayName>Repulsor Drive</DisplayName>
+      <Icon>Textures\GUI\Icons\repulsor_drive.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
       <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\large_repulsor_generator.mwm</Model>
+      <Model>Models\Cubes\large_repulsor_drive.mwm</Model>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.00" File="Models\Cubes\large_block_build_progress_0.mwm" />
         <Model BuildPercentUpperBound="0.25" File="Models\Cubes\large_block_build_progress_25.mwm" />
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\large_block_build_progress_50.mwm" />
         <Model BuildPercentUpperBound="0.75" File="Models\Cubes\large_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_repulsor_generator.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_repulsor_drive.mwm" />
       </BuildProgressModels>
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
@@ -1317,7 +1317,7 @@
         <Component Subtype="Thrust" Count="1" />
       </Components>
       <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>RepulsorGenerator</BlockPairName>
+      <BlockPairName>RepulsorDrive</BlockPairName>
       <Center x="0" y="0" z="0" />
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
@@ -1335,26 +1335,26 @@
       </Effects>
     </Definition>
 
-    <!-- repulsor lift generator -->
+    <!-- repulsor lift drive -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>SmallBlockRepulsorLiftGenerator</SubtypeId>
+        <SubtypeId>SmallBlockRepulsorLiftDrive</SubtypeId>
       </Id>
-      <DisplayName>Repulsor Lift Generator</DisplayName>
-      <Icon>Textures\GUI\Icons\repulsor_lift_generator.dds</Icon>
+      <DisplayName>Repulsor Lift Drive</DisplayName>
+      <Icon>Textures\GUI\Icons\repulsor_lift_drive.dds</Icon>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
       <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\small_repulsor_lift_generator.mwm</Model>
+      <Model>Models\Cubes\small_repulsor_lift_drive.mwm</Model>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.00" File="Models\Cubes\small_block_build_progress_0.mwm" />
         <Model BuildPercentUpperBound="0.25" File="Models\Cubes\small_block_build_progress_25.mwm" />
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\small_block_build_progress_50.mwm" />
         <Model BuildPercentUpperBound="0.75" File="Models\Cubes\small_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_repulsor_lift_generator.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_repulsor_lift_drive.mwm" />
       </BuildProgressModels>
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
@@ -1377,7 +1377,7 @@
         <Component Subtype="Thrust" Count="1" />
       </Components>
       <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>RepulsorLiftGenerator</BlockPairName>
+      <BlockPairName>RepulsorLiftDrive</BlockPairName>
       <Center x="0" y="0" z="0" />
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
@@ -1395,24 +1395,24 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>LargeBlockRepulsorLiftGenerator</SubtypeId>
+        <SubtypeId>LargeBlockRepulsorLiftDrive</SubtypeId>
       </Id>
-      <DisplayName>Repulsor Lift Generator</DisplayName>
-      <Icon>Textures\GUI\Icons\repulsor_lift_generator.dds</Icon>
+      <DisplayName>Repulsor Lift Drive</DisplayName>
+      <Icon>Textures\GUI\Icons\repulsor_lift_drive.dds</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
       <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\large_repulsor_lift_generator.mwm</Model>
+      <Model>Models\Cubes\large_repulsor_lift_drive.mwm</Model>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.00" File="Models\Cubes\large_block_build_progress_0.mwm" />
         <Model BuildPercentUpperBound="0.25" File="Models\Cubes\large_block_build_progress_25.mwm" />
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\large_block_build_progress_50.mwm" />
         <Model BuildPercentUpperBound="0.75" File="Models\Cubes\large_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_repulsor_lift_generator.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_repulsor_lift_drive.mwm" />
       </BuildProgressModels>
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
@@ -1435,7 +1435,7 @@
         <Component Subtype="Thrust" Count="1" />
       </Components>
       <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>RepulsorLiftGenerator</BlockPairName>
+      <BlockPairName>RepulsorLiftDrive</BlockPairName>
       <Center x="0" y="0" z="0" />
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
@@ -1455,7 +1455,7 @@
 
     <!-- inertial compensator -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockInertialCompensator</SubtypeId>
@@ -1513,7 +1513,7 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockInertialCompensator</SubtypeId>
@@ -1572,7 +1572,7 @@
 
     <!-- gyroscopic stabiliser -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockGyroStabiliser</SubtypeId>
@@ -1627,7 +1627,7 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockGyroStabiliser</SubtypeId>
@@ -1685,7 +1685,7 @@
 
     <!-- etheric rudder -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockEthericRudder</SubtypeId>
@@ -1739,7 +1739,7 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockEthericRudder</SubtypeId>
@@ -1798,7 +1798,7 @@
 
     <!-- power coupling -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockPowerCoupling</SubtypeId>
@@ -1852,7 +1852,7 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockPowerCoupling</SubtypeId>
@@ -1911,7 +1911,7 @@
 
     <!-- copter -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockCopter</SubtypeId>
@@ -1965,7 +1965,7 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockCopter</SubtypeId>
@@ -2089,7 +2089,7 @@
 
     <!-- repulsor jammer -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>SmallBlockRepulsorJammer</SubtypeId>
@@ -2149,7 +2149,7 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockDefinition">
+    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
       <Id>
         <TypeId>TerminalBlock</TypeId>
         <SubtypeId>LargeBlockRepulsorJammer</SubtypeId>

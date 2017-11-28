@@ -70,7 +70,10 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override bool Visible(IMyTerminalBlock block) { if (!base.Visible(block)) {return false;}
+        protected override bool Visible(IMyTerminalBlock block) {
+            if (!base.Visible(block)) {
+                return false;
+            }
             Copter equipment = GetEquipment(block);
             if (equipment == null) {
                 return false;

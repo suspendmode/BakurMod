@@ -1,10 +1,13 @@
 ﻿using Sandbox.ModAPI;
 using System.Text;
-using System;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public abstract class EquipmentBase {
+    public abstract class EquipmentBase
+    {
+
+        public bool isInitialized;
 
         #region properties
 
@@ -27,9 +30,12 @@ namespace BakurRepulsorCorp {
             }
         }
 
+
+
         #endregion
 
-        public EquipmentBase(BakurBlock component) {
+        public EquipmentBase(BakurBlock component)
+        {
             this._component = component;
             this._block = (IMyTerminalBlock)component.Entity;
         }
@@ -38,15 +44,18 @@ namespace BakurRepulsorCorp {
         public abstract void Destroy();
         public abstract void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo);
 
-        public string GeneratatePropertyId(string name) {
+        public string GeneratatePropertyId(string name)
+        {
             return block.EntityId + "_" + name;
         }
 
-        public bool GetVariable<T>(string id, out T result) {
+        public bool GetVariable<T>(string id, out T result)
+        {
             return component.GetVariable<T>(id, out result);
         }
 
-        public void SetVariable<T>(string id, T value) {
+        public void SetVariable<T>(string id, T value)
+        {
             component.SetVariable<T>(id, value);
         }
 

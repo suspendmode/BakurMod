@@ -36,7 +36,7 @@ namespace BakurRepulsorCorp {
             if (equipment == null) {
                 return false;
             }
-            return equipment.component.enabled && equipment.useCopter && Copter.CRUISE_MODE.Equals(equipment.mode);
+            return equipment.component.enabled && equipment.useCopter;
         }
     }
 

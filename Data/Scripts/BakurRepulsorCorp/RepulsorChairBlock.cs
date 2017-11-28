@@ -1,94 +1,107 @@
-﻿using Sandbox.Common.ObjectBuilders;
-using Sandbox.ModAPI;
+﻿using Sandbox.ModAPI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using VRage.Game;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Cockpit), true, new string[] { "SmallBlockRepulsorChair", "LargeBlockRepulsorChair" })]
-    public class RepulsorChairBlock : NonStaticBakurBlock {
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockRepulsorChair", "LargeBlockRepulsorChair" })]
+    public class RepulsorChairBlock : BakurBlock
+    {
 
         RepulsorCoil repulsorCoil;
         RepulsorLift repulsorLift;
         RepulsorLinearGenerator repulsorLinearGenerator;
         RepulsorAngularGenerator repulsorAngularGenerator;
+        LinearInertialCompensator linearInertialCompensator;
+        AngularInertialCompensator angularInertialCompensator;
         PlanetSurfaceNormalSensor planetSurfaceNormalSensor;
         GyroStabiliser gyroStabiliser;
         AttitudeStabiliser attitudeStabiliser;
-        PlanetAltitudeSensor altitudeSensor;
-
-        double maxLinearAcceleration = 0.25;
-        double maxAngularAcceleration = 7.5;
+        PlanetAltitudeSensor planetAltitudeSensor;
 
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             repulsorCoil = new RepulsorCoil(this);
-            Add(repulsorCoil);
+            AddEquipment(repulsorCoil);
 
             repulsorLift = new RepulsorLift(this);
-            Add(repulsorLift);
+            AddEquipment(repulsorLift);
 
-            repulsorLinearGenerator = new RepulsorLinearGenerator(this, maxLinearAcceleration);
-            Add(repulsorLinearGenerator);
+            repulsorLinearGenerator = new RepulsorLinearGenerator(this);
+            AddEquipment(repulsorLinearGenerator);
 
-            repulsorAngularGenerator = new RepulsorAngularGenerator(this, maxAngularAcceleration);
-            Add(repulsorAngularGenerator);
+            repulsorAngularGenerator = new RepulsorAngularGenerator(this);
+            AddEquipment(repulsorAngularGenerator);
+
+            linearInertialCompensator = new LinearInertialCompensator(this);
+            AddEquipment(linearInertialCompensator);
+
+            angularInertialCompensator = new AngularInertialCompensator(this);
+            AddEquipment(angularInertialCompensator);
 
             planetSurfaceNormalSensor = new PlanetSurfaceNormalSensor(this);
-            Add(planetSurfaceNormalSensor);
+            AddEquipment(planetSurfaceNormalSensor);
 
             gyroStabiliser = new GyroStabiliser(this);
-            Add(gyroStabiliser);
+            AddEquipment(gyroStabiliser);
 
             attitudeStabiliser = new AttitudeStabiliser(this);
-            Add(attitudeStabiliser);
+            AddEquipment(attitudeStabiliser);
 
-            altitudeSensor = new PlanetAltitudeSensor(this);
-            Add(altitudeSensor);
+            planetAltitudeSensor = new PlanetAltitudeSensor(this);
+            AddEquipment(planetAltitudeSensor);
 
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(repulsorCoil);
+            RemoveEquipment(repulsorCoil);
             repulsorCoil = null;
 
-            Remove(repulsorLift);
+            RemoveEquipment(repulsorLift);
             repulsorLift = null;
 
-            Remove(repulsorLinearGenerator);
+            RemoveEquipment(repulsorLinearGenerator);
             repulsorLinearGenerator = null;
 
-            Remove(repulsorAngularGenerator);
+            RemoveEquipment(repulsorAngularGenerator);
             repulsorAngularGenerator = null;
 
-            Add(planetSurfaceNormalSensor);
-            Remove(planetSurfaceNormalSensor);
+            RemoveEquipment(linearInertialCompensator);
+            linearInertialCompensator = null;
+
+            RemoveEquipment(angularInertialCompensator);
+            angularInertialCompensator = null;
+
+            RemoveEquipment(planetSurfaceNormalSensor);
             planetSurfaceNormalSensor = null;
 
-            Remove(gyroStabiliser);
+            RemoveEquipment(gyroStabiliser);
             gyroStabiliser = null;
 
-            Remove(attitudeStabiliser);
+            RemoveEquipment(attitudeStabiliser);
             attitudeStabiliser = null;
         }
 
 
         #endregion
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Chair Block ==");
 
@@ -102,7 +115,8 @@ namespace BakurRepulsorCorp {
             customInfo.AppendLine("Side Size : " + Math.Round(sideSize, 1));
         }
 
-        public override void UpdateAfterSimulation10() {
+        public override void UpdateAfterSimulation10()
+        {
             base.UpdateAfterSimulation10();
         }
 
@@ -111,15 +125,16 @@ namespace BakurRepulsorCorp {
         Vector3D linearAcceleration;
         Vector3D angularAcceleration;
         Vector3D stabiliserAngularAcceleration;
-        Vector3D desiredUp;
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
-            if (!IsInGravity) {
+            if (!rigidbody.IsInGravity)
+            {
                 return;
             }
 
-            altitudeSensor.UpdateSensor(physicsDeltaTime);
+            planetAltitudeSensor.UpdateSensor(physicsDeltaTime);
             planetSurfaceNormalSensor.UpdateSensor(physicsDeltaTime);
 
             IMyCubeGrid grid = block.CubeGrid;
@@ -136,28 +151,45 @@ namespace BakurRepulsorCorp {
 
             // lift
 
-            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, altitudeSensor.altitude, altitudeSensor.nearestPlanet.AtmosphereAltitude / 10);
+            double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length()) / 2;
+            liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, planetAltitudeSensor.altitude - gridHalfSize);
 
             // generator
 
             linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime);
-            linearAcceleration = Vector3D.ClampToSphere(linearAcceleration, maxLinearAcceleration);
-            AddLinearAcceleration(linearAcceleration);
+            rigidbody.AddLinearAcceleration(linearAcceleration);
 
             angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime);
-            angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
 
             // attitude stabiliser
 
             Vector3D currentUp = block.WorldMatrix.Up;
-            stabiliserAngularAcceleration = attitudeStabiliser.GetAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
-            stabiliserAngularAcceleration = Vector3D.ClampToSphere(stabiliserAngularAcceleration, maxAngularAcceleration);
+            Vector3D currentForward = block.WorldMatrix.Forward;
+
+            Vector3D desiredForward = block.WorldMatrix.Forward;
+            angularAcceleration += attitudeStabiliser.GetAngularAcceleration(physicsDeltaTime, currentForward, currentUp, desiredForward, desiredUp);
+
+            // linear compensator
+
+            if (linearInertialCompensator.useLinearCompensator)
+            {
+                Vector3D desiredLinearAcceleration = linearInertialCompensator.GetDesiredLinearAcceleration(physicsDeltaTime);
+                rigidbody.AddLinearAcceleration(desiredLinearAcceleration);
+            }
+
+            // angular compensator
+
+            if (angularInertialCompensator.useAngularCompensator)
+            {
+                Vector3D desiredAngularAcceleration = angularInertialCompensator.GetDesiredAngularAcceleration(physicsDeltaTime);
+                rigidbody.AddAngularAcceleration(desiredAngularAcceleration);
+            }
 
             /// apply
 
-            AddLinearAcceleration(liftAcceleration);
-            AddAngularAcceleration(angularAcceleration);
-            AddAngularAcceleration(stabiliserAngularAcceleration);
+            rigidbody.AddLinearAcceleration(liftAcceleration);
+            rigidbody.AddAngularAcceleration(angularAcceleration);
+            rigidbody.AddAngularAcceleration(stabiliserAngularAcceleration);
 
         }
 
@@ -169,7 +201,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("49b84a0e-e409-4ae9-ac76-aaf6c59fda4e");
         }
     }

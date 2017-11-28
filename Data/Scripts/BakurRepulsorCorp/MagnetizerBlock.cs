@@ -3,49 +3,52 @@ using System;
 using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
-using VRage.Game.ModAPI;
-using VRageMath;
 
 
-namespace BakurRepulsorCorp {
-
+namespace BakurRepulsorCorp
+{
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockMagnetizer", "LargeBlockMagnetizer" })]
-    public class MagnetizerBlock : BakurBlock {
-        
+    public class MagnetizerBlock : BakurBlock
+    {
+
         private static readonly string[] subTypeIds = new string[] { "SmallBlockMagnetizer", "LargeBlockMagnetizer" };
-        
+
         Magnetizer magnetizer;
 
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             magnetizer = new Magnetizer(this);
-            Add(magnetizer);          
+            AddEquipment(magnetizer);
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(magnetizer);
-            magnetizer = null;         
+            RemoveEquipment(magnetizer);
+            magnetizer = null;
         }
 
         #endregion
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Magnetizer Block ==");
             base.AppendCustomInfo(block, customInfo);
         }
 
-       
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             magnetizer.UpdateMagnetizer(physicsDeltaTime);
 
@@ -62,7 +65,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("4bab8c9c-0b6b-401e-b40b-c73667e5cabb");
         }
     }

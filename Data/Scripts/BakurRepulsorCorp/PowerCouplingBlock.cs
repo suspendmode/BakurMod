@@ -6,35 +6,39 @@ using VRage.Game.Components;
 using VRageMath;
 
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockPowerCoupling", "LargeBlockPowerCoupling" })]
-    public class PowerCouplingBlock : BakurBlock {
+    public class PowerCouplingBlock : BakurBlock
+    {
 
         PowerCoupling powerCoupling;
         AttitudeStabiliser attitudeStabiliser;
 
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             powerCoupling = new PowerCoupling(this);
-            Add(powerCoupling);
+            AddEquipment(powerCoupling);
 
             attitudeStabiliser = new AttitudeStabiliser(this);
-            Add(attitudeStabiliser);
+            AddEquipment(attitudeStabiliser);
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(powerCoupling);
+            RemoveEquipment(powerCoupling);
             powerCoupling = null;
 
-            Remove(attitudeStabiliser);
+            RemoveEquipment(attitudeStabiliser);
             attitudeStabiliser = null;
         }
 
@@ -42,30 +46,37 @@ namespace BakurRepulsorCorp {
 
         #region update
 
-        public override void UpdateBeforeSimulation10() {
+        public override void UpdateBeforeSimulation10()
+        {
             base.UpdateBeforeSimulation10();
         }
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             Vector3D direction = block.WorldMatrix.Forward;
             Vector3D force = powerCoupling.GetOutput(physicsDeltaTime, out direction);
 
-            if (force != Vector3D.Zero) {
+            if (force != Vector3D.Zero)
+            {
                 Vector3D forcePosition = block.GetPosition();
-                AddForce(force, forcePosition);
+                rigidbody.AddForce(force, forcePosition);
             }
 
-            double maxAcceleration = 10f;
+
+            Vector3D currentUp = block.WorldMatrix.Up;
             Vector3D currentForward = block.WorldMatrix.Forward;
-            Vector3D angularStabilisationVelocity = attitudeStabiliser.GetAngularAcceleration(maxAcceleration, currentForward, direction);
-            AddAngularAcceleration(angularStabilisationVelocity / physicsDeltaTime);
+            Vector3D desiredUp = direction;
+            Vector3D desiredForward = block.WorldMatrix.Forward;
+            Vector3D angularStabilisationVelocity = attitudeStabiliser.GetAngularAcceleration(physicsDeltaTime, currentForward, currentUp, desiredForward, desiredUp);
+            rigidbody.AddAngularAcceleration(angularStabilisationVelocity / physicsDeltaTime);
         }
 
         #endregion
 
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Power Coupling Block ==");
 
@@ -81,9 +92,9 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("920716a3-2e52-4107-bc9d-43dae6c9b1ae");
         }
     }
 }
-

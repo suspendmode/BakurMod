@@ -28,7 +28,7 @@ namespace BakurRepulsorCorp {
         public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
             customInfo.AppendLine();
             customInfo.AppendLine("== Planet Sensor ==");
-            customInfo.AppendLine("IsInGravity : " + component.IsInGravity);
+            customInfo.AppendLine("IsInGravity : " + component.rigidbody.IsInGravity);
             customInfo.AppendLine("Planets : " + PlanetsSession.planets.Count);
             customInfo.AppendLine("Nearest Planet : " + (nearestPlanet != null ? nearestPlanet.Name : "None"));
         }

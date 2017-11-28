@@ -6,47 +6,52 @@ using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockGyroStabiliser", "LargeBlockGyroStabiliser" })]
-    public class GyroStabiliserBlock : NonStaticBakurBlock {
+    public class GyroStabiliserBlock : BakurBlock
+    {
 
         PlanetSurfaceNormalSensor planetSurfaceNormalSensor;
         GyroStabiliser gyroStabiliser;
         AttitudeStabiliser attitudeStabiliser;
 
-        double maxAngularAcceleration = 180;
 
-        protected override void Initialize() {
+
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             planetSurfaceNormalSensor = new PlanetSurfaceNormalSensor(this);
-            Add(planetSurfaceNormalSensor);
+            AddEquipment(planetSurfaceNormalSensor);
 
             gyroStabiliser = new GyroStabiliser(this);
-            Add(gyroStabiliser);
+            AddEquipment(gyroStabiliser);
 
             attitudeStabiliser = new AttitudeStabiliser(this);
-            Add(attitudeStabiliser);
+            AddEquipment(attitudeStabiliser);
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(planetSurfaceNormalSensor);
+            RemoveEquipment(planetSurfaceNormalSensor);
             planetSurfaceNormalSensor = null;
 
-            Remove(gyroStabiliser);
+            RemoveEquipment(gyroStabiliser);
             gyroStabiliser = null;
 
-            Remove(attitudeStabiliser);
+            RemoveEquipment(attitudeStabiliser);
             attitudeStabiliser = null;
         }
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
 
             customInfo.AppendLine();
             customInfo.AppendLine("== Gyro Stabiliser Block ==");
@@ -60,18 +65,21 @@ namespace BakurRepulsorCorp {
             customInfo.AppendLine("Side Size : " + Math.Round(sideSize, 1));
         }
 
-        public override void UpdateAfterSimulation10() {
+        public override void UpdateAfterSimulation10()
+        {
             base.UpdateAfterSimulation10();
 
         }
 
         Vector3D angularAcceleration;
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             angularAcceleration = Vector3D.Zero;
 
-            if (!IsInGravity) {
+            if (!rigidbody.IsInGravity)
+            {
                 return;
             }
 
@@ -83,13 +91,14 @@ namespace BakurRepulsorCorp {
             // stabiliser            
 
             Vector3D currentUp = block.WorldMatrix.Up;
+            Vector3D currentForward = block.WorldMatrix.Forward;
             Vector3D desiredUp = gyroStabiliser.GetDesiredUp(planetSurfaceNormalSensor.surfaceNormal);
-            angularAcceleration = attitudeStabiliser.GetAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
-            angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
+            Vector3D desiredForward = block.WorldMatrix.Forward;
+            angularAcceleration += attitudeStabiliser.GetAngularAcceleration(physicsDeltaTime, currentForward, currentUp, desiredForward, desiredUp);
 
             // apply
 
-            AddAngularAcceleration(angularAcceleration);
+            rigidbody.AddAngularAcceleration(angularAcceleration);
         }
 
         protected override string[] soundIds
@@ -100,7 +109,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("130652c2-5ce0-4333-8511-08e69abde757");
         }
     }

@@ -6,36 +6,38 @@ using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockCopter", "LargeBlockCopter" })]
-    public class CopterBlock : NonStaticBakurBlock {
+    public class CopterBlock : BakurBlock
+    {
 
         Copter copter;
         AttitudeStabiliser attitudeStabiliser;
 
-        public float maxAngularAcceleration = 180;
-
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             copter = new Copter(this);
-            Add(copter);
+            AddEquipment(copter);
 
             attitudeStabiliser = new AttitudeStabiliser(this);
-            Add(attitudeStabiliser);
+            AddEquipment(attitudeStabiliser);
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
-            Remove(copter);
+            RemoveEquipment(copter);
             copter = null;
 
-            Remove(attitudeStabiliser);
+            RemoveEquipment(attitudeStabiliser);
             attitudeStabiliser = null;
 
             base.Destroy();
@@ -44,17 +46,20 @@ namespace BakurRepulsorCorp {
 
         #endregion
 
-        protected override void Debug() {
-            if (debugEnabled) {
+        protected override void Debug()
+        {
+            if (debugEnabled)
+            {
                 Vector3D center = block.WorldAABB.Center;
                 float length = block.CubeGrid.LocalAABB.Size.Length() * 10;
-                DebugDraw.DrawLine(center, center + gravityUp * length, Color.Green, 0.02f);
+                DebugDraw.DrawLine(center, center + rigidbody.gravityUp * length, Color.Green, 0.02f);
                 DebugDraw.DrawLine(center, center + copter.desiredUp * length, Color.Red, 0.02f);
                 DebugDraw.DrawLine(center, center + block.WorldMatrix.Forward * length, Color.Blue, 0.01f);
             }
         }
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Copter Block ==");
             base.AppendCustomInfo(block, customInfo);
@@ -68,17 +73,20 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("7d747b37-84f0-4f18-872e-a2a1d3c1ceec");
         }
 
         Vector3D angularAcceleration;
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             angularAcceleration = Vector3D.Zero;
 
-            if (!IsInGravity) {
+            if (!rigidbody.IsInGravity)
+            {
                 return;
             }
 
@@ -86,17 +94,19 @@ namespace BakurRepulsorCorp {
 
             // copter
 
-            Vector3 desiredUp = copter.GetDesiredUp(gravityUp);
 
             // stabiliser            
 
             Vector3D currentUp = block.WorldMatrix.Up;
-            angularAcceleration = attitudeStabiliser.GetAngularAcceleration(maxAngularAcceleration, currentUp, desiredUp);
-            angularAcceleration = Vector3D.ClampToSphere(angularAcceleration, maxAngularAcceleration);
+            Vector3D currentForward = block.WorldMatrix.Forward;
+            Vector3D desiredUp = copter.GetDesiredUp(rigidbody.gravityUp);
+            Vector3D desiredForward = block.WorldMatrix.Forward;
+
+            angularAcceleration += attitudeStabiliser.GetAngularAcceleration(physicsDeltaTime, currentForward, currentUp, desiredForward, desiredUp);
 
             // apply
 
-            AddAngularAcceleration(angularAcceleration);
+            rigidbody.AddAngularAcceleration(angularAcceleration);
         }
     }
 }

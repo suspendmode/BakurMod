@@ -1,66 +1,110 @@
 ﻿using Sandbox.ModAPI;
+using Sandbox.ModAPI.Interfaces.Terminal;
 using System;
-using System.Linq;
 using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
+using VRage.Utils;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockRepulsorCoil", "LargeBlockRepulsorCoil" })]
-    public class RepulsorCoilBlock : NonStaticBakurBlock {
-
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_CargoContainer), true, new string[] { "SmallBlockRepulsorCoil", "LargeBlockRepulsorCoil" })]
+    public class RepulsorCoilBlock : BakurBlock
+    {
+        PlanetAltitudeSensor planetAltitudeSensor;
         RepulsorCoil repulsorCoil;
 
-        protected override void Initialize() {
-
+        protected override void Initialize()
+        {
             base.Initialize();
 
+            var textBox =
+                MyAPIGateway.TerminalControls
+                    .CreateControl<IMyTerminalControlTextbox, IMyCargoContainer>("test_terminal_textbox");
+            textBox.Title = MyStringId.GetOrCompute("Example textbox");
+            textBox.Tooltip = MyStringId.GetOrCompute("Check this field");
+
+            textBox.Getter = GetterTextBox;
+            textBox.Setter = SetterTextBox;
+
+            textBox.Enabled = (MyObjectBuilder_TerminalBlock) => { return true; };
+            textBox.Visible = (MyObjectBuilder_TerminalBlock) => { return true; };
+
             repulsorCoil = new RepulsorCoil(this);
-            Add(repulsorCoil);
+            AddEquipment(repulsorCoil);
+
+            planetAltitudeSensor = new PlanetAltitudeSensor(this);
+            AddEquipment(planetAltitudeSensor);
+
+            /*SetPowerRequirements(block, () => {
+                return repulsorCoil.PowerRequirements();
+            });*/
         }
 
-        protected override void Destroy() {
+        private StringBuilder GetterTextBox(IMyTerminalBlock myTerminalBlock)
+        {
+            return new StringBuilder();
+        }
+
+        private void SetterTextBox(IMyTerminalBlock myTerminalBlock, StringBuilder stringBuilder)
+        {
+            stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("example");
+            stringBuilder.AppendLine("textbox");
+        }
+
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(repulsorCoil);
+            RemoveEquipment(repulsorCoil);
             repulsorCoil = null;
+
+            RemoveEquipment(planetAltitudeSensor);
+            planetAltitudeSensor = null;
         }
 
         Vector3D coilAcceleration;
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
-
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
             coilAcceleration = Vector3D.Zero;
 
-            if (!IsInGravity) {
+            if (!rigidbody.IsInGravity)
+            {
                 return;
             }
 
+            planetAltitudeSensor.UpdateSensor(physicsDeltaTime);
+
             // coil
 
-            coilAcceleration = repulsorCoil.GetLinearAcceleration(physicsDeltaTime);
+            double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length()) / 2;
+            coilAcceleration = repulsorCoil.GetLinearAcceleration(physicsDeltaTime, planetAltitudeSensor.altitude - gridHalfSize);
 
             // apply
 
-            AddLinearAcceleration(coilAcceleration);
+            rigidbody.AddLinearAcceleration(coilAcceleration);
         }
 
-        protected override void Debug() {
-            if (debugEnabled) {
+        protected override void Debug()
+        {
+            if (debugEnabled)
+            {
                 IMyCubeGrid grid = block.CubeGrid;
-                DebugDraw.DrawLine(block.GetPosition(), block.GetPosition() + gravityUp * gravity.Length(), Color.DeepSkyBlue, 0.1f);
+                DebugDraw.DrawLine(block.GetPosition(), block.GetPosition() + rigidbody.gravityUp * rigidbody.gravity.Length(), Color.DeepSkyBlue, 0.1f);
             }
         }
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Coil Block ==");
             customInfo.AppendLine("Use : " + (repulsorCoil.useCoil ? "On" : "Off"));
-
             base.AppendCustomInfo(block, customInfo);
         }
 
@@ -72,7 +116,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("bf8957e0-500d-4356-9875-91db9dd4a912");
         }
 

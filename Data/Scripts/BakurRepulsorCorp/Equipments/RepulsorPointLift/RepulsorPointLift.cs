@@ -2,15 +2,17 @@
 using Sandbox.ModAPI;
 using System;
 using System.Text;
-using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class RepulsorPointLift : BakurBlockEquipment {
+    public class RepulsorPointLift : BakurBlockEquipment
+    {
 
-        public RepulsorPointLift(BakurBlock component) : base(component) {
+        public RepulsorPointLift(BakurBlock component) : base(component)
+        {
         }
 
         #region use point lift
@@ -35,7 +37,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_POINT_LIFT_PROPERTY_NAME);
                 bool result = defaultUsePointLift;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUsePointLift;
@@ -47,21 +50,21 @@ namespace BakurRepulsorCorp {
         static Separator<RepulsorPointLift> repulsorPointLiftSeparator;
         static Label<RepulsorPointLift> repulsorPointLiftLabel;
 
-        public double distance = double.NaN;
-        public double desiredDistance = double.NaN;
+        public double altitude = double.NaN;
+        public double desiredAltitude = double.NaN;
 
         #region normalized altitude
 
-        static PointLift_NormalizedDistanceSlider normalizedDistanceSlider;
-        static PointLift_IncraseNormalizedDistanceAction incraseNormalizedDistanceAction;
-        static PointLift_DecraseNormalizedDistanceAction decraseNormalizedDistanceAction;
-        static PointLift_SetDesiredDistanceToCurrentAction setCurrentAsDesiredDistanceAction;
+        static PointLift_NormalizedAltitudeSlider normalizedAltitudeSlider;
+        static PointLift_IncraseNormalizedAltitudeAction incraseNormalizedAltitudeAction;
+        static PointLift_DecraseNormalizedAltitudeAction decraseNormalizedAltitudeAction;
+        static PointLift_SetDesiredAltitudeToCurrentAction setCurrentAsDesiredAltitudeAction;
 
         public static string NORMALIZED_DISTANCE_PROPERTY_NAME = "RepulsorPointLift_NormalizedDistance";
 
         public double defaultNormalizedDistance = 1;
 
-        public double normalizedDistance
+        public double normalizedAltitude
         {
             set
             {
@@ -72,7 +75,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(NORMALIZED_DISTANCE_PROPERTY_NAME);
                 double result = defaultNormalizedDistance;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultNormalizedDistance;
@@ -106,7 +110,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(PROPORTIONAL_COEFFICIENT_PROPERTY_NAME);
                 double result = defaultProportionalCoefficient;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultProportionalCoefficient;
@@ -134,7 +139,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(INTEGRAL_COEFFICIENT_PROPERTY_NAME);
                 double result = defaultIntegralCoefficient;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultIntegralCoefficient;
@@ -162,7 +168,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(DERIVATIVE_COEFFICIENT_PROPERTY_NAME);
                 double result = defaultDerivativeCoefficient;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultDerivativeCoefficient;
@@ -173,98 +180,116 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
             // repulsor
 
-            if (repulsorPointLiftSeparator == null) {
+            if (repulsorPointLiftSeparator == null)
+            {
                 repulsorPointLiftSeparator = new Separator<RepulsorPointLift>("RepulsorPointLift_RepulsorPointLiftSeparator");
                 repulsorPointLiftSeparator.Initialize();
             }
 
-            if (repulsorPointLiftLabel == null) {
+            if (repulsorPointLiftLabel == null)
+            {
                 repulsorPointLiftLabel = new Label<RepulsorPointLift>("RepulsorPointLift_RepulsorPointLiftLabel", "Repulsor Point Lift");
                 repulsorPointLiftLabel.Initialize();
             }
 
             // use linear generator
 
-            if (usePointLiftSwitch == null) {
+            if (usePointLiftSwitch == null)
+            {
                 usePointLiftSwitch = new PointLift_UsePointLiftSwitch();
                 usePointLiftSwitch.Initialize();
             }
 
-            if (usePointLiftToggleAction == null) {
+            if (usePointLiftToggleAction == null)
+            {
                 usePointLiftToggleAction = new PointLift_UsePointLiftToggleAction();
                 usePointLiftToggleAction.Initialize();
             }
 
-            if (usePointLiftEnableAction == null) {
+            if (usePointLiftEnableAction == null)
+            {
                 usePointLiftEnableAction = new PointLift_UsePointLiftEnableAction();
                 usePointLiftEnableAction.Initialize();
             }
 
-            if (usePointLiftDisableAction == null) {
+            if (usePointLiftDisableAction == null)
+            {
                 usePointLiftDisableAction = new PointLift_UsePointLiftDisableAction();
                 usePointLiftDisableAction.Initialize();
             }
 
             // actions
 
-            if (setCurrentAsDesiredDistanceAction == null) {
-                setCurrentAsDesiredDistanceAction = new PointLift_SetDesiredDistanceToCurrentAction();
-                setCurrentAsDesiredDistanceAction.Initialize();
+            if (setCurrentAsDesiredAltitudeAction == null)
+            {
+                setCurrentAsDesiredAltitudeAction = new PointLift_SetDesiredAltitudeToCurrentAction();
+                setCurrentAsDesiredAltitudeAction.Initialize();
             }
 
-            if (normalizedDistanceSlider == null) {
-                normalizedDistanceSlider = new PointLift_NormalizedDistanceSlider();
-                normalizedDistanceSlider.Initialize();
+            if (normalizedAltitudeSlider == null)
+            {
+                normalizedAltitudeSlider = new PointLift_NormalizedAltitudeSlider();
+                normalizedAltitudeSlider.Initialize();
             }
 
-            if (incraseNormalizedDistanceAction == null) {
-                incraseNormalizedDistanceAction = new PointLift_IncraseNormalizedDistanceAction();
-                incraseNormalizedDistanceAction.Initialize();
+            if (incraseNormalizedAltitudeAction == null)
+            {
+                incraseNormalizedAltitudeAction = new PointLift_IncraseNormalizedAltitudeAction();
+                incraseNormalizedAltitudeAction.Initialize();
             }
 
-            if (decraseNormalizedDistanceAction == null) {
-                decraseNormalizedDistanceAction = new PointLift_DecraseNormalizedDistanceAction();
-                decraseNormalizedDistanceAction.Initialize();
+            if (decraseNormalizedAltitudeAction == null)
+            {
+                decraseNormalizedAltitudeAction = new PointLift_DecraseNormalizedAltitudeAction();
+                decraseNormalizedAltitudeAction.Initialize();
             }
 
             // Feedback controller
 
-            if (feedbackControllerSeparator == null) {
+            if (feedbackControllerSeparator == null)
+            {
                 feedbackControllerSeparator = new Separator<RepulsorPointLift>("RepulsorPointLift_FeedbackControllerSeparator");
                 feedbackControllerSeparator.Initialize();
             }
 
-            if (feedbackControllerLabel == null) {
+            if (feedbackControllerLabel == null)
+            {
                 feedbackControllerLabel = new Label<RepulsorPointLift>("RepulsorPointLift_FeedbackControllerLabel", "Control Loop Feedback Controller");
                 feedbackControllerLabel.Initialize();
             }
 
-            if (proportionalCoefficientSlider == null) {
+            if (proportionalCoefficientSlider == null)
+            {
                 proportionalCoefficientSlider = new PointLift_ProportionalCoefficientSlider();
                 proportionalCoefficientSlider.Initialize();
             }
 
-            if (integralCoefficientSlider == null) {
+            if (integralCoefficientSlider == null)
+            {
                 integralCoefficientSlider = new PointLift_IntegralCoefficientSlider();
                 integralCoefficientSlider.Initialize();
             }
 
-            if (derivativeCoefficientSlider == null) {
+            if (derivativeCoefficientSlider == null)
+            {
                 derivativeCoefficientSlider = new PointLift_DerivativeCoefficientSlider();
                 derivativeCoefficientSlider.Initialize();
             }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
             Clear();
         }
 
 
-        void Clear() {
+        void Clear()
+        {
             desiredLinearAcceleration = Vector3D.Zero;
         }
 
@@ -272,73 +297,115 @@ namespace BakurRepulsorCorp {
 
         #region visuals
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Point Lift ==");
-            customInfo.AppendLine("Distance : " + Math.Round(distance, 1) + " m");
-            customInfo.AppendLine("Desired Distance : " + Math.Round(desiredDistance, 1) + " m");
-            customInfo.AppendLine("Normalized Desired Distance : " + Math.Round(normalizedDistance * 100, 1) + " %");
+            customInfo.AppendLine("Altitude : " + Math.Round(altitude, 1) + " m");
+            customInfo.AppendLine("Max Altitude : " + Math.Round(maxAltitude, 1) + " m");
+            customInfo.AppendLine("Desired Altitude : " + Math.Round(desiredAltitude, 1) + " m");
+            customInfo.AppendLine("Normalized Desired Altitude : " + Math.Round(normalizedAltitude * 100, 1) + " %");
         }
 
         #endregion
 
-        void UpdateDesiredAltitude(double altitude, float maxAltitude) {
-
-            // update desired altitude
-
-            if (double.IsNaN(desiredDistance) && !double.IsNaN(altitude)) {
-                normalizedDistance = altitude / maxAltitude;
-                normalizedDistance = BakurMathHelper.Clamp01(normalizedDistance);
-                desiredDistance = altitude;
-            } else if (!double.IsNaN(desiredDistance)) {
-                normalizedDistance = BakurMathHelper.Clamp01(normalizedDistance);
-                //maxAltitude = MathHelper.Clamp(desiredAltitude * 2, 0, maxAltitude);
-
-                desiredDistance = normalizedDistance * maxAltitude;
-                desiredDistance = MathHelper.Clamp(desiredDistance, 0, maxAltitude);
-            } else {
-                normalizedDistance = 0;
-                desiredDistance = double.NaN;
+        public double maxAltitude
+        {
+            get
+            {
+                return 10 * coilsCount;
             }
         }
 
-        void UpdateNormalizedAltitudeFromInput(double physicsDeltaTime) {
+        public int coilsCount
+        {
+            get
+            {
+                if (!RepulsorCoil.repulsorCoils.ContainsKey(block.CubeGrid.EntityId))
+                {
+                    return 0;
+                }
+                else
+                {
+                    return RepulsorCoil.repulsorCoils[block.CubeGrid.EntityId].Count;
+                }
+            }
+        }
 
-            if (double.IsNaN(normalizedDistance)) {
+        void UpdateDesiredAltitude(double altitude)
+        {
+
+            // update desired altitude
+
+            if (double.IsNaN(desiredAltitude) && !double.IsNaN(altitude))
+            {
+                normalizedAltitude = altitude / maxAltitude;
+                normalizedAltitude = BakurMathHelper.Clamp01(normalizedAltitude);
+                desiredAltitude = altitude;
+            }
+            else if (!double.IsNaN(desiredAltitude))
+            {
+                normalizedAltitude = BakurMathHelper.Clamp01(normalizedAltitude);
+                //maxAltitude = MathHelper.Clamp(desiredAltitude * 2, 0, maxAltitude);
+
+                desiredAltitude = normalizedAltitude * maxAltitude;
+                desiredAltitude = MathHelper.Clamp(desiredAltitude, 0, maxAltitude);
+            }
+            else
+            {
+                normalizedAltitude = 0;
+                desiredAltitude = double.NaN;
+            }
+        }
+
+        void UpdateNormalizedAltitudeFromInput(double physicsDeltaTime)
+        {
+
+            if (double.IsNaN(normalizedAltitude))
+            {
                 return;
             }
             // desired altitude
             IMyCubeGrid grid = block.CubeGrid;
             IMyShipController shipController = BakurBlockUtils.GetShipControllerUnderControl(grid);
 
-            if (shipController != null) {
-                normalizedDistance += GetShipControllerLinearInput(physicsDeltaTime, shipController) * physicsDeltaTime;
+            if (shipController != null)
+            {
+                normalizedAltitude += GetShipControllerLinearInput(physicsDeltaTime, shipController) * physicsDeltaTime;
             }
 
-            normalizedDistance = BakurMathHelper.Clamp01(normalizedDistance);
+            normalizedAltitude = BakurMathHelper.Clamp01(normalizedAltitude);
 
         }
 
-        double GetShipControllerLinearInput(double physicsDeltaTime, IMyShipController shipController) {
+        double GetShipControllerLinearInput(double physicsDeltaTime, IMyShipController shipController)
+        {
 
             double desired = 0;
 
-            if (!shipController.CanControlShip) {
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.JUMP)) {
+            if (!shipController.CanControlShip)
+            {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.JUMP))
+                {
                     desired = 1;
                 }
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.CROUCH)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.CROUCH))
+                {
                     desired = -1;
                 }
-            } else {
+            }
+            else
+            {
                 desired = MathHelper.Clamp(shipController.MoveIndicator.Y, -1, 1);
             }
             desired = (physicsDeltaTime * physicsDeltaTime * 0.3);
             return desired;
         }
 
-        public override void Debug() {
-            if (!component.debugEnabled) {
+        public override void Debug()
+        {
+            if (!component.debugEnabled)
+            {
                 return;
             }
         }
@@ -346,21 +413,24 @@ namespace BakurRepulsorCorp {
         public Vector3D desiredLinearAcceleration;
         public Vector3D desiredUp;
 
-        public Vector3D GetDesiredLinearAcceleration(double physicsDeltaTime, Vector3D desiredUp, double distance, float maxAltitude) {
+        public Vector3D GetDesiredLinearAcceleration(double physicsDeltaTime, Vector3D desiredUp, double altitude)
+        {
 
-            this.distance = distance;
+            this.altitude = altitude;
             this.desiredUp = desiredUp;
 
             desiredLinearAcceleration = Vector3D.Zero;
 
-            UpdateDesiredAltitude(distance, maxAltitude);
+            UpdateDesiredAltitude(altitude);
             UpdateNormalizedAltitudeFromInput(physicsDeltaTime);
 
-            if (double.IsNaN(desiredDistance) || double.IsNaN(distance)) {
+            if (double.IsNaN(desiredAltitude) || double.IsNaN(altitude))
+            {
                 return desiredLinearAcceleration;
             }
 
-            if (!usePointLift || !component.IsInGravity) {
+            if (!usePointLift || !component.rigidbody.IsInGravity)
+            {
                 Clear();
                 return desiredLinearAcceleration;
             }
@@ -377,11 +447,11 @@ namespace BakurRepulsorCorp {
 
             // update desired force
 
-            double distanceError = desiredDistance - distance;
+            double distanceError = desiredAltitude - altitude;
 
             double pid = distancePID.UpdateValue(distanceError, physicsDeltaTime);
 
-            desiredLinearAcceleration = desiredUp * pid / physicsDeltaTime * component.gridMass;
+            desiredLinearAcceleration = desiredUp * pid / physicsDeltaTime * component.rigidbody.gridMass;
 
             //MyAPIGateway.Utilities.ShowMessage(block.BlockDefinition.SubtypeId, "desiredDistance:" + desiredDistance + ", distance:" + distance + ", distanceError:" + distanceError + ", pid: " + pid + ", desiredForce: " + desiredForce + ", gridMass: " + component.gridMass);
 

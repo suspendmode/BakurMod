@@ -1,37 +1,37 @@
 ﻿using Sandbox.ModAPI;
+using System;
 using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
-using VRage.Game.ModAPI;
-using VRageMath;
-using System;
-using VRage.Utils;
-using VRage.Game.ObjectBuilders.Definitions;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallArtificialGravityGenerator", "LargeArtificialGravityGenerator" })]
-    public class ArtificialGravityGeneratorBlock : BakurBlock {
+    public class ArtificialGravityGeneratorBlock : BakurBlock
+    {
 
         ArtificialGravityGenerator artificialGravityGenerator;
 
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
 
             artificialGravityGenerator = new ArtificialGravityGenerator(this);
-            Add(artificialGravityGenerator);
+            AddEquipment(artificialGravityGenerator);
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(artificialGravityGenerator);
+            RemoveEquipment(artificialGravityGenerator);
             artificialGravityGenerator = null;
 
         }
@@ -40,14 +40,16 @@ namespace BakurRepulsorCorp {
 
         #region update
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             artificialGravityGenerator.UpdateGenerator(physicsDeltaTime);
         }
 
         #endregion
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Artificial Gravity Generator ==");
 
@@ -63,7 +65,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("a3672713-d475-4bd7-ad04-c96ce6b8cc56");
         }
     }

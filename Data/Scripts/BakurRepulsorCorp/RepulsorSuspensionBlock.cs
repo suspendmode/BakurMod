@@ -6,11 +6,13 @@ using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockRepulsor", "LargeBlockRepulsor" })]
-    public class RepulsorSuspensionBlock : NonStaticBakurBlock {
+    public class RepulsorSuspensionBlock : BakurBlock
+    {
 
         private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsor", "LargeBlockRepulsor" };
 
@@ -19,25 +21,27 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             surfaceSensor = new AltitudeSensor(this);
-            Add(surfaceSensor);
+            AddEquipment(surfaceSensor);
 
             repulsorSuspension = new RepulsorSuspension(this);
-            Add(repulsorSuspension);
+            AddEquipment(repulsorSuspension);
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(surfaceSensor);
+            RemoveEquipment(surfaceSensor);
             surfaceSensor = null;
 
-            Remove(repulsorSuspension);
+            RemoveEquipment(repulsorSuspension);
             repulsorSuspension = null;
         }
 
@@ -52,7 +56,8 @@ namespace BakurRepulsorCorp {
 
         #region visual
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Block ==");
 
@@ -62,11 +67,13 @@ namespace BakurRepulsorCorp {
 
         #endregion
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             surfaceSensor.UpdateSensor();
 
-            if (!surfaceSensor.hasSurface) {
+            if (!surfaceSensor.hasSurface)
+            {
                 return;
             }
 
@@ -77,18 +84,22 @@ namespace BakurRepulsorCorp {
 
             // lift
 
-            suspensionForce = repulsorSuspension.GetForce(physicsDeltaTime, desiredUp, surfaceSensor.altitude);
+            double gridHalfSize = block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5;
+            suspensionForce = repulsorSuspension.GetForce(physicsDeltaTime, desiredUp, surfaceSensor.altitude - gridHalfSize);
             Vector3D position = block.PositionComp.GetPosition() + block.LocalVolume.Center;
-            AddForce(suspensionForce, position);
+            rigidbody.AddForce(suspensionForce, position);
         }
 
-        protected override void Debug() {
-            if (surfaceSensor.hasSurface && debugEnabled) {
+        protected override void Debug()
+        {
+            if (surfaceSensor.hasSurface && debugEnabled)
+            {
                 DebugDraw.DrawLine(block.GetPosition(), surfaceSensor.surfacePoint, Color.Aquamarine, 0.03f);
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("fe299648-2f06-4a7e-9a8d-54d3ee991e23");
         }
     }

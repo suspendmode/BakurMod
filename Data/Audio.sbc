@@ -592,12 +592,12 @@
       </Waves>
     </Sound>
 
-    <!-- repulsor generator -->
+    <!-- repulsor drive -->
 
     <Sound>
       <Id>
         <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
-        <SubtypeId>repulsor_generator_working_start</SubtypeId>
+        <SubtypeId>repulsor_drive_working_start</SubtypeId>
       </Id>
       <Category>BLOCK</Category>
       <MaxDistance>120</MaxDistance>
@@ -605,7 +605,7 @@
       <Loopable>false</Loopable>
       <Waves>
         <Wave Type="D3">
-          <Start>Audio\repulsor_generator_working_start.xwm</Start>
+          <Start>Audio\repulsor_drive_working_start.xwm</Start>
         </Wave>
 
       </Waves>
@@ -614,7 +614,7 @@
     <Sound>
       <Id>
         <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
-        <SubtypeId>repulsor_generator_working_loop</SubtypeId>
+        <SubtypeId>repulsor_drive_working_loop</SubtypeId>
       </Id>
       <Category>BLOCK</Category>
       <MaxDistance>120</MaxDistance>
@@ -623,7 +623,7 @@
       <Waves>
 
         <Wave Type="D3">
-          <Loop>Audio\repulsor_generator_working_main.xwm</Loop>
+          <Loop>Audio\repulsor_drive_working_main.xwm</Loop>
         </Wave>
 
       </Waves>
@@ -632,7 +632,7 @@
     <Sound>
       <Id>
         <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
-        <SubtypeId>repulsor_generator_working_end</SubtypeId>
+        <SubtypeId>repulsor_drive_working_end</SubtypeId>
       </Id>
       <Category>BLOCK</Category>
       <MaxDistance>120</MaxDistance>
@@ -640,17 +640,17 @@
       <Loopable>false</Loopable>
       <Waves>
         <Wave Type="D3">
-          <End>Audio\repulsor_generator_working_end.xwm</End>
+          <End>Audio\repulsor_drive_working_end.xwm</End>
         </Wave>
       </Waves>
     </Sound>
     
-    <!-- repulsor lift generator -->
+    <!-- repulsor lift drive -->
 
     <Sound>
       <Id>
         <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
-        <SubtypeId>repulsor_lift_generator_working_start</SubtypeId>
+        <SubtypeId>repulsor_lift_drive_working_start</SubtypeId>
       </Id>
       <Category>BLOCK</Category>
       <MaxDistance>120</MaxDistance>
@@ -658,7 +658,7 @@
       <Loopable>false</Loopable>
       <Waves>
         <Wave Type="D3">
-          <Start>Audio\repulsor_lift_generator_working_start.xwm</Start>
+          <Start>Audio\repulsor_lift_drive_working_start.xwm</Start>
         </Wave>
       </Waves>
     </Sound>
@@ -666,7 +666,7 @@
     <Sound>
       <Id>
         <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
-        <SubtypeId>repulsor_lift_generator_working_loop</SubtypeId>
+        <SubtypeId>repulsor_lift_drive_working_loop</SubtypeId>
       </Id>
       <Category>BLOCK</Category>
       <MaxDistance>120</MaxDistance>
@@ -675,7 +675,7 @@
       <Waves>
 
         <Wave Type="D3">
-          <Loop>Audio\repulsor_lift_generator_working_main.xwm</Loop>
+          <Loop>Audio\repulsor_lift_drive_working_main.xwm</Loop>
         </Wave>
 
       </Waves>
@@ -684,7 +684,7 @@
     <Sound>
       <Id>
         <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
-        <SubtypeId>repulsor_lift_generator_working_end</SubtypeId>
+        <SubtypeId>repulsor_lift_drive_working_end</SubtypeId>
       </Id>
       <Category>BLOCK</Category>
       <MaxDistance>120</MaxDistance>
@@ -692,7 +692,7 @@
       <Loopable>false</Loopable>
       <Waves>
         <Wave Type="D3">
-          <End>Audio\repulsor_lift_generator_working_end.xwm</End>
+          <End>Audio\repulsor_lift_drive_working_end.xwm</End>
         </Wave>
       </Waves>
     </Sound>

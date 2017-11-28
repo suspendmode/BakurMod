@@ -11,8 +11,7 @@ namespace BakurRepulsorCorp {
         public static bool IsUnderControl(IMyCubeGrid grid) {            
             return GetShipControllerUnderControl(grid) != null;
         }
-
-
+        
         public static IMyShipController GetShipControllerUnderControl(IMyCubeGrid grid) {
             shipControllers.Clear();
             grid.GetBlocks(shipControllers, (IMySlimBlock block) => {

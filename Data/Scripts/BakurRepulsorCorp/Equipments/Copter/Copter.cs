@@ -13,7 +13,7 @@ namespace BakurRepulsorCorp {
         static Separator<Copter> copterCruiseSeparator;
         static Label<Copter> copterLabel;
 
-        #region responsicity
+        #region responsivity
 
         public static Copter_ResponsivitySlider responsivitySlider;
 
@@ -100,6 +100,8 @@ namespace BakurRepulsorCorp {
         #region cruise speed
 
         public static Copter_CruiseSpeedSlider cruiseSpeedSlider;
+        public static Copter_IncraseCruiseSpeedAction incraseCruiseSpeedAction;
+        public static Copter_DecraseCruiseSpeedAction decraseCruiseSpeedAction;
 
         public static string CRUISE_SPEED_PROPERTY_NAME = "Copter_CruiseSpeed";
 
@@ -247,22 +249,12 @@ namespace BakurRepulsorCorp {
                 maxRollAngleSlider.Initialize();
             }
 
+            // mode
+
             if (modeComboBox == null) {
                 modeComboBox = new Copter_ModeComboBox();
                 modeComboBox.Initialize();
             }
-
-            if (copterCruiseSeparator == null) {
-                copterCruiseSeparator = new Separator<Copter>("Copter_CopterSeparator");
-                copterCruiseSeparator.Initialize();
-            }
-
-            if (cruiseSpeedSlider == null) {
-                cruiseSpeedSlider = new Copter_CruiseSpeedSlider();
-                cruiseSpeedSlider.Initialize();
-            }
-
-            // mode
 
             if (setGlideModeAction == null) {
                 setGlideModeAction = new Copter_SetModeGlideAction();
@@ -292,6 +284,33 @@ namespace BakurRepulsorCorp {
             if (setHoverModeAction == null) {
                 setHoverModeAction = new Copter_SetModeHoverAction();
                 setHoverModeAction.Initialize();
+            }
+
+            // cruise
+
+            if (copterCruiseSeparator == null) {
+                copterCruiseSeparator = new Separator<Copter>("Copter_CopterCruiseSeparator");
+                copterCruiseSeparator.Initialize();
+            }
+
+            if (cruiseSpeedSlider == null) {
+                cruiseSpeedSlider = new Copter_CruiseSpeedSlider();
+                cruiseSpeedSlider.Initialize();
+            }
+
+            if (setCruiseModeAction == null) {
+                setCruiseModeAction = new Copter_SetModeCruiseAction();
+                setCruiseModeAction.Initialize();
+            }
+
+            if (incraseCruiseSpeedAction == null) {
+                incraseCruiseSpeedAction = new Copter_IncraseCruiseSpeedAction();
+                incraseCruiseSpeedAction.Initialize();
+            }
+
+            if (decraseCruiseSpeedAction == null) {
+                decraseCruiseSpeedAction = new Copter_DecraseCruiseSpeedAction();
+                decraseCruiseSpeedAction.Initialize();
             }
         }
 
@@ -343,8 +362,8 @@ namespace BakurRepulsorCorp {
             double sidewaysSpeed = localLinearVelocity.X;
             //localSpeed = worldSpeed;
 
-            pitch = Vector3.Dot(component.gravityUp, block.WorldMatrix.Forward) / (component.gravity.Length() * block.WorldMatrix.Forward.Length()) * 90;
-            roll = Vector3.Dot(component.gravityUp, block.WorldMatrix.Right) / (component.gravity.Length() * block.WorldMatrix.Right.Length()) * 90;
+            pitch = Vector3.Dot(component.rigidbody.gravityUp, block.WorldMatrix.Forward) / (component.rigidbody.gravity.Length() * block.WorldMatrix.Forward.Length()) * 90;
+            roll = Vector3.Dot(component.rigidbody.gravityUp, block.WorldMatrix.Right) / (component.rigidbody.gravity.Length() * block.WorldMatrix.Right.Length()) * 90;
 
             if (double.IsNaN(pitch)) {
                 pitch = 0;

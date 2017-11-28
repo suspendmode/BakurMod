@@ -6,11 +6,13 @@ using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockRepulsorPointLift", "LargeBlockRepulsorPointLift" })]
-    public class RepulsorPointLiftBlock : NonStaticBakurBlock {
+    public class RepulsorPointLiftBlock : BakurBlock
+    {
 
         private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsorPointLift", "LargeBlockRepulsorPointLift" };
 
@@ -19,33 +21,36 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             altitudeSensor = new AltitudeSensor(this);
-            Add(altitudeSensor);
+            AddEquipment(altitudeSensor);
 
             repulsorPointLift = new RepulsorPointLift(this);
-            Add(repulsorPointLift);
+            AddEquipment(repulsorPointLift);
 
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(repulsorPointLift);
+            RemoveEquipment(repulsorPointLift);
             repulsorPointLift = null;
 
-            Remove(altitudeSensor);
+            RemoveEquipment(altitudeSensor);
             altitudeSensor = null;
         }
 
         #endregion
 
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Lift Block ==");
             base.AppendCustomInfo(block, customInfo);
@@ -54,7 +59,8 @@ namespace BakurRepulsorCorp {
         Vector3D desiredLinearAcceleration;
         Vector3D desiredUp;
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             altitudeSensor.UpdateSensor();
 
@@ -64,9 +70,9 @@ namespace BakurRepulsorCorp {
             desiredUp = block.WorldMatrix.Up;
 
             // lift
-
-            desiredLinearAcceleration = repulsorPointLift.GetDesiredLinearAcceleration(physicsDeltaTime, desiredUp, altitudeSensor.altitude, 10);
-            AddLinearAcceleration(desiredLinearAcceleration);
+            double gridHalfSize = block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5;
+            desiredLinearAcceleration = repulsorPointLift.GetDesiredLinearAcceleration(physicsDeltaTime, desiredUp, altitudeSensor.altitude - gridHalfSize);
+            rigidbody.AddLinearAcceleration(desiredLinearAcceleration);
 
         }
 
@@ -79,7 +85,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("3a95a757-3c62-4d4a-a88e-7fa2a2835922");
         }
     }

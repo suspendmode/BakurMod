@@ -6,11 +6,14 @@ using System.Text;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class LinearInertialCompensator : BakurBlockEquipment {
+    public class LinearInertialCompensator : BakurBlockEquipment
+    {
 
-        public LinearInertialCompensator(BakurBlock block) : base(block) {
+        public LinearInertialCompensator(BakurBlock block) : base(block)
+        {
         }
 
         static Separator<LinearInertialCompensator> linearCompensatorSeparator;
@@ -38,7 +41,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_LINEAR_COMPENSATOR_PROPERTY_NAME);
                 bool result = defaultUseLinearCompensator;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseLinearCompensator;
@@ -69,7 +73,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(DUMPENER_PROPERTY_NAME);
                 double result = defaultDumpener;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultDumpener;
@@ -101,7 +106,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_FORWARD_PROPERTY_NAME);
                 bool result = defaultUseForward;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseForward;
@@ -133,7 +139,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_SIDEWAYS_PROPERTY_NAME);
                 bool result = defaultUseSideways;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseSideways;
@@ -165,7 +172,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_UP_PROPERTY_NAME);
                 bool result = defaultUseUp;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseUp;
@@ -177,73 +185,87 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
-        public override void Initialize() {
-
-            if (linearCompensatorSeparator == null) {
+        public override void Initialize()
+        {
+            MyAPIGateway.Utilities.ShowMessage("LinearInertialCompensator", "Initialize");
+            if (linearCompensatorSeparator == null)
+            {
                 linearCompensatorSeparator = new Separator<LinearInertialCompensator>("LinearInertialCompensator_LinearInertialCompensatorSeparator");
                 linearCompensatorSeparator.Initialize();
             }
 
-            if (linearCompensatorLabel == null) {
+            if (linearCompensatorLabel == null)
+            {
                 linearCompensatorLabel = new Label<LinearInertialCompensator>("LinearInertialCompensator_LinearCompensatorLabel", "Linear Compensator");
                 linearCompensatorLabel.Initialize();
             }
 
             // use linear compensator
 
-            if (useLinearCompensatorSwitch == null) {
+            if (useLinearCompensatorSwitch == null)
+            {
                 useLinearCompensatorSwitch = new Compensator_UseLinearCompensatorSwitch();
                 useLinearCompensatorSwitch.Initialize();
             }
 
-            if (useLinearCompensationToggleAction == null) {
+            if (useLinearCompensationToggleAction == null)
+            {
                 useLinearCompensationToggleAction = new Compensator_UseLinearCompensationToggleAction();
                 useLinearCompensationToggleAction.Initialize();
             }
 
-            if (useLinearCompensationEnableAction == null) {
+            if (useLinearCompensationEnableAction == null)
+            {
                 useLinearCompensationEnableAction = new Compensator_UseLinearCompensationEnableAction();
                 useLinearCompensationEnableAction.Initialize();
             }
 
-            if (useLinearCompensationDisableAction == null) {
+            if (useLinearCompensationDisableAction == null)
+            {
                 useLinearCompensationDisableAction = new Compensator_UseLinearCompensationDisableAction();
                 useLinearCompensationDisableAction.Initialize();
             }
 
             // dumpener slider 
 
-            if (dumpenerSlider == null) {
+            if (dumpenerSlider == null)
+            {
                 dumpenerSlider = new Compensator_LinearDumpenerSlider();
                 dumpenerSlider.Initialize();
             }
-            if (incraseDumpenerAction == null) {
+            if (incraseDumpenerAction == null)
+            {
                 incraseDumpenerAction = new Compensator_IncraseLinearDumpenerAction();
                 incraseDumpenerAction.Initialize();
             }
-            if (decraseDumpenerAction == null) {
+            if (decraseDumpenerAction == null)
+            {
                 decraseDumpenerAction = new Compensator_DecraseLinearDumpenerAction();
                 decraseDumpenerAction.Initialize();
             }
 
             // use foward
 
-            if (useForwardSwitch == null) {
+            if (useForwardSwitch == null)
+            {
                 useForwardSwitch = new Compensator_UseForwardSwitch();
                 useForwardSwitch.Initialize();
             }
 
-            if (useForwardToggleAction == null) {
+            if (useForwardToggleAction == null)
+            {
                 useForwardToggleAction = new Compensator_UseForwardToggleAction();
                 useForwardToggleAction.Initialize();
             }
 
-            if (useForwardEnableAction == null) {
+            if (useForwardEnableAction == null)
+            {
                 useForwardEnableAction = new Compensator_UseForwardEnableAction();
                 useForwardEnableAction.Initialize();
             }
 
-            if (useForwardDisableAction == null) {
+            if (useForwardDisableAction == null)
+            {
                 useForwardDisableAction = new Compensator_UseForwardDisableAction();
                 useForwardDisableAction.Initialize();
 
@@ -251,50 +273,59 @@ namespace BakurRepulsorCorp {
 
             // use right
 
-            if (useSidewaysSwitch == null) {
+            if (useSidewaysSwitch == null)
+            {
                 useSidewaysSwitch = new Compensator_UseSidewaysSwitch();
                 useSidewaysSwitch.Initialize();
             }
 
-            if (useSidewaysToggleAction == null) {
+            if (useSidewaysToggleAction == null)
+            {
                 useSidewaysToggleAction = new Compensator_UseSidewaysToggleAction();
                 useSidewaysToggleAction.Initialize();
             }
 
-            if (useSidewaysEnableAction == null) {
+            if (useSidewaysEnableAction == null)
+            {
                 useSidewaysEnableAction = new Compensator_UseSidewaysEnableAction();
                 useSidewaysEnableAction.Initialize();
             }
 
-            if (useSidewaysDisableAction == null) {
+            if (useSidewaysDisableAction == null)
+            {
                 useSidewaysDisableAction = new Compensator_UseSidewaysDisableAction();
                 useSidewaysDisableAction.Initialize();
             }
 
             // use up
 
-            if (useUpSwitch == null) {
+            if (useUpSwitch == null)
+            {
                 useUpSwitch = new Compensator_UseUpSwitch();
                 useUpSwitch.Initialize();
             }
 
-            if (useUpToggleAction == null) {
+            if (useUpToggleAction == null)
+            {
                 useUpToggleAction = new Compensator_UseUpToggleAction();
                 useUpToggleAction.Initialize();
             }
 
-            if (useUpEnableAction == null) {
+            if (useUpEnableAction == null)
+            {
                 useUpEnableAction = new Compensator_UseUpEnableAction();
                 useUpEnableAction.Initialize();
             }
 
-            if (useUpDisableAction == null) {
+            if (useUpDisableAction == null)
+            {
                 useUpDisableAction = new Compensator_UseUpDisableAction();
                 useUpDisableAction.Initialize();
             }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
 
         }
 
@@ -302,7 +333,8 @@ namespace BakurRepulsorCorp {
 
         #region visuals
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Linear Inertial Compensator ==");
             customInfo.AppendLine("Dumpener : " + Math.Round(dumpener * 100, 1) + "%");
@@ -315,72 +347,91 @@ namespace BakurRepulsorCorp {
 
         #region input
 
-        bool HasInputForward(IMyShipController controller) {
+        bool HasInputForward(IMyShipController controller)
+        {
             return Math.Abs(controller.MoveIndicator.Z) > 0;
         }
 
-        bool HasInputSideways(IMyShipController controller) {
+        bool HasInputSideways(IMyShipController controller)
+        {
             return Math.Abs(controller.MoveIndicator.X) > 0;
         }
 
-        bool HasInputUp(IMyShipController controller) {
+        bool HasInputUp(IMyShipController controller)
+        {
             return Math.Abs(controller.MoveIndicator.Y) > 0;
         }
 
-        IMyThrust[] GetThrusters() {
+        IMyThrust[] GetThrusters()
+        {
             List<IMySlimBlock> blocks = new List<IMySlimBlock>();
-            block.CubeGrid.GetBlocks(blocks, (IMySlimBlock block) => {
+            block.CubeGrid.GetBlocks(blocks, (IMySlimBlock block) =>
+            {
                 return block.FatBlock is IMyThrust;
             });
             List<IMyThrust> thrusters = new List<IMyThrust>();
-            foreach (IMySlimBlock block in blocks) {
+            foreach (IMySlimBlock block in blocks)
+            {
                 thrusters.Add(block.FatBlock as IMyThrust);
             }
             return thrusters.ToArray();
         }
 
-        bool HasOverridedForward(IMyThrust[] thrusters) {
-            foreach (IMyThrust thruster in thrusters) {
-                if (thruster.ThrustOverride > 0 && thruster.GridThrustDirection == Vector3I.Forward) {
+        bool HasOverridedForward(IMyThrust[] thrusters)
+        {
+            foreach (IMyThrust thruster in thrusters)
+            {
+                if (thruster.ThrustOverride > 0 && thruster.GridThrustDirection == Vector3I.Forward)
+                {
                     return true;
                 }
             }
             return false;
         }
 
-        bool HasOverridedSideways(IMyThrust[] thrusters) {
-            foreach (IMyThrust thruster in thrusters) {
-                if (thruster.ThrustOverride > 0 && thruster.GridThrustDirection == Vector3I.Right) {
+        bool HasOverridedSideways(IMyThrust[] thrusters)
+        {
+            foreach (IMyThrust thruster in thrusters)
+            {
+                if (thruster.ThrustOverride > 0 && thruster.GridThrustDirection == Vector3I.Right)
+                {
                     return true;
                 }
             }
             return false;
         }
 
-        bool HasOverridedUp(IMyThrust[] thrusters) {
-            foreach (IMyThrust thruster in thrusters) {
-                if (thruster.ThrustOverride > 0 && thruster.GridThrustDirection == Vector3I.Up) {
+        bool HasOverridedUp(IMyThrust[] thrusters)
+        {
+            foreach (IMyThrust thruster in thrusters)
+            {
+                if (thruster.ThrustOverride > 0 && thruster.GridThrustDirection == Vector3I.Up)
+                {
                     return true;
                 }
             }
             return false;
         }
 
-        bool HasControlForward() {
+        bool HasControlForward()
+        {
             return MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.FORWARD) || MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.BACKWARD);
         }
 
-        bool HasControlSideways() {
+        bool HasControlSideways()
+        {
             return MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.STRAFE_LEFT) || MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.STRAFE_RIGHT);
         }
 
-        bool HasControlUp() {
+        bool HasControlUp()
+        {
             return MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.JUMP) || MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.CROUCH);
         }
 
         #endregion
 
-        public Vector3D GetDesiredLinearAcceleration(double physicsDeltaTime) {
+        public Vector3D GetDesiredLinearAcceleration(double physicsDeltaTime)
+        {
 
             IMyCubeGrid grid = block.CubeGrid;
             MatrixD invertedOrientation = block.WorldMatrixInvScaled.GetOrientation();
@@ -388,35 +439,45 @@ namespace BakurRepulsorCorp {
             //Vector3D velocityProjectedOnGravity = -(Vector3D)grid.Physics.LinearAcceleration * dumpener;
 
             //if (component.IsInGravity) {
-            //velocityProjectedOnGravity = BakurMathHelper.ProjectOnPlane(velocityProjectedOnGravity, component.gravityUp);
+            //velocityProjectedOnGravity = BakurMathHelper.ProjectOnPlane(velocityProjectedOnGravity, component.rigidbody.gravityUp);
             //}
 
-            Vector3D localLinearAcceleration = Vector3D.Transform(-(Vector3D)grid.Physics.LinearVelocity * 0.9 * dumpener, invertedOrientation);
+            Vector3D localLinearAcceleration = Vector3D.Transform(-(Vector3D)grid.Physics.LinearVelocity / physicsDeltaTime * physicsDeltaTime * dumpener, invertedOrientation);
 
-            if (BakurBlockUtils.IsUnderControl(grid)) {
+            if (BakurBlockUtils.IsUnderControl(grid))
+            {
 
                 IMyThrust[] thrusters = GetThrusters();
 
                 IMyShipController controller = BakurBlockUtils.GetShipControllerUnderControl(grid);
 
-                if (controller.CanControlShip) {
-                    if (!useSideways || (HasOverridedSideways(thrusters) || HasInputSideways(controller))) {
+                if (controller.CanControlShip)
+                {
+                    if (!useSideways || (HasOverridedSideways(thrusters) || HasInputSideways(controller)))
+                    {
                         localLinearAcceleration.X = 0;
                     }
-                    if (!useUp || (HasOverridedUp(thrusters) || HasInputUp(controller))) {
+                    if (!useUp || (HasOverridedUp(thrusters) || HasInputUp(controller)))
+                    {
                         localLinearAcceleration.Y = 0;
                     }
-                    if (!useForward || (HasOverridedForward(thrusters) || HasInputForward(controller))) {
+                    if (!useForward || (HasOverridedForward(thrusters) || HasInputForward(controller)))
+                    {
                         localLinearAcceleration.Z = 0;
                     }
-                } else {
-                    if (!useSideways || (HasOverridedSideways(thrusters) || HasControlSideways())) {
+                }
+                else
+                {
+                    if (!useSideways || (HasOverridedSideways(thrusters) || HasControlSideways()))
+                    {
                         localLinearAcceleration.X = 0;
                     }
-                    if (!useUp || (HasOverridedUp(thrusters) || HasControlUp())) {
+                    if (!useUp || (HasOverridedUp(thrusters) || HasControlUp()))
+                    {
                         localLinearAcceleration.Y = 0;
                     }
-                    if (!useForward || (HasOverridedForward(thrusters) || HasControlForward())) {
+                    if (!useForward || (HasOverridedForward(thrusters) || HasControlForward()))
+                    {
                         localLinearAcceleration.Z = 0;
                     }
                 }
@@ -424,7 +485,8 @@ namespace BakurRepulsorCorp {
             }
 
             MatrixD worldOrientation = block.WorldMatrix.GetOrientation();
-            desiredLinearAcceleration = Vector3.Transform(localLinearAcceleration, worldOrientation);
+            desiredLinearAcceleration = Vector3D.Transform(localLinearAcceleration, worldOrientation);
+            //desiredLinearAcceleration = Vector3D.ClampToSphere(desiredLinearAcceleration, 90);
             //MyAPIGateway.Utilities.ShowMessage(block.BlockDefinition.SubtypeId, "localLinearDumpenerDirection: " + localLinearDumpenerDirection);
             return desiredLinearAcceleration;
         }

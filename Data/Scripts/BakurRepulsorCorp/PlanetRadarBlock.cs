@@ -1,43 +1,45 @@
 ﻿using Sandbox.ModAPI;
+using System;
 using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
-using VRage.Game.ModAPI;
 using VRageMath;
-using System;
-using VRage.Utils;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallPlanetRadar", "LargePlanetRadar" })]
-    public class PlanetRadarBlock : BakurBlock {
+    public class PlanetRadarBlock : BakurBlock
+    {
 
         PlanetAltitudeSensor planetAltitudeSensor;
         PlanetRadarSensor planetRadarSensor;
 
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
 
             planetAltitudeSensor = new PlanetAltitudeSensor(this);
-            Add(planetAltitudeSensor);
+            AddEquipment(planetAltitudeSensor);
 
             planetRadarSensor = new PlanetRadarSensor(this);
-            Add(planetRadarSensor);
+            AddEquipment(planetRadarSensor);
         }
 
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(planetAltitudeSensor);
+            RemoveEquipment(planetAltitudeSensor);
             planetAltitudeSensor = null;
 
-            Remove(planetRadarSensor);
+            RemoveEquipment(planetRadarSensor);
             planetRadarSensor = null;
 
         }
@@ -46,20 +48,27 @@ namespace BakurRepulsorCorp {
 
         #region update
         public Color backgroundColor = Color.LightSkyBlue;
-        public Color poiColor = Color.DeepSkyBlue;
+        public Color poiColor = Color.Orange;
+        public Color axisColor = Color.BlueViolet;
 
-        public void DrawEmissive2() {
-            if (!block.IsWorking) {
+        public void DrawEmissive2()
+        {
+            if (!block.IsWorking)
+            {
                 block.SetEmissiveParts("Emissive2", new Color(255, 0, 0), 1);
-            } else {
+            }
+            else
+            {
                 block.SetEmissiveParts("Emissive2", new Color(0, 255, 0), 1);
             }
         }
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             planetAltitudeSensor.UpdateSensor(physicsDeltaTime);
-            if (planetAltitudeSensor.nearestPlanet == null) {
+            if (planetAltitudeSensor.nearestPlanet == null)
+            {
                 block.SetEmissiveParts("Emissive2", Color.Black, 1);
                 return;
             }
@@ -72,21 +81,62 @@ namespace BakurRepulsorCorp {
             //blockPower.UpdatePower(physicsDeltaTime, updateDeltaTime);
             //MyAPIGateway.Utilities.ShowMessage("powerRatio", blockPower.powerRatio.ToString());
             float size = 0.5f;
-            if (block.BlockDefinition.SubtypeId == "LargePlanetRadar") {
+            if (block.BlockDefinition.SubtypeId == "LargePlanetRadar")
+            {
                 size = 2.5f;
             }
-            float radius = size / 3;
+            float radius = size / 4;
             Vector3D start = block.WorldMatrix.Translation + block.WorldMatrix.Up * size / 9;
-            Vector3D startLine = start + (direction * radius / 2);
-            Vector3D endLine = startLine + direction * (radius / 2);
+            Vector3D startLine = start + (direction * radius);
+            Vector3D endLine = startLine + direction * (radius);
 
+            DebugDraw.DrawBox(startLine, block.WorldMatrix.Forward, block.WorldMatrix.Up, Vector3D.One * 0.02f, Color.Red, 0.025f);
+            DebugDraw.DrawBox(endLine, block.WorldMatrix.Forward, block.WorldMatrix.Up, Vector3D.One * 0.02f, Color.Red, 0.025f);
             DebugDraw.DrawLine(startLine, endLine, poiColor, 0.025f);
             DebugDraw.PlanetRadarSphere(start, planetAltitudeSensor.nearestPlanet.WorldMatrix.Forward, planetAltitudeSensor.nearestPlanet.WorldMatrix.Up, radius, backgroundColor);
+
+            // planet axles
+
+            Vector3D planetUp = planetAltitudeSensor.nearestPlanet.WorldMatrix.Up;
+            Vector3D planetRight = planetAltitudeSensor.nearestPlanet.WorldMatrix.Right;
+            Vector3D planetForward = planetAltitudeSensor.nearestPlanet.WorldMatrix.Forward;
+
+            // x
+
+            Vector3D planetAxisRightStart = start + (planetRight * radius);
+            Vector3D planetAxisRightEnd = planetAxisRightStart + (planetRight * radius);
+            Vector3D planetAxisLeftStart = start + (-planetRight * radius);
+            Vector3D planetAxisLeftEnd = planetAxisLeftStart + (-planetRight * radius);
+
+            // y
+
+            Vector3D planetAxisUpStart = start + (planetUp * radius);
+            Vector3D planetAxisUpEnd = planetAxisUpStart + (planetUp * radius);
+            Vector3D planetAxisDownStart = start + (-planetUp * radius);
+            Vector3D planetAxisDownEnd = planetAxisUpStart + (-planetUp * radius);
+
+            // z
+
+            Vector3D planetAxisForwardStart = start + (planetForward * radius);
+            Vector3D planetAxisForwardEnd = planetAxisForwardStart + (planetForward * radius);
+            Vector3D planetAxisBackwardStart = start + (-planetForward * radius);
+            Vector3D planetAxisBackwardEnd = planetAxisBackwardStart + (-planetForward * radius);
+
+            DebugDraw.DrawLine(planetAxisRightStart, planetAxisRightEnd, axisColor, 0.045f);
+            DebugDraw.DrawLine(planetAxisLeftStart, planetAxisLeftEnd, axisColor, 0.045f);
+
+            DebugDraw.DrawLine(planetAxisUpStart, planetAxisUpEnd, axisColor, 0.045f);
+            DebugDraw.DrawLine(planetAxisDownStart, planetAxisDownEnd, axisColor, 0.045f);
+
+            DebugDraw.DrawLine(planetAxisForwardStart, planetAxisForwardEnd, axisColor, 0.045f);
+            DebugDraw.DrawLine(planetAxisBackwardStart, planetAxisBackwardEnd, axisColor, 0.045f);
+
         }
 
         #endregion
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Planet Radar ==");
 
@@ -102,7 +152,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("e89e8ef9-418a-414b-8198-b8743a4bc275");
         }
     }

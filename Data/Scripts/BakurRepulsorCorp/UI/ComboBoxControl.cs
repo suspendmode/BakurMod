@@ -33,8 +33,8 @@ namespace BakurRepulsorCorp {
 			comboBox.Enabled = Enabled;
 			comboBox.Title = VRage.Utils.MyStringId.GetOrCompute(title);
 			comboBox.Tooltip = VRage.Utils.MyStringId.GetOrCompute(description);            
-
-			return comboBox;
+            
+            return comboBox;
 		}
 
 		private void FillContent2(List<MyTerminalControlComboBoxItem> obj) {

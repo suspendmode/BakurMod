@@ -1,4 +1,5 @@
-﻿using Sandbox.ModAPI;
+﻿using Sandbox.Game.EntityComponents;
+using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,11 +14,10 @@ namespace BakurRepulsorCorp {
         public RepulsorCoil(BakurBlock component) : base(component) {
         }
 
+        public static Dictionary<long, List<RepulsorCoil>> repulsorCoils = new Dictionary<long, List<RepulsorCoil>>();
+
         static Separator<RepulsorCoil> coilSeparator;
         static Label<RepulsorCoil> coilLabel;
-
-        public static Dictionary<long, double> maxDistance = new Dictionary<long, double>();
-        public static Dictionary<long, int> coilsCount = new Dictionary<long, int>();
 
         #region use coil
 
@@ -48,34 +48,44 @@ namespace BakurRepulsorCorp {
             }
         }
 
+        public float minAltitude = 1;
+        /*public float altitudePerMW = 1000;
+        public float maxAltitudeWithPower = 10000;
+
+        public float PowerRequirements() {
+            float requirement = 0.001f + (maxAltitudeWithPower / altitudePerMW);
+            MyAPIGateway.Utilities.ShowMessage("RepulsorCoil", "requirement: " + requirement);
+            return requirement;
+        }
+        */
 
         #endregion
 
-        #region tension
+        #region power
 
-        static Coil_TensionSlider tensionSlider;
-        static Coil_IncraseTensionAction incraseTensionAction;
-        static Coil_DecraseTensionAction decraseTensionAction;
+        static Coil_PowerSlider powerSlider;
+        static Coil_IncrasePowerAction incrasePowerAction;
+        static Coil_DecrasePowerAction decrasePowerAction;
 
-        public static string TENSION_PROPERTY_NAME = "RepulsorCoil_Tension";
+        public static string POWER_PROPERTY_NAME = "RepulsorCoil_Power";
 
-        public double defaultTension = 1;
+        public double defaultPower = 1;
 
-        public double tension
+        public double power
         {
             set
             {
-                string id = GeneratatePropertyId(TENSION_PROPERTY_NAME);
+                string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(TENSION_PROPERTY_NAME);
-                double result = defaultTension;
+                string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
+                double result = defaultPower;
                 if (GetVariable<double>(id, out result)) {
                     return result;
                 }
-                return defaultTension;
+                return defaultPower;
             }
 
         }
@@ -84,7 +94,38 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
+
+        public double maxAltitude
+        {
+            get
+            {
+                return GetMaxAltitude(block.CubeGrid);
+            }
+        }
+
+        public int coilsCount
+        {
+            get
+            {
+                if (!repulsorCoils.ContainsKey(block.CubeGrid.EntityId)) {
+                    return 0;
+                } else {
+                    return repulsorCoils[block.CubeGrid.EntityId].Count;
+                }
+            }
+        }
+
         public override void Initialize() {
+
+            List<RepulsorCoil> list;
+            if (!repulsorCoils.ContainsKey(block.CubeGrid.EntityId)) {
+                list = new List<RepulsorCoil>();
+            } else {
+                list = repulsorCoils[block.CubeGrid.EntityId];
+            }
+            list.Add(this);
+            repulsorCoils[block.CubeGrid.EntityId] = list;
+            //MyAPIGateway.Utilities.ShowMessage(block.CubeGrid.CustomName, "repulsorCoils: " + repulsorCoils.Count + ", grid coils: " + list.Count + ", maxAltitude: " + maxAltitude);
 
             if (coilSeparator == null) {
                 coilSeparator = new Separator<RepulsorCoil>("Coil_CoilSeparator");
@@ -118,26 +159,20 @@ namespace BakurRepulsorCorp {
                 useCoilDisableAction.Initialize();
             }
 
-            // tension
+            // power
 
-            if (tensionSlider == null) {
-                tensionSlider = new Coil_TensionSlider();
-                tensionSlider.Initialize();
+            if (powerSlider == null) {
+                powerSlider = new Coil_PowerSlider();
+                powerSlider.Initialize();
             }
-            if (incraseTensionAction == null) {
-                incraseTensionAction = new Coil_IncraseTensionAction();
-                incraseTensionAction.Initialize();
+            if (incrasePowerAction == null) {
+                incrasePowerAction = new Coil_IncrasePowerAction();
+                incrasePowerAction.Initialize();
             }
-            if (decraseTensionAction == null) {
-                decraseTensionAction = new Coil_DecraseTensionAction();
-                decraseTensionAction.Initialize();
+            if (decrasePowerAction == null) {
+                decrasePowerAction = new Coil_DecrasePowerAction();
+                decrasePowerAction.Initialize();
             }
-
-
-            if (!coilsCount.ContainsKey(block.CubeGrid.EntityId)) {
-                coilsCount.Add(block.CubeGrid.EntityId, 1);
-            }
-
 
             base.Initialize();
         }
@@ -145,17 +180,23 @@ namespace BakurRepulsorCorp {
         public override void Destroy() {
             Clear();
 
-            if (coilsCount.ContainsKey(block.CubeGrid.EntityId)) {
-                coilsCount[block.CubeGrid.EntityId]--;
-                if (coilsCount[block.CubeGrid.EntityId] == 0) {
-                    coilsCount.Remove(block.CubeGrid.EntityId);
+            if (repulsorCoils.ContainsKey(block.CubeGrid.EntityId)) {
+                List<RepulsorCoil> list = repulsorCoils[block.CubeGrid.EntityId];
+                list.Remove(this);
+                //MyAPIGateway.Utilities.ShowMessage(block.CubeGrid.CustomName, "repulsorCoils: " + repulsorCoils.Count + ", grid coils: " + list.Count + ", maxAltitude: " + maxAltitude);
+                if (list.Count == 0) {
+                    repulsorCoils.Remove(block.CubeGrid.EntityId);
+                } else {
+                    repulsorCoils[block.CubeGrid.EntityId] = list;
                 }
+            } else {
+                //MyAPIGateway.Utilities.ShowMessage(block.CubeGrid.CustomName, "repulsorCoils: " + repulsorCoils.Count + ", maxAltitude: " + maxAltitude);
             }
             base.Destroy();
         }
 
         public void Clear() {
-            tension = defaultTension;
+            power = defaultPower;
             useCoil = defaultUseCoil;
         }
 
@@ -168,30 +209,38 @@ namespace BakurRepulsorCorp {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Coil ==");
             customInfo.AppendLine("Use : " + (useCoil ? "On" : "Off"));
-            customInfo.AppendLine("Tension : " + Math.Round(tension, 1));
-            customInfo.AppendLine("Gravity : " + Math.Round(component.gravity.Length(), 1));
+            customInfo.AppendLine("Tension : " + Math.Round(power, 1));
+            customInfo.AppendLine("Max Altitude : " + Math.Round(maxAltitude, 1));
+            customInfo.AppendLine("Gravity : " + Math.Round(component.rigidbody.gravity.Length(), 1));
             customInfo.AppendLine("Grid Mass : " + Math.Round(block.CubeGrid.Physics.Mass, 1) + " kg");
         }
 
-        #endregion        
+        #endregion
 
         Vector3D desiredAcceleration;
+        double altitude;
 
-        public Vector3D GetLinearAcceleration(double physicsDeltaTime) {
+        public Vector3D GetLinearAcceleration(double physicsDeltaTime, double altitude) {
+
+            //float power_ratio = resourceSink.SuppliedRatioByType(MyResourceDistributorComponent.ElectricityId) * power_ratio_available;
+
+            //if (!resourceSink.IsPoweredByType(MyResourceDistributorComponent.ElectricityId)) {
+            //  power_ratio = 0;
+            //}
+
+
             desiredAcceleration = Vector3D.Zero;
+            this.altitude = altitude;
+
             if (!useCoil) {
-                return desiredAcceleration;
-            }
-            if (!RepulsorCoil.coilsCount.ContainsKey(block.CubeGrid.EntityId)) {
-                return desiredAcceleration;
+                return Vector3D.Zero;
             }
 
-            int coilsCount = RepulsorCoil.coilsCount[block.CubeGrid.EntityId];
-            if (coilsCount == 0) {
-                return desiredAcceleration;
+            if (double.IsNaN(altitude) || altitude > (maxAltitude + (block.WorldAABB.Size.Length() / 2))) {
+                return Vector3D.Zero;
             }
 
-            desiredAcceleration = (-component.gravity / (double)coilsCount) * tension;
+            desiredAcceleration = (-component.rigidbody.gravity / (double)coilsCount) * power;
 
             //MyAPIGateway.Utilities.ShowMessage("acceleration:", acceleration.Length() + ", coilsCount: " + coilsCount + ", tension: " + tension);
 
@@ -201,6 +250,47 @@ namespace BakurRepulsorCorp {
             */
 
             return desiredAcceleration;
+        }
+
+        public double GetMaxAltitude(IMyCubeGrid grid) {
+
+            //MyAPIGateway.Utilities.ShowMessage("GetMaxAltitude", "GetMaxAltitude");
+            /*
+            MyResourceSinkComponent resourceSink;
+
+            component.block.Components.TryGet(out resourceSink);
+
+            if (resourceSink == null) {
+                MyAPIGateway.Utilities.ShowMessage("GetMaxAltitude", "resourceSink == null");
+                return 0;
+            }
+            */
+            //if (!resourceSink.IsPoweredByType(MyResourceDistributorComponent.ElectricityId)) {
+            //MyAPIGateway.Utilities.ShowMessage("GetMaxAltitude", "!resourceSink.IsPoweredByType");
+            //return 0;
+            //}
+
+            //float suppliedRatio = resourceSink.SuppliedRatioByType(MyResourceDistributorComponent.ElectricityId);
+            // MyAPIGateway.Utilities.ShowMessage("GetMaxAltitude", "suppliedRatio: " + suppliedRatio);
+
+            //            return suppliedRatio;
+
+            //if (resourceSink != null) {
+            //  resourceSink.Update();
+            //}
+
+            /*
+
+                 */
+
+            if (!repulsorCoils.ContainsKey(grid.EntityId)) {
+                return float.NaN;
+            } else {
+                List<RepulsorCoil> list = repulsorCoils[grid.EntityId];
+                double size = grid.GridSizeEnum == MyCubeSize.Large ? 4 : 2;
+                double max = MathHelper.Clamp(Math.Pow(size, list.Count * size), 0, 20000);
+                return max;
+            }
         }
     }
 }

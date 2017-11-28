@@ -315,13 +315,14 @@ namespace BakurRepulsorCorp {
         #endregion                
 
         Vector3D desiredAngularAcceleration;
-
+        
         public Vector3D GetDesiredAngularAcceleration(double physicsDeltaTime) {
 
             IMyCubeGrid grid = block.CubeGrid;
 
             MatrixD invertedOrientation = grid.PositionComp.WorldMatrixInvScaled.GetOrientation();
-            Vector3D localAngularAcceleration = Vector3D.Transform(-(Vector3D)grid.Physics.AngularVelocity * 0.9 * BakurMathHelper.Rad2Deg * dumpener, invertedOrientation);
+            Vector3D angularVelocity = (Vector3D)grid.Physics.AngularVelocity * BakurMathHelper.Rad2Deg * dumpener;   
+            Vector3D localAngularAcceleration = Vector3D.Transform(-angularVelocity / physicsDeltaTime * physicsDeltaTime, invertedOrientation);
 
             if (BakurBlockUtils.IsUnderControl(grid)) {
 
@@ -353,7 +354,7 @@ namespace BakurRepulsorCorp {
 
             MatrixD worldOrientation = grid.WorldMatrix.GetOrientation();
             desiredAngularAcceleration = Vector3.Transform(localAngularAcceleration, worldOrientation);
-
+            //desiredAngularAcceleration = Vector3D.ClampToSphere(desiredAngularAcceleration, 90);
             return desiredAngularAcceleration;
             //MyAPIGateway.Utilities.ShowMessage(block.BlockDefinition.SubtypeId, "desiredAngularVelocity: " + desiredAngularVelocity.Length() + ", radiusSquared: " + radiusSquared + ", inertia: " + inertia + ", desiredTorque: " + desiredTorque);
         }

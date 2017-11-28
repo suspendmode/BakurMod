@@ -2,9 +2,11 @@
 using System;
 using System.Text;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class BakurBlockEquipment : EquipmentBase {
+    public class BakurBlockEquipment : EquipmentBase
+    {
 
         static Separator<BakurBlockEquipment> separator;
         static Label<BakurBlockEquipment> label;
@@ -29,27 +31,37 @@ namespace BakurRepulsorCorp {
                 string id = GeneratatePropertyId(ENABLED_PROPERTY_NAME);
 
                 bool oldValue = defaultEnabled;
-                if (GetVariable<bool>(id, out oldValue)) {
-                    if (oldValue == value) {
+                if (GetVariable<bool>(id, out oldValue))
+                {
+                    if (oldValue == value)
+                    {
                         return;
                     }
                 }
 
                 SetVariable<bool>(id, value);
-                if (EnabledChangedEvent != null) {
+                if (EnabledChangedEvent != null)
+                {
                     EnabledChangedEvent();
                 }
+                RefreshControls();
             }
             get
             {
                 string id = GeneratatePropertyId(ENABLED_PROPERTY_NAME);
                 bool result = defaultEnabled;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultEnabled;
             }
 
+        }
+
+        protected virtual void RefreshControls()
+        {
+            MyAPIGateway.Utilities.ShowMessage("BakurBlockEquipment", "RefreshControls");
         }
 
         #endregion
@@ -73,7 +85,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(DEBUG_ENABLED_PROPERTY_NAME);
                 bool result = defaultDebugEnabled;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultDebugEnabled;
@@ -82,67 +95,82 @@ namespace BakurRepulsorCorp {
 
         #endregion
 
-        public BakurBlockEquipment(BakurBlock component) : base(component) {
+        public BakurBlockEquipment(BakurBlock component) : base(component)
+        {
         }
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
+            //MyAPIGateway.Utilities.ShowMessage("BakurBlockEquipment", "Initialize");
 
             EnabledChangedEvent += UpdateUI;
 
-            if (separator == null) {
+            if (separator == null)
+            {
                 separator = new Separator<BakurBlockEquipment>("BlockSeparator");
                 separator.Initialize();
             }
 
-            if (label == null) {
+            if (label == null)
+            {
                 label = new Label<BakurBlockEquipment>("BlockLabel", "Bakur Repulsor Corp");
                 label.Initialize();
             }
 
-            if (enableToggle == null) {
+            if (enableToggle == null)
+            {
                 enableToggle = new Component_EnabledSwitch();
                 enableToggle.Initialize();
             }
 
-            if (enableToggleAction == null) {
+            if (enableToggleAction == null)
+            {
                 enableToggleAction = new Component_EnabledToggleAction();
                 enableToggleAction.Initialize();
             }
 
-            if (enableAction == null) {
+            if (enableAction == null)
+            {
                 enableAction = new Component_EnableAction();
                 enableAction.Initialize();
             }
 
-            if (disableAction == null) {
+            if (disableAction == null)
+            {
                 disableAction = new Component_DisableAction();
                 disableAction.Initialize();
             }
 
-            if (debugEnableToggle == null) {
+            if (debugEnableToggle == null)
+            {
                 debugEnableToggle = new Component_DebugEnabledSwitch();
                 debugEnableToggle.Initialize();
             }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
             EnabledChangedEvent -= UpdateUI;
         }
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Suspension ==");
             customInfo.AppendLine("Enabled : " + enabled);
             customInfo.AppendLine("Debug Enabled : " + debugEnabled);
         }
 
-        public override void Debug() {
-            if (!component.debugEnabled) {
+        public override void Debug()
+        {
+            if (!component.debugEnabled)
+            {
                 return;
             }
         }
 
-        protected virtual void UpdateUI() {
+        protected virtual void UpdateUI()
+        {
 
         }
     }

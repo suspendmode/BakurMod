@@ -143,10 +143,10 @@ namespace BakurRepulsorCorp {
 
         void TypeDisableBlock(IMyCubeBlock block) {
             TypeDisable<RepulsorCoilBlock>(block);
-            TypeDisable<RepulsorGeneratorBlock>(block);
+            TypeDisable<RepulsorDriveBlock>(block);
             TypeDisable<RepulsorLiftBlock>(block);
             TypeDisable<RepulsorLiftCoilBlock>(block);
-            TypeDisable<RepulsorLiftGeneratorBlock>(block);
+            TypeDisable<RepulsorLiftDriveBlock>(block);
             TypeDisable<RepulsorSuspensionBlock>(block);
             TypeDisable<RepulsorChairBlock>(block);
         }

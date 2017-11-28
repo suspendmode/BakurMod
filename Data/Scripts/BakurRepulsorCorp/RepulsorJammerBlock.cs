@@ -3,35 +3,37 @@ using System;
 using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
-using VRage.Game.ModAPI;
-using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockRepulsorJammer", "LargeBlockRepulsorJammer" })]
-    public class RepulsorJammerBlock : BakurBlock {
+    public class RepulsorJammerBlock : BakurBlock
+    {
 
         private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsorJammer", "LargeBlockRepulsorJammer" };
 
         RepulsorJammer repulsorJammer;
-        
+
         #region lifecycle
 
-        protected override void Initialize() {
+        protected override void Initialize()
+        {
 
             base.Initialize();
-            
+
             repulsorJammer = new RepulsorJammer(this);
-            Add(repulsorJammer);
+            AddEquipment(repulsorJammer);
 
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(repulsorJammer);
+            RemoveEquipment(repulsorJammer);
             repulsorJammer = null;
 
         }
@@ -39,7 +41,8 @@ namespace BakurRepulsorCorp {
         #endregion
 
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Jammer Block ==");
             base.AppendCustomInfo(block, customInfo);
@@ -47,18 +50,21 @@ namespace BakurRepulsorCorp {
 
 
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {            
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
-            if (!IsInGravity) {
+            if (!rigidbody.IsInGravity)
+            {
                 return;
             }
-            
-            
+
+
         }
 
-        public override void UpdateAfterSimulation10() {
+        public override void UpdateAfterSimulation10()
+        {
             base.UpdateAfterSimulation10();
-            repulsorJammer.UpdateJammer();            
+            repulsorJammer.UpdateJammer();
         }
 
         protected override string[] soundIds
@@ -69,7 +75,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("b0ee9325-b5a6-48c9-8a24-d1a9752addf7");
         }
     }

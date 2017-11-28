@@ -4,52 +4,42 @@ namespace BakurRepulsorCorp {
 
     public class DoublePID {
 
-        public double Kp = 0.1;
+        public double Kp = 0.6;
         public double Ki = 0;
-        public double Kd = 0.01;
-
-        public double lastError;
-        public double integral;
-        public double derivative;
+        public double Kd = 0.2;
 
         public double lastOutput;
 
-        public bool clampOutput = false;
-        public double minOutput = 0;
-        public double maxOutput = 0;
+        public bool clampOutput = true;
+        public double minOutput = -1;
+        public double maxOutput = 1;
+        double _prevDx;
+        double _accumDx;
 
         public void Reset() {
-            lastError = 0;
+            _prevDx = 0;
+            _accumDx = 0;
         }
 
         public double UpdateValue(double input, double desired, double deltaTime) {
 
             double error = desired - input;
-
             return UpdateValue(error, deltaTime);
         }
 
+    
         public double UpdateValue(double error, double deltaTime) {
 
-            double output = 0;
-
-            output = ((Kp * error) + (Ki * integral)) + (Kd * derivative);
-
+            double dx = error;
+            double ddx = (dx - _prevDx) / deltaTime;
+            _accumDx = 0.99f * _accumDx + dx;
+            _prevDx = dx;
+            double f = Kp * dx + Ki * _accumDx + Kd * ddx;          
             if (clampOutput) {
-                output = MathHelper.Clamp(output, minOutput, maxOutput);
+                f = MathHelper.Clamp(f, minOutput, maxOutput);
             }
-
-            if (clampOutput && output >= maxOutput || output <= minOutput) {
-                integral += (error * deltaTime);
-            }
-
-            lastOutput = output;
-
-            derivative = (error - lastError) / deltaTime;
-
-            lastError = error;
-
-            return output;
+            lastOutput = f;
+            return f;
         }
     }
 }

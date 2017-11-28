@@ -221,7 +221,7 @@ namespace BakurRepulsorCorp {
             customInfo.AppendLine("Damping : " + Math.Round(damping, 1));
             customInfo.AppendLine("Ratio : " + Math.Round(ratio, 3));
             customInfo.AppendLine("Impulse : " + Math.Round(impulse, 1));
-            customInfo.AppendLine("Altitude : " + Math.Round(distance, 1) + " m");
+            customInfo.AppendLine("Altitude : " + Math.Round(altitude, 1) + " m");
             customInfo.AppendLine("Previous Altitude : " + Math.Round(previousAltitude, 1) + " m");
             customInfo.AppendLine("Desired Force : " + Math.Round(desiredForce.Length() / 1000, 3) + " kN");
         }
@@ -229,21 +229,21 @@ namespace BakurRepulsorCorp {
         #endregion
 
         public Vector3D desiredForce;
-        public double distance;
+        public double altitude;
         double previousAltitude;
         public Vector3D desiredUp;
         double ratio;
 
-        public Vector3D GetForce(double physicsDeltaTime, Vector3D desiredUp, double distance) {
+        public Vector3D GetForce(double physicsDeltaTime, Vector3D desiredUp, double altitude) {
 
-            this.distance = distance;
+            this.altitude = altitude;
             this.desiredUp = desiredUp;
 
             desiredForce = Vector3.Zero;
 
             // auto distance if (double.IsNaN(restLength) && !double.IsNaN(this.distance)) {
 
-            if (distance >= Suspension_RestLengthSlider.maximum) {
+            if (altitude >= Suspension_RestLengthSlider.maximum) {
                 return desiredForce;
             }
 
@@ -263,10 +263,10 @@ namespace BakurRepulsorCorp {
 
             restLength = MathHelper.Clamp(restLength, Suspension_RestLengthSlider.minimum, Suspension_RestLengthSlider.maximum);
 
-            ratio = stiffness * (restLength - this.distance) + damping * (previousAltitude - this.distance);
-            previousAltitude = this.distance;
+            ratio = stiffness * (restLength - this.altitude) + damping * (previousAltitude - this.altitude);
+            previousAltitude = this.altitude;
 
-            desiredForce = desiredUp * MathHelper.Clamp(ratio * impulse * component.gridMass * component.gravity.Length(), 0, double.MaxValue);
+            desiredForce = desiredUp * MathHelper.Clamp(ratio * impulse * component.rigidbody.gridMass * component.rigidbody.gravity.Length(), 0, double.MaxValue);
 
             return desiredForce;
         }

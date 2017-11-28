@@ -166,7 +166,7 @@ namespace BakurRepulsorCorp {
 
             this.surfaceNormal = surfaceNormal;
 
-            if (!component.IsInGravity) {
+            if (!component.rigidbody.IsInGravity) {
                 desiredUp = block.WorldMatrix.Up;
                 return desiredUp;
             }
@@ -176,13 +176,13 @@ namespace BakurRepulsorCorp {
             // up
 
             if (useGravityNormal && !useSurfaceNormal) {
-                desiredUp = component.gravityUp;
+                desiredUp = component.rigidbody.gravityUp;
                 desiredUp.Normalize();
             } else if (useSurfaceNormal && !useGravityNormal) {
                 desiredUp = surfaceNormal;
                 desiredUp.Normalize();
             } else if (useSurfaceNormal && useGravityNormal) {
-                desiredUp = (surfaceNormal + component.gravityUp) / 2;
+                desiredUp = (surfaceNormal + component.rigidbody.gravityUp) / 2;
                 desiredUp.Normalize();
             } else {
                 desiredUp = Vector3D.Zero;

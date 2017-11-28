@@ -6,36 +6,39 @@ using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
-
+namespace BakurRepulsorCorp
+{
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockInertialCompensator", "LargeBlockInertialCompensator" })]
-    public class InertialCompensatorBlock : NonStaticBakurBlock {
+    public class InertialCompensatorBlock : BakurBlock
+    {
 
         LinearInertialCompensator linearInertialCompensator;
         AngularInertialCompensator angularInertialCompensator;
 
         #region lifecycle
 
-        protected override void Initialize() {
-
+        protected override void Initialize()
+        {
             base.Initialize();
+            MyAPIGateway.Utilities.ShowMessage("InertialCompensatorBlock", "Initialize");
 
             linearInertialCompensator = new LinearInertialCompensator(this);
-            Add(linearInertialCompensator);
+            AddEquipment(linearInertialCompensator);
 
             angularInertialCompensator = new AngularInertialCompensator(this);
-            Add(angularInertialCompensator);
+            AddEquipment(angularInertialCompensator);
         }
 
-        protected override void Destroy() {
+        protected override void Destroy()
+        {
 
             base.Destroy();
 
-            Remove(linearInertialCompensator);
+            RemoveEquipment(linearInertialCompensator);
             linearInertialCompensator = null;
 
-            Remove(angularInertialCompensator);
+            RemoveEquipment(angularInertialCompensator);
             angularInertialCompensator = null;
         }
 
@@ -43,7 +46,8 @@ namespace BakurRepulsorCorp {
 
         #region update
 
-        protected override void UpdateBeforeFrame(double physicsDeltaTime, double updateDeltaTime) {
+        protected override void UpdateSimulation(double physicsDeltaTime)
+        {
 
             //projectedVelocity = MyMath.ForwardVectorProjection(-component.Gravity, projectedVelocity);
             //double speedNormalized = MathHelper.Clamp(currentVelocity.Length() / 100, 0, 1);
@@ -55,22 +59,25 @@ namespace BakurRepulsorCorp {
 
             // linear compensator
 
-            if (linearInertialCompensator.useLinearCompensator) {
+            if (linearInertialCompensator.useLinearCompensator)
+            {
                 desiredLinearAcceleration = linearInertialCompensator.GetDesiredLinearAcceleration(physicsDeltaTime);
-                AddLinearAcceleration(desiredLinearAcceleration);
+                rigidbody.AddLinearAcceleration(desiredLinearAcceleration);
             }
 
             // angular compensator
 
-            if (angularInertialCompensator.useAngularCompensator) {
+            if (angularInertialCompensator.useAngularCompensator)
+            {
                 desiredAngularAcceleration = angularInertialCompensator.GetDesiredAngularAcceleration(physicsDeltaTime);
-                AddAngularAcceleration(desiredAngularAcceleration);
+                rigidbody.AddAngularAcceleration(desiredAngularAcceleration);
             }
         }
 
         #endregion
 
-        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Inertial Compensator Block ==");
 
@@ -86,7 +93,8 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        protected override Guid blockGUID() {
+        protected override Guid blockGUID()
+        {
             return new Guid("44126a78-23f0-42ec-ade9-268fc6adb9b0");
         }
     }

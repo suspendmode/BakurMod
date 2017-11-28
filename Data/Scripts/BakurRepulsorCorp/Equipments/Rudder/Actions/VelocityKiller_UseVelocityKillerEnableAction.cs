@@ -23,7 +23,7 @@ namespace BakurRepulsorCorp {
             if (component == null) {
                 return;
             }
-            builder.Append(builder.Append("Vel " + (component.useVelocityKiller ? "On" : "Off")));
+            builder.Append(builder.Append((component.useVelocityKiller ? "On" : "Off")));
         }
     }
 }
