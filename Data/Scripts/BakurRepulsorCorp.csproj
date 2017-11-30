@@ -5,10 +5,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{08521454-8C05-4621-8454-00169666965C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BakurRepuslorTech</RootNamespace>
-    <AssemblyName>BakurRepuslorTech</AssemblyName>
+    <RootNamespace>BakurRepulsorCorp</RootNamespace>
+    <AssemblyName>BakurRepulsorCorp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -368,7 +368,6 @@
     <Compile Include="BakurRepulsorCorp\Block\BlockSounds.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Controls\Component_DebugEnabledSwitch.cs" />
     <Compile Include="BakurRepulsorCorp\Equipment\Controls\Component_EnabledSwitch.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipment\Equipment.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\Copter\Copter.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorDrive\Actions\Linear\LinearGenerator_DecraseForwardAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorDrive\Actions\Linear\LinearGenerator_DecraseSidewaysAction.cs" />
@@ -444,13 +443,14 @@
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorLift\RepulsorLift.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorCoil\Controls\Coil_PowerSlider.cs" />
     <Compile Include="BakurRepulsorCorp\Block\BakurSession.cs" />
-    <Compile Include="BakurRepulsorCorp\Equipments\Sensor\PlanetsSession.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorDrive\Actions\Angular\AngularGenerator_DecraseYawAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorDrive\Actions\Angular\AngularGenerator_IncrasePitchAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorDrive\Actions\Angular\AngularGenerator_DecrasePitchAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorDrive\Actions\AngularGenerator_UseAngularGeneratorDisableAction.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorLift\Controls\Lift_DesiredAltitudeSlider.cs" />
     <Compile Include="BakurRepulsorCorp\Equipments\RepulsorPointLift\Actions\PointLift_DecraseNormalizedAltitudeAction.cs" />
+    <Compile Include="BakurRepulsorCorp\Equipment\EquipmentBase.cs" />
+    <Compile Include="BakurRepulsorCorp\Equipments\Sensor\PlanetsList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BakurRepulsorCorp\RepulsorDriveBlock.cs" />
     <Compile Include="BakurRepulsorCorp\RepulsorLiftDriveBlock.cs" />

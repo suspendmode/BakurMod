@@ -1,4 +1,5 @@
-﻿using Sandbox.ModAPI;
+﻿using Sandbox.Common.ObjectBuilders;
+using Sandbox.ModAPI;
 using System;
 using System.Text;
 using VRage.Game;
@@ -9,7 +10,7 @@ namespace BakurRepulsorCorp
 {
 
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockRepulsorLift", "LargeBlockRepulsorLift" })]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorLift", "LargeBlockRepulsorLift" })]
     public class RepulsorLiftBlock : BakurBlock
     {
 
@@ -57,13 +58,13 @@ namespace BakurRepulsorCorp
         Vector3D liftAcceleration = Vector3D.Zero;
         protected override void UpdateSimulation(double physicsDeltaTime)
         {
-
             liftAcceleration = Vector3D.Zero;
 
             planetAltitudeSensor.UpdateSensor(physicsDeltaTime);
 
-            if (!rigidbody.IsInGravity)
+            if (double.IsNaN(planetAltitudeSensor.altitude))
             {
+                MyAPIGateway.Utilities.ShowMessage("RepulsorLiftBlock", "double.IsNaN(planetAltitudeSensor.altitude)");
                 return;
             }
 

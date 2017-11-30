@@ -1,4 +1,5 @@
-﻿using Sandbox.ModAPI;
+﻿using Sandbox.Common.ObjectBuilders;
+using Sandbox.ModAPI;
 using Sandbox.ModAPI.Interfaces.Terminal;
 using System;
 using System.Text;
@@ -11,7 +12,7 @@ using VRageMath;
 namespace BakurRepulsorCorp
 {
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_CargoContainer), true, new string[] { "SmallBlockRepulsorCoil", "LargeBlockRepulsorCoil" })]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorCoil", "LargeBlockRepulsorCoil" })]
     public class RepulsorCoilBlock : BakurBlock
     {
         PlanetAltitudeSensor planetAltitudeSensor;

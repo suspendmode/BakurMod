@@ -5,14 +5,17 @@ using System.Text;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class RepulsorLinearGenerator : BakurBlockEquipment {
+    public class RepulsorLinearGenerator : BakurBlockEquipment
+    {
 
-        public double maxLinearVelocity = 10;
-        public double maxLinearAcceleration = 5;
+        public double maxLinearVelocity = 3;
+        public double maxLinearAcceleration = 0.2;
 
-        public RepulsorLinearGenerator(BakurBlock component) : base(component) {
+        public RepulsorLinearGenerator(BakurBlock component) : base(component)
+        {
 
         }
 
@@ -44,7 +47,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_LINEAR_DRIVE_PROPERTY_NAME);
                 bool result = defaultUseLinearGenerator;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseLinearGenerator;
@@ -74,7 +78,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
                 double result = defaultPower;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultPower;
@@ -106,7 +111,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(FORWARD_PROPERTY_NAME);
                 double result = defaultForward;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultForward;
@@ -138,7 +144,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(SIDEWAYS_PROPERTY_NAME);
                 double result = defaultSideways;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultSideways;
@@ -169,7 +176,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(UP_PROPERTY_NAME);
                 double result = defaultUp;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultUp;
@@ -180,141 +188,167 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
             // label
 
-            if (repulsorLinearGeneratorSeparator == null) {
+            if (repulsorLinearGeneratorSeparator == null)
+            {
                 repulsorLinearGeneratorSeparator = new Separator<RepulsorLinearGenerator>("LinearGenerator_GeneratorSeparator");
                 repulsorLinearGeneratorSeparator.Initialize();
             }
 
-            if (repulsorLinearGeneratorLabel == null) {
+            if (repulsorLinearGeneratorLabel == null)
+            {
                 repulsorLinearGeneratorLabel = new Label<RepulsorLinearGenerator>("LinearGenerator_RepulsorLinearGeneratorLabel", "Repulsor Linear Generator");
                 repulsorLinearGeneratorLabel.Initialize();
             }
 
             // linear
 
-            if (linearOverrideSeparator == null) {
+            if (linearOverrideSeparator == null)
+            {
                 linearOverrideSeparator = new Separator<RepulsorLinearGenerator>("LinearGenerator_LinearOverrideSeparator");
                 linearOverrideSeparator.Initialize();
             }
 
-            if (linearOverrideLabel == null) {
+            if (linearOverrideLabel == null)
+            {
                 linearOverrideLabel = new Label<RepulsorLinearGenerator>("LinearGenerator_LinearOverrideLabel", "Linear Override");
                 linearOverrideLabel.Initialize();
             }
 
             // use linear generator
 
-            if (useLinearGeneratorSwitch == null) {
+            if (useLinearGeneratorSwitch == null)
+            {
                 useLinearGeneratorSwitch = new LinearGenerator_UseLinearGeneratorSwitch();
                 useLinearGeneratorSwitch.Initialize();
             }
 
-            if (useLinearGeneratorToggleAction == null) {
+            if (useLinearGeneratorToggleAction == null)
+            {
                 useLinearGeneratorToggleAction = new LinearGenerator_UseLinearGeneratorToggleAction();
                 useLinearGeneratorToggleAction.Initialize();
             }
 
-            if (useLinearGeneratorEnableAction == null) {
+            if (useLinearGeneratorEnableAction == null)
+            {
                 useLinearGeneratorEnableAction = new LinearGenerator_UseLinearGeneratorEnableAction();
                 useLinearGeneratorEnableAction.Initialize();
             }
 
-            if (useLinearGeneratorDisableAction == null) {
+            if (useLinearGeneratorDisableAction == null)
+            {
                 useLinearGeneratorDisableAction = new LinearGenerator_UseLinearGeneratorDisableAction();
                 useLinearGeneratorDisableAction.Initialize();
             }
 
             // power
 
-            if (powerSlider == null) {
+            if (powerSlider == null)
+            {
                 powerSlider = new LinearGenerator_PowerSlider();
                 powerSlider.Initialize();
             }
-            if (incrasePowerAction == null) {
+            if (incrasePowerAction == null)
+            {
                 incrasePowerAction = new LinearGenerator_IncrasePowerAction();
                 incrasePowerAction.Initialize();
             }
-            if (decrasePowerAction == null) {
+            if (decrasePowerAction == null)
+            {
                 decrasePowerAction = new LinearGenerator_DecrasePowerAction();
                 decrasePowerAction.Initialize();
             }
 
             // sideways
 
-            if (sidewaysSlider == null) {
+            if (sidewaysSlider == null)
+            {
                 sidewaysSlider = new LinearGenerator_SidewaysSlider();
                 sidewaysSlider.Initialize();
             }
 
-            if (incraseSidewaysAction == null) {
+            if (incraseSidewaysAction == null)
+            {
                 incraseSidewaysAction = new LinearGenerator_IncraseSidewaysAction();
                 incraseSidewaysAction.Initialize();
             }
 
-            if (decraseSidewaysAction == null) {
+            if (decraseSidewaysAction == null)
+            {
                 decraseSidewaysAction = new LinearGenerator_DecraseSidewaysAction();
                 decraseSidewaysAction.Initialize();
             }
 
-            if (zeroSidewaysAction == null) {
+            if (zeroSidewaysAction == null)
+            {
                 zeroSidewaysAction = new LinearGenerator_ZeroSidewaysAction();
                 zeroSidewaysAction.Initialize();
             }
 
             // up
 
-            if (upSlider == null) {
+            if (upSlider == null)
+            {
                 upSlider = new LinearGenerator_UpSlider();
                 upSlider.Initialize();
             }
 
-            if (incraseUpAction == null) {
+            if (incraseUpAction == null)
+            {
                 incraseUpAction = new LinearGenerator_IncraseUpAction();
                 incraseUpAction.Initialize();
             }
 
-            if (decraseUpAction == null) {
+            if (decraseUpAction == null)
+            {
                 decraseUpAction = new LinearGenerator_DecraseUpAction();
                 decraseUpAction.Initialize();
             }
 
-            if (zeroUpAction == null) {
+            if (zeroUpAction == null)
+            {
                 zeroUpAction = new LinearGenerator_ZeroUpAction();
                 zeroUpAction.Initialize();
             }
 
             // forward            
 
-            if (forwardSlider == null) {
+            if (forwardSlider == null)
+            {
                 forwardSlider = new LinearGenerator_ForwardSlider();
                 forwardSlider.Initialize();
             }
 
-            if (incraseForwardAction == null) {
+            if (incraseForwardAction == null)
+            {
                 incraseForwardAction = new LinearGenerator_IncraseForwardAction();
                 incraseForwardAction.Initialize();
             }
 
-            if (decraseForwardAction == null) {
+            if (decraseForwardAction == null)
+            {
                 decraseForwardAction = new LinearGenerator_DecraseForwardAction();
                 decraseForwardAction.Initialize();
             }
 
-            if (zeroForwardAction == null) {
+            if (zeroForwardAction == null)
+            {
                 zeroForwardAction = new LinearGenerator_ZeroForwardAction();
                 zeroForwardAction.Initialize();
             }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
             Clear();
         }
 
-        void Clear() {
+        void Clear()
+        {
             desiredLinearAcceleration = Vector3D.Zero;
         }
 
@@ -322,7 +356,8 @@ namespace BakurRepulsorCorp {
 
         #region visuals
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Linear Generator ==");
             customInfo.AppendLine("Sideways : " + Math.Round(sideways, 1) + " m/s");
@@ -331,8 +366,10 @@ namespace BakurRepulsorCorp {
 
         }
 
-        public override void Debug() {
-            if (!component.debugEnabled) {
+        public override void Debug()
+        {
+            if (!component.debugEnabled)
+            {
                 return;
             }
             Vector3D center = block.WorldAABB.Center;
@@ -359,30 +396,40 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        Vector3D GetShipControllerLinearInput(IMyShipController shipController) {
+        Vector3D GetShipControllerLinearInput(IMyShipController shipController)
+        {
 
             Vector3D linearInput = Vector3D.Zero;
 
-            if (!shipController.CanControlShip) {
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.STRAFE_RIGHT)) {
+            if (!shipController.CanControlShip)
+            {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.STRAFE_RIGHT))
+                {
                     linearInput.X = 1;
                 }
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.STRAFE_LEFT)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.STRAFE_LEFT))
+                {
                     linearInput.X = -1;
                 }
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.JUMP)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.JUMP))
+                {
                     linearInput.Y = 1;
                 }
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.CROUCH)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.CROUCH))
+                {
                     linearInput.Y = -1;
                 }
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.FORWARD)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.FORWARD))
+                {
                     linearInput.Z = -1;
                 }
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.BACKWARD)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.BACKWARD))
+                {
                     linearInput.Z = 1;
                 }
-            } else {
+            }
+            else
+            {
                 linearInput.X = shipController.MoveIndicator.X < 0 ? -1 : shipController.MoveIndicator.X > 0 ? 1 : 0;
                 linearInput.Y = shipController.MoveIndicator.Y < 0 ? -1 : shipController.MoveIndicator.Y > 0 ? 1 : 0;
                 linearInput.Z = shipController.MoveIndicator.Z < 0 ? -1 : shipController.MoveIndicator.Z > 0 ? 1 : 0;
@@ -397,18 +444,21 @@ namespace BakurRepulsorCorp {
 
 
 
-        public Vector3D GetLinearAcceleration(double physicsDeltaTime) {
+        public Vector3D GetLinearAcceleration(double physicsDeltaTime)
+        {
 
             desiredLinearAcceleration = Vector3D.Zero;
 
-            if (!useLinearGenerator) {
+            if (!useLinearGenerator)
+            {
                 Clear();
                 return desiredLinearAcceleration;
             }
 
             IMyCubeGrid grid = block.CubeGrid;
 
-            if (grid.Physics.LinearVelocity.Length() > maxLinearVelocity) {
+            if (grid.Physics.LinearVelocity.Length() > maxLinearVelocity)
+            {
                 Clear();
                 return desiredLinearAcceleration;
             }
@@ -417,7 +467,8 @@ namespace BakurRepulsorCorp {
             Vector3D linear = linearOverride;
 
             IMyShipController shipController = BakurBlockUtils.GetShipControllerUnderControl(grid);
-            if (shipController != null) {
+            if (shipController != null)
+            {
                 linear += GetShipControllerLinearInput(shipController);
             }
 

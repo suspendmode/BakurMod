@@ -4,9 +4,11 @@ using System.Text;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class PlanetAltitudeSensor : PlanetSensor {
+    public class PlanetAltitudeSensor : PlanetSensor
+    {
 
         public double altitude = double.NaN;
 
@@ -36,7 +38,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(PRECISION_MODE_PROPERTY_NAME);
                 bool result = defaultPrecisionMode;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultPrecisionMode;
@@ -64,7 +67,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_BLOCK_POSITION_PROPERTY_NAME);
                 bool result = defaultUseBlockPosition;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseBlockPosition;
@@ -73,88 +77,105 @@ namespace BakurRepulsorCorp {
 
         #endregion       
 
-        public PlanetAltitudeSensor(BakurBlock component) : base(component) {
+        public PlanetAltitudeSensor(BakurBlock component) : base(component)
+        {
         }
 
         #region lifecycle
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
-            if (separator == null) {
+            if (separator == null)
+            {
                 separator = new Separator<PlanetAltitudeSensor>("PlanetAltitudeSensor_Separator");
                 separator.Initialize();
             }
 
-            if (planetAltitudeLabel == null) {
+            if (planetAltitudeLabel == null)
+            {
                 planetAltitudeLabel = new Label<PlanetAltitudeSensor>("PlanetAltitudeSensor_PlanetAltitudeLabel", "Planet Altitude Sensor");
                 planetAltitudeLabel.Initialize();
             }
 
 
-            if (useBlockPositionSwitch == null) {
+            if (useBlockPositionSwitch == null)
+            {
                 useBlockPositionSwitch = new PlanetAltitudeSensor_UseBlockPositionSwitch();
                 useBlockPositionSwitch.Initialize();
             }
 
-            if (precisionModeSeparator == null) {
+            if (precisionModeSeparator == null)
+            {
                 precisionModeSeparator = new Separator<PlanetAltitudeSensor>("PlanetAltitudeSensor_PrecisionModeSeparator");
                 precisionModeSeparator.Initialize();
             }
 
-            if (precisionModeSwitch == null) {
+            if (precisionModeSwitch == null)
+            {
                 precisionModeSwitch = new PlanetAltitudeSensor_PrecisionModeSwitch();
                 precisionModeSwitch.Initialize();
             }
 
-            if (precisionModeDisableAction == null) {
+            if (precisionModeDisableAction == null)
+            {
                 precisionModeDisableAction = new PlanetAltitudeSensor_PrecisionModeDisableAction();
                 precisionModeDisableAction.Initialize();
             }
 
-            if (precisionModeEnableAction == null) {
+            if (precisionModeEnableAction == null)
+            {
                 precisionModeEnableAction = new PlanetAltitudeSensor_PrecisionModeEnableAction();
                 precisionModeEnableAction.Initialize();
             }
 
-            if (precisionModeToggleAction == null) {
+            if (precisionModeToggleAction == null)
+            {
                 precisionModeToggleAction = new PlanetAltitudeSensor_PrecisionModeToggleAction();
                 precisionModeToggleAction.Initialize();
             }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
         }
 
         #endregion
 
-        public override void UpdateSensor(double physicsDeltaTime) {
-
+        public override void UpdateSensor(double physicsDeltaTime)
+        {
             base.UpdateSensor(physicsDeltaTime);
 
-            if (!component.rigidbody.IsInGravity || nearestPlanet == null) {
+            if (!component.rigidbody.IsInGravity || nearestPlanet == null)
+            {
                 altitude = double.NaN;
                 return;
             }
 
             double newAltitude = 0;
 
-            if (precisionMode) {
+            if (precisionMode)
+            {
                 newAltitude = GetPrecisionModeAltitude(physicsDeltaTime);
-            } else {
+            }
+            else
+            {
                 newAltitude = GetAltitude(physicsDeltaTime);
             }
 
             altitude = newAltitude;
         }
 
-        double GetAltitude(double physicsDeltaTime) {
+        double GetAltitude(double physicsDeltaTime)
+        {
             IMyCubeGrid grid = block.CubeGrid;
             Vector3D center = useBlockPosition ? block.WorldAABB.Center : grid.WorldAABB.Center;
             double distance = Vector3D.Distance(center, nearestPlanet.PositionComp.GetPosition());
             return distance - nearestPlanet.MinimumRadius;
         }
 
-        double GetPrecisionModeAltitude(double physicsDeltaTime) {
+        double GetPrecisionModeAltitude(double physicsDeltaTime)
+        {
 
             IMyCubeGrid grid = block.CubeGrid;
             Vector3D center = useBlockPosition ? block.WorldAABB.Center : grid.WorldAABB.Center;
@@ -163,18 +184,22 @@ namespace BakurRepulsorCorp {
             return Vector3D.Distance(surfacePoint, center);
         }
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
-            customInfo.AppendLine("== Planet Altitude Sensor ==");
-            customInfo.AppendLine("IsInGravity : " + component.rigidbody.IsInGravity);
-            customInfo.AppendLine("Planets : " + PlanetsSession.planets.Count);
-            customInfo.AppendLine("Nearest Planet : " + (nearestPlanet != null ? nearestPlanet.Name.Substring(0, 10) : "None"));
-            customInfo.AppendLine("Altitude : " + Math.Round(altitude, 1));
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
+            customInfo.AppendLine("");
+            customInfo.AppendLine("Type: Planet Altitude Sensor");
+            customInfo.AppendLine("IsInGravity: " + component.rigidbody.IsInGravity);
+            customInfo.AppendLine("Planets: " + PlanetsList.planets.Count);
+            customInfo.AppendLine("Nearest Planet: " + (nearestPlanet != null ? nearestPlanet.Name.Substring(0, 10) : "None"));
+            customInfo.AppendLine("Altitude: " + Math.Round(altitude, 1));
             //customInfo.AppendLine("MAx Altitude Smooth Speed: " + Math.Round(maxAltitudeSmoothSpeed, 1) + " m/s");
             customInfo.AppendLine("Use Block Position : " + useBlockPosition);
         }
 
-        public override void Debug() {
-            if (!component.debugEnabled) {
+        public override void Debug()
+        {
+            if (!component.debugEnabled)
+            {
                 return;
             }
         }

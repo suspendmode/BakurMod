@@ -4,9 +4,11 @@ using System.Text;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class SurfaceNormalSensor : EquipmentBase {
+    public class SurfaceNormalSensor : EquipmentBase
+    {
 
         public Vector3D surfaceNormal = Vector3D.Zero;
         public Vector3D surfacePoint = Vector3D.Zero;
@@ -19,33 +21,38 @@ namespace BakurRepulsorCorp {
         public SensorHitInfo rearLeftHit = new SensorHitInfo();
         public SensorHitInfo rearRightHit = new SensorHitInfo();
 
-        public SurfaceNormalSensor(BakurBlock block) : base(block) {
+        public SurfaceNormalSensor(BakurBlock block) : base(block)
+        {
         }
 
         #region lifecycle
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
 
         }
 
         #endregion
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
-            customInfo.AppendLine("== Surface Normal Sensor ==");
-            customInfo.AppendLine("Has Surface : " + hasSurface);
-            customInfo.AppendLine("Altitude : " + Math.Round(altitude, 1));
-            customInfo.AppendLine("Front Left Hit : " + frontLeftHit.hit);
-            customInfo.AppendLine("Front Right Hit : " + frontRightHit.hit);
-            customInfo.AppendLine("Rear Left Hit : " + rearLeftHit.hit);
-            customInfo.AppendLine("Rear Right Hit : " + rearRightHit.hit);
+            customInfo.AppendLine("Type: Surface Normal Sensor");
+            customInfo.AppendLine("Has Surface: " + hasSurface);
+            customInfo.AppendLine("Altitude: " + Math.Round(altitude, 1));
+            customInfo.AppendLine("Front Left Hit: " + frontLeftHit.hit);
+            customInfo.AppendLine("Front Right Hit: " + frontRightHit.hit);
+            customInfo.AppendLine("Rear Left Hit:: " + rearLeftHit.hit);
+            customInfo.AppendLine("Rear Right Hit: " + rearRightHit.hit);
         }
 
-        public void UpdateSensor() {
+        public void UpdateSensor()
+        {
 
             Vector3D forward = block.WorldMatrix.Forward;
             Vector3D right = block.WorldMatrix.Right;
@@ -82,22 +89,27 @@ namespace BakurRepulsorCorp {
             BakurCastRayHelper.CastRayVoxelAndGrids(rearRightHit, block);
 
             int count = 0;
-            if (frontLeftHit.hit) {
+            if (frontLeftHit.hit)
+            {
                 count++;
             }
-            if (frontRightHit.hit) {
+            if (frontRightHit.hit)
+            {
                 count++;
             }
-            if (rearLeftHit.hit) {
+            if (rearLeftHit.hit)
+            {
                 count++;
             }
-            if (rearRightHit.hit) {
+            if (rearRightHit.hit)
+            {
                 count++;
             }
 
             hasSurface = count >= 3;
 
-            if (hasSurface) {
+            if (hasSurface)
+            {
 
                 surfaceNormal = BakurMathHelper.CalculateSurfaceNormal(
                     new Vector3[] {
@@ -111,32 +123,40 @@ namespace BakurRepulsorCorp {
                 //average altitude
                 int c = 0;
                 altitude = 0;
-                if (frontLeftHit.hit) {
+                if (frontLeftHit.hit)
+                {
                     altitude += frontLeftHit.distance;
                     c++;
                 }
-                if (frontRightHit.hit) {
+                if (frontRightHit.hit)
+                {
                     altitude += frontRightHit.distance;
                     c++;
                 }
-                if (rearLeftHit.hit) {
+                if (rearLeftHit.hit)
+                {
                     altitude += rearLeftHit.distance;
                     c++;
                 }
-                if (rearRightHit.hit) {
+                if (rearRightHit.hit)
+                {
                     altitude += rearRightHit.distance;
                     c++;
                 }
-                if (c > 1) {
+                if (c > 1)
+                {
                     altitude /= (double)c;
                 }
-            } else {
+            }
+            else
+            {
                 altitude = 0;
                 surfaceNormal = Vector3D.Zero;
             }
         }
 
-        void Clear() {
+        void Clear()
+        {
 
             hasSurface = false;
             altitude = 0;
@@ -150,8 +170,10 @@ namespace BakurRepulsorCorp {
             rearRightHit.Clear();
         }
 
-        public override void Debug() {
-            if (!component.debugEnabled) {
+        public override void Debug()
+        {
+            if (!component.debugEnabled)
+            {
                 return;
             }
         }

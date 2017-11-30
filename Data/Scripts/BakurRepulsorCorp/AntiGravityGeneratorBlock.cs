@@ -1,8 +1,8 @@
-﻿using Sandbox.Game.EntityComponents;
+﻿using Sandbox.Common.ObjectBuilders;
+using Sandbox.Game.EntityComponents;
 using Sandbox.ModAPI;
 using System;
 using System.Text;
-using VRage.Game;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRage.ObjectBuilders;
@@ -13,7 +13,7 @@ namespace BakurRepulsorCorp
 {
 
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallAntiGravityGenerator", "LargeAntiGravityGenerator" })]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallAntiGravityGenerator", "LargeAntiGravityGenerator" })]
     public class AntiGravityGeneratorBlock : BakurBlock
     {
 

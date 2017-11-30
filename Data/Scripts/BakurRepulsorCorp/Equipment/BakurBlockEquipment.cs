@@ -61,7 +61,7 @@ namespace BakurRepulsorCorp
 
         protected virtual void RefreshControls()
         {
-            MyAPIGateway.Utilities.ShowMessage("BakurBlockEquipment", "RefreshControls");
+            //MyAPIGateway.Utilities.ShowMessage("BakurBlockEquipment", "RefreshControls");
         }
 
         #endregion

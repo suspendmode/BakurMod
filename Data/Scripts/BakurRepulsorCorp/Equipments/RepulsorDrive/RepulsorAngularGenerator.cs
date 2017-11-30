@@ -3,18 +3,20 @@ using Sandbox.ModAPI;
 using System;
 using System.Text;
 using VRage.Game.ModAPI;
-using VRage.Input;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class RepulsorAngularGenerator : BakurBlockEquipment {
+    public class RepulsorAngularGenerator : BakurBlockEquipment
+    {
 
-        public double maxAngularVelocity = 90;
-        public double maxAngularAcceleration = 180;
+        public double maxAngularVelocity = 30;
+        public double maxAngularAcceleration = 45;
 
-        public RepulsorAngularGenerator(BakurBlock component) : base(component) {
-            
+        public RepulsorAngularGenerator(BakurBlock component) : base(component)
+        {
+
         }
 
         static Label<RepulsorAngularGenerator> repulsorAngularGeneratorLabel;
@@ -45,7 +47,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_ANGULAR_GENERATOR_PROPERTY_NAME);
                 bool result = defaultUseAngularGenerator;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseAngularGenerator;
@@ -75,7 +78,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
                 double result = defaultPower;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultPower;
@@ -107,7 +111,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(PITCH_PROPERTY_NAME);
                 double result = defaultPitch;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultPitch;
@@ -138,7 +143,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(YAW_PROPERTY_NAME);
                 double result = defaultYaw;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultYaw;
@@ -169,7 +175,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(ROLL_PROPERTY_NAME);
                 double result = defaultRoll;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultRoll;
@@ -180,140 +187,166 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
             // label
 
-            if (repulsorAngularGeneratorSeparator == null) {
+            if (repulsorAngularGeneratorSeparator == null)
+            {
                 repulsorAngularGeneratorSeparator = new Separator<RepulsorAngularGenerator>("AngularGenerator_RepulsorAngularGeneratorSeparator");
                 repulsorAngularGeneratorSeparator.Initialize();
             }
 
-            if (repulsorAngularGeneratorLabel == null) {
+            if (repulsorAngularGeneratorLabel == null)
+            {
                 repulsorAngularGeneratorLabel = new Label<RepulsorAngularGenerator>("AngularGenerator_RepulsorAngularGeneratorabel", "Repulsor Angular Generator");
                 repulsorAngularGeneratorLabel.Initialize();
             }
 
             // angular
 
-            if (angularOverrideSeparator == null) {
+            if (angularOverrideSeparator == null)
+            {
                 angularOverrideSeparator = new Separator<RepulsorAngularGenerator>("AngularGenerator_AngularOverrideSeparator");
                 angularOverrideSeparator.Initialize();
             }
 
-            if (angularOverrideLabel == null) {
+            if (angularOverrideLabel == null)
+            {
                 angularOverrideLabel = new Label<RepulsorAngularGenerator>("AngularGenerator_AngularOverrideLabel", "Angular Override");
                 angularOverrideLabel.Initialize();
             }
 
             // use angular generator
 
-            if (useAngularGeneratorSwitch == null) {
+            if (useAngularGeneratorSwitch == null)
+            {
                 useAngularGeneratorSwitch = new AngularGenerator_UseAngularGeneratorSwitch();
                 useAngularGeneratorSwitch.Initialize();
             }
 
-            if (useAngularGeneratorToggleAction == null) {
+            if (useAngularGeneratorToggleAction == null)
+            {
                 useAngularGeneratorToggleAction = new AngularGenerator_UseAngularGeneratorToggleAction();
                 useAngularGeneratorToggleAction.Initialize();
             }
 
-            if (useAngularGeneratorEnableAction == null) {
+            if (useAngularGeneratorEnableAction == null)
+            {
                 useAngularGeneratorEnableAction = new AngularGenerator_UseAngularGeneratorEnableAction();
                 useAngularGeneratorEnableAction.Initialize();
             }
 
-            if (useAngularGeneratorDisableAction == null) {
+            if (useAngularGeneratorDisableAction == null)
+            {
                 useAngularGeneratorDisableAction = new AngularGenerator_UseAngularGeneratorDisableAction();
                 useAngularGeneratorDisableAction.Initialize();
             }
 
-           
+
             // power
 
-            if (powerSlider == null) {
+            if (powerSlider == null)
+            {
                 powerSlider = new AngularGenerator_PowerSlider();
                 powerSlider.Initialize();
             }
-            if (incrasePowerAction == null) {
+            if (incrasePowerAction == null)
+            {
                 incrasePowerAction = new AngularGenerator_IncrasePowerAction();
                 incrasePowerAction.Initialize();
             }
-            if (decrasePowerAction == null) {
+            if (decrasePowerAction == null)
+            {
                 decrasePowerAction = new AngularGenerator_DecrasePowerAction();
                 decrasePowerAction.Initialize();
             }
 
             // pitch
 
-            if (pitchSlider == null) {
+            if (pitchSlider == null)
+            {
                 pitchSlider = new AngularGenerator_PitchSlider();
                 pitchSlider.Initialize();
             }
 
-            if (incrasePitchAction == null) {
+            if (incrasePitchAction == null)
+            {
                 incrasePitchAction = new AngularGenerator_IncrasePitchAction();
                 incrasePitchAction.Initialize();
             }
-            if (decrasePitchAction == null) {
+            if (decrasePitchAction == null)
+            {
                 decrasePitchAction = new AngularGenerator_DecrasePitchAction();
                 decrasePitchAction.Initialize();
             }
-            if (zeroPitchAction == null) {
+            if (zeroPitchAction == null)
+            {
                 zeroPitchAction = new AngularGenerator_ZeroPitchAction();
                 zeroPitchAction.Initialize();
             }
-                     
-                        // yaw
 
-            if (yawSlider == null) {
+            // yaw
+
+            if (yawSlider == null)
+            {
                 yawSlider = new AngularGenerator_YawSlider();
                 yawSlider.Initialize();
             }
 
-            if (incraseYawAction == null) {
+            if (incraseYawAction == null)
+            {
                 incraseYawAction = new AngularGenerator_IncraseYawAction();
                 incraseYawAction.Initialize();
             }
 
-            if (decraseYawAction == null) {
+            if (decraseYawAction == null)
+            {
                 decraseYawAction = new AngularGenerator_DecraseYawAction();
                 decraseYawAction.Initialize();
             }
 
-            if (zeroYawAction == null) {
+            if (zeroYawAction == null)
+            {
                 zeroYawAction = new AngularGenerator_ZeroYawAction();
                 zeroYawAction.Initialize();
             }
-                        
+
             // roll
 
-            if (rollSlider == null) {
+            if (rollSlider == null)
+            {
                 rollSlider = new AngularGenerator_RollSlider();
                 rollSlider.Initialize();
             }
 
-            if (incraseRollAction == null) {
+            if (incraseRollAction == null)
+            {
                 incraseRollAction = new AngularGenerator_IncraseRollAction();
                 incraseRollAction.Initialize();
             }
 
-            if (decraseRollAction == null) {
+            if (decraseRollAction == null)
+            {
                 decraseRollAction = new AngularGenerator_DecraseRollAction();
                 decraseRollAction.Initialize();
             }
 
-            if (zeroRollAction == null) {
+            if (zeroRollAction == null)
+            {
                 zeroRollAction = new AngularGenerator_ZeroRollAction();
                 zeroRollAction.Initialize();
             }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
             Clear();
         }
 
-        void Clear() {
+        void Clear()
+        {
             desiredAngularAcceleration = Vector3D.Zero;
         }
 
@@ -321,7 +354,8 @@ namespace BakurRepulsorCorp {
 
         #region visuals
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Angular Generator ==");
             customInfo.AppendLine("Pitch : " + Math.Round(pitch, 1) + " °/s");
@@ -330,8 +364,10 @@ namespace BakurRepulsorCorp {
         }
 
 
-        public override void Debug() {
-            if (!component.debugEnabled) {
+        public override void Debug()
+        {
+            if (!component.debugEnabled)
+            {
                 return;
             }
 
@@ -349,11 +385,13 @@ namespace BakurRepulsorCorp {
 
         public Vector3D desiredAngularAcceleration;
 
-        public Vector3D GetAngularAcceleration(double physicsDeltaTime) {
+        public Vector3D GetAngularAcceleration(double physicsDeltaTime)
+        {
 
             desiredAngularAcceleration = Vector3D.Zero;
 
-            if (!useAngularGenerator) {
+            if (!useAngularGenerator)
+            {
                 Clear();
                 return desiredAngularAcceleration;
             }
@@ -366,10 +404,11 @@ namespace BakurRepulsorCorp {
 
             MatrixD blockWorldOrientation = block.PositionComp.WorldMatrix.GetOrientation();
             Vector3D angularVelocity = angularOverride;
-           // MyAPIGateway.Utilities.ShowMessage("Generator", "override:" + angularVelocity + ", " + angularVelocity.Length());
+            // MyAPIGateway.Utilities.ShowMessage("Generator", "override:" + angularVelocity + ", " + angularVelocity.Length());
 
             IMyShipController shipController = BakurBlockUtils.GetShipControllerUnderControl(grid);
-            if (shipController != null) {
+            if (shipController != null)
+            {
                 angularVelocity += GetShipControllerAngularInput(shipController);
             }
 
@@ -388,44 +427,55 @@ namespace BakurRepulsorCorp {
 
         #region input
 
-        Vector3D angularOverride {
+        Vector3D angularOverride
+        {
             get
             {
                 return new Vector3D(pitch, yaw, roll);
             }
         }
 
-        Vector3D GetShipControllerAngularInput(IMyShipController shipController) {
+        Vector3D GetShipControllerAngularInput(IMyShipController shipController)
+        {
 
             IMyCubeGrid grid = block.CubeGrid;
             Vector3D angularInput = Vector3D.Zero;
 
-            if (!shipController.CanControlShip) {
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_UP)) {
+            if (!shipController.CanControlShip)
+            {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_UP))
+                {
                     angularInput.X = -1;
                 }
 
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_DOWN)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_DOWN))
+                {
                     angularInput.X = 1;
                 }
 
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_LEFT)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_LEFT))
+                {
                     angularInput.Y = 1;
                 }
 
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_RIGHT)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_RIGHT))
+                {
                     angularInput.Y = -1;
                 }
 
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROLL_LEFT)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROLL_LEFT))
+                {
                     angularInput.Z = -1;
                 }
 
-                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROLL_RIGHT)) {
+                if (MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROLL_RIGHT))
+                {
                     angularInput.Z = 1;
                 }
 
-            } else {
+            }
+            else
+            {
                 //MyAPIGateway.Input.GetRoll();
 
                 //MyAPIGateway.Input.GetGameControl
@@ -439,15 +489,18 @@ namespace BakurRepulsorCorp {
             return angularInput;
         }
 
-        bool HasControlPitch() {
+        bool HasControlPitch()
+        {
             return MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_UP) || MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_DOWN);
         }
 
-        bool HasControlYaw() {
+        bool HasControlYaw()
+        {
             return MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_LEFT) || MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROTATION_RIGHT);
         }
 
-        bool HasControlRoll() {
+        bool HasControlRoll()
+        {
             return MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROLL_RIGHT) || MyAPIGateway.Input.IsGameControlPressed(MyControlsSpace.ROLL_LEFT);
 
         }

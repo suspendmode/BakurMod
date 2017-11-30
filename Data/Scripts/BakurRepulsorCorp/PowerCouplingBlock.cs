@@ -1,7 +1,7 @@
-﻿using Sandbox.ModAPI;
+﻿using Sandbox.Common.ObjectBuilders;
+using Sandbox.ModAPI;
 using System;
 using System.Text;
-using VRage.Game;
 using VRage.Game.Components;
 using VRageMath;
 
@@ -9,7 +9,7 @@ using VRageMath;
 namespace BakurRepulsorCorp
 {
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockPowerCoupling", "LargeBlockPowerCoupling" })]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockPowerCoupling", "LargeBlockPowerCoupling" })]
     public class PowerCouplingBlock : BakurBlock
     {
 

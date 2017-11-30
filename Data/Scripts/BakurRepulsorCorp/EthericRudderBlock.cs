@@ -1,13 +1,13 @@
-﻿using Sandbox.ModAPI;
+﻿using Sandbox.Common.ObjectBuilders;
+using Sandbox.ModAPI;
 using System;
 using System.Text;
-using VRage.Game;
 using VRage.Game.Components;
 
 namespace BakurRepulsorCorp
 {
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockEthericRudder", "LargeBlockEthericRudder" })]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockEthericRudder", "LargeBlockEthericRudder" })]
     public class EthericRudderBlock : BakurBlock
     {
 

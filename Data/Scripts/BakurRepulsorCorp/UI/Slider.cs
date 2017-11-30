@@ -27,9 +27,9 @@ namespace BakurRepulsorCorp
 
         protected override IMyTerminalControl CreateControl()
         {
-            MyAPIGateway.Utilities.ShowMessage("Slider", "CreateControl, " + controlId);
+            //MyAPIGateway.Utilities.ShowMessage("Slider", "CreateControl, " + controlId);
 
-            IMyTerminalControlSlider slider = MyAPIGateway.TerminalControls.CreateControl<IMyTerminalControlSlider, IMyTerminalBlock>(controlId);
+            IMyTerminalControlSlider slider = MyAPIGateway.TerminalControls.CreateControl<IMyTerminalControlSlider, IMyUpgradeModule>(controlId);
             slider.Visible = Visible;
             slider.SetLimits(min, max);
             slider.Getter = Getter;

@@ -1,0 +1,1903 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="f:\visual studio\2017\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="15.0">
+ <Targets>
+  <Target Name="c:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\BakurRepuslorCorp.dll">
+   <Modules>
+    <Module Name="bakurrepuslorcorp.dll">
+     <Messages>
+      <Message TypeName="MarkAssembliesWithAssemblyVersion" Category="Microsoft.Design" CheckId="CA1016" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Add an AssemblyVersion attribute to 'BakurRepuslorCorp.dll'.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="BakurRepulsorCorp">
+       <Types>
+        <Type Name="AltitudeSensor_MaxDistanceSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AltitudeSensor_MaxDistanceSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;AltitudeSensor, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AltitudeSensor, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;AltitudeSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_DecrasePitchAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_DecrasePitchAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_DecrasePowerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_DecrasePowerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_DecraseRollAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_DecraseRollAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_DecraseYawAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_DecraseYawAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_IncrasePitchAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_IncrasePitchAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_IncrasePowerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_IncrasePowerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_IncraseRollAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_IncraseRollAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_IncraseYawAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_IncraseYawAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_PitchSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_PitchSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorAngularGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_PowerSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_PowerSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorAngularGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_RollSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_RollSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorAngularGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_UseAngularGeneratorDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_UseAngularGeneratorDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_UseAngularGeneratorEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_UseAngularGeneratorEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_UseAngularGeneratorSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_UseAngularGeneratorSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorAngularGenerator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_UseAngularGeneratorToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_UseAngularGeneratorToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_YawSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_YawSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorAngularGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_ZeroPitchAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_ZeroPitchAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_ZeroRollAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_ZeroRollAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AngularGenerator_ZeroYawAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AngularGenerator_ZeroYawAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorAngularGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AntiGravityGenerator_DecraseOutputAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AntiGravityGenerator_DecraseOutputAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AntiGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AntiGravityGenerator_IncraseOutputAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AntiGravityGenerator_IncraseOutputAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AntiGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AntiGravityGenerator_OutputSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AntiGravityGenerator_OutputSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;AntiGravityGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AntiGravityGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;AntiGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AntiGravityGeneratorBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'AntiGravityGeneratorBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="ArtificialGravityGenerator_DecraseGravityAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'ArtificialGravityGenerator_DecraseGravityAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;ArtificialGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="ArtificialGravityGenerator_DecraseMaxRadiusAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'ArtificialGravityGenerator_DecraseMaxRadiusAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;ArtificialGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="ArtificialGravityGenerator_GravitySlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'ArtificialGravityGenerator_GravitySlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;ArtificialGravityGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;ArtificialGravityGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;ArtificialGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="ArtificialGravityGenerator_IncraseGravityAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'ArtificialGravityGenerator_IncraseGravityAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;ArtificialGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="ArtificialGravityGenerator_IncraseMaxRadiusAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'ArtificialGravityGenerator_IncraseMaxRadiusAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;ArtificialGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="ArtificialGravityGenerator_MaxRadiusSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'ArtificialGravityGenerator_MaxRadiusSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;ArtificialGravityGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;ArtificialGravityGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;ArtificialGravityGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="ArtificialGravityGeneratorBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'ArtificialGravityGeneratorBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="BakurBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'BakurBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="BakurBlockEquipment" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#EnabledChangedEvent" Kind="Event" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="Breaking">
+             <Issue Name="First" Certainty="95" Level="Error">Declare the first parameter of 'Action' as an object named 'sender'.</Issue>
+             <Issue Name="Second" Certainty="95" Level="Error">Declare the second parameter of 'Action' as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="BakurSession" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'BakurSession' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MySessionComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Coil_DecrasePowerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Coil_DecrasePowerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorCoil, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Coil_IncrasePowerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Coil_IncrasePowerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorCoil, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Coil_PowerSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Coil_PowerSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorCoil, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorCoil, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorCoil, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Coil_UseCoilDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Coil_UseCoilDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorCoil, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Coil_UseCoilEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Coil_UseCoilEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorCoil, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Coil_UseCoilSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Coil_UseCoilSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;RepulsorCoil, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorCoil, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorCoil, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Coil_UseCoilToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Coil_UseCoilToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorCoil, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_AngularDumpenerSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_AngularDumpenerSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AngularInertialCompensator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_DecraseAngularDumpenerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_DecraseAngularDumpenerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_DecraseLinearDumpenerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_DecraseLinearDumpenerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_IncraseAngularDumpenerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_IncraseAngularDumpenerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_IncraseLinearDumpenerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_IncraseLinearDumpenerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_LinearDumpenerSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_LinearDumpenerSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;LinearInertialCompensator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseAngularCompensationDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseAngularCompensationDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseAngularCompensationEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseAngularCompensationEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseAngularCompensationToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseAngularCompensationToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseAngularCompensatorSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseAngularCompensatorSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AngularInertialCompensator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseForwardDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseForwardDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseForwardEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseForwardEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseForwardSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseForwardSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;LinearInertialCompensator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseForwardToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseForwardToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseLinearCompensationDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseLinearCompensationDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseLinearCompensationEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseLinearCompensationEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseLinearCompensationToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseLinearCompensationToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseLinearCompensatorSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseLinearCompensatorSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;LinearInertialCompensator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UsePitchDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UsePitchDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UsePitchEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UsePitchEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UsePitchSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UsePitchSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AngularInertialCompensator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UsePitchToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UsePitchToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseRollDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseRollDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseRollEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseRollEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseRollSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseRollSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AngularInertialCompensator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseRollToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseRollToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseSidewaysDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseSidewaysDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseSidewaysEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseSidewaysEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseSidewaysSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseSidewaysSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;LinearInertialCompensator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseSidewaysToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseSidewaysToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseUpDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseUpDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseUpEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseUpEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseUpSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseUpSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;LinearInertialCompensator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseUpToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseUpToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;LinearInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseYawDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseYawDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseYawEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseYawEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseYawSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseYawSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AngularInertialCompensator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Compensator_UseYawToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Compensator_UseYawToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AngularInertialCompensator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Component_DebugEnabledSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Component_DebugEnabledSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;BakurBlockEquipment, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;BakurBlockEquipment, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;BakurBlockEquipment, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Component_DisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Component_DisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;BakurBlockEquipment, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Component_EnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Component_EnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;BakurBlockEquipment, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Component_EnabledSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Component_EnabledSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;BakurBlockEquipment, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;BakurBlockEquipment, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;BakurBlockEquipment, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Component_EnabledToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Component_EnabledToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;BakurBlockEquipment, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_CruiseSpeedSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_CruiseSpeedSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;Copter, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Copter, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_DecraseCruiseSpeedAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_DecraseCruiseSpeedAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_IncraseCruiseSpeedAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_IncraseCruiseSpeedAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_MaxPitchAngleSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_MaxPitchAngleSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;Copter, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Copter, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_MaxRollAngleSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_MaxRollAngleSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;Copter, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Copter, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_ModeComboBox" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_ModeComboBox' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'ComboBoxControl&lt;Copter, IMyFunctionalBlock&gt;', 'BaseControl&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_ResponsivitySlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_ResponsivitySlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;Copter, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Copter, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_SetModeCruiseAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_SetModeCruiseAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_SetModeFreeGlideAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_SetModeFreeGlideAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_SetModeGlideAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_SetModeGlideAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_SetModeHoverAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_SetModeHoverAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_SetModePitchAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_SetModePitchAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_SetModeRollAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_SetModeRollAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_UseCopterDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_UseCopterDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_UseCopterEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_UseCopterEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_UseCopterSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_UseCopterSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;Copter, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Copter, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Copter_UseCopterToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Copter_UseCopterToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Copter, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="CopterBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'CopterBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="EthericRudderBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'EthericRudderBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Gyro_UseGravityNormalDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Gyro_UseGravityNormalDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;GyroStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Gyro_UseGravityNormalEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Gyro_UseGravityNormalEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;GyroStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Gyro_UseGravityNormalSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Gyro_UseGravityNormalSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;GyroStabiliser, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;GyroStabiliser, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;GyroStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Gyro_UseGravityNormalToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Gyro_UseGravityNormalToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;GyroStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Gyro_UseSurfaceNormalDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Gyro_UseSurfaceNormalDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;GyroStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Gyro_UseSurfaceNormalEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Gyro_UseSurfaceNormalEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;GyroStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Gyro_UseSurfaceNormalSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Gyro_UseSurfaceNormalSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;GyroStabiliser, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;GyroStabiliser, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;GyroStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Gyro_UseSurfaceNormalToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Gyro_UseSurfaceNormalToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;GyroStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="GyroStabiliserBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'GyroStabiliserBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="InertialCompensatorBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'InertialCompensatorBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Jammer_DecraseRangeAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Jammer_DecraseRangeAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorJammer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Jammer_IncraseRangeAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Jammer_IncraseRangeAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorJammer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Jammer_RangeSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Jammer_RangeSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorJammer, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorJammer, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorJammer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_DecraseDesiredAltitudeAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_DecraseDesiredAltitudeAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_DerivativeCoefficientSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_DerivativeCoefficientSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLift, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_DesiredAltitudeSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_DesiredAltitudeSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLift, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_IncraseDesiredAltitudeAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_IncraseDesiredAltitudeAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_IntegralCoefficientSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_IntegralCoefficientSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLift, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_ProportionalCoefficientSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_ProportionalCoefficientSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLift, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_SetDesiredAltitudeFromCurrentAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_SetDesiredAltitudeFromCurrentAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_UseRepulsorLiftDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_UseRepulsorLiftDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_UseRepulsorLiftEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_UseRepulsorLiftEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_UseRepulsorLiftSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_UseRepulsorLiftSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;RepulsorLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLift, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Lift_UseRepulsorLiftToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Lift_UseRepulsorLiftToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_DecraseForwardAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_DecraseForwardAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_DecrasePowerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_DecrasePowerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_DecraseSidewaysAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_DecraseSidewaysAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_DecraseUpAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_DecraseUpAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_ForwardSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_ForwardSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLinearGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_IncraseForwardAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_IncraseForwardAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_IncrasePowerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_IncrasePowerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_IncraseSidewaysAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_IncraseSidewaysAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_IncraseUpAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_IncraseUpAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_PowerSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_PowerSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLinearGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_SidewaysSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_SidewaysSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLinearGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_UpSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_UpSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLinearGenerator, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_UseLinearGeneratorDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_UseLinearGeneratorDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_UseLinearGeneratorEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_UseLinearGeneratorEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_UseLinearGeneratorSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_UseLinearGeneratorSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorLinearGenerator, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_UseLinearGeneratorToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_UseLinearGeneratorToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_ZeroForwardAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_ZeroForwardAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_ZeroSidewaysAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_ZeroSidewaysAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="LinearGenerator_ZeroUpAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'LinearGenerator_ZeroUpAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorLinearGenerator, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_DecraseMaxForceAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_DecraseMaxForceAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_DecraseMaxRadiusAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_DecraseMaxRadiusAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_DecraseMinRadiusAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_DecraseMinRadiusAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_DecraseNormalizedForceAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_DecraseNormalizedForceAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_IncraseMaxForceAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_IncraseMaxForceAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_IncraseMaxRadiusAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_IncraseMaxRadiusAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_IncraseMinRadiusAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_IncraseMinRadiusAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_IncraseNormalizedForceAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_IncraseNormalizedForceAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_MaxForceSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_MaxForceSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;Magnetizer, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Magnetizer, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_MaxRadiusSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_MaxRadiusSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;Magnetizer, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Magnetizer, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_MinRadiusSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_MinRadiusSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;Magnetizer, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Magnetizer, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Magnetizer_NormalizedForceSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Magnetizer_NormalizedForceSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;Magnetizer, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;Magnetizer, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;Magnetizer, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="MagnetizerBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'MagnetizerBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetAltitudeSensor_PrecisionModeDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetAltitudeSensor_PrecisionModeDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PlanetAltitudeSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetAltitudeSensor_PrecisionModeEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetAltitudeSensor_PrecisionModeEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PlanetAltitudeSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetAltitudeSensor_PrecisionModeSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetAltitudeSensor_PrecisionModeSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;PlanetAltitudeSensor, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PlanetAltitudeSensor, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;PlanetAltitudeSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetAltitudeSensor_PrecisionModeToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetAltitudeSensor_PrecisionModeToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PlanetAltitudeSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetAltitudeSensor_UseBlockPositionSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetAltitudeSensor_UseBlockPositionSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;PlanetAltitudeSensor, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PlanetAltitudeSensor, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;PlanetAltitudeSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetRadarBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetRadarBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetsSession" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetsSession' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MySessionComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetSurfaceNormalSensor_SizeBackSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetSurfaceNormalSensor_SizeBackSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;PlanetSurfaceNormalSensor, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PlanetSurfaceNormalSensor, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;PlanetSurfaceNormalSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetSurfaceNormalSensor_SizeFrontSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetSurfaceNormalSensor_SizeFrontSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;PlanetSurfaceNormalSensor, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PlanetSurfaceNormalSensor, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;PlanetSurfaceNormalSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetSurfaceNormalSensor_SizeLeftSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetSurfaceNormalSensor_SizeLeftSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;PlanetSurfaceNormalSensor, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PlanetSurfaceNormalSensor, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;PlanetSurfaceNormalSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PlanetSurfaceNormalSensor_SizeRightSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PlanetSurfaceNormalSensor_SizeRightSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;PlanetSurfaceNormalSensor, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PlanetSurfaceNormalSensor, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;PlanetSurfaceNormalSensor, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_DecraseNormalizedAltitudeAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_DecraseNormalizedAltitudeAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_DerivativeCoefficientSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_DerivativeCoefficientSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorPointLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorPointLift, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_IncraseNormalizedAltitudeAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_IncraseNormalizedAltitudeAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_IntegralCoefficientSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_IntegralCoefficientSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorPointLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorPointLift, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_NormalizedAltitudeSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_NormalizedAltitudeSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorPointLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorPointLift, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_ProportionalCoefficientSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_ProportionalCoefficientSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorPointLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorPointLift, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_SetDesiredAltitudeToCurrentAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_SetDesiredAltitudeToCurrentAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_UsePointLiftDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_UsePointLiftDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_UsePointLiftEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_UsePointLiftEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_UsePointLiftSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_UsePointLiftSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;RepulsorPointLift, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorPointLift, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PointLift_UsePointLiftToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PointLift_UsePointLiftToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorPointLift, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_DecraseDesiredDistanceAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_DecraseDesiredDistanceAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_DecraseMaxForceAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_DecraseMaxForceAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_DecrasePowerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_DecrasePowerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_DesiredDistanceSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_DesiredDistanceSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;PowerCoupling, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PowerCoupling, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_FrequencyTextBox" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_FrequencyTextBox' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Textbox&lt;PowerCoupling, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PowerCoupling, StringBuilder, IMyFunctionalBlock&gt;', 'BaseControl&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_IncraseDesiredDistanceAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_IncraseDesiredDistanceAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_IncraseMaxForceAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_IncraseMaxForceAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_IncrasePowerAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_IncrasePowerAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_MaxForceSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_MaxForceSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;PowerCoupling, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PowerCoupling, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCoupler_PowerSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCoupler_PowerSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;PowerCoupling, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;PowerCoupling, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;PowerCoupling, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="PowerCouplingBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'PowerCouplingBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorChairBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorChairBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorCoilBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorCoilBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorDriveBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorDriveBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorDriveRemoteControlBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorDriveRemoteControlBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorJammerBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorJammerBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorLiftBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorLiftBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorLiftCoilBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorLiftCoilBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorLiftDriveBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorLiftDriveBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorPointLiftBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorPointLiftBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="RepulsorSuspensionBlock" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'RepulsorSuspensionBlock' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MyGameLogicComponent', 'MyEntityComponentBase', 'MyComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Stabiliser_DecraseSpeedAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Stabiliser_DecraseSpeedAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AttitudeStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Stabiliser_DecraseStabilityAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Stabiliser_DecraseStabilityAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AttitudeStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Stabiliser_IncraseSpeedAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Stabiliser_IncraseSpeedAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AttitudeStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Stabiliser_IncraseStabilityAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Stabiliser_IncraseStabilityAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;AttitudeStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Stabiliser_SpeedSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Stabiliser_SpeedSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;AttitudeStabiliser, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AttitudeStabiliser, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;AttitudeStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Stabiliser_StabilitySlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Stabiliser_StabilitySlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;AttitudeStabiliser, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;AttitudeStabiliser, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;AttitudeStabiliser, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Storm" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#EndedEvent" Kind="Event" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="Breaking">
+             <Issue Name="First" Certainty="95" Level="Error">Declare the first parameter of 'Action&lt;Storm&gt;' as an object named 'sender'.</Issue>
+             <Issue Name="Second" Certainty="95" Level="Error">Declare the second parameter of 'Action&lt;Storm&gt;' as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Storms" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Storms' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MySessionComponentBase'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_DampingSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_DampingSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorSuspension, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorSuspension, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_DecraseDampingAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_DecraseDampingAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_DecraseRestLengthAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_DecraseRestLengthAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_DecraseStiffnessAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_DecraseStiffnessAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_ImpulseSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_ImpulseSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorSuspension, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorSuspension, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_IncraseDampingAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_IncraseDampingAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_IncraseRestLengthAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_IncraseRestLengthAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_IncraseStiffnessAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_IncraseStiffnessAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_RestLengthSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_RestLengthSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorSuspension, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorSuspension, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Suspension_StiffnessSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Suspension_StiffnessSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;RepulsorSuspension, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;RepulsorSuspension, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;RepulsorSuspension, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillForwardDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillForwardDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillForwardEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillForwardEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillForwardSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillForwardSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityKiller, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityKiller, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillForwardToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillForwardToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillPitchDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillPitchDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillPitchEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillPitchEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillPitchSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillPitchSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityKiller, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityKiller, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillPitchToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillPitchToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillRollDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillRollDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillRollEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillRollEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillRollSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillRollSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityKiller, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityKiller, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillRollToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillRollToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillSidewaysDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillSidewaysDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillSidewaysEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillSidewaysEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillSidewaysSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillSidewaysSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityKiller, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityKiller, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillSidewaysToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillSidewaysToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillUpDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillUpDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillUpEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillUpEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillUpSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillUpSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityKiller, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityKiller, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillUpToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillUpToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillYawDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillYawDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillYawEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillYawEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillYawSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillYawSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityKiller, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityKiller, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_KillYawToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_KillYawToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_UseVelocityKillerDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_UseVelocityKillerDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_UseVelocityKillerEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_UseVelocityKillerEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_UseVelocityKillerSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_UseVelocityKillerSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityKiller, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityKiller, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityKiller_UseVelocityKillerToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityKiller_UseVelocityKillerToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityKiller, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_DecraseMaxAngleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_DecraseMaxAngleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_IncraseMaxAngleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_IncraseMaxAngleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_MaxAngleSlider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_MaxAngleSlider' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Slider&lt;VelocityRudder, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityRudder, float, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_ReverseGearDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_ReverseGearDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_ReverseGearEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_ReverseGearEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_ReverseGearSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_ReverseGearSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityRudder, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityRudder, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_ReverseGearToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_ReverseGearToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_UseVelocityRudderDisableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_UseVelocityRudderDisableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_UseVelocityRudderEnableAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_UseVelocityRudderEnableAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_UseVelocityRudderSwitch" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_UseVelocityRudderSwitch' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'SwitchControl&lt;VelocityRudder, IMyFunctionalBlock&gt;', 'PropertyBasedControl&lt;VelocityRudder, bool, IMyFunctionalBlock&gt;', 'BaseControl&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="VelocityRudder_UseVelocityRudderToggleAction" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-11-29 03:41:26Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'VelocityRudder_UseVelocityRudderToggleAction' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'BaseControlAction&lt;VelocityRudder, IMyFunctionalBlock&gt;'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405">
+   <Name>COM visible type base types should be COM visible</Name>
+   <Description>COM visible types should have an object hierarchy that is uniformly COM visible.</Description>
+   <Resolution Name="Default">{0} is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: {1}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182202.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="interoperabilityrules.dll" Version="15.0.0.0" />
+  </Rule>
+  <Rule TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009">
+   <Name>Declare event handlers correctly</Name>
+   <Description>By convention, .NET events have two parameters that specify the event sender and event data. Event handler signatures should follow this form: void MyEventHandler(object sender, EventArgs e). The 'sender' parameter is always of type System.Object, even if it is possible to employ a more specific type. The 'e' parameter is always of type System.EventArgs. Events that do not provide event data should use the System.EventHandler delegate type. Event handlers return void so that they can send each event to multiple target methods. Any value returned by a target would be lost after the first call.</Description>
+   <Resolution Name="First">Declare the first parameter of {0} as an object named 'sender'.</Resolution>
+   <Resolution Name="Second">Declare the second parameter of {0} as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182133.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="15.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithAssemblyVersion" Category="Microsoft.Design" CheckId="CA1016">
+   <Name>Mark assemblies with AssemblyVersionAttribute</Name>
+   <Description>Assemblies should use version numbers. The version number is considered part of an assembly's identity. Versioning is applied by means of the AssemblyVersion attribute.</Description>
+   <Resolution Name="Default">Add an AssemblyVersion attribute to {0}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182155.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="15.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

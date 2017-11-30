@@ -4,11 +4,14 @@ using System.Text;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class AttitudeStabiliser : BakurBlockEquipment {
+    public class AttitudeStabiliser : BakurBlockEquipment
+    {
 
-        public AttitudeStabiliser(BakurBlock component) : base(component) {
+        public AttitudeStabiliser(BakurBlock component) : base(component)
+        {
         }
 
         static Separator<AttitudeStabiliser> attitudeStabiliserSeparator;
@@ -35,7 +38,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(STABILITY_PROPERTY_NAME);
                 double result = defaultStability;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultStability;
@@ -66,7 +70,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(SPEED_PROPERTY_NAME);
                 double result = defaultSpeed;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultSpeed;
@@ -78,55 +83,66 @@ namespace BakurRepulsorCorp {
 
         #region lifecycle
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
-            if (attitudeStabiliserSeparator == null) {
+            if (attitudeStabiliserSeparator == null)
+            {
                 attitudeStabiliserSeparator = new Separator<AttitudeStabiliser>("AttitudeStabiliser_AttitudeStabiliserSeparator");
                 attitudeStabiliserSeparator.Initialize();
             }
 
-            if (attitudeStabiliserLabel == null) {
+            if (attitudeStabiliserLabel == null)
+            {
                 attitudeStabiliserLabel = new Label<AttitudeStabiliser>("AttitudeStabiliser_AttitudeStabiliserLabel", "Attitude Stabiliser");
                 attitudeStabiliserLabel.Initialize();
             }
 
 
-            if (stabilitySlider == null) {
+            if (stabilitySlider == null)
+            {
                 stabilitySlider = new Stabiliser_StabilitySlider();
                 stabilitySlider.Initialize();
             }
 
-            if (speedSlider == null) {
+            if (speedSlider == null)
+            {
                 speedSlider = new Stabiliser_SpeedSlider();
                 speedSlider.Initialize();
             }
 
-            if (decraseSpeedAction == null) {
+            if (decraseSpeedAction == null)
+            {
                 decraseSpeedAction = new Stabiliser_DecraseSpeedAction();
                 decraseSpeedAction.Initialize();
             }
 
-            if (decraseStabilityAction == null) {
+            if (decraseStabilityAction == null)
+            {
                 decraseStabilityAction = new Stabiliser_DecraseStabilityAction();
                 decraseStabilityAction.Initialize();
             }
 
-            if (incraseSpeedAction == null) {
+            if (incraseSpeedAction == null)
+            {
                 incraseSpeedAction = new Stabiliser_IncraseSpeedAction();
                 incraseSpeedAction.Initialize();
             }
 
-            if (incraseStabilityAction == null) {
+            if (incraseStabilityAction == null)
+            {
                 incraseStabilityAction = new Stabiliser_IncraseStabilityAction();
                 incraseStabilityAction.Initialize();
             }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
             Clear();
         }
 
-        public void Clear() {
+        public void Clear()
+        {
             desiredAcceleration = Vector3.Zero;
         }
 
@@ -134,16 +150,17 @@ namespace BakurRepulsorCorp {
 
         #region visuals
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             customInfo.AppendLine();
-            customInfo.AppendLine("== Attitude Stabiliser ==");
-            customInfo.AppendLine("Speed : " + Math.Round(speed, 1));
-            customInfo.AppendLine("Stability : " + Math.Round(stability, 1));
-            customInfo.AppendLine("Desire Velocity : " + Math.Round(desiredAcceleration.Length(), 1) + " °/s");
+            customInfo.AppendLine("Type: Attitude Stabiliser");
+            customInfo.AppendLine("Speed: " + Math.Round(speed, 1));
+            customInfo.AppendLine("Stability: " + Math.Round(stability, 1));
+            customInfo.AppendLine("Desire Velocity: " + Math.Round(desiredAcceleration.Length(), 1) + " °/s");
 
-            customInfo.AppendLine("maxAcceleration : " + Math.Round(maxAcceleration, 1));
-            customInfo.AppendLine("desiredAcceleration : " + Math.Round(desiredAcceleration.Length(), 1));
-            customInfo.AppendLine("slowdownAngle : " + Math.Round(slowdownAngle, 1));
+            customInfo.AppendLine("maxAcceleration: " + Math.Round(maxAcceleration, 1));
+            customInfo.AppendLine("desiredAcceleration: " + Math.Round(desiredAcceleration.Length(), 1));
+            customInfo.AppendLine("slowdownAngle: " + Math.Round(slowdownAngle, 1));
         }
 
         #endregion
@@ -154,17 +171,20 @@ namespace BakurRepulsorCorp {
         public Vector3D targetUp;
         double slowdownAngle = 10;
 
-        public Vector3D GetAngularAcceleration(double physicsDeltaTime, Vector3D currentForward, Vector3D currentUp, Vector3D targetForward, Vector3D targetUp) {
+        public Vector3D GetAngularAcceleration(double physicsDeltaTime, Vector3D currentForward, Vector3D currentUp, Vector3D targetForward, Vector3D targetUp)
+        {
 
             this.targetForward = targetForward;
-            this.targetUp = targetUp;            
+            this.targetUp = targetUp;
             desiredAcceleration = Vector3D.Zero;
 
-            if (!component.rigidbody.IsInGravity) {
+            if (!component.rigidbody.IsInGravity)
+            {
                 return desiredAcceleration;
             }
 
-            if (targetForward == Vector3D.Zero) {
+            if (targetForward == Vector3D.Zero)
+            {
                 return desiredAcceleration;
             }
 
@@ -188,7 +208,7 @@ namespace BakurRepulsorCorp {
 
             Vector3D predictedUp = Vector3D.Transform(currentUp, BakurMathHelper.AngleAxis(
                currentAngularVelocity.Length() * BakurMathHelper.Rad2Deg * anglePredictionTime,
-               currentAngularVelocity 
+               currentAngularVelocity
            ));
             predictedUp.Normalize();
 
@@ -196,7 +216,8 @@ namespace BakurRepulsorCorp {
 
             //MyAPIGateway.Utilities.ShowMessage("angle: ", angle + ", predictedForward: " + predictedForward + ", predictedUp: " + predictedUp);
 
-            if (angle < minAngle) {
+            if (angle < minAngle)
+            {
                 desiredAcceleration = Vector3D.Zero;
                 return desiredAcceleration;
             }
@@ -212,7 +233,7 @@ namespace BakurRepulsorCorp {
 
             Vector3D desiredAngularVelocity = wZ + wY;
 
-           // MyAPIGateway.Utilities.ShowMessage("wZ: ", wZ + ", wY: " + wY + ", desiredAngularVelocity: " + desiredAngularVelocity);
+            // MyAPIGateway.Utilities.ShowMessage("wZ: ", wZ + ", wY: " + wY + ", desiredAngularVelocity: " + desiredAngularVelocity);
             //Vector3 x = Vector3.Cross(predictedForward, targetForward);
 
             //theta = Mathf.Asin(x.magnitude) * Mathf.Rad2Deg;
@@ -225,15 +246,19 @@ namespace BakurRepulsorCorp {
 
             //      angularVelocity = x.normalized * theta;
 
-            if (angle < slowdownAngle) {
+            if (angle < slowdownAngle)
+            {
                 //Debug.Log("slowdownAngle");
                 desiredAngularVelocity *= (angle / slowdownAngle);
-            } else {
+            }
+            else
+            {
                 //Debug.Log("normalAngle");
 
             }
 
-            if (rotationTime != 0) {
+            if (rotationTime != 0)
+            {
                 //Debug.Log("rotationTime!=0");
                 desiredAngularVelocity *= (1 / rotationTime);
             }
@@ -261,8 +286,10 @@ namespace BakurRepulsorCorp {
             */
         }
 
-        public override void Debug() {
-            if (!component.debugEnabled) {
+        public override void Debug()
+        {
+            if (!component.debugEnabled)
+            {
                 return;
             }
         }

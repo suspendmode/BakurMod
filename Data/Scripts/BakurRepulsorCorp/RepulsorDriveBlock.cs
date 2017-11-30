@@ -1,7 +1,7 @@
-﻿using Sandbox.ModAPI;
+﻿using Sandbox.Common.ObjectBuilders;
+using Sandbox.ModAPI;
 using System;
 using System.Text;
-using VRage.Game;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
@@ -10,7 +10,7 @@ namespace BakurRepulsorCorp
 {
 
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockRepulsorDrive", "LargeBlockRepulsorDrive" })]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorDrive", "LargeBlockRepulsorDrive" })]
     public class RepulsorDriveBlock : BakurBlock
     {
 

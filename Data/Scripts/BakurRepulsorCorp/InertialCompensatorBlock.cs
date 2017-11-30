@@ -1,7 +1,7 @@
-﻿using Sandbox.ModAPI;
+﻿using Sandbox.Common.ObjectBuilders;
+using Sandbox.ModAPI;
 using System;
 using System.Text;
-using VRage.Game;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
@@ -9,7 +9,7 @@ using VRageMath;
 namespace BakurRepulsorCorp
 {
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_TerminalBlock), true, new string[] { "SmallBlockInertialCompensator", "LargeBlockInertialCompensator" })]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockInertialCompensator", "LargeBlockInertialCompensator" })]
     public class InertialCompensatorBlock : BakurBlock
     {
 
@@ -21,7 +21,7 @@ namespace BakurRepulsorCorp
         protected override void Initialize()
         {
             base.Initialize();
-            MyAPIGateway.Utilities.ShowMessage("InertialCompensatorBlock", "Initialize");
+            //MyAPIGateway.Utilities.ShowMessage("InertialCompensatorBlock", "Initialize");
 
             linearInertialCompensator = new LinearInertialCompensator(this);
             AddEquipment(linearInertialCompensator);

@@ -97,7 +97,7 @@ namespace BakurRepulsorCorp
 
         public static string PROPORTIONAL_COEFFICIENT_PROPERTY_NAME = "RepulsorLift_ProportionalCoefficient";
 
-        public double defaultProportionalCoefficient = 0.5;
+        public double defaultProportionalCoefficient = 0.6;
 
         public double proportionalCoefficient
         {
@@ -126,7 +126,7 @@ namespace BakurRepulsorCorp
 
         public static string INTEGRAL_COEFFICIENT_PROPERTY_NAME = "RepulsorLift_IntegralCoefficient";
 
-        public double defaultIntegralCoefficient = 0.00001;
+        public double defaultIntegralCoefficient = 0.001;
 
         public double integralCoefficient
         {
@@ -155,7 +155,7 @@ namespace BakurRepulsorCorp
 
         public static string DERIVATIVE_COEFFICIENT_PROPERTY_NAME = "RepulsorLift_DerivativeCoefficient";
 
-        public double defaultDerivativeCoefficient = 0.3;
+        public double defaultDerivativeCoefficient = 0.4;
 
         public double derivativeCoefficient
         {
@@ -332,46 +332,26 @@ namespace BakurRepulsorCorp
         {
             get
             {
-                return 10 * coilsCount;
+                return RepulsorCoil.GetMaxAltitude(block.CubeGrid);
             }
         }
-
-        public int coilsCount
+        void UpdateAltitude(double newAltitude)
         {
-            get
-            {
-                if (!RepulsorCoil.repulsorCoils.ContainsKey(block.CubeGrid.EntityId))
-                {
-                    return 0;
-                }
-                else
-                {
-                    return RepulsorCoil.repulsorCoils[block.CubeGrid.EntityId].Count;
-                }
-            }
+            altitude = newAltitude;
         }
 
-        void UpdateDesiredAltitude(double altitude)
+        void UpdateDesiredAltitude()
         {
-
-            if (double.IsNaN(altitude) || double.IsNaN(maxAltitude))
-            {
-                Clear();
-                return;
-            }
-
-            this.altitude = altitude;
-
-            if (double.IsNaN(desiredAltitude) && altitude <= maxAltitude)
+            if (!double.IsNaN(altitude) && !double.IsNaN(maxAltitude) && double.IsNaN(desiredAltitude))
             {
                 desiredAltitude = BakurMathHelper.InverseLerp(0, maxAltitude, altitude);
-                desiredAltitude = MathHelper.Clamp(desiredAltitude, 0, 1);
+                //desiredAltitude = MathHelper.Clamp(desiredAltitude, 0, 1);
             }
         }
 
         #region input
 
-        double GetShipControllerLinearInput(double physicsDeltaTime, IMyShipController shipController)
+        double GetShipControllerLinearInput(IMyShipController shipController)
         {
 
             double desired = 0;
@@ -397,8 +377,13 @@ namespace BakurRepulsorCorp
 
         #endregion
 
-        void UpdateDesiredAltitudeFromInput(double physicsDeltaTime)
+        void UpdateDesiredAltitudeFromInput()
         {
+            if (double.IsNaN(desiredAltitude))
+            {
+                return;
+            }
+
             IMyCubeGrid grid = block.CubeGrid;
 
             IMyShipController shipController = BakurBlockUtils.GetShipControllerUnderControl(grid);
@@ -407,7 +392,7 @@ namespace BakurRepulsorCorp
             {
                 double step = 0.01f;
                 //MyAPIGateway.Utilities.ShowMessage("lift", "step: " + step + ", altitudeNormalized: " + altitudeNormalized + ", altitude: " + altitude + ", maxAltitude: " + maxAltitude);
-                desiredAltitude += step * GetShipControllerLinearInput(physicsDeltaTime, shipController);
+                desiredAltitude += step * GetShipControllerLinearInput(shipController);
             }
         }
 
@@ -425,7 +410,7 @@ namespace BakurRepulsorCorp
 
             // update desired force
 
-            double distanceError = desiredAltitude - altitude;
+            double distanceError = (desiredAltitude * maxAltitude) - altitude;
 
             double output = altitudePID.UpdateValue(distanceError, physicsDeltaTime);
             //MyAPIGateway.Utilities.ShowMessage("pid:", "desiredDistance: " + desiredDistance + ", distance: " + distance + ", distanceError: " + distanceError + ", output: " + output);
@@ -435,9 +420,8 @@ namespace BakurRepulsorCorp
 
         Vector3D desiredLinearAcceleration;
 
-        public Vector3D GetLinearAcceleration(double physicsDeltaTime, double altitude)
+        public Vector3D GetLinearAcceleration(double physicsDeltaTime, double measuredAltitude)
         {
-
             desiredLinearAcceleration = Vector3D.Zero;
 
             if (!enabled || !component.enabled || !useLift || !component.rigidbody.IsInGravity)
@@ -446,15 +430,23 @@ namespace BakurRepulsorCorp
                 return desiredLinearAcceleration;
             }
 
+            UpdateAltitude(measuredAltitude);
+
             //MyAPIGateway.Utilities.ShowMessage("Repulsor Lift", Math.Round(altitude, 1) + "m");
-            UpdateDesiredAltitude(altitude);
+
+            UpdateDesiredAltitude();
 
             //UpdatePrecisionMode(precisionMode);
 
-            UpdateDesiredAltitudeFromInput(physicsDeltaTime);
+            UpdateDesiredAltitudeFromInput();
 
-            double pid = UpdatePID(physicsDeltaTime);
-            desiredLinearAcceleration = pid * -component.rigidbody.gravity * 2;
+            if (!double.IsNaN(desiredAltitude) && !double.IsNaN(altitude))
+            {
+                double pid = UpdatePID(physicsDeltaTime);
+                desiredLinearAcceleration = pid * -component.rigidbody.gravity * 5;
+            }
+
+            //MyAPIGateway.Utilities.ShowMessage("Repulsor Lift", desiredLinearAcceleration + " N");
 
             /*
             double aa = PlanetsSession.GetNearestPlanet(block.CubeGrid).AtmosphereAltitude;
@@ -471,5 +463,14 @@ namespace BakurRepulsorCorp
             return desiredLinearAcceleration;
         }
 
+        public override void Debug()
+        {
+            base.Debug();
+            if (!component.debugEnabled)
+            {
+                return;
+            }
+
+        }
     }
 }

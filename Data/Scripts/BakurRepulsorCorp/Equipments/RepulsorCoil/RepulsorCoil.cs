@@ -1,5 +1,4 @@
-﻿using Sandbox.Game.EntityComponents;
-using Sandbox.ModAPI;
+﻿using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,11 +6,14 @@ using VRage.Game;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class RepulsorCoil : BakurBlockEquipment {
+    public class RepulsorCoil : BakurBlockEquipment
+    {
 
-        public RepulsorCoil(BakurBlock component) : base(component) {
+        public RepulsorCoil(BakurBlock component) : base(component)
+        {
         }
 
         public static Dictionary<long, List<RepulsorCoil>> repulsorCoils = new Dictionary<long, List<RepulsorCoil>>();
@@ -41,7 +43,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(USE_COIL_PROPERTY_NAME);
                 bool result = defaultUseCoil;
-                if (GetVariable<bool>(id, out result)) {
+                if (GetVariable<bool>(id, out result))
+                {
                     return result;
                 }
                 return defaultUseCoil;
@@ -82,7 +85,8 @@ namespace BakurRepulsorCorp {
             {
                 string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
                 double result = defaultPower;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultPower;
@@ -107,69 +111,85 @@ namespace BakurRepulsorCorp {
         {
             get
             {
-                if (!repulsorCoils.ContainsKey(block.CubeGrid.EntityId)) {
+                if (!repulsorCoils.ContainsKey(block.CubeGrid.EntityId))
+                {
                     return 0;
-                } else {
+                }
+                else
+                {
                     return repulsorCoils[block.CubeGrid.EntityId].Count;
                 }
             }
         }
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
             List<RepulsorCoil> list;
-            if (!repulsorCoils.ContainsKey(block.CubeGrid.EntityId)) {
+            if (!repulsorCoils.ContainsKey(block.CubeGrid.EntityId))
+            {
                 list = new List<RepulsorCoil>();
-            } else {
+            }
+            else
+            {
                 list = repulsorCoils[block.CubeGrid.EntityId];
             }
             list.Add(this);
             repulsorCoils[block.CubeGrid.EntityId] = list;
             //MyAPIGateway.Utilities.ShowMessage(block.CubeGrid.CustomName, "repulsorCoils: " + repulsorCoils.Count + ", grid coils: " + list.Count + ", maxAltitude: " + maxAltitude);
 
-            if (coilSeparator == null) {
+            if (coilSeparator == null)
+            {
                 coilSeparator = new Separator<RepulsorCoil>("Coil_CoilSeparator");
                 coilSeparator.Initialize();
             }
 
-            if (coilLabel == null) {
+            if (coilLabel == null)
+            {
                 coilLabel = new Label<RepulsorCoil>("Coil_CoilLabel", "Repulsor Coil");
                 coilLabel.Initialize();
             }
 
             // use repulsor coil
 
-            if (useCoilSwitch == null) {
+            if (useCoilSwitch == null)
+            {
                 useCoilSwitch = new Coil_UseCoilSwitch();
                 useCoilSwitch.Initialize();
             }
 
-            if (useCoilToggleAction == null) {
+            if (useCoilToggleAction == null)
+            {
                 useCoilToggleAction = new Coil_UseCoilToggleAction();
                 useCoilToggleAction.Initialize();
             }
 
-            if (useCoilEnableAction == null) {
+            if (useCoilEnableAction == null)
+            {
                 useCoilEnableAction = new Coil_UseCoilEnableAction();
                 useCoilEnableAction.Initialize();
             }
 
-            if (useCoilDisableAction == null) {
+            if (useCoilDisableAction == null)
+            {
                 useCoilDisableAction = new Coil_UseCoilDisableAction();
                 useCoilDisableAction.Initialize();
             }
 
             // power
 
-            if (powerSlider == null) {
+            if (powerSlider == null)
+            {
                 powerSlider = new Coil_PowerSlider();
                 powerSlider.Initialize();
             }
-            if (incrasePowerAction == null) {
+            if (incrasePowerAction == null)
+            {
                 incrasePowerAction = new Coil_IncrasePowerAction();
                 incrasePowerAction.Initialize();
             }
-            if (decrasePowerAction == null) {
+            if (decrasePowerAction == null)
+            {
                 decrasePowerAction = new Coil_DecrasePowerAction();
                 decrasePowerAction.Initialize();
             }
@@ -177,25 +197,33 @@ namespace BakurRepulsorCorp {
             base.Initialize();
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
             Clear();
 
-            if (repulsorCoils.ContainsKey(block.CubeGrid.EntityId)) {
+            if (repulsorCoils.ContainsKey(block.CubeGrid.EntityId))
+            {
                 List<RepulsorCoil> list = repulsorCoils[block.CubeGrid.EntityId];
                 list.Remove(this);
                 //MyAPIGateway.Utilities.ShowMessage(block.CubeGrid.CustomName, "repulsorCoils: " + repulsorCoils.Count + ", grid coils: " + list.Count + ", maxAltitude: " + maxAltitude);
-                if (list.Count == 0) {
+                if (list.Count == 0)
+                {
                     repulsorCoils.Remove(block.CubeGrid.EntityId);
-                } else {
+                }
+                else
+                {
                     repulsorCoils[block.CubeGrid.EntityId] = list;
                 }
-            } else {
+            }
+            else
+            {
                 //MyAPIGateway.Utilities.ShowMessage(block.CubeGrid.CustomName, "repulsorCoils: " + repulsorCoils.Count + ", maxAltitude: " + maxAltitude);
             }
             base.Destroy();
         }
 
-        public void Clear() {
+        public void Clear()
+        {
             power = defaultPower;
             useCoil = defaultUseCoil;
         }
@@ -204,7 +232,8 @@ namespace BakurRepulsorCorp {
 
         #region visuals
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
             IMyCubeGrid grid = block.CubeGrid;
             customInfo.AppendLine();
             customInfo.AppendLine("== Repulsor Coil ==");
@@ -220,7 +249,8 @@ namespace BakurRepulsorCorp {
         Vector3D desiredAcceleration;
         double altitude;
 
-        public Vector3D GetLinearAcceleration(double physicsDeltaTime, double altitude) {
+        public Vector3D GetLinearAcceleration(double physicsDeltaTime, double altitude)
+        {
 
             //float power_ratio = resourceSink.SuppliedRatioByType(MyResourceDistributorComponent.ElectricityId) * power_ratio_available;
 
@@ -232,11 +262,13 @@ namespace BakurRepulsorCorp {
             desiredAcceleration = Vector3D.Zero;
             this.altitude = altitude;
 
-            if (!useCoil) {
+            if (!useCoil)
+            {
                 return Vector3D.Zero;
             }
 
-            if (double.IsNaN(altitude) || altitude > (maxAltitude + (block.WorldAABB.Size.Length() / 2))) {
+            if (double.IsNaN(altitude) || altitude > (maxAltitude + (block.WorldAABB.Size.Length() / 2)))
+            {
                 return Vector3D.Zero;
             }
 
@@ -252,7 +284,8 @@ namespace BakurRepulsorCorp {
             return desiredAcceleration;
         }
 
-        public double GetMaxAltitude(IMyCubeGrid grid) {
+        public static double GetMaxAltitude(IMyCubeGrid grid)
+        {
 
             //MyAPIGateway.Utilities.ShowMessage("GetMaxAltitude", "GetMaxAltitude");
             /*
@@ -283,9 +316,12 @@ namespace BakurRepulsorCorp {
 
                  */
 
-            if (!repulsorCoils.ContainsKey(grid.EntityId)) {
+            if (!repulsorCoils.ContainsKey(grid.EntityId))
+            {
                 return float.NaN;
-            } else {
+            }
+            else
+            {
                 List<RepulsorCoil> list = repulsorCoils[grid.EntityId];
                 double size = grid.GridSizeEnum == MyCubeSize.Large ? 4 : 2;
                 double max = MathHelper.Clamp(Math.Pow(size, list.Count * size), 0, 20000);

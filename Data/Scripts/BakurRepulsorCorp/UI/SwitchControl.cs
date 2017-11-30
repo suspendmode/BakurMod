@@ -2,9 +2,11 @@
 using Sandbox.ModAPI.Interfaces.Terminal;
 using System.Text;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public abstract class SwitchControl<TEquipment> : PropertyBasedControl<TEquipment, bool> where TEquipment : EquipmentBase {
+    public abstract class SwitchControl<TEquipment> : PropertyBasedControl<TEquipment, bool> where TEquipment : EquipmentBase
+    {
 
         protected string onButtonText;
         protected string offButtonText;
@@ -18,19 +20,21 @@ namespace BakurRepulsorCorp {
         // public string internalNameToggleAction;
         // public string displayNameToggleAction;
 
-        public SwitchControl(            
+        public SwitchControl(
             string controlId,
             string title,
             string description,
             string onButton,
             string offButton)
-            : base(controlId, title, description) {
+            : base(controlId, title, description)
+        {
             onButtonText = onButton;
-            offButtonText = offButton;           
+            offButtonText = offButton;
         }
 
-        protected override IMyTerminalControl CreateControl() {
-            IMyTerminalControlOnOffSwitch switchControl = MyAPIGateway.TerminalControls.CreateControl<IMyTerminalControlOnOffSwitch, IMyTerminalBlock>(controlId);
+        protected override IMyTerminalControl CreateControl()
+        {
+            IMyTerminalControlOnOffSwitch switchControl = MyAPIGateway.TerminalControls.CreateControl<IMyTerminalControlOnOffSwitch, IMyUpgradeModule>(controlId);
             switchControl.Enabled = Enabled;
             switchControl.Visible = Visible;
             switchControl.Getter = Getter;
@@ -62,7 +66,8 @@ namespace BakurRepulsorCorp {
             return switchControl;
         }
 
-        protected override void DestroyControl(IMyTerminalControl control) {
+        protected override void DestroyControl(IMyTerminalControl control)
+        {
             /*
             IMyTerminalControlOnOffSwitch switchControl = (IMyTerminalControlOnOffSwitch)control;
             switchControl.Enabled = null;
@@ -73,11 +78,13 @@ namespace BakurRepulsorCorp {
             base.DestroyControl(control);
         }
 
-        public void ToggleAction(IMyTerminalBlock block) {
+        public void ToggleAction(IMyTerminalBlock block)
+        {
             Setter(block, !Getter(block));
         }
 
-        void HotbarText(IMyTerminalBlock block, StringBuilder hotbarText) {
+        void HotbarText(IMyTerminalBlock block, StringBuilder hotbarText)
+        {
             hotbarText.Clear();
             hotbarText.Append(Getter(block) ? onButtonText : offButtonText);
         }

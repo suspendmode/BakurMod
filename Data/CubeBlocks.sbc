@@ -2,623 +2,12 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <CubeBlocks>
-
-    <!-- magnetizer -->
-    <!--
-    <Definition xsi:type="MyObjectBuilder_RopeDefinition">
-      <Id>
-        <TypeId>Rope</TypeId>
-        <SubtypeId>SmallRope</SubtypeId>
-      </Id>
-      <DisplayName>Rope</DisplayName>
-      <Icon>Textures\GUI\Icons\magnetizer.dds</Icon>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\small_magnetizer.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\small_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\small_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\small_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\small_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_magnetizer.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="5" />
-        <Component Subtype="Detector" Count="6" />
-        <Component Subtype="Superconductor" Count="16" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="SteelPlate" Count="12" />
-        <Component Subtype="GravityGenerator" Count="6" />
-      </Components>
-
-      <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>Rope</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>30</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>214</DamageEffectId>
-      <DamagedSound>ParticleElectrical</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
-    <Definition xsi:type="MyObjectBuilder_RopeDefinition">
-      <Id>
-        <TypeId>Rope</TypeId>
-        <SubtypeId>LargeRope</SubtypeId>
-      </Id>
-      <DisplayName>Rope</DisplayName>
-      <Icon>Textures\GUI\Icons\magnetizer.dds</Icon>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\large_magnetizer.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\large_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\large_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\large_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\large_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_magnetizer.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="15" />
-        <Component Subtype="Detector" Count="26" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="Superconductor" Count="26" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="SteelPlate" Count="28" />
-        <Component Subtype="GravityGenerator" Count="6" />
-      </Components>
-
-      <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>Rope</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-    -->
     
-    <!-- magnetizer -->
-
-    <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>SmallBlockMagnetizer</SubtypeId>
-      </Id>
-      <DisplayName>Magnetizer</DisplayName>
-      <Icon>Textures\GUI\Icons\magnetizer.dds</Icon>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\small_magnetizer.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\small_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\small_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\small_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\small_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_magnetizer.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="5" />
-        <Component Subtype="Detector" Count="6" />
-        <Component Subtype="Superconductor" Count="16" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="SteelPlate" Count="12" />
-        <Component Subtype="GravityGenerator" Count="6" />
-      </Components>
-
-      <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>Magnetizer</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>30</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>214</DamageEffectId>
-      <DamagedSound>ParticleElectrical</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
-    <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>LargeBlockMagnetizer</SubtypeId>
-      </Id>
-      <DisplayName>Magnetizer</DisplayName>
-      <Icon>Textures\GUI\Icons\magnetizer.dds</Icon>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\large_magnetizer.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\large_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\large_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\large_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\large_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_magnetizer.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="15" />
-        <Component Subtype="Detector" Count="26" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="Superconductor" Count="26" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="SteelPlate" Count="28" />
-        <Component Subtype="GravityGenerator" Count="6" />
-      </Components>
-
-      <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>Magnetizer</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
-    <!-- planet radar -->
-
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>SmallPlanetRadar</SubtypeId>
-      </Id>
-      <DisplayName>Planet Radar</DisplayName>
-      <Icon>Textures\GUI\Icons\planet_radar.dds</Icon>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\small_planet_radar.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\small_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\small_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\small_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\small_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_planet_radar.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="5" />
-        <Component Subtype="Detector" Count="6" />
-        <Component Subtype="Superconductor" Count="16" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="SteelPlate" Count="12" />
-      </Components>
-
-      <CriticalComponent Subtype="Computer" Index="0" />
-      <BlockPairName>PlanetRadar</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>30</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>LargePlanetRadar</SubtypeId>
-      </Id>
-      <DisplayName>Planet Radar</DisplayName>
-      <Icon>Textures\GUI\Icons\planet_radar.dds</Icon>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\large_planet_radar.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\large_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\large_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\large_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\large_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_planet_radar.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="15" />
-        <Component Subtype="Detector" Count="26" />
-        <Component Subtype="Computer" Count="2" />
-        <Component Subtype="Superconductor" Count="26" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="SteelPlate" Count="28" />
-      </Components>
-
-      <CriticalComponent Subtype="Computer" Index="0" />
-      <BlockPairName>PlanetRadar</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
-    <!-- artificial gravity generator -->
-
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>SmallArtificialGravityGenerator</SubtypeId>
-      </Id>
-      <DisplayName>Artificial Gravity Generator</DisplayName>
-      <Icon>Textures\GUI\Icons\artificial_gravity_generator.dds</Icon>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\small_artificial_gravity_generator.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\small_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\small_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\small_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\small_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_artificial_gravity_generator.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="5" />
-        <Component Subtype="Detector" Count="6" />
-        <Component Subtype="GravityGenerator" Count="6" />
-        <Component Subtype="Superconductor" Count="16" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="Thrust" Count="2" />
-        <Component Subtype="SteelPlate" Count="12" />
-      </Components>
-
-      <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>ArtificialGravityGenerator</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>30</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>LargeArtificialGravityGenerator</SubtypeId>
-      </Id>
-      <DisplayName>Artificial Gravity Generator</DisplayName>
-      <Icon>Textures\GUI\Icons\artificial_gravity_generator.dds</Icon>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\large_artificial_gravity_generator.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\large_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\large_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\large_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\large_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_artificial_gravity_generator.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="15" />
-        <Component Subtype="Detector" Count="26" />
-        <Component Subtype="GravityGenerator" Count="6" />
-        <Component Subtype="Superconductor" Count="26" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="Thrust" Count="2" />
-        <Component Subtype="SteelPlate" Count="28" />
-      </Components>
-
-      <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>ArtificialGravityGenerator</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
-    <!-- anti gravity generator -->
-
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>SmallAntiGravityGenerator</SubtypeId>
-      </Id>
-      <DisplayName>AntiGravity Generator</DisplayName>
-      <Icon>Textures\GUI\Icons\antigravity_generator.dds</Icon>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\small_antigravity_generator.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\small_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\small_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\small_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\small_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_antigravity_generator.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="5" />
-        <Component Subtype="Detector" Count="6" />
-        <Component Subtype="GravityGenerator" Count="6" />
-        <Component Subtype="Superconductor" Count="16" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="Thrust" Count="2" />
-        <Component Subtype="SteelPlate" Count="12" />
-      </Components>
-
-      <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>AntiGravityGenerator</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>30</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>LargeAntiGravityGenerator</SubtypeId>
-      </Id>
-      <DisplayName>AntiGravity Generator</DisplayName>
-      <Icon>Textures\GUI\Icons\antigravity_generator.dds</Icon>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\large_antigravity_generator.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\large_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\large_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\large_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\large_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_antigravity_generator.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="Construction" Count="15" />
-        <Component Subtype="Detector" Count="26" />
-        <Component Subtype="GravityGenerator" Count="6" />
-        <Component Subtype="Superconductor" Count="26" />
-        <Component Subtype="PowerCell" Count="4" />
-        <Component Subtype="Thrust" Count="2" />
-        <Component Subtype="SteelPlate" Count="28" />
-      </Components>
-
-      <CriticalComponent Subtype="GravityGenerator" Index="0" />
-      <BlockPairName>AntiGravityGenerator</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-      <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <RequiredPowerInput>0.56713</RequiredPowerInput>
-
-    </Definition>
-
     <!-- repulsor coil -->
 
-    <Definition xsi:type="MyObjectBuilder_CargoContainer">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockRepulsorCoil</SubtypeId>
       </Id>
       <DisplayName>Repulsor Coil</DisplayName>
@@ -674,9 +63,9 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockRepulsorCoil</SubtypeId>
       </Id>
       <DisplayName>Repulsor Coil</DisplayName>
@@ -732,13 +121,12 @@
       </Effects>
 
     </Definition>
-
     
     <!-- repulsor point lift -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockRepulsorPointLift</SubtypeId>
       </Id>
       <DisplayName>Repulsor Point Lift</DisplayName>
@@ -796,9 +184,9 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockRepulsorPointLift</SubtypeId>
       </Id>
       <DisplayName>Repulsor Point Lift</DisplayName>
@@ -857,9 +245,9 @@
     
     <!-- repulsor lift -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockRepulsorLift</SubtypeId>
       </Id>
       <DisplayName>Repulsor Lift</DisplayName>
@@ -917,9 +305,9 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockRepulsorLift</SubtypeId>
       </Id>
       <DisplayName>Repulsor Lift</DisplayName>
@@ -978,9 +366,9 @@
 
     <!-- repulsor lift coil -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockRepulsorLiftCoil</SubtypeId>
       </Id>
       <DisplayName>Repulsor Lift Coil</DisplayName>
@@ -1038,9 +426,9 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockRepulsorLiftCoil</SubtypeId>
       </Id>
       <DisplayName>Repulsor Lift Coil</DisplayName>
@@ -1099,9 +487,9 @@
 
     <!-- repulsor -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockRepulsor</SubtypeId>
       </Id>
       <DisplayName>Repulsor</DisplayName>
@@ -1159,9 +547,9 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockRepulsor</SubtypeId>
       </Id>
       <DisplayName>Repulsor</DisplayName>
@@ -1219,9 +607,9 @@
 
     <!-- repulsor drive -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockRepulsorDrive</SubtypeId>
       </Id>
       <DisplayName>Repulsor Drive</DisplayName>
@@ -1277,9 +665,9 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockRepulsorDrive</SubtypeId>
       </Id>
       <DisplayName>Repulsor Drive</DisplayName>
@@ -1337,9 +725,9 @@
 
     <!-- repulsor lift drive -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockRepulsorLiftDrive</SubtypeId>
       </Id>
       <DisplayName>Repulsor Lift Drive</DisplayName>
@@ -1395,9 +783,9 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockRepulsorLiftDrive</SubtypeId>
       </Id>
       <DisplayName>Repulsor Lift Drive</DisplayName>
@@ -1455,9 +843,9 @@
 
     <!-- inertial compensator -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockInertialCompensator</SubtypeId>
       </Id>
       <DisplayName>Inertial Compensator</DisplayName>
@@ -1513,9 +901,9 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockInertialCompensator</SubtypeId>
       </Id>
       <DisplayName>Inertial Compensator</DisplayName>
@@ -1572,9 +960,9 @@
 
     <!-- gyroscopic stabiliser -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockGyroStabiliser</SubtypeId>
       </Id>
       <DisplayName>Gyroscopic Stabiliser</DisplayName>
@@ -1627,9 +1015,9 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockGyroStabiliser</SubtypeId>
       </Id>
       <DisplayName>Gyroscopic Stabiliser</DisplayName>
@@ -1685,9 +1073,9 @@
 
     <!-- etheric rudder -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockEthericRudder</SubtypeId>
       </Id>
       <DisplayName>Etheric Rudder</DisplayName>
@@ -1739,9 +1127,9 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockEthericRudder</SubtypeId>
       </Id>
       <DisplayName>Etheric Rudder</DisplayName>
@@ -1796,124 +1184,11 @@
       </Effects>
     </Definition>
 
-    <!-- power coupling -->
-
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>SmallBlockPowerCoupling</SubtypeId>
-      </Id>
-      <DisplayName>Power Coupling</DisplayName>
-      <Icon>Textures\GUI\Icons\power_coupling.dds</Icon>
-      <CubeSize>Small</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\small_power_coupling.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\small_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\small_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\small_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\small_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small_power_coupling.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="LargeTube" Count="1" />
-        <Component Subtype="Superconductor" Count="5" />
-        <Component Subtype="Construction" Count="1" />
-        <Component Subtype="SteelPlate" Count="1" />
-      </Components>
-
-      <CriticalComponent Subtype="Superconductor" Index="0" />
-      <BlockPairName>PowerCoupling</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>30</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-    </Definition>
-
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
-      <Id>
-        <TypeId>TerminalBlock</TypeId>
-        <SubtypeId>LargeBlockPowerCoupling</SubtypeId>
-      </Id>
-      <DisplayName>Power Coupling</DisplayName>
-      <Icon>Textures\GUI\Icons\power_coupling.dds</Icon>
-      <CubeSize>Large</CubeSize>
-      <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="1" y="1" z="1" />
-      <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\large_power_coupling.mwm</Model>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.00" File="Models\Cubes\large_block_build_progress_0.mwm" />
-        <Model BuildPercentUpperBound="0.25" File="Models\Cubes\large_block_build_progress_25.mwm" />
-        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\large_block_build_progress_50.mwm" />
-        <Model BuildPercentUpperBound="0.75" File="Models\Cubes\large_block_build_progress_75.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large_power_coupling.mwm" />
-      </BuildProgressModels>
-      <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-      </MountPoints>
-
-      <Components>
-        <Component Subtype="SteelPlate" Count="10" />
-        <Component Subtype="Construction" Count="35" />
-        <Component Subtype="LargeTube" Count="8" />
-        <Component Subtype="Superconductor" Count="100" />
-        <Component Subtype="Computer" Count="20" />
-        <Component Subtype="Construction" Count="20" />
-        <Component Subtype="SteelPlate" Count="5" />
-      </Components>
-
-      <CriticalComponent Subtype="Superconductor" Index="0" />
-      <BlockPairName>PowerCoupling</BlockPairName>
-      <Center x="0" y="0" z="0" />
-      <MirroringY>Z</MirroringY>
-      <MirroringZ>Y</MirroringZ>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
-      <EdgeType>Light</EdgeType>
-      <DamageAreaSize>5.0</DamageAreaSize>
-      <DamageEffectId>64</DamageEffectId>
-      <DamagedSound>ParticleWeapExpl</DamagedSound>
-      <Effects>
-        <Effect Name="Damage" ParameterMin="0">
-          <ParticleEffects>
-            <ParticleEffect Origin="Smoke" Name="Smoke" Loop="true" SpawnTimeMin="1" SpawnTimeMax="3" />
-          </ParticleEffects>
-        </Effect>
-      </Effects>
-    </Definition>
-
     <!-- copter -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockCopter</SubtypeId>
       </Id>
       <DisplayName>Copter</DisplayName>
@@ -1965,9 +1240,9 @@
       </Effects>
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockCopter</SubtypeId>
       </Id>
       <DisplayName>Copter</DisplayName>
@@ -2089,9 +1364,9 @@
 
     <!-- repulsor jammer -->
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>SmallBlockRepulsorJammer</SubtypeId>
       </Id>
       <DisplayName>Repulsor Jammer</DisplayName>
@@ -2149,9 +1424,9 @@
 
     </Definition>
 
-    <Definition xsi:type="MyObjectBuilder_TerminalBlockkDefinition">
+    <Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
       <Id>
-        <TypeId>TerminalBlock</TypeId>
+        <TypeId>UpgradeModule</TypeId>
         <SubtypeId>LargeBlockRepulsorJammer</SubtypeId>
       </Id>
       <DisplayName>Repulsor Jammer</DisplayName>

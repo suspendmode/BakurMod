@@ -187,7 +187,7 @@ namespace BakurRepulsorCorp
 
         public override void Initialize()
         {
-            MyAPIGateway.Utilities.ShowMessage("LinearInertialCompensator", "Initialize");
+            // MyAPIGateway.Utilities.ShowMessage("LinearInertialCompensator", "Initialize");
             if (linearCompensatorSeparator == null)
             {
                 linearCompensatorSeparator = new Separator<LinearInertialCompensator>("LinearInertialCompensator_LinearInertialCompensatorSeparator");

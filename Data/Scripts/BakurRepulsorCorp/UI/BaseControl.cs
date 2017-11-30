@@ -33,8 +33,8 @@ namespace BakurRepulsorCorp
 
                 control = CreateControl();
 
-                MyAPIGateway.TerminalControls.AddControl<IMyTerminalBlock>(control);
-                MyAPIGateway.Utilities.ShowMessage("BaseControl", "Initialize, " + controlId);
+                MyAPIGateway.TerminalControls.AddControl<IMyUpgradeModule>(control);
+                //MyAPIGateway.Utilities.ShowMessage("BaseControl", "Initialize, " + controlId);
                 initialized = true;
                 control.UpdateVisual();
                 RefreshControl();
@@ -49,10 +49,10 @@ namespace BakurRepulsorCorp
 
                 if (control != null)
                 {
-                    MyAPIGateway.Utilities.ShowMessage("BaseControl", "Destroy, " + controlId);
+                    //MyAPIGateway.Utilities.ShowMessage("BaseControl", "Destroy, " + controlId);
 
                     DestroyControl(control);
-                    MyAPIGateway.TerminalControls.RemoveControl<IMyTerminalBlock>(control);
+                    MyAPIGateway.TerminalControls.RemoveControl<IMyUpgradeModule>(control);
                     control = null;
                 }
 
@@ -69,15 +69,9 @@ namespace BakurRepulsorCorp
 
         protected virtual bool Enabled(IMyTerminalBlock block)
         {
-            return true;
-        }
-
-        protected virtual bool Visible(IMyTerminalBlock block)
-        {
-
             if (block == null)
             {
-                MyAPIGateway.Utilities.ShowMessage("BaseControl", "!Visible, block == null");
+                //MyAPIGateway.Utilities.ShowMessage("BaseControl", "!Visible, block == null");
                 return false;
             }
             BakurBlock component = block.GameLogic.GetAs<BakurBlock>();
@@ -86,14 +80,31 @@ namespace BakurRepulsorCorp
                 MyAPIGateway.Utilities.ShowMessage("BaseControl", "!Visible, component == null");
                 return false;
             }
+            return true;
+        }
+
+        protected virtual bool Visible(IMyTerminalBlock block)
+        {
+
+            if (block == null)
+            {
+                //MyAPIGateway.Utilities.ShowMessage("BaseControl", "!Visible, block == null");
+                return false;
+            }
+            BakurBlock component = block.GameLogic.GetAs<BakurBlock>();
+            if (component == null)
+            {
+                //MyAPIGateway.Utilities.ShowMessage("BaseControl", "!Visible, component == null");
+                return false;
+            }
             TEquipment equipment = component.GetEquipment<TEquipment>();
             if (equipment == null)
             {
-                MyAPIGateway.Utilities.ShowMessage("BaseControl", "!Visible, equipment == null");
+                //MyAPIGateway.Utilities.ShowMessage("BaseControl", "!Visible, equipment == null");
                 return false;
             }
 
-            MyAPIGateway.Utilities.ShowMessage("BaseControl", "Visible");
+            //MyAPIGateway.Utilities.ShowMessage("BaseControl", "Visible");
             return true;
         }
 
@@ -112,8 +123,8 @@ namespace BakurRepulsorCorp
 
         public virtual void RefreshControl()
         {
-            MyAPIGateway.Utilities.ShowMessage("BaseControl", "RefreshControl");
-            control.RedrawControl();
+            //MyAPIGateway.Utilities.ShowMessage("BaseControl", "RefreshControl");
+
             control.UpdateVisual();
         }
     }
