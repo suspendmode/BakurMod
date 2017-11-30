@@ -1,8 +1,5 @@
 C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\obj\x64\Release\BakurRepulsorCorp.csprojResolveAssemblyReference.cache
 C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\obj\x64\Release\BakurRepulsorCorp.csproj.CoreCompileInputs.cache
-C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\BakurRepulsorCorp.dll.config
-C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\BakurRepulsorCorp.dll
-C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\BakurRepulsorCorp.pdb
 C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\CommandLine.dll
 C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\HavokWrapper.dll
 C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\Sandbox.Common.dll
@@ -74,5 +71,8 @@ C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Script
 C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\NLog.xml
 C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\System.Reflection.Metadata.xml
 C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\zh-CN\VRage.Game.resources.dll
-C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\obj\x64\Release\BakurRepulsorCorp.dll
-C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\obj\x64\Release\BakurRepulsorCorp.pdb
+C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\Bakur.dll.config
+C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\Bakur.dll
+C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\bin\x64\Release\Bakur.pdb
+C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\obj\x64\Release\Bakur.dll
+C:\Users\suspe\AppData\Roaming\SpaceEngineers\Mods\BakurRepulsorCorp\Data\Scripts\obj\x64\Release\Bakur.pdb

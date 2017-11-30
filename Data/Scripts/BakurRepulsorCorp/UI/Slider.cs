@@ -6,7 +6,7 @@ using VRage.Utils;
 namespace BakurRepulsorCorp
 {
 
-    public abstract class Slider<TEquipment> : PropertyBasedControl<TEquipment, float> where TEquipment : EquipmentBase
+    public abstract class Slider<TEquipment> : PropertyBasedUIControl<TEquipment, float> where TEquipment : LogicElement
     {
 
         public float min;

@@ -4,7 +4,7 @@ using Sandbox.ModAPI.Interfaces.Terminal;
 namespace BakurRepulsorCorp
 {
 
-    public class Separator<TEquipment> : BaseControl<TEquipment> where TEquipment : EquipmentBase
+    public class Separator<TEquipment> : UIControl<TEquipment> where TEquipment : LogicElement
     {
 
         public Separator(
@@ -33,7 +33,7 @@ namespace BakurRepulsorCorp
             {
                 return false;
             }
-            return equipment.component.enabled;
+            return equipment.logicComponent.enabled;
         }
     }
 }

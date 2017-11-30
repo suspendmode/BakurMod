@@ -5,7 +5,7 @@ using VRage.Utils;
 namespace BakurRepulsorCorp
 {
 
-    public class Label<TEquipment> : BaseControl<TEquipment> where TEquipment : EquipmentBase
+    public class Label<TEquipment> : UIControl<TEquipment> where TEquipment : LogicElement
     {
 
         public Label(
@@ -36,7 +36,7 @@ namespace BakurRepulsorCorp
             {
                 return false;
             }
-            return equipment.component.enabled;
+            return equipment.logicComponent.enabled;
         }
     }
 }

@@ -5,7 +5,7 @@ using VRage.Utils;
 namespace BakurRepulsorCorp
 {
 
-    public abstract class CheckBox<TEquipment> : PropertyBasedControl<TEquipment, bool> where TEquipment : EquipmentBase
+    public abstract class CheckBox<TEquipment> : PropertyBasedUIControl<TEquipment, bool> where TEquipment : LogicElement
     {
 
         public CheckBox(

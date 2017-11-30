@@ -6,7 +6,7 @@ using VRage.Utils;
 namespace BakurRepulsorCorp
 {
 
-    public abstract class Textbox<TEquipment> : PropertyBasedControl<TEquipment, StringBuilder> where TEquipment : EquipmentBase
+    public abstract class Textbox<TEquipment> : PropertyBasedUIControl<TEquipment, StringBuilder> where TEquipment : LogicElement
     {
 
         public Textbox(
