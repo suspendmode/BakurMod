@@ -3,7 +3,6 @@ using Sandbox.ModAPI;
 using System;
 using System.Text;
 using VRage.Game.Components;
-using VRage.Game.ModAPI;
 using VRageMath;
 
 namespace BakurRepulsorCorp
@@ -13,22 +12,35 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorDrive", "LargeBlockRepulsorDrive" })]
     public class RepulsorDriveComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
-        private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsorDrive", "LargeBlockRepulsorDrive" };
+        private static readonly string[] subTypeIds = { "SmallBlockRepulsorDrive", "LargeBlockRepulsorDrive" };
 
         public RepulsorLinearGenerator repulsorLinearGenerator;
+        public RepulsorLinearGeneratorUIController<IMyUpgradeModule> repulsorLinearGeneratorUI;
+
         public RepulsorAngularGenerator repulsorAngularGenerator;
+        public RepulsorAngularGeneratorUIController<IMyUpgradeModule> repulsorAngularGeneratorUI;
 
         protected override void Initialize()
         {
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             repulsorLinearGenerator = new RepulsorLinearGenerator(this);
-            AddEquipment(repulsorLinearGenerator);
+            AddElement(repulsorLinearGenerator);
+
+            repulsorLinearGeneratorUI = new RepulsorLinearGeneratorUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorLinearGeneratorUI);
 
             repulsorAngularGenerator = new RepulsorAngularGenerator(this);
-            AddEquipment(repulsorAngularGenerator);
+            AddElement(repulsorAngularGenerator);
+
+            repulsorAngularGeneratorUI = new RepulsorAngularGeneratorUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorAngularGeneratorUI);
         }
 
         protected override void Destroy()
@@ -36,11 +48,17 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(repulsorLinearGenerator);
+            RemoveElement(repulsorLinearGenerator);
             repulsorLinearGenerator = null;
 
-            RemoveEquipment(repulsorAngularGenerator);
+            RemoveElement(repulsorLinearGeneratorUI);
+            repulsorLinearGeneratorUI = null;
+
+            RemoveElement(repulsorAngularGenerator);
             repulsorAngularGenerator = null;
+
+            RemoveElement(repulsorAngularGeneratorUI);
+            repulsorAngularGeneratorUI = null;
         }
 
         protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
@@ -50,11 +68,12 @@ namespace BakurRepulsorCorp
             base.AppendCustomInfo(block, customInfo);
         }
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
-
-            IMyCubeGrid grid = block.CubeGrid;
-
+            if (rigidbody == null)
+            {
+                return;
+            }
 
             Vector3D linearAcceleration = Vector3D.Zero;
             Vector3D forcePoint = Vector3D.Zero;
@@ -65,9 +84,7 @@ namespace BakurRepulsorCorp
 
             linearAcceleration = repulsorLinearGenerator.GetLinearAcceleration(physicsDeltaTime);
 
-
             angularAcceleration = repulsorAngularGenerator.GetAngularAcceleration(physicsDeltaTime);
-
 
             // apply
 

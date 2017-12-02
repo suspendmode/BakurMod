@@ -21,7 +21,10 @@ namespace BakurRepulsorCorp
         public MyObjectBuilder_EntityBase objectBuilder = null;
 
         public IMyTerminalBlock block;
+        public IMyCubeGrid grid;
+
         public DefaultLogicElement defaultLogicElement;
+
         public SoundController soundController;
         public Rigidbody rigidbody;
 
@@ -39,6 +42,7 @@ namespace BakurRepulsorCorp
             rigidbody = new Rigidbody(this);
             objectBuilder = objectBuilder as MyObjectBuilder_EntityBase;
             block = Entity as IMyTerminalBlock;
+            grid = block.CubeGrid;
             if (Entity.Storage == null)
             {
                 Entity.Storage = new MyModStorageComponent();
@@ -60,10 +64,10 @@ namespace BakurRepulsorCorp
             LoadStorage();
 
             defaultLogicElement = new DefaultLogicElement(this);
-            AddEquipment(defaultLogicElement);
+            AddElement(defaultLogicElement);
 
             soundController = new SoundController(this, soundIds[0], soundIds[1], soundIds[2]);
-            AddEquipment(soundController);
+            AddElement(soundController);
 
             block.IsWorkingChanged += OnIsWorkingChanged;
             defaultLogicElement.EnabledChangedEvent += OnEnabledChanged;
@@ -80,8 +84,8 @@ namespace BakurRepulsorCorp
             block.AppendingCustomInfo -= AppendCustomInfo;
             defaultLogicElement.EnabledChangedEvent -= OnEnabledChanged;
 
-            RemoveEquipment(defaultLogicElement);
-            RemoveEquipment(soundController);
+            RemoveElement(defaultLogicElement);
+            RemoveElement(soundController);
 
             defaultLogicElement = null;
             soundController = null;
@@ -92,10 +96,10 @@ namespace BakurRepulsorCorp
             base.MarkForClose();
             if (initialized)
             {
-                foreach (LogicElement equipment in equipments)
+                foreach (LogicElement element in elements)
                 {
-                    equipment.Destroy();
-                    equipment.isInitialized = false;
+                    element.Destroy();
+                    element.isInitialized = false;
                 }
                 Destroy();
                 initialized = false;
@@ -121,10 +125,17 @@ namespace BakurRepulsorCorp
 
         bool powered = false;
 
-        public override void UpdateBeforeSimulation100()
+        public override void UpdateAfterSimulation100()
         {
             powered = block != null && block.ResourceSink != null && block.ResourceSink.IsPoweredByType(MyResourceDistributorComponent.ElectricityId) && block.IsWorking;
 
+            if (!initialized || grid == null)
+            {
+                return;
+            }
+
+            UpdateVisual();
+            soundController.UpdateSound();
         }
 
         public override void UpdateAfterSimulation()
@@ -133,7 +144,8 @@ namespace BakurRepulsorCorp
             //MyAPIGateway.Utilities.ShowMessage("BakurBlock", "UpdateAfterSimulation");
 
             //if (block == null || block.MarkedForClose || block.Closed || !block.IsWorking || block.CubeGrid == null || block.CubeGrid.Physics == null || !block.CubeGrid.Physics.Enabled) {
-            if (block == null || block.MarkedForClose || block.Closed || block.CubeGrid == null)
+            if (block == null || block.MarkedForClose || block.Closed || grid == null ||
+                grid.Physics == null || !grid.Physics.Enabled)
             {
                 //MyAPIGateway.Utilities.ShowMessage("BakurBlock", "block == null || block.MarkedForClose || block.Closed || block.CubeGrid == null");
                 return;
@@ -144,11 +156,11 @@ namespace BakurRepulsorCorp
                 //MyAPIGateway.Utilities.ShowMessage("BakurBlock", "!initialized");
                 initialized = true;
                 Initialize();
-                for (int i = 0; i < equipments.Count; i++)
+                for (int i = 0; i < elements.Count; i++)
                 {
-                    LogicElement equipment = equipments[i];
-                    equipment.Initialize();
-                    equipment.isInitialized = true;
+                    LogicElement element = elements[i];
+                    element.Initialize();
+                    element.isInitialized = true;
                 }
                 UpdateVisual();
             }
@@ -161,13 +173,13 @@ namespace BakurRepulsorCorp
 
             double physicsDeltaTime = MyEngineConstants.PHYSICS_STEP_SIZE_IN_SECONDS;
 
-            UpdateSimulation(physicsDeltaTime);
+            UpdateAfterSimulation(physicsDeltaTime);
 
             if (debugEnabled)
             {
-                foreach (LogicElement equipment in equipments)
+                foreach (LogicElement element in elements)
                 {
-                    equipment.Debug();
+                    element.Debug();
                 }
                 Debug();
             }
@@ -181,53 +193,41 @@ namespace BakurRepulsorCorp
         {
         }
 
-        protected abstract void UpdateSimulation(double physicsDeltaTime);
-
-        public override void UpdateAfterSimulation100()
-        {
-
-            if (!initialized)
-            {
-                return;
-            }
-
-            UpdateVisual();
-            soundController.UpdateSound();
-        }
+        protected abstract void UpdateAfterSimulation(double physicsDeltaTime);
 
         #endregion
 
-        #region equipment
+        #region element
 
-        protected List<LogicElement> equipments = new List<LogicElement>();
+        protected List<LogicElement> elements = new List<LogicElement>();
 
-        public void AddEquipment(LogicElement equipment)
+        public void AddElement(LogicElement element)
         {
-            equipments.Add(equipment);
+            elements.Add(element);
         }
 
-        public void RemoveEquipment(LogicElement equipment)
+        public void RemoveElement(LogicElement element)
         {
-            equipments.Remove(equipment);
+            elements.Remove(element);
         }
 
-        public TEquipment GetEquipment<TEquipment>() where TEquipment : LogicElement
+        public TLogicElement GetElement<TLogicElement>() where TLogicElement : LogicElement
         {
-            foreach (LogicElement equipment in equipments)
+            foreach (LogicElement element in elements)
             {
-                if (equipment is TEquipment)
+                if (element is TLogicElement)
                 {
-                    return (TEquipment)equipment;
+                    return (TLogicElement)element;
                 }
             }
             return null;
         }
 
-        protected void UpdateEquipmentsVisual(IMyTerminalBlock block, StringBuilder customInfo)
+        protected void UpdateElementsVisual(IMyTerminalBlock block, StringBuilder customInfo)
         {
-            foreach (LogicElement equipment in equipments)
+            foreach (LogicElement element in elements)
             {
-                equipment.AppendCustomInfo(block, customInfo);
+                element.AppendCustomInfo(block, customInfo);
             }
         }
 
@@ -243,7 +243,11 @@ namespace BakurRepulsorCorp
 
         public virtual void DrawEmissive()
         {
-            if (!block.IsWorking || block.CubeGrid.IsStatic || !enabled)
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled)
             {
                 block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
             }
@@ -256,22 +260,15 @@ namespace BakurRepulsorCorp
         protected virtual void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
         {
             customInfo.AppendLine();
-            customInfo.AppendLine("== Component ==");
-            customInfo.AppendLine("Is Working : " + block.IsWorking);
-            customInfo.AppendLine("Marked For Close : " + MarkedForClose);
-            customInfo.AppendLine("Is In Gravity : " + rigidbody.IsInGravity);
-            customInfo.AppendLine("Gravity : " + rigidbody.gravity.Length());
+            customInfo.AppendLine("Type: Component");
+            customInfo.AppendLine("Is Working: " + block.IsWorking);
+            customInfo.AppendLine("Is Functional: " + block.IsFunctional);
+            customInfo.AppendLine("Marked For Close: " + MarkedForClose);
 
-            Vector3D linearVelocity = block.CubeGrid.Physics.LinearVelocity;
-            Vector3D angularVelocity = block.CubeGrid.Physics.AngularVelocity * (float)BakurMathHelper.Rad2Deg;
-
-            customInfo.AppendLine("Linear Velocity : " + Math.Round(linearVelocity.Length(), 1));
-            customInfo.AppendLine("Angular Velocity : " + Math.Round(angularVelocity.Length(), 1));
-
-            UpdateEquipmentsVisual(block, customInfo);
+            UpdateElementsVisual(block, customInfo);
         }
 
-        public string GeneratatePropertyId(string name)
+        public string GeneratePropertyId(string name)
         {
             return Entity.EntityId + "_" + name;
         }

@@ -12,22 +12,35 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_RemoteControl), true, new string[] { "SmallBlockRepulsorDriveRemoteControl", "LargeBlockRepulsorDriveRemoteControl" })]
     public class RepulsorDriveRemoteControlComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         private static readonly string[] subTypeIds = { "SmallBlockRepulsorDriveRemoteControl", "LargeBlockRepulsorDriveRemoteControl" };
 
         public RepulsorLinearGenerator repulsorLinearGenerator;
+        public RepulsorLinearGeneratorUIController<IMyUpgradeModule> repulsorLinearGeneratorUI;
+
         public RepulsorAngularGenerator repulsorAngularGenerator;
+        public RepulsorAngularGeneratorUIController<IMyUpgradeModule> repulsorAngularGeneratorUI;
 
         protected override void Initialize()
         {
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             repulsorLinearGenerator = new RepulsorLinearGenerator(this);
-            AddEquipment(repulsorLinearGenerator);
+            AddElement(repulsorLinearGenerator);
+
+            repulsorLinearGeneratorUI = new RepulsorLinearGeneratorUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorLinearGeneratorUI);
 
             repulsorAngularGenerator = new RepulsorAngularGenerator(this);
-            AddEquipment(repulsorAngularGenerator);
+            AddElement(repulsorAngularGenerator);
+
+            repulsorAngularGeneratorUI = new RepulsorAngularGeneratorUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorAngularGeneratorUI);
         }
 
         protected override void Destroy()
@@ -35,11 +48,17 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(repulsorLinearGenerator);
+            RemoveElement(repulsorLinearGenerator);
             repulsorLinearGenerator = null;
 
-            RemoveEquipment(repulsorAngularGenerator);
+            RemoveElement(repulsorLinearGeneratorUI);
+            repulsorLinearGeneratorUI = null;
+
+            RemoveElement(repulsorAngularGenerator);
             repulsorAngularGenerator = null;
+
+            RemoveElement(repulsorAngularGeneratorUI);
+            repulsorAngularGeneratorUI = null;
         }
 
         protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
@@ -49,7 +68,7 @@ namespace BakurRepulsorCorp
             base.AppendCustomInfo(block, customInfo);
         }
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             IMyCubeGrid grid = block.CubeGrid;
@@ -84,7 +103,7 @@ namespace BakurRepulsorCorp
 
         protected override Guid blockGUID()
         {
-            return new Guid("952f402f-12f4-4828-892e-1918f015629e");
+            return new Guid("3a12f73f-2c1d-4811-9a12-7a7e513b9403");
         }
     }
 

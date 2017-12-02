@@ -11,28 +11,17 @@ namespace BakurRepulsorCorp
     public class RepulsorLinearGenerator : LogicElement
     {
 
-        public double maxLinearVelocity = 3;
-        public double maxLinearAcceleration = 0.2;
+        public double maxLinearVelocity = 7.5;
+        public double maxLinearAcceleration = 1;
 
         public RepulsorLinearGenerator(LogicComponent component) : base(component)
         {
 
         }
 
-        static Separator<RepulsorLinearGenerator> repulsorLinearGeneratorSeparator;
-        static Label<RepulsorLinearGenerator> repulsorLinearGeneratorLabel;
-
-        static Separator<RepulsorLinearGenerator> linearOverrideSeparator;
-        static Label<RepulsorLinearGenerator> linearOverrideLabel;
-
         #region use linear generator
 
-        static LinearGenerator_UseLinearGeneratorSwitch useLinearGeneratorSwitch;
-        static LinearGenerator_UseLinearGeneratorToggleAction useLinearGeneratorToggleAction;
-        static LinearGenerator_UseLinearGeneratorEnableAction useLinearGeneratorEnableAction;
-        static LinearGenerator_UseLinearGeneratorDisableAction useLinearGeneratorDisableAction;
-
-        public static string USE_LINEAR_DRIVE_PROPERTY_NAME = "LinearGenerator_UseLinearGenerator";
+        public readonly string USE_LINEAR_DRIVE_PROPERTY_NAME = "LinearGenerator_UseLinearGenerator";
 
         public bool defaultUseLinearGenerator = true;
 
@@ -40,12 +29,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_LINEAR_DRIVE_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_LINEAR_DRIVE_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_LINEAR_DRIVE_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_LINEAR_DRIVE_PROPERTY_NAME);
                 bool result = defaultUseLinearGenerator;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -59,11 +48,7 @@ namespace BakurRepulsorCorp
 
         #region power
 
-        static LinearGenerator_PowerSlider powerSlider;
-        static LinearGenerator_IncrasePowerAction incrasePowerAction;
-        static LinearGenerator_DecrasePowerAction decrasePowerAction;
-
-        public static string POWER_PROPERTY_NAME = "LinearGenerator_Power";
+        public readonly string POWER_PROPERTY_NAME = "LinearGenerator_Power";
 
         public double defaultPower = 1;
 
@@ -71,12 +56,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
+                string id = GeneratePropertyId(POWER_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
+                string id = GeneratePropertyId(POWER_PROPERTY_NAME);
                 double result = defaultPower;
                 if (GetVariable<double>(id, out result))
                 {
@@ -91,12 +76,7 @@ namespace BakurRepulsorCorp
 
         #region forward
 
-        static LinearGenerator_ForwardSlider forwardSlider;
-        static LinearGenerator_IncraseForwardAction incraseForwardAction;
-        static LinearGenerator_DecraseForwardAction decraseForwardAction;
-        static LinearGenerator_ZeroForwardAction zeroForwardAction;
-
-        public static string FORWARD_PROPERTY_NAME = "LinearGenerator_Forward";
+        public readonly string FORWARD_PROPERTY_NAME = "LinearGenerator_Forward";
 
         public double defaultForward = 0;
 
@@ -104,12 +84,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(FORWARD_PROPERTY_NAME);
+                string id = GeneratePropertyId(FORWARD_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(FORWARD_PROPERTY_NAME);
+                string id = GeneratePropertyId(FORWARD_PROPERTY_NAME);
                 double result = defaultForward;
                 if (GetVariable<double>(id, out result))
                 {
@@ -124,12 +104,7 @@ namespace BakurRepulsorCorp
 
         #region sideways
 
-        static LinearGenerator_SidewaysSlider sidewaysSlider;
-        static LinearGenerator_IncraseSidewaysAction incraseSidewaysAction;
-        static LinearGenerator_DecraseSidewaysAction decraseSidewaysAction;
-        static LinearGenerator_ZeroSidewaysAction zeroSidewaysAction;
-
-        public static string SIDEWAYS_PROPERTY_NAME = "LinearGenerator_Sideways";
+        public readonly string SIDEWAYS_PROPERTY_NAME = "LinearGenerator_Sideways";
 
         public double defaultSideways = 0;
 
@@ -137,12 +112,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(SIDEWAYS_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIDEWAYS_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(SIDEWAYS_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIDEWAYS_PROPERTY_NAME);
                 double result = defaultSideways;
                 if (GetVariable<double>(id, out result))
                 {
@@ -156,12 +131,7 @@ namespace BakurRepulsorCorp
 
         #region up
 
-        static LinearGenerator_UpSlider upSlider;
-        static LinearGenerator_IncraseUpAction incraseUpAction;
-        static LinearGenerator_DecraseUpAction decraseUpAction;
-        static LinearGenerator_ZeroUpAction zeroUpAction;
-
-        public static string UP_PROPERTY_NAME = "LinearGenerator_UP";
+        public readonly string UP_PROPERTY_NAME = "LinearGenerator_UP";
 
         public double defaultUp = 0;
 
@@ -169,12 +139,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(UP_PROPERTY_NAME);
+                string id = GeneratePropertyId(UP_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(UP_PROPERTY_NAME);
+                string id = GeneratePropertyId(UP_PROPERTY_NAME);
                 double result = defaultUp;
                 if (GetVariable<double>(id, out result))
                 {
@@ -191,155 +161,6 @@ namespace BakurRepulsorCorp
         public override void Initialize()
         {
 
-            // label
-
-            if (repulsorLinearGeneratorSeparator == null)
-            {
-                repulsorLinearGeneratorSeparator = new Separator<RepulsorLinearGenerator>("LinearGenerator_GeneratorSeparator");
-                repulsorLinearGeneratorSeparator.Initialize();
-            }
-
-            if (repulsorLinearGeneratorLabel == null)
-            {
-                repulsorLinearGeneratorLabel = new Label<RepulsorLinearGenerator>("LinearGenerator_RepulsorLinearGeneratorLabel", "Repulsor Linear Generator");
-                repulsorLinearGeneratorLabel.Initialize();
-            }
-
-            // linear
-
-            if (linearOverrideSeparator == null)
-            {
-                linearOverrideSeparator = new Separator<RepulsorLinearGenerator>("LinearGenerator_LinearOverrideSeparator");
-                linearOverrideSeparator.Initialize();
-            }
-
-            if (linearOverrideLabel == null)
-            {
-                linearOverrideLabel = new Label<RepulsorLinearGenerator>("LinearGenerator_LinearOverrideLabel", "Linear Override");
-                linearOverrideLabel.Initialize();
-            }
-
-            // use linear generator
-
-            if (useLinearGeneratorSwitch == null)
-            {
-                useLinearGeneratorSwitch = new LinearGenerator_UseLinearGeneratorSwitch();
-                useLinearGeneratorSwitch.Initialize();
-            }
-
-            if (useLinearGeneratorToggleAction == null)
-            {
-                useLinearGeneratorToggleAction = new LinearGenerator_UseLinearGeneratorToggleAction();
-                useLinearGeneratorToggleAction.Initialize();
-            }
-
-            if (useLinearGeneratorEnableAction == null)
-            {
-                useLinearGeneratorEnableAction = new LinearGenerator_UseLinearGeneratorEnableAction();
-                useLinearGeneratorEnableAction.Initialize();
-            }
-
-            if (useLinearGeneratorDisableAction == null)
-            {
-                useLinearGeneratorDisableAction = new LinearGenerator_UseLinearGeneratorDisableAction();
-                useLinearGeneratorDisableAction.Initialize();
-            }
-
-            // power
-
-            if (powerSlider == null)
-            {
-                powerSlider = new LinearGenerator_PowerSlider();
-                powerSlider.Initialize();
-            }
-            if (incrasePowerAction == null)
-            {
-                incrasePowerAction = new LinearGenerator_IncrasePowerAction();
-                incrasePowerAction.Initialize();
-            }
-            if (decrasePowerAction == null)
-            {
-                decrasePowerAction = new LinearGenerator_DecrasePowerAction();
-                decrasePowerAction.Initialize();
-            }
-
-            // sideways
-
-            if (sidewaysSlider == null)
-            {
-                sidewaysSlider = new LinearGenerator_SidewaysSlider();
-                sidewaysSlider.Initialize();
-            }
-
-            if (incraseSidewaysAction == null)
-            {
-                incraseSidewaysAction = new LinearGenerator_IncraseSidewaysAction();
-                incraseSidewaysAction.Initialize();
-            }
-
-            if (decraseSidewaysAction == null)
-            {
-                decraseSidewaysAction = new LinearGenerator_DecraseSidewaysAction();
-                decraseSidewaysAction.Initialize();
-            }
-
-            if (zeroSidewaysAction == null)
-            {
-                zeroSidewaysAction = new LinearGenerator_ZeroSidewaysAction();
-                zeroSidewaysAction.Initialize();
-            }
-
-            // up
-
-            if (upSlider == null)
-            {
-                upSlider = new LinearGenerator_UpSlider();
-                upSlider.Initialize();
-            }
-
-            if (incraseUpAction == null)
-            {
-                incraseUpAction = new LinearGenerator_IncraseUpAction();
-                incraseUpAction.Initialize();
-            }
-
-            if (decraseUpAction == null)
-            {
-                decraseUpAction = new LinearGenerator_DecraseUpAction();
-                decraseUpAction.Initialize();
-            }
-
-            if (zeroUpAction == null)
-            {
-                zeroUpAction = new LinearGenerator_ZeroUpAction();
-                zeroUpAction.Initialize();
-            }
-
-            // forward            
-
-            if (forwardSlider == null)
-            {
-                forwardSlider = new LinearGenerator_ForwardSlider();
-                forwardSlider.Initialize();
-            }
-
-            if (incraseForwardAction == null)
-            {
-                incraseForwardAction = new LinearGenerator_IncraseForwardAction();
-                incraseForwardAction.Initialize();
-            }
-
-            if (decraseForwardAction == null)
-            {
-                decraseForwardAction = new LinearGenerator_DecraseForwardAction();
-                decraseForwardAction.Initialize();
-            }
-
-            if (zeroForwardAction == null)
-            {
-                zeroForwardAction = new LinearGenerator_ZeroForwardAction();
-                zeroForwardAction.Initialize();
-            }
         }
 
         public override void Destroy()
@@ -359,10 +180,10 @@ namespace BakurRepulsorCorp
         public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
         {
             customInfo.AppendLine();
-            customInfo.AppendLine("== Repulsor Linear Generator ==");
-            customInfo.AppendLine("Sideways : " + Math.Round(sideways, 1) + " m/s");
-            customInfo.AppendLine("Up : " + Math.Round(up, 1) + " m/s");
-            customInfo.AppendLine("Forward : " + Math.Round(forward, 1) + " m/s");
+            customInfo.AppendLine("Type: Repulsor Linear Generator");
+            customInfo.AppendLine("Sideways: " + Math.Round(sideways, 1) + " m/s");
+            customInfo.AppendLine("Up: " + Math.Round(up, 1) + " m/s");
+            customInfo.AppendLine("Forward: " + Math.Round(forward, 1) + " m/s");
 
         }
 

@@ -12,9 +12,13 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockPowerCoupling", "LargeBlockPowerCoupling" })]
     public class PowerCouplingComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
-        PowerCoupling powerCoupling;
+        PowerCoupler powerCoupling;
+        PowerCouplerUIController<IMyUpgradeModule> powerCouplingUI;
+
         AttitudeStabiliser attitudeStabiliser;
+        AttitudeStabiliserUIController<IMyUpgradeModule> attitudeStabiliserUI;
 
         #region lifecycle
 
@@ -23,11 +27,20 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
-            powerCoupling = new PowerCoupling(this);
-            AddEquipment(powerCoupling);
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
+            powerCoupling = new PowerCoupler(this);
+            AddElement(powerCoupling);
+
+            powerCouplingUI = new PowerCouplerUIController<IMyUpgradeModule>(this);
+            AddElement(powerCouplingUI);
 
             attitudeStabiliser = new AttitudeStabiliser(this);
-            AddEquipment(attitudeStabiliser);
+            AddElement(attitudeStabiliser);
+
+            attitudeStabiliserUI = new AttitudeStabiliserUIController<IMyUpgradeModule>(this);
+            AddElement(attitudeStabiliserUI);
         }
 
         protected override void Destroy()
@@ -35,11 +48,17 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(powerCoupling);
+            RemoveElement(powerCoupling);
             powerCoupling = null;
 
-            RemoveEquipment(attitudeStabiliser);
+            RemoveElement(powerCouplingUI);
+            powerCouplingUI = null;
+
+            RemoveElement(attitudeStabiliser);
             attitudeStabiliser = null;
+
+            RemoveElement(attitudeStabiliserUI);
+            attitudeStabiliserUI = null;
         }
 
         #endregion
@@ -51,7 +70,7 @@ namespace BakurRepulsorCorp
             base.UpdateBeforeSimulation10();
         }
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             Vector3D direction = block.WorldMatrix.Forward;
@@ -73,7 +92,6 @@ namespace BakurRepulsorCorp
         }
 
         #endregion
-
 
         protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
         {

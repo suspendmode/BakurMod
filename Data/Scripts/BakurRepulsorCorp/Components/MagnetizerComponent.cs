@@ -11,10 +11,12 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockMagnetizer", "LargeBlockMagnetizer" })]
     public class MagnetizerComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         private static readonly string[] subTypeIds = { "SmallBlockMagnetizer", "LargeBlockMagnetizer" };
 
-        Magnetizer magnetizer;
+        public Magnetizer magnetizer;
+        public MagnetizerUIController<IMyUpgradeModule> magnetizerUI;
 
         #region lifecycle
 
@@ -23,8 +25,14 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             magnetizer = new Magnetizer(this);
-            AddEquipment(magnetizer);
+            AddElement(magnetizer);
+
+            magnetizerUI = new MagnetizerUIController<IMyUpgradeModule>(this);
+            AddElement(magnetizerUI);
         }
 
         protected override void Destroy()
@@ -32,8 +40,11 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(magnetizer);
+            RemoveElement(magnetizer);
             magnetizer = null;
+
+            RemoveElement(magnetizerUI);
+            magnetizerUI = null;
         }
 
         #endregion
@@ -47,7 +58,7 @@ namespace BakurRepulsorCorp
 
 
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             magnetizer.UpdateMagnetizer(physicsDeltaTime);

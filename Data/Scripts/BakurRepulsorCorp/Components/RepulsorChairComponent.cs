@@ -9,22 +9,40 @@ using VRageMath;
 
 namespace BakurRepulsorCorp
 {
-
-
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorChair", "LargeBlockRepulsorChair" })]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Cockpit), true, new string[] { "SmallBlockRepulsorChair", "LargeBlockRepulsorChair" })]
     public class RepulsorChairComponent : LogicComponent
     {
+        public DefaultUIController<IMyCockpit> defaultUI;
 
         RepulsorCoil repulsorCoil;
+        RepulsorCoilUIController<IMyCockpit> repulsorCoilUI;
+
         RepulsorLift repulsorLift;
+        RepulsorLiftUIController<IMyCockpit> repulsorLiftUI;
+
         RepulsorLinearGenerator repulsorLinearGenerator;
+        RepulsorLinearGeneratorUIController<IMyCockpit> repulsorLinearGeneratorUI;
+
         RepulsorAngularGenerator repulsorAngularGenerator;
+        RepulsorAngularGeneratorUIController<IMyCockpit> repulsorAngularGeneratorUI;
+
         LinearInertialCompensator linearInertialCompensator;
+        LinearInertialCompensatorUIController<IMyCockpit> linearInertialCompensatorUI;
+
         AngularInertialCompensator angularInertialCompensator;
+        AngularInertialCompensatorUIController<IMyCockpit> angularInertialCompensatorUI;
+
         PlanetSurfaceNormalSensor planetSurfaceNormalSensor;
+        PlanetSurfaceNormalSensorUIController<IMyCockpit> planetSurfaceNormalSensorUI;
+
         GyroStabiliser gyroStabiliser;
+        GyroStabiliserUIController<IMyCockpit> gyroStabiliserUI;
+
         AttitudeStabiliser attitudeStabiliser;
+        AttitudeStabiliserUIController<IMyCockpit> attitudeStabiliserUI;
+
         PlanetAltitudeSensor planetAltitudeSensor;
+        PlanetAltitudeSensorUIController<IMyCockpit> planetAltitudeSensorUI;
 
         #region lifecycle
 
@@ -33,35 +51,68 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyCockpit>(this);
+            AddElement(defaultUI);
+
             repulsorCoil = new RepulsorCoil(this);
-            AddEquipment(repulsorCoil);
+            AddElement(repulsorCoil);
+
+            repulsorCoilUI = new RepulsorCoilUIController<IMyCockpit>(this);
+            AddElement(repulsorCoilUI);
 
             repulsorLift = new RepulsorLift(this);
-            AddEquipment(repulsorLift);
+            AddElement(repulsorLift);
+
+            repulsorLiftUI = new RepulsorLiftUIController<IMyCockpit>(this);
+            AddElement(repulsorLiftUI);
 
             repulsorLinearGenerator = new RepulsorLinearGenerator(this);
-            AddEquipment(repulsorLinearGenerator);
+            AddElement(repulsorLinearGenerator);
+
+            repulsorLinearGeneratorUI = new RepulsorLinearGeneratorUIController<IMyCockpit>(this);
+            AddElement(repulsorLinearGeneratorUI);
 
             repulsorAngularGenerator = new RepulsorAngularGenerator(this);
-            AddEquipment(repulsorAngularGenerator);
+            AddElement(repulsorAngularGenerator);
+
+            repulsorAngularGeneratorUI = new RepulsorAngularGeneratorUIController<IMyCockpit>(this);
+            AddElement(repulsorAngularGeneratorUI);
 
             linearInertialCompensator = new LinearInertialCompensator(this);
-            AddEquipment(linearInertialCompensator);
+            AddElement(linearInertialCompensator);
+
+            linearInertialCompensatorUI = new LinearInertialCompensatorUIController<IMyCockpit>(this);
+            AddElement(linearInertialCompensatorUI);
 
             angularInertialCompensator = new AngularInertialCompensator(this);
-            AddEquipment(angularInertialCompensator);
+            AddElement(angularInertialCompensator);
+
+            angularInertialCompensatorUI = new AngularInertialCompensatorUIController<IMyCockpit>(this);
+            AddElement(angularInertialCompensatorUI);
 
             planetSurfaceNormalSensor = new PlanetSurfaceNormalSensor(this);
-            AddEquipment(planetSurfaceNormalSensor);
+            AddElement(planetSurfaceNormalSensor);
+
+            planetSurfaceNormalSensorUI = new PlanetSurfaceNormalSensorUIController<IMyCockpit>(this);
+            AddElement(planetSurfaceNormalSensorUI);
 
             gyroStabiliser = new GyroStabiliser(this);
-            AddEquipment(gyroStabiliser);
+            AddElement(gyroStabiliser);
+
+            gyroStabiliserUI = new GyroStabiliserUIController<IMyCockpit>(this);
+            AddElement(gyroStabiliserUI);
 
             attitudeStabiliser = new AttitudeStabiliser(this);
-            AddEquipment(attitudeStabiliser);
+            AddElement(attitudeStabiliser);
+
+            attitudeStabiliserUI = new AttitudeStabiliserUIController<IMyCockpit>(this);
+            AddElement(attitudeStabiliserUI);
 
             planetAltitudeSensor = new PlanetAltitudeSensor(this);
-            AddEquipment(planetAltitudeSensor);
+            AddElement(planetAltitudeSensor);
+
+            planetAltitudeSensorUI = new PlanetAltitudeSensorUIController<IMyCockpit>(this);
+            AddElement(planetAltitudeSensorUI);
 
         }
 
@@ -70,32 +121,59 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(repulsorCoil);
+            RemoveElement(repulsorCoil);
             repulsorCoil = null;
 
-            RemoveEquipment(repulsorLift);
+            RemoveElement(repulsorCoilUI);
+            repulsorCoilUI = null;
+
+            RemoveElement(repulsorLift);
             repulsorLift = null;
 
-            RemoveEquipment(repulsorLinearGenerator);
+            RemoveElement(repulsorLiftUI);
+            repulsorLiftUI = null;
+
+            RemoveElement(repulsorLinearGenerator);
             repulsorLinearGenerator = null;
 
-            RemoveEquipment(repulsorAngularGenerator);
+            RemoveElement(repulsorLinearGeneratorUI);
+            repulsorLinearGeneratorUI = null;
+
+            RemoveElement(repulsorAngularGenerator);
             repulsorAngularGenerator = null;
 
-            RemoveEquipment(linearInertialCompensator);
+            RemoveElement(repulsorAngularGeneratorUI);
+            repulsorAngularGeneratorUI = null;
+
+            RemoveElement(linearInertialCompensator);
             linearInertialCompensator = null;
 
-            RemoveEquipment(angularInertialCompensator);
+            RemoveElement(linearInertialCompensatorUI);
+            linearInertialCompensatorUI = null;
+
+            RemoveElement(angularInertialCompensator);
             angularInertialCompensator = null;
 
-            RemoveEquipment(planetSurfaceNormalSensor);
+            RemoveElement(angularInertialCompensatorUI);
+            angularInertialCompensatorUI = null;
+
+            RemoveElement(planetSurfaceNormalSensor);
             planetSurfaceNormalSensor = null;
 
-            RemoveEquipment(gyroStabiliser);
+            RemoveElement(planetSurfaceNormalSensorUI);
+            planetSurfaceNormalSensorUI = null;
+
+            RemoveElement(gyroStabiliser);
             gyroStabiliser = null;
 
-            RemoveEquipment(attitudeStabiliser);
+            RemoveElement(gyroStabiliserUI);
+            gyroStabiliserUI = null;
+
+            RemoveElement(attitudeStabiliser);
             attitudeStabiliser = null;
+
+            RemoveElement(attitudeStabiliserUI);
+            attitudeStabiliserUI = null;
         }
 
 
@@ -127,7 +205,7 @@ namespace BakurRepulsorCorp
         Vector3D angularAcceleration;
         Vector3D stabiliserAngularAcceleration;
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             if (!rigidbody.IsInGravity)
@@ -152,7 +230,7 @@ namespace BakurRepulsorCorp
 
             // lift
 
-            double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length()) / 2;
+            double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length());
             liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, planetAltitudeSensor.altitude - gridHalfSize);
 
             // generator
@@ -193,7 +271,21 @@ namespace BakurRepulsorCorp
             rigidbody.AddAngularAcceleration(stabiliserAngularAcceleration);
 
         }
-
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
+            }
+        }
         protected override string[] soundIds
         {
             get

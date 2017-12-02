@@ -19,20 +19,9 @@ namespace BakurRepulsorCorp
 
         }
 
-        static Label<RepulsorAngularGenerator> repulsorAngularGeneratorLabel;
-        static Separator<RepulsorAngularGenerator> repulsorAngularGeneratorSeparator;
-
-        static Separator<RepulsorAngularGenerator> angularOverrideSeparator;
-        static Label<RepulsorAngularGenerator> angularOverrideLabel;
-
         #region use angular generator
 
-        static AngularGenerator_UseAngularGeneratorSwitch useAngularGeneratorSwitch;
-        static AngularGenerator_UseAngularGeneratorToggleAction useAngularGeneratorToggleAction;
-        static AngularGenerator_UseAngularGeneratorEnableAction useAngularGeneratorEnableAction;
-        static AngularGenerator_UseAngularGeneratorDisableAction useAngularGeneratorDisableAction;
-
-        public static string USE_ANGULAR_GENERATOR_PROPERTY_NAME = "AngularGenerator_UseAngularGenerator";
+        public readonly string USE_ANGULAR_GENERATOR_PROPERTY_NAME = "AngularGenerator_UseAngularGenerator";
 
         public bool defaultUseAngularGenerator = true;
 
@@ -40,12 +29,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_ANGULAR_GENERATOR_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_ANGULAR_GENERATOR_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_ANGULAR_GENERATOR_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_ANGULAR_GENERATOR_PROPERTY_NAME);
                 bool result = defaultUseAngularGenerator;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -59,11 +48,7 @@ namespace BakurRepulsorCorp
 
         #region power
 
-        static AngularGenerator_PowerSlider powerSlider;
-        static AngularGenerator_IncrasePowerAction incrasePowerAction;
-        static AngularGenerator_DecrasePowerAction decrasePowerAction;
-
-        public static string POWER_PROPERTY_NAME = "AngularGenerator_Power";
+        public readonly string POWER_PROPERTY_NAME = "AngularGenerator_Power";
 
         public double defaultPower = 1;
 
@@ -71,12 +56,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
+                string id = GeneratePropertyId(POWER_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(POWER_PROPERTY_NAME);
+                string id = GeneratePropertyId(POWER_PROPERTY_NAME);
                 double result = defaultPower;
                 if (GetVariable<double>(id, out result))
                 {
@@ -91,12 +76,7 @@ namespace BakurRepulsorCorp
 
         #region pitch
 
-        static AngularGenerator_PitchSlider pitchSlider;
-        static AngularGenerator_IncrasePitchAction incrasePitchAction;
-        static AngularGenerator_DecrasePitchAction decrasePitchAction;
-        static AngularGenerator_ZeroPitchAction zeroPitchAction;
-
-        public static string PITCH_PROPERTY_NAME = "AngularGenerator_Pitch";
+        public readonly string PITCH_PROPERTY_NAME = "AngularGenerator_Pitch";
 
         public double defaultPitch = 0;
 
@@ -104,12 +84,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(PITCH_PROPERTY_NAME);
+                string id = GeneratePropertyId(PITCH_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(PITCH_PROPERTY_NAME);
+                string id = GeneratePropertyId(PITCH_PROPERTY_NAME);
                 double result = defaultPitch;
                 if (GetVariable<double>(id, out result))
                 {
@@ -123,12 +103,7 @@ namespace BakurRepulsorCorp
 
         #region yaw
 
-        static AngularGenerator_YawSlider yawSlider;
-        static AngularGenerator_IncraseYawAction incraseYawAction;
-        static AngularGenerator_DecraseYawAction decraseYawAction;
-        static AngularGenerator_ZeroYawAction zeroYawAction;
-
-        public static string YAW_PROPERTY_NAME = "AngularGenerator_Yaw";
+        public readonly string YAW_PROPERTY_NAME = "AngularGenerator_Yaw";
 
         public double defaultYaw = 0;
 
@@ -136,12 +111,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(YAW_PROPERTY_NAME);
+                string id = GeneratePropertyId(YAW_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(YAW_PROPERTY_NAME);
+                string id = GeneratePropertyId(YAW_PROPERTY_NAME);
                 double result = defaultYaw;
                 if (GetVariable<double>(id, out result))
                 {
@@ -155,12 +130,7 @@ namespace BakurRepulsorCorp
 
         #region roll
 
-        static AngularGenerator_RollSlider rollSlider;
-        static AngularGenerator_IncraseRollAction incraseRollAction;
-        static AngularGenerator_DecraseRollAction decraseRollAction;
-        static AngularGenerator_ZeroRollAction zeroRollAction;
-
-        public static string ROLL_PROPERTY_NAME = "AngularGenerator_Roll";
+        public readonly string ROLL_PROPERTY_NAME = "AngularGenerator_Roll";
 
         public double defaultRoll = 0;
 
@@ -168,12 +138,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(ROLL_PROPERTY_NAME);
+                string id = GeneratePropertyId(ROLL_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(ROLL_PROPERTY_NAME);
+                string id = GeneratePropertyId(ROLL_PROPERTY_NAME);
                 double result = defaultRoll;
                 if (GetVariable<double>(id, out result))
                 {
@@ -190,154 +160,6 @@ namespace BakurRepulsorCorp
         public override void Initialize()
         {
 
-            // label
-
-            if (repulsorAngularGeneratorSeparator == null)
-            {
-                repulsorAngularGeneratorSeparator = new Separator<RepulsorAngularGenerator>("AngularGenerator_RepulsorAngularGeneratorSeparator");
-                repulsorAngularGeneratorSeparator.Initialize();
-            }
-
-            if (repulsorAngularGeneratorLabel == null)
-            {
-                repulsorAngularGeneratorLabel = new Label<RepulsorAngularGenerator>("AngularGenerator_RepulsorAngularGeneratorabel", "Repulsor Angular Generator");
-                repulsorAngularGeneratorLabel.Initialize();
-            }
-
-            // angular
-
-            if (angularOverrideSeparator == null)
-            {
-                angularOverrideSeparator = new Separator<RepulsorAngularGenerator>("AngularGenerator_AngularOverrideSeparator");
-                angularOverrideSeparator.Initialize();
-            }
-
-            if (angularOverrideLabel == null)
-            {
-                angularOverrideLabel = new Label<RepulsorAngularGenerator>("AngularGenerator_AngularOverrideLabel", "Angular Override");
-                angularOverrideLabel.Initialize();
-            }
-
-            // use angular generator
-
-            if (useAngularGeneratorSwitch == null)
-            {
-                useAngularGeneratorSwitch = new AngularGenerator_UseAngularGeneratorSwitch();
-                useAngularGeneratorSwitch.Initialize();
-            }
-
-            if (useAngularGeneratorToggleAction == null)
-            {
-                useAngularGeneratorToggleAction = new AngularGenerator_UseAngularGeneratorToggleAction();
-                useAngularGeneratorToggleAction.Initialize();
-            }
-
-            if (useAngularGeneratorEnableAction == null)
-            {
-                useAngularGeneratorEnableAction = new AngularGenerator_UseAngularGeneratorEnableAction();
-                useAngularGeneratorEnableAction.Initialize();
-            }
-
-            if (useAngularGeneratorDisableAction == null)
-            {
-                useAngularGeneratorDisableAction = new AngularGenerator_UseAngularGeneratorDisableAction();
-                useAngularGeneratorDisableAction.Initialize();
-            }
-
-
-            // power
-
-            if (powerSlider == null)
-            {
-                powerSlider = new AngularGenerator_PowerSlider();
-                powerSlider.Initialize();
-            }
-            if (incrasePowerAction == null)
-            {
-                incrasePowerAction = new AngularGenerator_IncrasePowerAction();
-                incrasePowerAction.Initialize();
-            }
-            if (decrasePowerAction == null)
-            {
-                decrasePowerAction = new AngularGenerator_DecrasePowerAction();
-                decrasePowerAction.Initialize();
-            }
-
-            // pitch
-
-            if (pitchSlider == null)
-            {
-                pitchSlider = new AngularGenerator_PitchSlider();
-                pitchSlider.Initialize();
-            }
-
-            if (incrasePitchAction == null)
-            {
-                incrasePitchAction = new AngularGenerator_IncrasePitchAction();
-                incrasePitchAction.Initialize();
-            }
-            if (decrasePitchAction == null)
-            {
-                decrasePitchAction = new AngularGenerator_DecrasePitchAction();
-                decrasePitchAction.Initialize();
-            }
-            if (zeroPitchAction == null)
-            {
-                zeroPitchAction = new AngularGenerator_ZeroPitchAction();
-                zeroPitchAction.Initialize();
-            }
-
-            // yaw
-
-            if (yawSlider == null)
-            {
-                yawSlider = new AngularGenerator_YawSlider();
-                yawSlider.Initialize();
-            }
-
-            if (incraseYawAction == null)
-            {
-                incraseYawAction = new AngularGenerator_IncraseYawAction();
-                incraseYawAction.Initialize();
-            }
-
-            if (decraseYawAction == null)
-            {
-                decraseYawAction = new AngularGenerator_DecraseYawAction();
-                decraseYawAction.Initialize();
-            }
-
-            if (zeroYawAction == null)
-            {
-                zeroYawAction = new AngularGenerator_ZeroYawAction();
-                zeroYawAction.Initialize();
-            }
-
-            // roll
-
-            if (rollSlider == null)
-            {
-                rollSlider = new AngularGenerator_RollSlider();
-                rollSlider.Initialize();
-            }
-
-            if (incraseRollAction == null)
-            {
-                incraseRollAction = new AngularGenerator_IncraseRollAction();
-                incraseRollAction.Initialize();
-            }
-
-            if (decraseRollAction == null)
-            {
-                decraseRollAction = new AngularGenerator_DecraseRollAction();
-                decraseRollAction.Initialize();
-            }
-
-            if (zeroRollAction == null)
-            {
-                zeroRollAction = new AngularGenerator_ZeroRollAction();
-                zeroRollAction.Initialize();
-            }
         }
 
         public override void Destroy()

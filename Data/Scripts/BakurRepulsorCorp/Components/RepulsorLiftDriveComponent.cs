@@ -14,28 +14,51 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorLiftDrive", "LargeBlockRepulsorLiftDrive" })]
     public class RepulsorLiftDriveComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         PlanetAltitudeSensor planetAltitudeSensor;
+        PlanetAltitudeSensorUIController<IMyUpgradeModule> planetAltitudeSensorUI;
+
         RepulsorLift repulsorLift;
+        RepulsorLiftUIController<IMyUpgradeModule> repulsorLiftUI;
+
         RepulsorLinearGenerator repulsorLinearGenerator;
+        RepulsorLinearGeneratorUIController<IMyUpgradeModule> repulsorLinearGeneratorUI;
+
         RepulsorAngularGenerator repulsorAngularGenerator;
+        RepulsorAngularGeneratorUIController<IMyUpgradeModule> repulsorAngularGeneratorUI;
 
         protected override void Initialize()
         {
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             planetAltitudeSensor = new PlanetAltitudeSensor(this);
-            AddEquipment(planetAltitudeSensor);
+            AddElement(planetAltitudeSensor);
+
+            planetAltitudeSensorUI = new PlanetAltitudeSensorUIController<IMyUpgradeModule>(this);
+            AddElement(planetAltitudeSensorUI);
 
             repulsorLift = new RepulsorLift(this);
-            AddEquipment(repulsorLift);
+            AddElement(repulsorLift);
+
+            repulsorLiftUI = new RepulsorLiftUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorLiftUI);
 
             repulsorLinearGenerator = new RepulsorLinearGenerator(this);
-            AddEquipment(repulsorLinearGenerator);
+            AddElement(repulsorLinearGenerator);
+
+            repulsorLinearGeneratorUI = new RepulsorLinearGeneratorUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorLinearGeneratorUI);
 
             repulsorAngularGenerator = new RepulsorAngularGenerator(this);
-            AddEquipment(repulsorAngularGenerator);
+            AddElement(repulsorAngularGenerator);
+
+            repulsorAngularGeneratorUI = new RepulsorAngularGeneratorUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorAngularGeneratorUI);
         }
 
         protected override void Destroy()
@@ -43,26 +66,37 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(repulsorLift);
+            RemoveElement(repulsorLift);
             repulsorLift = null;
 
-            RemoveEquipment(repulsorLinearGenerator);
+            RemoveElement(repulsorLiftUI);
+            repulsorLiftUI = null;
+
+            RemoveElement(repulsorLinearGenerator);
             repulsorLinearGenerator = null;
 
-            RemoveEquipment(repulsorAngularGenerator);
+            RemoveElement(repulsorLinearGeneratorUI);
+            repulsorLinearGeneratorUI = null;
+
+            RemoveElement(repulsorAngularGenerator);
             repulsorAngularGenerator = null;
 
-            RemoveEquipment(planetAltitudeSensor);
+            RemoveElement(repulsorAngularGeneratorUI);
+            repulsorAngularGeneratorUI = null;
+
+            RemoveElement(planetAltitudeSensor);
             planetAltitudeSensor = null;
+
+            RemoveElement(planetAltitudeSensorUI);
+            planetAltitudeSensorUI = null;
         }
 
         Vector3D linearAcceleration;
         Vector3D angularAcceleration;
         Vector3D liftAcceleration;
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
-
             planetAltitudeSensor.UpdateSensor(physicsDeltaTime);
 
             IMyCubeGrid grid = block.CubeGrid;
@@ -81,7 +115,7 @@ namespace BakurRepulsorCorp
 
             if (rigidbody.IsInGravity)
             {
-                double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length()) / 2;
+                double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length());
                 liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, planetAltitudeSensor.altitude - gridHalfSize);
             }
 
@@ -99,7 +133,21 @@ namespace BakurRepulsorCorp
             customInfo.AppendLine("Type: Repulsor Lift Drive Component");
             base.AppendCustomInfo(block, customInfo);
         }
-
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
+            }
+        }
         protected override string[] soundIds
         {
             get

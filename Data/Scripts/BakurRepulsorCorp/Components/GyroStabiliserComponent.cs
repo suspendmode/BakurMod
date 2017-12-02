@@ -12,26 +12,42 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockGyroStabiliser", "LargeBlockGyroStabiliser" })]
     public class GyroStabiliserComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         PlanetSurfaceNormalSensor planetSurfaceNormalSensor;
+        PlanetSurfaceNormalSensorUIController<IMyUpgradeModule> planetSurfaceNormalSensorUI;
+
         GyroStabiliser gyroStabiliser;
+        GyroStabiliserUIController<IMyUpgradeModule> gyroStabiliserUI;
+
         AttitudeStabiliser attitudeStabiliser;
-
-
+        AttitudeStabiliserUIController<IMyUpgradeModule> attitudeStabiliserUI;
 
         protected override void Initialize()
         {
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             planetSurfaceNormalSensor = new PlanetSurfaceNormalSensor(this);
-            AddEquipment(planetSurfaceNormalSensor);
+            AddElement(planetSurfaceNormalSensor);
+
+            planetSurfaceNormalSensorUI = new PlanetSurfaceNormalSensorUIController<IMyUpgradeModule>(this);
+            AddElement(planetSurfaceNormalSensorUI);
 
             gyroStabiliser = new GyroStabiliser(this);
-            AddEquipment(gyroStabiliser);
+            AddElement(gyroStabiliser);
+
+            gyroStabiliserUI = new GyroStabiliserUIController<IMyUpgradeModule>(this);
+            AddElement(gyroStabiliserUI);
 
             attitudeStabiliser = new AttitudeStabiliser(this);
-            AddEquipment(attitudeStabiliser);
+            AddElement(attitudeStabiliser);
+
+            attitudeStabiliserUI = new AttitudeStabiliserUIController<IMyUpgradeModule>(this);
+            AddElement(attitudeStabiliserUI);
         }
 
         protected override void Destroy()
@@ -39,14 +55,23 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(planetSurfaceNormalSensor);
+            RemoveElement(planetSurfaceNormalSensor);
             planetSurfaceNormalSensor = null;
 
-            RemoveEquipment(gyroStabiliser);
+            RemoveElement(planetSurfaceNormalSensorUI);
+            planetSurfaceNormalSensorUI = null;
+
+            RemoveElement(gyroStabiliser);
             gyroStabiliser = null;
 
-            RemoveEquipment(attitudeStabiliser);
+            RemoveElement(gyroStabiliserUI);
+            gyroStabiliserUI = null;
+
+            RemoveElement(attitudeStabiliser);
             attitudeStabiliser = null;
+
+            RemoveElement(attitudeStabiliserUI);
+            attitudeStabiliserUI = null;
         }
 
         protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
@@ -72,7 +97,7 @@ namespace BakurRepulsorCorp
 
         Vector3D angularAcceleration;
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             angularAcceleration = Vector3D.Zero;
@@ -98,6 +123,22 @@ namespace BakurRepulsorCorp
             // apply
 
             rigidbody.AddAngularAcceleration(angularAcceleration);
+        }
+
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
+            }
         }
 
         protected override string[] soundIds

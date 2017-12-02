@@ -29,7 +29,7 @@ namespace BakurRepulsorCorp
             planets.Clear();
         }
 
-        public override void Update(double physicsDeltaTime)
+        public override void UpdateAfter(double physicsDeltaTime)
         {
 
         }
@@ -75,6 +75,11 @@ namespace BakurRepulsorCorp
         public override void UpdateAfterSimulation()
         {
             base.UpdateAfterSimulation();
+
+        }
+
+        public override void UpdateBefore(double physicsDeltaTime)
+        {
 
         }
     }

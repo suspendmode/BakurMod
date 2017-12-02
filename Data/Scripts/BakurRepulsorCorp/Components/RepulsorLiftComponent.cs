@@ -13,11 +13,15 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorLift", "LargeBlockRepulsorLift" })]
     public class RepulsorLiftComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
-        private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsorLift", "LargeBlockRepulsorLift" };
+        private static readonly string[] subTypeIds = { "SmallBlockRepulsorLift", "LargeBlockRepulsorLift" };
 
         PlanetAltitudeSensor planetAltitudeSensor;
+        PlanetAltitudeSensorUIController<IMyUpgradeModule> planetAltitudeSensorUI;
+
         RepulsorLift repulsorLift;
+        RepulsorLiftUIController<IMyUpgradeModule> repulsorLiftUI;
 
         #region lifecycle
 
@@ -26,11 +30,20 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             planetAltitudeSensor = new PlanetAltitudeSensor(this);
-            AddEquipment(planetAltitudeSensor);
+            AddElement(planetAltitudeSensor);
+
+            planetAltitudeSensorUI = new PlanetAltitudeSensorUIController<IMyUpgradeModule>(this);
+            AddElement(planetAltitudeSensorUI);
 
             repulsorLift = new RepulsorLift(this);
-            AddEquipment(repulsorLift);
+            AddElement(repulsorLift);
+
+            repulsorLiftUI = new RepulsorLiftUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorLiftUI);
 
         }
 
@@ -39,11 +52,17 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(repulsorLift);
+            RemoveElement(repulsorLift);
             repulsorLift = null;
 
-            RemoveEquipment(planetAltitudeSensor);
+            RemoveElement(repulsorLiftUI);
+            repulsorLiftUI = null;
+
+            RemoveElement(planetAltitudeSensor);
             planetAltitudeSensor = null;
+
+            RemoveElement(planetAltitudeSensorUI);
+            planetAltitudeSensorUI = null;
         }
 
         #endregion
@@ -56,25 +75,46 @@ namespace BakurRepulsorCorp
         }
 
         Vector3D liftAcceleration = Vector3D.Zero;
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
             liftAcceleration = Vector3D.Zero;
+
+            if (!rigidbody.IsInGravity)
+            {
+                return;
+            }
 
             planetAltitudeSensor.UpdateSensor(physicsDeltaTime);
 
             if (double.IsNaN(planetAltitudeSensor.altitude))
             {
-                MyAPIGateway.Utilities.ShowMessage("RepulsorLiftBlock", "double.IsNaN(planetAltitudeSensor.altitude)");
+                //MyAPIGateway.Utilities.ShowMessage("RepulsorLiftBlock", "double.IsNaN(planetAltitudeSensor.altitude)");
                 return;
             }
 
             // lift
-            double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length()) / 2;
+            double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length());
             liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, planetAltitudeSensor.altitude - gridHalfSize);
 
             // apply
 
             rigidbody.AddLinearAcceleration(liftAcceleration);
+        }
+
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
+            }
         }
 
         protected override string[] soundIds

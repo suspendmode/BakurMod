@@ -2,7 +2,6 @@
 using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
@@ -10,9 +9,11 @@ using VRage.ModAPI;
 using VRage.Utils;
 using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class Storm {
+    public class Storm
+    {
 
         Vector3D center;
         Vector3D position;
@@ -30,7 +31,8 @@ namespace BakurRepulsorCorp {
         float yawSpeed = 0;
         float rollSpeed = 0;
 
-        public void Update() {
+        public void Update()
+        {
 
             //MyAPIGateway.Utilities.ShowMessage("Storms", storms.Count + " storms");
 
@@ -58,39 +60,52 @@ namespace BakurRepulsorCorp {
 
         BoundingSphereD boundingSphere = new BoundingSphereD();
 
-        void UpdateForces() {
+        void UpdateForces()
+        {
             boundingSphere.Center = center;
             boundingSphere.Radius = radius;
 
             List<IMyEntity> entities = MyAPIGateway.Entities.GetEntitiesInSphere(ref boundingSphere);
-            foreach (IMyEntity entity in entities) {
+            foreach (IMyEntity entity in entities)
+            {
 
                 MyPhysicsComponentBase physics = null;
 
-                if (entity is IMyCubeGrid) {
+                if (entity is IMyCubeGrid)
+                {
                     IMyCubeGrid grid = entity as IMyCubeGrid;
-                    if (grid.Physics == null || grid.Physics.IsStatic || grid.Physics.IsKinematic || !grid.Physics.Enabled) {
+                    if (grid.Physics == null || grid.Physics.IsStatic || grid.Physics.IsKinematic || !grid.Physics.Enabled)
+                    {
                         continue;
                     }
                     physics = grid.Physics;
-                } else if (entity is IMyFloatingObject) {
+                }
+                else if (entity is IMyFloatingObject)
+                {
                     IMyFloatingObject obj = entity as IMyFloatingObject;
-                    if (obj.Physics == null || obj.Physics.IsStatic || obj.Physics.IsKinematic || !obj.Physics.Enabled) {
+                    if (obj.Physics == null || obj.Physics.IsStatic || obj.Physics.IsKinematic || !obj.Physics.Enabled)
+                    {
                         continue;
                     }
                     physics = obj.Physics;
-                } else if (entity is IMyCharacter) {
+                }
+                else if (entity is IMyCharacter)
+                {
                     IMyCharacter obj = entity as IMyCharacter;
-                    if (obj.Physics == null || obj.Physics.IsStatic || obj.Physics.IsKinematic || !obj.Physics.Enabled) {
+                    if (obj.Physics == null || obj.Physics.IsStatic || obj.Physics.IsKinematic || !obj.Physics.Enabled)
+                    {
                         continue;
                     }
                     physics = obj.Physics;
 
-                } else {
+                }
+                else
+                {
                     continue;
                 }
 
-                if (physics == null) {
+                if (physics == null)
+                {
                     continue;
                 }
 
@@ -108,14 +123,16 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        void UpdateParticlesPosition() {
+        void UpdateParticlesPosition()
+        {
 
             MatrixD effectMatrix = particleEffect.WorldMatrix;
             effectMatrix.Translation = position;
             particleEffect.WorldMatrix = effectMatrix;
         }
 
-        void UpdateNormalAndPosition() {
+        void UpdateNormalAndPosition()
+        {
             MatrixD matrix = MatrixD.CreateFromYawPitchRoll(orientation.X, orientation.Y, orientation.Z);
             forward = Vector3.Transform(Vector3D.Forward * radius, matrix);
             position = center + forward;
@@ -125,7 +142,8 @@ namespace BakurRepulsorCorp {
 
         double radius;
 
-        public void Create(MyPlanet planet) {
+        public void Create(MyPlanet planet)
+        {
             center = planet.PositionComp.GetPosition();
             radius = MyUtils.GetRandomDouble(planet.AverageRadius, planet.MaximumRadius);
             size = MyUtils.GetRandomFloat(500, 1000);
@@ -146,7 +164,8 @@ namespace BakurRepulsorCorp {
 
         MyParticleEffect particleEffect;
 
-        void CreateParticleEffect(MyPlanet planet) {
+        void CreateParticleEffect(MyPlanet planet)
+        {
 
             int particle = 9999;
 
@@ -169,7 +188,8 @@ namespace BakurRepulsorCorp {
     }
 
     [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation)]
-    public class Storms : MySessionComponentBase {
+    public class Storms : MySessionComponentBase
+    {
         /*
         public int maxStorms = 2;
         public int stormDuration = 10;

@@ -4,7 +4,6 @@ using System;
 using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
-using VRage.Game.ModAPI;
 using VRageMath;
 
 namespace BakurRepulsorCorp
@@ -14,11 +13,15 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorPointLift", "LargeBlockRepulsorPointLift" })]
     public class RepulsorPointLiftComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         private static readonly string[] subTypeIds = { "SmallBlockRepulsorPointLift", "LargeBlockRepulsorPointLift" };
 
         RepulsorPointLift repulsorPointLift;
+        RepulsorPointLiftUIController<IMyUpgradeModule> repulsorPointLiftUI;
+
         AltitudeSensor altitudeSensor;
+        AltitudeSensorUIController<IMyUpgradeModule> altitudeSensorUI;
 
         #region lifecycle
 
@@ -27,11 +30,20 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             altitudeSensor = new AltitudeSensor(this);
-            AddEquipment(altitudeSensor);
+            AddElement(altitudeSensor);
+
+            altitudeSensorUI = new AltitudeSensorUIController<IMyUpgradeModule>(this);
+            AddElement(altitudeSensorUI);
 
             repulsorPointLift = new RepulsorPointLift(this);
-            AddEquipment(repulsorPointLift);
+            AddElement(repulsorPointLift);
+
+            repulsorPointLiftUI = new RepulsorPointLiftUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorPointLiftUI);
 
         }
 
@@ -40,15 +52,20 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(repulsorPointLift);
+            RemoveElement(repulsorPointLift);
             repulsorPointLift = null;
 
-            RemoveEquipment(altitudeSensor);
+            RemoveElement(repulsorPointLiftUI);
+            repulsorPointLiftUI = null;
+
+            RemoveElement(altitudeSensor);
             altitudeSensor = null;
+
+            RemoveElement(altitudeSensorUI);
+            altitudeSensorUI = null;
         }
 
         #endregion
-
 
         protected override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
         {
@@ -60,24 +77,49 @@ namespace BakurRepulsorCorp
         Vector3D desiredLinearAcceleration;
         Vector3D desiredUp;
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
-
-            altitudeSensor.UpdateSensor();
-
-            IMyCubeGrid grid = block.CubeGrid;
-
             desiredLinearAcceleration = Vector3D.Zero;
             desiredUp = block.WorldMatrix.Up;
 
-            // lift
-            double gridHalfSize = block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5;
-            desiredLinearAcceleration = repulsorPointLift.GetDesiredLinearAcceleration(physicsDeltaTime, desiredUp, altitudeSensor.altitude - gridHalfSize);
-            rigidbody.AddLinearAcceleration(desiredLinearAcceleration);
+            if (!rigidbody.IsInGravity)
+            {
+                return;
+            }
 
+            altitudeSensor.UpdateSensor();
+
+            if (double.IsNaN(altitudeSensor.altitude))
+            {
+                //MyAPIGateway.Utilities.ShowMessage("RepulsorLiftBlock", "double.IsNaN(planetAltitudeSensor.altitude)");
+                return;
+            }
+
+            // lift           
+
+            double size = block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5;
+            desiredLinearAcceleration = repulsorPointLift.GetDesiredLinearAcceleration(physicsDeltaTime, desiredUp, altitudeSensor.altitude - size);
+
+            // apply
+
+            rigidbody.AddLinearAcceleration(desiredLinearAcceleration);
         }
 
-
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
+            }
+        }
         protected override string[] soundIds
         {
             get
@@ -88,7 +130,7 @@ namespace BakurRepulsorCorp
 
         protected override Guid blockGUID()
         {
-            return new Guid("3a95a757-3c62-4d4a-a88e-7fa2a2835922");
+            return new Guid("49e48146-4c44-40dd-a002-aac5629960c6");
         }
     }
 

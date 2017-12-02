@@ -4,7 +4,7 @@ using VRage.Game.Components;
 
 namespace BakurRepulsorCorp
 {
-    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
+    [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation)]
     public abstract class SessionComponent : MySessionComponentBase
     {
 
@@ -13,7 +13,8 @@ namespace BakurRepulsorCorp
         public abstract void Initialize();
         public abstract void Destroy();
 
-        public abstract void Update(double physicsDeltaTime);
+        public abstract void UpdateBefore(double physicsDeltaTime);
+        public abstract void UpdateAfter(double physicsDeltaTime);
 
         public override void LoadData()
         {
@@ -42,7 +43,6 @@ namespace BakurRepulsorCorp
                 Destroy();
             }
         }
-
         public override void UpdateBeforeSimulation()
         {
             if (!initialized)
@@ -52,7 +52,21 @@ namespace BakurRepulsorCorp
 
             double physicsDeltaTime = MyEngineConstants.PHYSICS_STEP_SIZE_IN_SECONDS;
 
-            Update(physicsDeltaTime);
+            UpdateBefore(physicsDeltaTime);
+
+        }
+
+        public override void UpdateAfterSimulation()
+        {
+            if (!initialized)
+            {
+                return;
+            }
+
+            double physicsDeltaTime = MyEngineConstants.PHYSICS_STEP_SIZE_IN_SECONDS;
+
+            UpdateAfter(physicsDeltaTime);
+
         }
     }
 

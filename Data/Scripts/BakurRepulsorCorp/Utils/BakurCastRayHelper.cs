@@ -9,14 +9,14 @@ namespace BakurRepulsorCorp {
     public class BakurCastRayHelper {
 
         public static bool CastRayVoxelAndGrids(SensorHitInfo sensorHitInfo, IMyCubeBlock block) {
-           // int voxelCollisionLayer = MyAPIGateway.Physics.GetCollisionLayer("VoxelCollisionLayer");
+            // int voxelCollisionLayer = MyAPIGateway.Physics.GetCollisionLayer("VoxelCollisionLayer");
             int collisionLayerWithoutCharacter = MyAPIGateway.Physics.GetCollisionLayer("CollisionLayerWithoutCharacter");
             //int raycastCollisionFilter = voxelCollisionLayer | collisionLayerWithoutCharacter;
             return CastRayMultilayer(sensorHitInfo, block, collisionLayerWithoutCharacter);
         }
 
         public static bool CastRayVoxel(SensorHitInfo sensorHitInfo, IMyCubeBlock block) {
-            int voxelCollisionLayer = MyAPIGateway.Physics.GetCollisionLayer("VoxelCollisionLayer");
+             int voxelCollisionLayer = MyAPIGateway.Physics.GetCollisionLayer("VoxelCollisionLayer");
             return CastRayMultilayer(sensorHitInfo, block, voxelCollisionLayer);
         }
 

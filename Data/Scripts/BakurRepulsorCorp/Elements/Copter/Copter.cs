@@ -5,33 +5,37 @@ using VRageMath;
 
 namespace BakurRepulsorCorp
 {
+    public static class CopterMode
+    {
+        public const string GLIDE_MODE = "glide";
+        public const string FREE_GLIDE_MODE = "freeglide";
+        public const string HOVER_MODE = "hover";
+        public const string PITCH_MODE = "pitch";
+        public const string ROLL_MODE = "roll";
+        public const string CRUISE_MODE = "cruise";
 
+        public static string[] modes = { "Hover", "Glide", "FreeGlide", "Pitch", "Roll", "Cruise" };
+    }
 
     public class Copter : LogicElement
     {
 
-        static Separator<Copter> copterSeparator;
-        static Separator<Copter> copterCruiseSeparator;
-        static Label<Copter> copterLabel;
-
         #region responsivity
 
-        public static Copter_ResponsivitySlider responsivitySlider;
+        public readonly string RESPONSIVITY_PROPERTY_NAME = "Copter_Responsivity";
 
-        public static string RESPONSIVITY_PROPERTY_NAME = "Copter_Responsivity";
-
-        public double defaultResponsivity = 3;
+        public double defaultResponsivity = 10;
 
         public double responsivity
         {
             set
             {
-                string id = GeneratatePropertyId(RESPONSIVITY_PROPERTY_NAME);
+                string id = GeneratePropertyId(RESPONSIVITY_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(RESPONSIVITY_PROPERTY_NAME);
+                string id = GeneratePropertyId(RESPONSIVITY_PROPERTY_NAME);
                 double result = defaultResponsivity;
                 if (GetVariable<double>(id, out result))
                 {
@@ -45,22 +49,20 @@ namespace BakurRepulsorCorp
 
         #region max pitch angle
 
-        public static Copter_MaxPitchAngleSlider maxPitchAngleSlider;
+        public readonly string MAX_PITCH_PROPERTY_NAME = "Copter_MaxPitch";
 
-        public static string MAX_PITCH_PROPERTY_NAME = "Copter_MaxPitch";
-
-        public double defaultMaxPitch = 45;
+        public double defaultMaxPitch = 15;
 
         public double maxPitch
         {
             set
             {
-                string id = GeneratatePropertyId(MAX_PITCH_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_PITCH_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(MAX_PITCH_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_PITCH_PROPERTY_NAME);
                 double result = defaultMaxPitch;
                 if (GetVariable<double>(id, out result))
                 {
@@ -74,22 +76,20 @@ namespace BakurRepulsorCorp
 
         #region max roll angle
 
-        public static Copter_MaxRollAngleSlider maxRollAngleSlider;
+        public readonly string MAX_ROLL_PROPERTY_NAME = "Copter_MaxRoll";
 
-        public static string MAX_ROLL_PROPERTY_NAME = "Copter_MaxRoll";
-
-        public double defaultMaxRoll = 45;
+        public double defaultMaxRoll = 15;
 
         public double maxRoll
         {
             set
             {
-                string id = GeneratatePropertyId(MAX_ROLL_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_ROLL_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(MAX_ROLL_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_ROLL_PROPERTY_NAME);
                 double result = defaultMaxRoll;
                 if (GetVariable<double>(id, out result))
                 {
@@ -103,11 +103,7 @@ namespace BakurRepulsorCorp
 
         #region cruise speed
 
-        public static Copter_CruiseSpeedSlider cruiseSpeedSlider;
-        public static Copter_IncraseCruiseSpeedAction incraseCruiseSpeedAction;
-        public static Copter_DecraseCruiseSpeedAction decraseCruiseSpeedAction;
-
-        public static string CRUISE_SPEED_PROPERTY_NAME = "Copter_CruiseSpeed";
+        public readonly string CRUISE_SPEED_PROPERTY_NAME = "Copter_CruiseSpeed";
 
         public double defaultCruiseSpeed = 5;
 
@@ -115,12 +111,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(CRUISE_SPEED_PROPERTY_NAME);
+                string id = GeneratePropertyId(CRUISE_SPEED_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(CRUISE_SPEED_PROPERTY_NAME);
+                string id = GeneratePropertyId(CRUISE_SPEED_PROPERTY_NAME);
                 double result = defaultCruiseSpeed;
                 if (GetVariable<double>(id, out result))
                 {
@@ -134,9 +130,7 @@ namespace BakurRepulsorCorp
 
         #region mode
 
-        public static Copter_ModeComboBox modeComboBox;
-
-        public static string MODE_PROPERTY_NAME = "Copter_Mode";
+        public readonly string MODE_PROPERTY_NAME = "Copter_Mode";
 
         public string defaultMode = "Hover";
 
@@ -144,12 +138,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(MODE_PROPERTY_NAME);
+                string id = GeneratePropertyId(MODE_PROPERTY_NAME);
                 SetVariable<string>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(MODE_PROPERTY_NAME);
+                string id = GeneratePropertyId(MODE_PROPERTY_NAME);
                 string result = defaultMode;
                 if (GetVariable<string>(id, out result))
                 {
@@ -163,12 +157,7 @@ namespace BakurRepulsorCorp
 
         #region use copter
 
-        static Copter_UseCopterSwitch useCopterSwitch;
-        static Copter_UseCopterToggleAction useCopterToggleAction;
-        static Copter_UseCopterEnableAction useCopterEnableAction;
-        static Copter_UseCopterDisableAction useCopterDisableAction;
-
-        public static string USE_COPTER_PROPERTY_NAME = "Copter_UseCopter";
+        public readonly string USE_COPTER_PROPERTY_NAME = "Copter_UseCopter";
 
         public bool defaultUseCopter = true;
 
@@ -176,12 +165,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_COPTER_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_COPTER_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_COPTER_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_COPTER_PROPERTY_NAME);
                 bool result = defaultUseCopter;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -207,141 +196,6 @@ namespace BakurRepulsorCorp
 
         public override void Initialize()
         {
-
-            // title
-
-            if (copterSeparator == null)
-            {
-                copterSeparator = new Separator<Copter>("Copter_CopterSeparator");
-                copterSeparator.Initialize();
-            }
-
-            if (copterLabel == null)
-            {
-                copterLabel = new Label<Copter>("Copter_CopterLabel", "Copter");
-                copterLabel.Initialize();
-            }
-
-            // use copter
-
-            if (useCopterSwitch == null)
-            {
-                useCopterSwitch = new Copter_UseCopterSwitch();
-                useCopterSwitch.Initialize();
-            }
-
-            if (useCopterToggleAction == null)
-            {
-                useCopterToggleAction = new Copter_UseCopterToggleAction();
-                useCopterToggleAction.Initialize();
-            }
-
-            if (useCopterEnableAction == null)
-            {
-                useCopterEnableAction = new Copter_UseCopterEnableAction();
-                useCopterEnableAction.Initialize();
-            }
-
-            if (useCopterDisableAction == null)
-            {
-                useCopterDisableAction = new Copter_UseCopterDisableAction();
-                useCopterDisableAction.Initialize();
-            }
-
-            // responsivity
-
-            if (responsivitySlider == null)
-            {
-                responsivitySlider = new Copter_ResponsivitySlider();
-                responsivitySlider.Initialize();
-            }
-
-            if (maxPitchAngleSlider == null)
-            {
-                maxPitchAngleSlider = new Copter_MaxPitchAngleSlider();
-                maxPitchAngleSlider.Initialize();
-            }
-            if (maxRollAngleSlider == null)
-            {
-                maxRollAngleSlider = new Copter_MaxRollAngleSlider();
-                maxRollAngleSlider.Initialize();
-            }
-
-            // mode
-
-            if (modeComboBox == null)
-            {
-                modeComboBox = new Copter_ModeComboBox();
-                modeComboBox.Initialize();
-            }
-
-            if (setGlideModeAction == null)
-            {
-                setGlideModeAction = new Copter_SetModeGlideAction();
-                setGlideModeAction.Initialize();
-            }
-
-            if (setFreeGlideModeAction == null)
-            {
-                setFreeGlideModeAction = new Copter_SetModeFreeGlideAction();
-                setFreeGlideModeAction.Initialize();
-            }
-
-            if (setPitchModeAction == null)
-            {
-                setPitchModeAction = new Copter_SetModePitchAction();
-                setPitchModeAction.Initialize();
-            }
-
-            if (setRollModeAction == null)
-            {
-                setRollModeAction = new Copter_SetModeRollAction();
-                setRollModeAction.Initialize();
-            }
-
-            if (setCruiseModeAction == null)
-            {
-                setCruiseModeAction = new Copter_SetModeCruiseAction();
-                setCruiseModeAction.Initialize();
-            }
-
-            if (setHoverModeAction == null)
-            {
-                setHoverModeAction = new Copter_SetModeHoverAction();
-                setHoverModeAction.Initialize();
-            }
-
-            // cruise
-
-            if (copterCruiseSeparator == null)
-            {
-                copterCruiseSeparator = new Separator<Copter>("Copter_CopterCruiseSeparator");
-                copterCruiseSeparator.Initialize();
-            }
-
-            if (cruiseSpeedSlider == null)
-            {
-                cruiseSpeedSlider = new Copter_CruiseSpeedSlider();
-                cruiseSpeedSlider.Initialize();
-            }
-
-            if (setCruiseModeAction == null)
-            {
-                setCruiseModeAction = new Copter_SetModeCruiseAction();
-                setCruiseModeAction.Initialize();
-            }
-
-            if (incraseCruiseSpeedAction == null)
-            {
-                incraseCruiseSpeedAction = new Copter_IncraseCruiseSpeedAction();
-                incraseCruiseSpeedAction.Initialize();
-            }
-
-            if (decraseCruiseSpeedAction == null)
-            {
-                decraseCruiseSpeedAction = new Copter_DecraseCruiseSpeedAction();
-                decraseCruiseSpeedAction.Initialize();
-            }
         }
 
         public override void Destroy()
@@ -367,20 +221,6 @@ namespace BakurRepulsorCorp
         }
 
         #endregion
-
-        public const string GLIDE_MODE = "glide";
-        public const string FREE_GLIDE_MODE = "freeglide";
-        public const string HOVER_MODE = "hover";
-        public const string PITCH_MODE = "pitch";
-        public const string ROLL_MODE = "roll";
-        public const string CRUISE_MODE = "cruise";
-
-        private Copter_SetModeHoverAction setHoverModeAction;
-        private Copter_SetModeCruiseAction setCruiseModeAction;
-        private Copter_SetModeRollAction setRollModeAction;
-        private Copter_SetModePitchAction setPitchModeAction;
-        private Copter_SetModeFreeGlideAction setFreeGlideModeAction;
-        private Copter_SetModeGlideAction setGlideModeAction;
 
         public Vector3 GetDesiredUp(Vector3D defaultUp)
         {
@@ -410,32 +250,32 @@ namespace BakurRepulsorCorp
 
             switch (mode.ToLower())
             {
-                case GLIDE_MODE:
+                case CopterMode.GLIDE_MODE:
                     desiredPitch = 0;
                     desiredRoll = Curve(sidewaysSpeed / responsivity, maxRoll);
                     break;
 
-                case FREE_GLIDE_MODE:
+                case CopterMode.FREE_GLIDE_MODE:
                     desiredPitch = 0;
                     desiredRoll = 0;
                     break;
 
-                case PITCH_MODE:
+                case CopterMode.PITCH_MODE:
                     desiredPitch = Curve(forwardSpeed / responsivity, maxPitch);
                     desiredRoll = roll;
                     break;
 
-                case ROLL_MODE:
+                case CopterMode.ROLL_MODE:
                     desiredPitch = pitch;
                     desiredRoll = Curve(sidewaysSpeed / responsivity, maxRoll);
                     break;
 
-                case CRUISE_MODE:
+                case CopterMode.CRUISE_MODE:
                     desiredPitch = Curve((forwardSpeed + cruiseSpeed) / responsivity, maxPitch);
                     desiredRoll = Curve(sidewaysSpeed / responsivity, maxRoll);
                     break;
 
-                case HOVER_MODE:
+                case CopterMode.HOVER_MODE:
                 default:
                     desiredPitch = Curve(forwardSpeed / responsivity, maxPitch);
                     desiredRoll = Curve(sidewaysSpeed / responsivity, maxRoll);
@@ -447,12 +287,12 @@ namespace BakurRepulsorCorp
 
             IMyShipController shipController = BakurBlockUtils.GetShipControllerUnderControl(grid);
 
-            if (shipController != null && Math.Abs(shipController.MoveIndicator.X) > double.Epsilon)
+            if (shipController != null && Math.Abs(shipController.MoveIndicator.X) > 0.1)
             {
                 pitchRate = 0;
             }
 
-            if (shipController != null && Math.Abs(shipController.MoveIndicator.Z) > double.Epsilon)
+            if (shipController != null && Math.Abs(shipController.MoveIndicator.Z) > 0.1)
             {
                 rollRate = 0;
             }
@@ -465,7 +305,7 @@ namespace BakurRepulsorCorp
 
             Matrix blockOrientation = block.WorldMatrix.GetOrientation();
             //Vector3 rotationVec = new Vector3(pitchRate, 0, rollRate) * (float)BakurMathHelper.Deg2Rad;
-            Vector3 rotationVec = new Vector3(-pitchRate, 0, -rollRate);
+            Vector3 rotationVec = new Vector3(-pitchRate, 0, rollRate);
             //rotationVec = Vector3.Transform(rotationVec, blockOrientation);
 
             Quaternion pitchRotation = Quaternion.CreateFromAxisAngle(block.WorldMatrix.Right, rotationVec.X);

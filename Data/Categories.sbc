@@ -10,47 +10,47 @@
       <Name>BakurRepulsorCorp</Name>
       <ItemIds>
 
-		<string>TerminalBlock/SmallMagnetizer</string>
-        <string>TerminalBlock/LargeMagnetizer</string>
+		<string>UpgradeModule/SmallMagnetizer</string>
+        <string>UpgradeModule/LargeMagnetizer</string>
 		
-        <string>TerminalBlock/SmallPlanetRadar</string>
-        <string>TerminalBlock/LargePlanetRadar</string>
+        <string>UpgradeModule/SmallPlanetRadar</string>
+        <string>UpgradeModule/LargePlanetRadar</string>
         
-        <string>TerminalBlock/SmallAntiGravityGenerator</string>
-        <string>TerminalBlock/LargeAntiGravityGenerator</string>
+        <string>UpgradeModule/SmallAntiGravityGenerator</string>
+        <string>UpgradeModule/LargeAntiGravityGenerator</string>
         
-        <string>TerminalBlock/SmallBlockRepulsorCoil</string>
-        <string>TerminalBlock/LargeBlockRepulsorCoil</string>
+        <string>UpgradeModule/SmallBlockRepulsorCoil</string>
+        <string>UpgradeModule/LargeBlockRepulsorCoil</string>
 
-        <string>TerminalBlock/SmallBlockRepulsorLift</string>
-        <string>TerminalBlock/LargeBlockRepulsorLift</string>
+        <string>UpgradeModule/SmallBlockRepulsorLift</string>
+        <string>UpgradeModule/LargeBlockRepulsorLift</string>
 
-        <string>TerminalBlock/SmallBlockRepulsorGenerator</string>
-        <string>TerminalBlock/LargeBlockRepulsorGenerator</string>
+        <string>UpgradeModule/SmallBlockRepulsorGenerator</string>
+        <string>UpgradeModule/LargeBlockRepulsorGenerator</string>
 		
-		<string>TerminalBlock/SmallBlockRepulsorLiftGenerator</string>
-        <string>TerminalBlock/LargeBlockRepulsorLiftGenerator</string>
+		<string>UpgradeModule/SmallBlockRepulsorLiftGenerator</string>
+        <string>UpgradeModule/LargeBlockRepulsorLiftGenerator</string>
 
-		<string>TerminalBlock/SmallBlockRepulsor</string>
-        <string>TerminalBlock/LargeBlockRepulsor</string>
+		<string>UpgradeModule/SmallBlockRepulsor</string>
+        <string>UpgradeModule/LargeBlockRepulsor</string>
 
-        <string>TerminalBlock/SmallBlockInertialCompensator</string>
-        <string>TerminalBlock/LargeBlockInertialCompensator</string>
+        <string>UpgradeModule/SmallBlockInertialCompensator</string>
+        <string>UpgradeModule/LargeBlockInertialCompensator</string>
 
-        <string>TerminalBlock/SmallBlockGyroStabiliser</string>
-        <string>TerminalBlock/LargeBlockGyroStabiliser</string>
+        <string>UpgradeModule/SmallBlockGyroStabiliser</string>
+        <string>UpgradeModule/LargeBlockGyroStabiliser</string>
 
-        <string>TerminalBlock/SmallBlockEthericRudder</string>
-        <string>TerminalBlock/LargeBlockEthericRudder</string>
+        <string>UpgradeModule/SmallBlockEthericRudder</string>
+        <string>UpgradeModule/LargeBlockEthericRudder</string>
 
-        <string>TerminalBlock/SmallBlockPowerCoupling</string>
-        <string>TerminalBlock/LargeBlockPowerCoupling</string>
+        <string>UpgradeModule/SmallBlockPowerCoupling</string>
+        <string>UpgradeModule/LargeBlockPowerCoupling</string>
 
-        <string>TerminalBlock/SmallBlockCopter</string>
-        <string>TerminalBlock/LargeBlockCopter</string>
+        <string>UpgradeModule/SmallBlockCopter</string>
+        <string>UpgradeModule/LargeBlockCopter</string>
 		
-		 <string>TerminalBlock/SmallBlockRepulsorChair</string>
-        <string>TerminalBlock/LargeBlockRepulsorChair</string>
+		 <string>UpgradeModule/SmallBlockRepulsorChair</string>
+        <string>UpgradeModule/LargeBlockRepulsorChair</string>
       </ItemIds>
     </Category>
 
@@ -64,21 +64,23 @@
       <Name>SmallBlocks</Name>
       <ItemIds>
         
-        <string>TerminalBlock/SmallBlockRepulsorCoil</string>
+		<string>UpgradeModule/SmallAntiGravityGenerator</string>
+		
+        <string>UpgradeModule/SmallBlockRepulsorCoil</string>
 
-        <string>TerminalBlock/SmallBlockRepulsorLift</string>
+        <string>UpgradeModule/SmallBlockRepulsorLift</string>
 
-        <string>TerminalBlock/SmallBlockRepulsorGenerator</string>
+        <string>UpgradeModule/SmallBlockRepulsorGenerator</string>
 
-        <string>TerminalBlock/SmallBlockInertialCompensator</string>
+        <string>UpgradeModule/SmallBlockInertialCompensator</string>
 
-        <string>TerminalBlock/SmallBlockGyroStabiliser</string>
+        <string>UpgradeModule/SmallBlockGyroStabiliser</string>
 
-        <string>TerminalBlock/SmallBlockFlightCoupler</string>
+        <string>UpgradeModule/SmallBlockFlightCoupler</string>
 
-        <string>TerminalBlock/SmallBlockPowerCoupling</string>
+        <string>UpgradeModule/SmallBlockPowerCoupling</string>
 
-        <string>TerminalBlock/SmallBlockCopter</string>
+        <string>UpgradeModule/SmallBlockCopter</string>
 
       </ItemIds>
     </Category>
@@ -93,21 +95,23 @@
       <Name>LargeBlocks</Name>
       <ItemIds>
 
-        <string>TerminalBlock/LargeBlockRepulsorCoil</string>
+		<string>UpgradeModule/LargeAntiGravityGenerator</string>
 
-        <string>TerminalBlock/LargeBlockRepulsorLift</string>
+        <string>UpgradeModule/LargeBlockRepulsorCoil</string>
 
-        <string>TerminalBlock/LargeBlockRepulsorGenerator</string>
+        <string>UpgradeModule/LargeBlockRepulsorLift</string>
 
-        <string>TerminalBlock/LargeBlockInertialCompensator</string>
+        <string>UpgradeModule/LargeBlockRepulsorGenerator</string>
 
-        <string>TerminalBlock/LargeBlockGyroStabiliser</string>
+        <string>UpgradeModule/LargeBlockInertialCompensator</string>
 
-        <string>TerminalBlock/LargeBlockFlightCoupler</string>
+        <string>UpgradeModule/LargeBlockGyroStabiliser</string>
 
-        <string>TerminalBlock/LargeBlockPowerCoupling</string>
+        <string>UpgradeModule/LargeBlockFlightCoupler</string>
 
-        <string>TerminalBlock/LargeBlockCopter</string>
+        <string>UpgradeModule/LargeBlockPowerCoupling</string>
+
+        <string>UpgradeModule/LargeBlockCopter</string>
         
       </ItemIds>
     </Category>

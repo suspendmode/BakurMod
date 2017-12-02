@@ -10,7 +10,6 @@ namespace BakurRepulsorCorp
 {
     public class Rigidbody : LogicElement
     {
-
         public Rigidbody(LogicComponent logicComponent) : base(logicComponent)
         {
         }
@@ -21,7 +20,7 @@ namespace BakurRepulsorCorp
         {
             get
             {
-                return grid.Physics.Mass;
+                return grid == null ? 0 : grid.Physics == null ? 0 : grid.Physics.Mass;
             }
         }
 
@@ -29,7 +28,7 @@ namespace BakurRepulsorCorp
         {
             get
             {
-                return grid.Physics.Gravity;
+                return grid == null ? Vector3D.Zero : grid.Physics == null ? Vector3D.Zero : (Vector3D)grid.Physics.Gravity;
             }
         }
 
@@ -157,6 +156,14 @@ namespace BakurRepulsorCorp
             customInfo.AppendLine("Type: Rigidbody");
             customInfo.AppendLine("Gravity: " + Math.Round(logicComponent.rigidbody.gravity.Length(), 1));
             customInfo.AppendLine("Grid Mass: " + Math.Round(block.CubeGrid.Physics.Mass, 1) + " kg");
+            customInfo.AppendLine("Is In Gravity: " + IsInGravity);
+
+            Vector3D linearVelocity = block.CubeGrid.Physics.LinearVelocity;
+            Vector3D angularVelocity = block.CubeGrid.Physics.AngularVelocity * (float)BakurMathHelper.Rad2Deg;
+
+            customInfo.AppendLine("Linear Velocity: " + Math.Round(linearVelocity.Length(), 1));
+            customInfo.AppendLine("Angular Velocity: " + Math.Round(angularVelocity.Length(), 1));
+
         }
 
         public override void Initialize()

@@ -15,17 +15,9 @@ namespace BakurRepulsorCorp
         {
         }
 
-        static Separator<AngularInertialCompensator> angularCompensatorSeparator;
-        static Label<AngularInertialCompensator> angularCompensatorLabel;
-
         #region use angular compensator
 
-        static Compensator_UseAngularCompensatorSwitch useAngularCompensatorSwitch;
-        static Compensator_UseAngularCompensationToggleAction useAngularCompensationToggleAction;
-        static Compensator_UseAngularCompensationEnableAction useAngularCompensationEnableAction;
-        static Compensator_UseAngularCompensationDisableAction useAngularCompensationDisableAction;
-
-        public static string USE_ANGULAR_COMPENSATOR_PROPERTY_NAME = "AngularInertialCompensator_UseAngularCompensator";
+        public readonly string USE_ANGULAR_COMPENSATOR_PROPERTY_NAME = "AngularInertialCompensator_UseAngularCompensator";
 
         public bool defaultUseAngularCompensator = true;
 
@@ -33,12 +25,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_ANGULAR_COMPENSATOR_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_ANGULAR_COMPENSATOR_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_ANGULAR_COMPENSATOR_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_ANGULAR_COMPENSATOR_PROPERTY_NAME);
                 bool result = defaultUseAngularCompensator;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -52,11 +44,7 @@ namespace BakurRepulsorCorp
 
         #region dumpener
 
-        static Compensator_AngularDumpenerSlider dumpenerSlider;
-        static Compensator_IncraseAngularDumpenerAction incraseDumpenerAction;
-        static Compensator_DecraseAngularDumpenerAction decraseDumpenerAction;
-
-        public static string DUMPENER_PROPERTY_NAME = "Compensator_AngularDumpener";
+        public readonly string DUMPENER_PROPERTY_NAME = "Compensator_AngularDumpener";
 
         public double defaultDumpener = 0.9f;
 
@@ -64,12 +52,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(DUMPENER_PROPERTY_NAME);
+                string id = GeneratePropertyId(DUMPENER_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(DUMPENER_PROPERTY_NAME);
+                string id = GeneratePropertyId(DUMPENER_PROPERTY_NAME);
                 double result = defaultDumpener;
                 if (GetVariable<double>(id, out result))
                 {
@@ -84,12 +72,7 @@ namespace BakurRepulsorCorp
 
         #region use pitch
 
-        static Compensator_UsePitchSwitch usePitchSwitch;
-        static Compensator_UsePitchToggleAction usePitchToggleAction;
-        static Compensator_UsePitchEnableAction usePitchEnableAction;
-        static Compensator_UsePitchDisableAction usePitchDisableAction;
-
-        public static string USE_PITCH_PROPERTY_NAME = "Compensator_UsePitch";
+        public readonly string USE_PITCH_PROPERTY_NAME = "Compensator_UsePitch";
 
         public bool defaultUsePitch = true;
 
@@ -97,12 +80,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_PITCH_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_PITCH_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_PITCH_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_PITCH_PROPERTY_NAME);
                 bool result = defaultUsePitch;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -117,12 +100,7 @@ namespace BakurRepulsorCorp
 
         #region use yaw
 
-        static Compensator_UseYawSwitch useYawSwitch;
-        static Compensator_UseYawToggleAction useYawToggleAction;
-        static Compensator_UseYawEnableAction useYawEnableAction;
-        static Compensator_UseYawDisableAction useYawDisableAction;
-
-        public static string USE_YAW_PROPERTY_NAME = "Compensator_UseYaw";
+        public readonly string USE_YAW_PROPERTY_NAME = "Compensator_UseYaw";
 
         public bool defaultUseYaw = true;
 
@@ -130,12 +108,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_YAW_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_YAW_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_YAW_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_YAW_PROPERTY_NAME);
                 bool result = defaultUseYaw;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -150,12 +128,7 @@ namespace BakurRepulsorCorp
 
         #region use roll
 
-        static Compensator_UseRollSwitch useRollSwitch;
-        static Compensator_UseRollToggleAction useRollToggleAction;
-        static Compensator_UseRollEnableAction useRollEnableAction;
-        static Compensator_UseRollDisableAction useRollDisableAction;
-
-        public static string USE_ROLL_PROPERTY_NAME = "Compensator_UseRoll";
+        public readonly string USE_ROLL_PROPERTY_NAME = "Compensator_UseRoll";
 
         public bool defaultUseRoll = true;
 
@@ -163,12 +136,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_ROLL_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_ROLL_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_ROLL_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_ROLL_PROPERTY_NAME);
                 bool result = defaultUseRoll;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -186,142 +159,6 @@ namespace BakurRepulsorCorp
         public override void Initialize()
         {
 
-            if (angularCompensatorSeparator == null)
-            {
-                angularCompensatorSeparator = new Separator<AngularInertialCompensator>("AngularInertialCompensator_AngularCompensatorSeparator");
-                angularCompensatorSeparator.Initialize();
-            }
-
-
-            if (angularCompensatorLabel == null)
-            {
-                angularCompensatorLabel = new Label<AngularInertialCompensator>("AngularInertialCompensator_AngularCompensatorLabel", "Angular Compensator");
-                angularCompensatorLabel.Initialize();
-            }
-
-
-            // use angular compensator
-
-            if (useAngularCompensatorSwitch == null)
-            {
-                useAngularCompensatorSwitch = new Compensator_UseAngularCompensatorSwitch();
-                useAngularCompensatorSwitch.Initialize();
-            }
-
-            if (useAngularCompensationToggleAction == null)
-            {
-                useAngularCompensationToggleAction = new Compensator_UseAngularCompensationToggleAction();
-                useAngularCompensationToggleAction.Initialize();
-            }
-
-            if (useAngularCompensationEnableAction == null)
-            {
-                useAngularCompensationEnableAction = new Compensator_UseAngularCompensationEnableAction();
-                useAngularCompensationEnableAction.Initialize();
-            }
-
-            if (useAngularCompensationDisableAction == null)
-            {
-                useAngularCompensationDisableAction = new Compensator_UseAngularCompensationDisableAction();
-                useAngularCompensationDisableAction.Initialize();
-            }
-
-            // dumpener slider 
-
-            if (dumpenerSlider == null)
-            {
-                dumpenerSlider = new Compensator_AngularDumpenerSlider();
-                dumpenerSlider.Initialize();
-            }
-            if (incraseDumpenerAction == null)
-            {
-                incraseDumpenerAction = new Compensator_IncraseAngularDumpenerAction();
-                incraseDumpenerAction.Initialize();
-            }
-            if (decraseDumpenerAction == null)
-            {
-                decraseDumpenerAction = new Compensator_DecraseAngularDumpenerAction();
-                decraseDumpenerAction.Initialize();
-            }
-
-            // use pitch
-
-            if (usePitchSwitch == null)
-            {
-                usePitchSwitch = new Compensator_UsePitchSwitch();
-                usePitchSwitch.Initialize();
-            }
-
-            if (usePitchToggleAction == null)
-            {
-                usePitchToggleAction = new Compensator_UsePitchToggleAction();
-                usePitchToggleAction.Initialize();
-            }
-
-            if (usePitchEnableAction == null)
-            {
-                usePitchEnableAction = new Compensator_UsePitchEnableAction();
-                usePitchEnableAction.Initialize();
-            }
-
-            if (usePitchDisableAction == null)
-            {
-                usePitchDisableAction = new Compensator_UsePitchDisableAction();
-                usePitchDisableAction.Initialize();
-            }
-
-            // use yaw
-
-            if (useYawSwitch == null)
-            {
-                useYawSwitch = new Compensator_UseYawSwitch();
-                useYawSwitch.Initialize();
-            }
-
-            if (useYawToggleAction == null)
-            {
-                useYawToggleAction = new Compensator_UseYawToggleAction();
-                useYawToggleAction.Initialize();
-            }
-
-            if (useYawEnableAction == null)
-            {
-                useYawEnableAction = new Compensator_UseYawEnableAction();
-                useYawEnableAction.Initialize();
-            }
-
-            if (useYawDisableAction == null)
-            {
-                useYawDisableAction = new Compensator_UseYawDisableAction();
-                useYawDisableAction.Initialize();
-            }
-
-
-            // use roll
-
-            if (useRollSwitch == null)
-            {
-                useRollSwitch = new Compensator_UseRollSwitch();
-                useRollSwitch.Initialize();
-            }
-
-            if (useRollToggleAction == null)
-            {
-                useRollToggleAction = new Compensator_UseRollToggleAction();
-                useRollToggleAction.Initialize();
-            }
-
-            if (useRollEnableAction == null)
-            {
-                useRollEnableAction = new Compensator_UseRollEnableAction();
-                useRollEnableAction.Initialize();
-            }
-
-            if (useRollDisableAction == null)
-            {
-                useRollDisableAction = new Compensator_UseRollDisableAction();
-                useRollDisableAction.Initialize();
-            }
         }
 
         public override void Destroy()
@@ -349,8 +186,6 @@ namespace BakurRepulsorCorp
 
         public Vector3D GetDesiredAngularAcceleration(double physicsDeltaTime)
         {
-
-
 
             MatrixD invertedOrientation = grid.PositionComp.WorldMatrixInvScaled.GetOrientation();
             Vector3D angularVelocity = (Vector3D)grid.Physics.AngularVelocity * BakurMathHelper.Rad2Deg * dumpener;

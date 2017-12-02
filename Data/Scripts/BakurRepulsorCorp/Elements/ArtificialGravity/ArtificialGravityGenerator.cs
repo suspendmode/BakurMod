@@ -1,34 +1,28 @@
-﻿using System;
+﻿using Sandbox.ModAPI;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Sandbox.ModAPI;
-using VRageMath;
-using VRage.ModAPI;
 using VRage.Game.Components;
+using VRage.ModAPI;
+using VRageMath;
 
-namespace BakurRepulsorCorp {
+namespace BakurRepulsorCorp
+{
 
-    public class ArtificialGravityGenerator : LogicElement {
+    public class ArtificialGravityGenerator : LogicElement
+    {
 
-        static Separator<ArtificialGravityGenerator> separator;
-        static Label<ArtificialGravityGenerator> label;
-
-        public ArtificialGravityGenerator(LogicComponent block) : base(block) {
+        public ArtificialGravityGenerator(LogicComponent block) : base(block)
+        {
         }
 
-        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo) {
+        public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
+        {
 
         }
 
         #region gravity
 
-        static ArtificialGravityGenerator_GravitySlider gravitySlider;
-        static ArtificialGravityGenerator_IncraseGravityAction incraseGravityAction;
-        static ArtificialGravityGenerator_DecraseGravityAction decraseGravityAction;
-
-        public static string GRAVITY_PROPERTY_NAME = "ArtificialGravityGenerator_Gravity";
+        public readonly string GRAVITY_PROPERTY_NAME = "ArtificialGravityGenerator_Gravity";
 
         public double defaultGravity = 1;
 
@@ -36,14 +30,15 @@ namespace BakurRepulsorCorp {
         {
             set
             {
-                string id = GeneratatePropertyId(GRAVITY_PROPERTY_NAME);
+                string id = GeneratePropertyId(GRAVITY_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(GRAVITY_PROPERTY_NAME);
+                string id = GeneratePropertyId(GRAVITY_PROPERTY_NAME);
                 double result = defaultGravity;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultGravity;
@@ -54,11 +49,7 @@ namespace BakurRepulsorCorp {
 
         #region max radius
 
-        static ArtificialGravityGenerator_MaxRadiusSlider maxRadiusSlider;
-        static ArtificialGravityGenerator_IncraseMaxRadiusAction incraseMaxRadiusAction;
-        static ArtificialGravityGenerator_DecraseMaxRadiusAction decraseMaxRadiusAction;
-
-        public static string MAX_RADIUS_PROPERTY_NAME = "ArtificialGravityGenerator_MaxRadius";
+        public readonly string MAX_RADIUS_PROPERTY_NAME = "ArtificialGravityGenerator_MaxRadius";
 
         public double defaultMaxRadius = 10;
 
@@ -66,14 +57,15 @@ namespace BakurRepulsorCorp {
         {
             set
             {
-                string id = GeneratatePropertyId(MAX_RADIUS_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_RADIUS_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(MAX_RADIUS_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_RADIUS_PROPERTY_NAME);
                 double result = defaultMaxRadius;
-                if (GetVariable<double>(id, out result)) {
+                if (GetVariable<double>(id, out result))
+                {
                     return result;
                 }
                 return defaultMaxRadius;
@@ -85,9 +77,11 @@ namespace BakurRepulsorCorp {
         public BoundingSphereD boundingSphere;
         public List<IMyEntity> entitiesInRange = new List<IMyEntity>();
 
-        public void UpdateGenerator(double physicsDeltaTime) {
-            
-            if (boundingSphere == null) {
+        public void UpdateGenerator(double physicsDeltaTime)
+        {
+
+            if (boundingSphere == null)
+            {
                 boundingSphere = new BoundingSphereD();
             }
 
@@ -97,11 +91,13 @@ namespace BakurRepulsorCorp {
             entitiesInRange.Clear();
             entitiesInRange.AddRange(MyAPIGateway.Entities.GetEntitiesInSphere(ref boundingSphere));
 
-            foreach (IMyEntity entity in entitiesInRange) {
+            foreach (IMyEntity entity in entitiesInRange)
+            {
 
                 MyPhysicsComponentBase physics = entity.Physics;
 
-                if (physics == null || physics == logicComponent.block.Physics || physics == logicComponent.block.CubeGrid.Physics) {
+                if (physics == null || physics == logicComponent.block.Physics || physics == logicComponent.block.CubeGrid.Physics)
+                {
                     continue;
                 }
 
@@ -118,15 +114,19 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        public override void Debug() {
-            if (!logicComponent.debugEnabled) {
+        public override void Debug()
+        {
+            if (!logicComponent.debugEnabled)
+            {
                 return;
             }
 
-            foreach (IMyEntity entity in entitiesInRange) {
+            foreach (IMyEntity entity in entitiesInRange)
+            {
                 MyPhysicsComponentBase physics = entity.Physics;
 
-                if (physics == null || physics == logicComponent.block.Physics || physics == logicComponent.block.CubeGrid.Physics) {
+                if (physics == null || physics == logicComponent.block.Physics || physics == logicComponent.block.CubeGrid.Physics)
+                {
                     continue;
                 }
 
@@ -136,60 +136,19 @@ namespace BakurRepulsorCorp {
             }
         }
 
-        public override void Initialize() {
+        public override void Initialize()
+        {
 
-            if (separator == null) {
-                separator = new Separator<ArtificialGravityGenerator>("ArtificialGravityGenerator_Separator");
-                separator.Initialize();
-            }
-
-            if (label == null) {
-                label = new Label<ArtificialGravityGenerator>("ArtificialGravityGenerator_Label", "Artificial Gravity Generator");
-                label.Initialize();
-            }
-
-
-            // max force
-
-            if (gravitySlider == null) {
-                gravitySlider = new ArtificialGravityGenerator_GravitySlider();
-                gravitySlider.Initialize();
-            }
-
-            if (incraseGravityAction == null) {
-                incraseGravityAction = new ArtificialGravityGenerator_IncraseGravityAction();
-                incraseGravityAction.Initialize();
-            }
-
-            if (decraseGravityAction == null) {
-                decraseGravityAction = new ArtificialGravityGenerator_DecraseGravityAction();
-                decraseGravityAction.Initialize();
-            }
-
-            // max radius            
-
-            if (maxRadiusSlider == null) {
-                maxRadiusSlider = new ArtificialGravityGenerator_MaxRadiusSlider();
-                maxRadiusSlider.Initialize();
-            }
-
-            if (incraseMaxRadiusAction == null) {
-                incraseMaxRadiusAction = new ArtificialGravityGenerator_IncraseMaxRadiusAction();
-                incraseMaxRadiusAction.Initialize();
-            }
-
-            if (decraseMaxRadiusAction == null) {
-                decraseMaxRadiusAction = new ArtificialGravityGenerator_DecraseMaxRadiusAction();
-                decraseMaxRadiusAction.Initialize();
-            }
         }
 
-        public override void Destroy() {
+        public override void Destroy()
+        {
             Clear();
         }
 
 
-        void Clear() {
+        void Clear()
+        {
             entitiesInRange.Clear();
         }
 

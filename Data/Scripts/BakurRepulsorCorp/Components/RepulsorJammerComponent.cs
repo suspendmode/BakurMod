@@ -3,6 +3,7 @@ using Sandbox.ModAPI;
 using System;
 using System.Text;
 using VRage.Game.Components;
+using VRageMath;
 
 namespace BakurRepulsorCorp
 {
@@ -11,10 +12,12 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorJammer", "LargeBlockRepulsorJammer" })]
     public class RepulsorJammerComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
-        private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsorJammer", "LargeBlockRepulsorJammer" };
+        private static readonly string[] subTypeIds = { "SmallBlockRepulsorJammer", "LargeBlockRepulsorJammer" };
 
         RepulsorJammer repulsorJammer;
+        RepulsorJammerUIController<IMyUpgradeModule> repulsorJammerUI;
 
         #region lifecycle
 
@@ -23,9 +26,14 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
-            repulsorJammer = new RepulsorJammer(this);
-            AddEquipment(repulsorJammer);
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
 
+            repulsorJammer = new RepulsorJammer(this);
+            AddElement(repulsorJammer);
+
+            repulsorJammerUI = new RepulsorJammerUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorJammerUI);
         }
 
         protected override void Destroy()
@@ -33,8 +41,11 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(repulsorJammer);
+            RemoveElement(repulsorJammer);
             repulsorJammer = null;
+
+            RemoveElement(repulsorJammerUI);
+            repulsorJammerUI = null;
 
         }
 
@@ -50,7 +61,7 @@ namespace BakurRepulsorCorp
 
 
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             if (!rigidbody.IsInGravity)
@@ -58,13 +69,29 @@ namespace BakurRepulsorCorp
                 return;
             }
 
-
+            repulsorJammer.UpdateJammer();
         }
 
         public override void UpdateAfterSimulation10()
         {
             base.UpdateAfterSimulation10();
             repulsorJammer.UpdateJammer();
+        }
+
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
+            }
         }
 
         protected override string[] soundIds

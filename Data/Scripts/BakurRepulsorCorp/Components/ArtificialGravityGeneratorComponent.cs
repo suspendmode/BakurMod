@@ -9,19 +9,25 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallArtificialGravityGenerator", "LargeArtificialGravityGenerator" })]
     public class ArtificialGravityGeneratorComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         ArtificialGravityGenerator artificialGravityGenerator;
+        ArtificialGravityGeneratorUIController<IMyUpgradeModule> artificialGravityGeneratorUI;
 
         #region lifecycle
 
         protected override void Initialize()
         {
-
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
 
             artificialGravityGenerator = new ArtificialGravityGenerator(this);
-            AddEquipment(artificialGravityGenerator);
+            AddElement(artificialGravityGenerator);
+
+            artificialGravityGeneratorUI = new ArtificialGravityGeneratorUIController<IMyUpgradeModule>(this);
+            AddElement(artificialGravityGeneratorUI);
         }
 
         protected override void Destroy()
@@ -29,8 +35,11 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(artificialGravityGenerator);
+            RemoveElement(artificialGravityGenerator);
             artificialGravityGenerator = null;
+
+            RemoveElement(artificialGravityGeneratorUI);
+            artificialGravityGeneratorUI = null;
 
         }
 
@@ -38,7 +47,7 @@ namespace BakurRepulsorCorp
 
         #region update
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             artificialGravityGenerator.UpdateGenerator(physicsDeltaTime);

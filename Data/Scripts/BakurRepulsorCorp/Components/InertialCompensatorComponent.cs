@@ -3,18 +3,24 @@ using Sandbox.ModAPI;
 using System;
 using System.Text;
 using VRage.Game.Components;
-using VRage.Game.ModAPI;
 using VRageMath;
 
 namespace BakurRepulsorCorp
 {
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockInertialCompensator", "LargeBlockInertialCompensator" })]
-    public class InertialCompensatorComponent : LogicComponent
+    public class InertialCompensatorComponent : PoweredLogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
+
+        double maxLinearAcceleration = 100;
+        double maxAngularAcceleration = 180;
 
         LinearInertialCompensator linearInertialCompensator;
+        LinearInertialCompensatorUIController<IMyUpgradeModule> linearInertialCompensatorUI;
+
         AngularInertialCompensator angularInertialCompensator;
+        AngularInertialCompensatorUIController<IMyUpgradeModule> angularInertialCompensatorUI;
 
         #region lifecycle
 
@@ -23,11 +29,20 @@ namespace BakurRepulsorCorp
             base.Initialize();
             //MyAPIGateway.Utilities.ShowMessage("InertialCompensatorBlock", "Initialize");
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             linearInertialCompensator = new LinearInertialCompensator(this);
-            AddEquipment(linearInertialCompensator);
+            AddElement(linearInertialCompensator);
+
+            linearInertialCompensatorUI = new LinearInertialCompensatorUIController<IMyUpgradeModule>(this);
+            AddElement(linearInertialCompensatorUI);
 
             angularInertialCompensator = new AngularInertialCompensator(this);
-            AddEquipment(angularInertialCompensator);
+            AddElement(angularInertialCompensator);
+
+            angularInertialCompensatorUI = new AngularInertialCompensatorUIController<IMyUpgradeModule>(this);
+            AddElement(angularInertialCompensatorUI);
         }
 
         protected override void Destroy()
@@ -35,24 +50,27 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(linearInertialCompensator);
+            RemoveElement(linearInertialCompensator);
             linearInertialCompensator = null;
 
-            RemoveEquipment(angularInertialCompensator);
+            RemoveElement(linearInertialCompensatorUI);
+            linearInertialCompensatorUI = null;
+
+            RemoveElement(angularInertialCompensator);
             angularInertialCompensator = null;
+
+            RemoveElement(angularInertialCompensatorUI);
+            angularInertialCompensatorUI = null;
         }
 
         #endregion
 
         #region update
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override double UpdatePoweredDevice(double physicsDeltaTime, double power_ratio)
         {
-
             //projectedVelocity = MyMath.ForwardVectorProjection(-component.Gravity, projectedVelocity);
-            //double speedNormalized = MathHelper.Clamp(currentVelocity.Length() / 100, 0, 1);
-
-            IMyCubeGrid grid = block.CubeGrid;
+            //double speedNormalized = MathHelper.Clamp(currentVelocity.Length() / 100, 0, 1);            
 
             Vector3D desiredLinearAcceleration = Vector3D.Zero;
             Vector3D desiredAngularAcceleration = Vector3D.Zero;
@@ -61,17 +79,47 @@ namespace BakurRepulsorCorp
 
             if (linearInertialCompensator.useLinearCompensator)
             {
-                desiredLinearAcceleration = linearInertialCompensator.GetDesiredLinearAcceleration(physicsDeltaTime);
+                desiredLinearAcceleration = linearInertialCompensator.GetDesiredLinearAcceleration(physicsDeltaTime) * power_ratio;
+                desiredLinearAcceleration = Vector3D.ClampToSphere(desiredLinearAcceleration, maxLinearAcceleration);
                 rigidbody.AddLinearAcceleration(desiredLinearAcceleration);
+            }
+            else
+            {
+                if (!angularInertialCompensator.useAngularCompensator)
+                {
+                    return 0;
+                }
             }
 
             // angular compensator
 
             if (angularInertialCompensator.useAngularCompensator)
             {
-                desiredAngularAcceleration = angularInertialCompensator.GetDesiredAngularAcceleration(physicsDeltaTime);
+                desiredAngularAcceleration = angularInertialCompensator.GetDesiredAngularAcceleration(physicsDeltaTime) * power_ratio;
+                desiredAngularAcceleration = Vector3D.ClampToSphere(desiredAngularAcceleration, maxAngularAcceleration);
                 rigidbody.AddAngularAcceleration(desiredAngularAcceleration);
             }
+            else
+            {
+                if (!linearInertialCompensator.useLinearCompensator)
+                {
+                    return 0;
+                }
+            }
+
+            double desiredLinearAccelerationNormalized = BakurMathHelper.InverseLerp(0, maxLinearAcceleration, desiredLinearAcceleration.Length());
+            double desiredAngularAccelerationNormalized = BakurMathHelper.InverseLerp(0, maxAngularAcceleration, desiredAngularAcceleration.Length());
+
+            return Math.Max(desiredLinearAccelerationNormalized, desiredAngularAccelerationNormalized);
+        }
+
+
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
+        {
+
+            base.UpdateAfterSimulation(physicsDeltaTime);
+
+
         }
 
         #endregion

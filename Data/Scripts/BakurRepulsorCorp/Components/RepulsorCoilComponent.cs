@@ -13,18 +13,33 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorCoil", "LargeBlockRepulsorCoil" })]
     public class RepulsorCoilComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
+
         PlanetAltitudeSensor planetAltitudeSensor;
+        PlanetAltitudeSensorUIController<IMyUpgradeModule> planetAltitudeSensorUI;
+
         RepulsorCoil repulsorCoil;
+        RepulsorCoilUIController<IMyUpgradeModule> repulsorCoilUI;
+
 
         protected override void Initialize()
         {
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             repulsorCoil = new RepulsorCoil(this);
-            AddEquipment(repulsorCoil);
+            AddElement(repulsorCoil);
+
+            repulsorCoilUI = new RepulsorCoilUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorCoilUI);
 
             planetAltitudeSensor = new PlanetAltitudeSensor(this);
-            AddEquipment(planetAltitudeSensor);
+            AddElement(planetAltitudeSensor);
+
+            planetAltitudeSensorUI = new PlanetAltitudeSensorUIController<IMyUpgradeModule>(this);
+            AddElement(planetAltitudeSensorUI);
 
             /*SetPowerRequirements(block, () => {
                 return repulsorCoil.PowerRequirements();
@@ -36,16 +51,22 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(repulsorCoil);
+            RemoveElement(repulsorCoil);
             repulsorCoil = null;
 
-            RemoveEquipment(planetAltitudeSensor);
+            RemoveElement(repulsorCoilUI);
+            repulsorCoilUI = null;
+
+            RemoveElement(planetAltitudeSensor);
             planetAltitudeSensor = null;
+
+            RemoveElement(planetAltitudeSensorUI);
+            planetAltitudeSensorUI = null;
         }
 
         Vector3D coilAcceleration;
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
             coilAcceleration = Vector3D.Zero;
 
@@ -72,6 +93,22 @@ namespace BakurRepulsorCorp
             {
                 IMyCubeGrid grid = block.CubeGrid;
                 DebugDraw.DrawLine(block.GetPosition(), block.GetPosition() + rigidbody.gravityUp * rigidbody.gravity.Length(), Color.DeepSkyBlue, 0.1f);
+            }
+        }
+
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
             }
         }
 

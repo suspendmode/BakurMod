@@ -21,11 +21,13 @@
         <guid>49b84a0e-e409-4ae9-ac76-aaf6c59fda4e</guid>
         <guid>bf8957e0-500d-4356-9875-91db9dd4a912</guid>
         <guid>952f402f-12f4-4828-892e-1918f015629e</guid>
-        <guid>3a95a757-3c62-4d4a-a88e-7fa2a2835922</guid>
+		<guid>3a12f73f-2c1d-4811-9a12-7a7e513b9403</guid>
+		<guid>b0ee9325-b5a6-48c9-8a24-d1a9752addf7</guid>        
         <guid>e2df91e5-e7c3-447c-a1e0-dd2da257ed06</guid>
+		<guid>3a95a757-3c62-4d4a-a88e-7fa2a2835922</guid>
         <guid>a0498045-505d-4691-bb0c-00c515b01793</guid>
-        <guid>fe299648-2f06-4a7e-9a8d-54d3ee991e23</guid>
-        <guid>b0ee9325-b5a6-48c9-8a24-d1a9752addf7</guid>
+		<guid>49e48146-4c44-40dd-a002-aac5629960c6</guid>		
+        <guid>fe299648-2f06-4a7e-9a8d-54d3ee991e23</guid>        
         
       </RegisteredStorageGuids>
     </EntityComponent>

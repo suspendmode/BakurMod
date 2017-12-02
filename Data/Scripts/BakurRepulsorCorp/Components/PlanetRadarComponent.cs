@@ -8,12 +8,14 @@ using VRageMath;
 namespace BakurRepulsorCorp
 {
 
-
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallPlanetRadar", "LargePlanetRadar" })]
     public class PlanetRadarComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         PlanetAltitudeSensor planetAltitudeSensor;
+        PlanetAltitudeSensorUIController<IMyUpgradeModule> planetAltitudeSensorUI;
+
         PlanetRadarSensor planetRadarSensor;
 
         #region lifecycle
@@ -23,11 +25,18 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             planetAltitudeSensor = new PlanetAltitudeSensor(this);
-            AddEquipment(planetAltitudeSensor);
+            AddElement(planetAltitudeSensor);
+
+            planetAltitudeSensorUI = new PlanetAltitudeSensorUIController<IMyUpgradeModule>(this);
+            AddElement(planetAltitudeSensorUI);
 
             planetRadarSensor = new PlanetRadarSensor(this);
-            AddEquipment(planetRadarSensor);
+            AddElement(planetRadarSensor);
+
         }
 
 
@@ -36,11 +45,16 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(planetAltitudeSensor);
+            RemoveElement(planetAltitudeSensor);
             planetAltitudeSensor = null;
 
-            RemoveEquipment(planetRadarSensor);
+            RemoveElement(planetAltitudeSensorUI);
+            planetAltitudeSensorUI = null;
+
+            RemoveElement(planetRadarSensor);
             planetRadarSensor = null;
+
+
 
         }
 
@@ -63,7 +77,7 @@ namespace BakurRepulsorCorp
             }
         }
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             planetAltitudeSensor.UpdateSensor(physicsDeltaTime);

@@ -8,17 +8,9 @@ namespace BakurRepulsorCorp
     public class DefaultLogicElement : LogicElement
     {
 
-        static Separator<DefaultLogicElement> separator;
-        static Label<DefaultLogicElement> label;
-
         #region enabled
 
-        static Component_EnabledSwitch enableToggle;
-        static Component_EnabledToggleAction enableToggleAction;
-        static Component_EnableAction enableAction;
-        static Component_DisableAction disableAction;
-
-        public static string ENABLED_PROPERTY_NAME = "Enabled";
+        public readonly string ENABLED_PROPERTY_NAME = "Enabled";
 
         public bool defaultEnabled = true;
 
@@ -28,7 +20,7 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(ENABLED_PROPERTY_NAME);
+                string id = GeneratePropertyId(ENABLED_PROPERTY_NAME);
 
                 bool oldValue = defaultEnabled;
                 if (GetVariable<bool>(id, out oldValue))
@@ -48,7 +40,7 @@ namespace BakurRepulsorCorp
             }
             get
             {
-                string id = GeneratatePropertyId(ENABLED_PROPERTY_NAME);
+                string id = GeneratePropertyId(ENABLED_PROPERTY_NAME);
                 bool result = defaultEnabled;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -61,16 +53,14 @@ namespace BakurRepulsorCorp
 
         protected virtual void RefreshControls()
         {
-            //MyAPIGateway.Utilities.ShowMessage("BakurBlockEquipment", "RefreshControls");
+            //MyAPIGateway.Utilities.ShowMessage("BakurBlockElement", "RefreshControls");
         }
 
         #endregion
 
         #region debugEnabled
 
-        static Component_DebugEnabledSwitch debugEnableToggle;
-
-        public static string DEBUG_ENABLED_PROPERTY_NAME = "DebugEnabled";
+        public readonly string DEBUG_ENABLED_PROPERTY_NAME = "DebugEnabled";
 
         public bool defaultDebugEnabled = false;
 
@@ -78,12 +68,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(DEBUG_ENABLED_PROPERTY_NAME);
+                string id = GeneratePropertyId(DEBUG_ENABLED_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(DEBUG_ENABLED_PROPERTY_NAME);
+                string id = GeneratePropertyId(DEBUG_ENABLED_PROPERTY_NAME);
                 bool result = defaultDebugEnabled;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -101,51 +91,10 @@ namespace BakurRepulsorCorp
 
         public override void Initialize()
         {
-            //MyAPIGateway.Utilities.ShowMessage("BakurBlockEquipment", "Initialize");
+            //MyAPIGateway.Utilities.ShowMessage("BakurBlockElement", "Initialize");
 
             EnabledChangedEvent += UpdateUI;
 
-            if (separator == null)
-            {
-                separator = new Separator<DefaultLogicElement>("BlockSeparator");
-                separator.Initialize();
-            }
-
-            if (label == null)
-            {
-                label = new Label<DefaultLogicElement>("BlockLabel", "Bakur Repulsor Corp");
-                label.Initialize();
-            }
-
-            if (enableToggle == null)
-            {
-                enableToggle = new Component_EnabledSwitch();
-                enableToggle.Initialize();
-            }
-
-            if (enableToggleAction == null)
-            {
-                enableToggleAction = new Component_EnabledToggleAction();
-                enableToggleAction.Initialize();
-            }
-
-            if (enableAction == null)
-            {
-                enableAction = new Component_EnableAction();
-                enableAction.Initialize();
-            }
-
-            if (disableAction == null)
-            {
-                disableAction = new Component_DisableAction();
-                disableAction.Initialize();
-            }
-
-            if (debugEnableToggle == null)
-            {
-                debugEnableToggle = new Component_DebugEnabledSwitch();
-                debugEnableToggle.Initialize();
-            }
         }
 
         public override void Destroy()
@@ -156,7 +105,7 @@ namespace BakurRepulsorCorp
         public override void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo)
         {
             customInfo.AppendLine();
-            customInfo.AppendLine("== Repulsor Suspension ==");
+            customInfo.AppendLine("Type: Component");
             customInfo.AppendLine("Enabled : " + enabled);
             customInfo.AppendLine("Debug Enabled : " + debugEnabled);
         }

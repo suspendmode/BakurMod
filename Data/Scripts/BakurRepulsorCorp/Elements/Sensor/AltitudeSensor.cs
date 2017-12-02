@@ -20,27 +20,22 @@ namespace BakurRepulsorCorp
         {
         }
 
-        static Separator<AltitudeSensor> separator;
-        static Label<AltitudeSensor> label;
-
         #region max distance
 
-        static AltitudeSensor_MaxDistanceSlider maxDistanceSlider;
+        public readonly string MAX_DISTANCE_PROPERTY_NAME = "AltitudeSensor_MaxDistance";
 
-        public static string MAX_DISTANCE_PROPERTY_NAME = "AltitudeSensor_MaxDistance";
-
-        public double defaultMaxDistance = AltitudeSensor_MaxDistanceSlider.maxValue;
+        public double defaultMaxDistance = AltitudeSensorSettings.maximumMaxDistance;
 
         public double maxDistance
         {
             set
             {
-                string id = GeneratatePropertyId(MAX_DISTANCE_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_DISTANCE_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(MAX_DISTANCE_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_DISTANCE_PROPERTY_NAME);
                 double result = defaultMaxDistance;
                 if (GetVariable<double>(id, out result))
                 {
@@ -64,23 +59,7 @@ namespace BakurRepulsorCorp
 
         public override void Initialize()
         {
-            if (separator == null)
-            {
-                separator = new Separator<AltitudeSensor>("AltitudeSensor_Separator");
-                separator.Initialize();
-            }
 
-            if (label == null)
-            {
-                label = new Label<AltitudeSensor>("AltitudeSensor_Label", "Altitude Sensor");
-                label.Initialize();
-            }
-
-            if (maxDistanceSlider == null)
-            {
-                maxDistanceSlider = new AltitudeSensor_MaxDistanceSlider();
-                maxDistanceSlider.Initialize();
-            }
         }
 
         public override void Destroy()

@@ -10,22 +10,34 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockEthericRudder", "LargeBlockEthericRudder" })]
     public class EthericRudderComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         VelocityRudder velocityRudder;
+        VelocityRudderUIController<IMyUpgradeModule> velocityRudderUI;
+
         VelocityKiller velocityKiller;
+        VelocityKillerUIController<IMyUpgradeModule> velocityKillerUI;
 
         #region lifecycle
 
         protected override void Initialize()
         {
-
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             velocityRudder = new VelocityRudder(this);
-            AddEquipment(velocityRudder);
+            AddElement(velocityRudder);
+
+            velocityRudderUI = new VelocityRudderUIController<IMyUpgradeModule>(this);
+            AddElement(velocityRudderUI);
 
             velocityKiller = new VelocityKiller(this);
-            AddEquipment(velocityKiller);
+            AddElement(velocityKiller);
+
+            velocityKillerUI = new VelocityKillerUIController<IMyUpgradeModule>(this);
+            AddElement(velocityKillerUI);
 
         }
 
@@ -34,16 +46,22 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(velocityRudder);
+            RemoveElement(velocityRudder);
             velocityRudder = null;
 
-            RemoveEquipment(velocityKiller);
+            RemoveElement(velocityRudderUI);
+            velocityRudderUI = null;
+
+            RemoveElement(velocityKiller);
             velocityKiller = null;
+
+            RemoveElement(velocityKillerUI);
+            velocityKillerUI = null;
         }
 
         #endregion
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
             if (velocityRudder.useVelocityRudder)
             {

@@ -13,12 +13,18 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsorLiftCoil", "LargeBlockRepulsorLiftCoil" })]
     public class RepulsorLiftCoilComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
-        private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsorLiftCoil", "LargeBlockRepulsorLiftCoil" };
+        private static readonly string[] subTypeIds = { "SmallBlockRepulsorLiftCoil", "LargeBlockRepulsorLiftCoil" };
 
         RepulsorCoil repulsorCoil;
+        RepulsorCoilUIController<IMyUpgradeModule> repulsorCoilUI;
+
         RepulsorLift repulsorLift;
+        RepulsorLiftUIController<IMyUpgradeModule> repulsorLiftUI;
+
         PlanetAltitudeSensor planetAltitudeSensor;
+        PlanetAltitudeSensorUIController<IMyUpgradeModule> planetAltitudeSensorUI;
 
         #region lifecycle
 
@@ -27,31 +33,49 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             repulsorCoil = new RepulsorCoil(this);
-            AddEquipment(repulsorCoil);
+            AddElement(repulsorCoil);
+
+            repulsorCoilUI = new RepulsorCoilUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorCoilUI);
 
             planetAltitudeSensor = new PlanetAltitudeSensor(this);
-            AddEquipment(planetAltitudeSensor);
+            AddElement(planetAltitudeSensor);
+
+            planetAltitudeSensorUI = new PlanetAltitudeSensorUIController<IMyUpgradeModule>(this);
+            AddElement(planetAltitudeSensorUI);
 
             repulsorLift = new RepulsorLift(this);
-            AddEquipment(repulsorLift);
+            AddElement(repulsorLift);
 
+            repulsorLiftUI = new RepulsorLiftUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorLiftUI);
         }
 
         protected override void Destroy()
         {
-
-
             base.Destroy();
 
-            RemoveEquipment(repulsorCoil);
+            RemoveElement(repulsorCoil);
             repulsorCoil = null;
 
-            RemoveEquipment(repulsorLift);
+            RemoveElement(repulsorCoilUI);
+            repulsorCoilUI = null;
+
+            RemoveElement(repulsorLift);
             repulsorLift = null;
 
-            RemoveEquipment(planetAltitudeSensor);
+            RemoveElement(repulsorLiftUI);
+            repulsorLiftUI = null;
+
+            RemoveElement(planetAltitudeSensor);
             planetAltitudeSensor = null;
+
+            RemoveElement(planetAltitudeSensorUI);
+            planetAltitudeSensorUI = null;
         }
 
         #endregion
@@ -68,7 +92,7 @@ namespace BakurRepulsorCorp
         Vector3D coilAcceleration = Vector3D.Zero;
         Vector3D liftAcceleration = Vector3D.Zero;
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             planetAltitudeSensor.UpdateSensor(physicsDeltaTime);
@@ -86,7 +110,7 @@ namespace BakurRepulsorCorp
 
             // lift
 
-            double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length()) / 2;
+            double gridHalfSize = (planetAltitudeSensor.useBlockPosition ? (block.CubeGrid.GridSizeEnum == MyCubeSize.Large ? 2.5 : 0.5) : block.WorldAABB.Size.Length());
             liftAcceleration = repulsorLift.GetLinearAcceleration(physicsDeltaTime, planetAltitudeSensor.altitude - gridHalfSize);
 
             // apply
@@ -95,7 +119,21 @@ namespace BakurRepulsorCorp
             rigidbody.AddLinearAcceleration(coilAcceleration);
         }
 
-
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
+            }
+        }
         protected override string[] soundIds
         {
             get

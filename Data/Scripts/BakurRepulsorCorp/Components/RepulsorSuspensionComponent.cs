@@ -13,11 +13,15 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockRepulsor", "LargeBlockRepulsor" })]
     public class RepulsorSuspensionComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         private static readonly string[] subTypeIds = new string[] { "SmallBlockRepulsor", "LargeBlockRepulsor" };
 
         AltitudeSensor surfaceSensor;
+        AltitudeSensorUIController<IMyUpgradeModule> surfaceSensorUI;
+
         RepulsorSuspension repulsorSuspension;
+        RepulsorSuspensionUIController<IMyUpgradeModule> repulsorSuspensionUI;
 
         #region lifecycle
 
@@ -26,11 +30,20 @@ namespace BakurRepulsorCorp
 
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             surfaceSensor = new AltitudeSensor(this);
-            AddEquipment(surfaceSensor);
+            AddElement(surfaceSensor);
+
+            surfaceSensorUI = new AltitudeSensorUIController<IMyUpgradeModule>(this);
+            AddElement(surfaceSensorUI);
 
             repulsorSuspension = new RepulsorSuspension(this);
-            AddEquipment(repulsorSuspension);
+            AddElement(repulsorSuspension);
+
+            repulsorSuspensionUI = new RepulsorSuspensionUIController<IMyUpgradeModule>(this);
+            AddElement(repulsorSuspensionUI);
         }
 
         protected override void Destroy()
@@ -38,11 +51,17 @@ namespace BakurRepulsorCorp
 
             base.Destroy();
 
-            RemoveEquipment(surfaceSensor);
+            RemoveElement(surfaceSensor);
             surfaceSensor = null;
 
-            RemoveEquipment(repulsorSuspension);
+            RemoveElement(surfaceSensorUI);
+            surfaceSensorUI = null;
+
+            RemoveElement(repulsorSuspension);
             repulsorSuspension = null;
+
+            RemoveElement(repulsorSuspensionUI);
+            repulsorSuspensionUI = null;
         }
 
         protected override string[] soundIds
@@ -67,7 +86,7 @@ namespace BakurRepulsorCorp
 
         #endregion
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             surfaceSensor.UpdateSensor();

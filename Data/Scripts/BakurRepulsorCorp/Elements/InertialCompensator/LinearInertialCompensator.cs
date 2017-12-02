@@ -16,17 +16,9 @@ namespace BakurRepulsorCorp
         {
         }
 
-        static Separator<LinearInertialCompensator> linearCompensatorSeparator;
-        static Label<LinearInertialCompensator> linearCompensatorLabel;
-
         #region use linear compensator
 
-        static Compensator_UseLinearCompensatorSwitch useLinearCompensatorSwitch;
-        static Compensator_UseLinearCompensationToggleAction useLinearCompensationToggleAction;
-        static Compensator_UseLinearCompensationEnableAction useLinearCompensationEnableAction;
-        static Compensator_UseLinearCompensationDisableAction useLinearCompensationDisableAction;
-
-        public static string USE_LINEAR_COMPENSATOR_PROPERTY_NAME = "LinearInertialCompensator_UseLinearCompensator";
+        public readonly string USE_LINEAR_COMPENSATOR_PROPERTY_NAME = "LinearInertialCompensator_UseLinearCompensator";
 
         public bool defaultUseLinearCompensator = true;
 
@@ -34,12 +26,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_LINEAR_COMPENSATOR_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_LINEAR_COMPENSATOR_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_LINEAR_COMPENSATOR_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_LINEAR_COMPENSATOR_PROPERTY_NAME);
                 bool result = defaultUseLinearCompensator;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -54,11 +46,7 @@ namespace BakurRepulsorCorp
 
         #region dumpener
 
-        static Compensator_LinearDumpenerSlider dumpenerSlider;
-        static Compensator_IncraseLinearDumpenerAction incraseDumpenerAction;
-        static Compensator_DecraseLinearDumpenerAction decraseDumpenerAction;
-
-        public static string DUMPENER_PROPERTY_NAME = "Compensator_LinearDumpener";
+        public readonly string DUMPENER_PROPERTY_NAME = "Compensator_LinearDumpener";
 
         public double defaultDumpener = 0.9f;
 
@@ -66,12 +54,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(DUMPENER_PROPERTY_NAME);
+                string id = GeneratePropertyId(DUMPENER_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(DUMPENER_PROPERTY_NAME);
+                string id = GeneratePropertyId(DUMPENER_PROPERTY_NAME);
                 double result = defaultDumpener;
                 if (GetVariable<double>(id, out result))
                 {
@@ -86,12 +74,7 @@ namespace BakurRepulsorCorp
 
         #region use forward
 
-        static Compensator_UseForwardSwitch useForwardSwitch;
-        static Compensator_UseForwardToggleAction useForwardToggleAction;
-        static Compensator_UseForwardEnableAction useForwardEnableAction;
-        static Compensator_UseForwardDisableAction useForwardDisableAction;
-
-        public static string USE_FORWARD_PROPERTY_NAME = "Compensator_UseForward";
+        public readonly string USE_FORWARD_PROPERTY_NAME = "Compensator_UseForward";
 
         public bool defaultUseForward = true;
 
@@ -99,12 +82,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_FORWARD_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_FORWARD_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_FORWARD_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_FORWARD_PROPERTY_NAME);
                 bool result = defaultUseForward;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -119,12 +102,7 @@ namespace BakurRepulsorCorp
 
         #region use sideways
 
-        static Compensator_UseSidewaysSwitch useSidewaysSwitch;
-        static Compensator_UseSidewaysToggleAction useSidewaysToggleAction;
-        static Compensator_UseSidewaysEnableAction useSidewaysEnableAction;
-        static Compensator_UseSidewaysDisableAction useSidewaysDisableAction;
-
-        public static string USE_SIDEWAYS_PROPERTY_NAME = "Compensator_UseSideways";
+        public readonly string USE_SIDEWAYS_PROPERTY_NAME = "Compensator_UseSideways";
 
         public bool defaultUseSideways = true;
 
@@ -132,12 +110,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_SIDEWAYS_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_SIDEWAYS_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_SIDEWAYS_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_SIDEWAYS_PROPERTY_NAME);
                 bool result = defaultUseSideways;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -152,12 +130,7 @@ namespace BakurRepulsorCorp
 
         #region use up
 
-        static Compensator_UseUpSwitch useUpSwitch;
-        static Compensator_UseUpToggleAction useUpToggleAction;
-        static Compensator_UseUpEnableAction useUpEnableAction;
-        static Compensator_UseUpDisableAction useUpDisableAction;
-
-        public static string USE_UP_PROPERTY_NAME = "Compensator_UseUp";
+        public readonly string USE_UP_PROPERTY_NAME = "Compensator_UseUp";
 
         public bool defaultUseUp = true;
 
@@ -165,12 +138,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_UP_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_UP_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_UP_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_UP_PROPERTY_NAME);
                 bool result = defaultUseUp;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -187,141 +160,7 @@ namespace BakurRepulsorCorp
 
         public override void Initialize()
         {
-            // MyAPIGateway.Utilities.ShowMessage("LinearInertialCompensator", "Initialize");
-            if (linearCompensatorSeparator == null)
-            {
-                linearCompensatorSeparator = new Separator<LinearInertialCompensator>("LinearInertialCompensator_LinearInertialCompensatorSeparator");
-                linearCompensatorSeparator.Initialize();
-            }
 
-            if (linearCompensatorLabel == null)
-            {
-                linearCompensatorLabel = new Label<LinearInertialCompensator>("LinearInertialCompensator_LinearCompensatorLabel", "Linear Compensator");
-                linearCompensatorLabel.Initialize();
-            }
-
-            // use linear compensator
-
-            if (useLinearCompensatorSwitch == null)
-            {
-                useLinearCompensatorSwitch = new Compensator_UseLinearCompensatorSwitch();
-                useLinearCompensatorSwitch.Initialize();
-            }
-
-            if (useLinearCompensationToggleAction == null)
-            {
-                useLinearCompensationToggleAction = new Compensator_UseLinearCompensationToggleAction();
-                useLinearCompensationToggleAction.Initialize();
-            }
-
-            if (useLinearCompensationEnableAction == null)
-            {
-                useLinearCompensationEnableAction = new Compensator_UseLinearCompensationEnableAction();
-                useLinearCompensationEnableAction.Initialize();
-            }
-
-            if (useLinearCompensationDisableAction == null)
-            {
-                useLinearCompensationDisableAction = new Compensator_UseLinearCompensationDisableAction();
-                useLinearCompensationDisableAction.Initialize();
-            }
-
-            // dumpener slider 
-
-            if (dumpenerSlider == null)
-            {
-                dumpenerSlider = new Compensator_LinearDumpenerSlider();
-                dumpenerSlider.Initialize();
-            }
-            if (incraseDumpenerAction == null)
-            {
-                incraseDumpenerAction = new Compensator_IncraseLinearDumpenerAction();
-                incraseDumpenerAction.Initialize();
-            }
-            if (decraseDumpenerAction == null)
-            {
-                decraseDumpenerAction = new Compensator_DecraseLinearDumpenerAction();
-                decraseDumpenerAction.Initialize();
-            }
-
-            // use foward
-
-            if (useForwardSwitch == null)
-            {
-                useForwardSwitch = new Compensator_UseForwardSwitch();
-                useForwardSwitch.Initialize();
-            }
-
-            if (useForwardToggleAction == null)
-            {
-                useForwardToggleAction = new Compensator_UseForwardToggleAction();
-                useForwardToggleAction.Initialize();
-            }
-
-            if (useForwardEnableAction == null)
-            {
-                useForwardEnableAction = new Compensator_UseForwardEnableAction();
-                useForwardEnableAction.Initialize();
-            }
-
-            if (useForwardDisableAction == null)
-            {
-                useForwardDisableAction = new Compensator_UseForwardDisableAction();
-                useForwardDisableAction.Initialize();
-
-            }
-
-            // use right
-
-            if (useSidewaysSwitch == null)
-            {
-                useSidewaysSwitch = new Compensator_UseSidewaysSwitch();
-                useSidewaysSwitch.Initialize();
-            }
-
-            if (useSidewaysToggleAction == null)
-            {
-                useSidewaysToggleAction = new Compensator_UseSidewaysToggleAction();
-                useSidewaysToggleAction.Initialize();
-            }
-
-            if (useSidewaysEnableAction == null)
-            {
-                useSidewaysEnableAction = new Compensator_UseSidewaysEnableAction();
-                useSidewaysEnableAction.Initialize();
-            }
-
-            if (useSidewaysDisableAction == null)
-            {
-                useSidewaysDisableAction = new Compensator_UseSidewaysDisableAction();
-                useSidewaysDisableAction.Initialize();
-            }
-
-            // use up
-
-            if (useUpSwitch == null)
-            {
-                useUpSwitch = new Compensator_UseUpSwitch();
-                useUpSwitch.Initialize();
-            }
-
-            if (useUpToggleAction == null)
-            {
-                useUpToggleAction = new Compensator_UseUpToggleAction();
-                useUpToggleAction.Initialize();
-            }
-
-            if (useUpEnableAction == null)
-            {
-                useUpEnableAction = new Compensator_UseUpEnableAction();
-                useUpEnableAction.Initialize();
-            }
-
-            if (useUpDisableAction == null)
-            {
-                useUpDisableAction = new Compensator_UseUpDisableAction();
-                useUpDisableAction.Initialize();
-            }
         }
 
         public override void Destroy()
@@ -442,7 +281,13 @@ namespace BakurRepulsorCorp
             //velocityProjectedOnGravity = BakurMathHelper.ProjectOnPlane(velocityProjectedOnGravity, component.rigidbody.gravityUp);
             //}
 
-            Vector3D localLinearAcceleration = Vector3D.Transform(-(Vector3D)grid.Physics.LinearVelocity / physicsDeltaTime * physicsDeltaTime * dumpener, invertedOrientation);
+            Vector3D linearVelocity = (Vector3D)grid.Physics.LinearVelocity;
+            //if (logicComponent.rigidbody.IsInGravity)
+            //{
+            //  linearVelocity = BakurMathHelper.ProjectOnPlane(linearVelocity, logicComponent.rigidbody.gravityUp);
+            //}
+
+            Vector3D localLinearAcceleration = Vector3D.Transform(-linearVelocity / physicsDeltaTime * physicsDeltaTime * dumpener, invertedOrientation);
 
             if (BakurBlockUtils.IsUnderControl(grid))
             {

@@ -9,33 +9,27 @@ namespace BakurRepulsorCorp
 
     public class VelocityRudder : LogicElement
     {
+        public VelocityRudder(LogicComponent block) : base(block)
+        {
+        }
 
         public double minLinearVelocity = 15;
 
         #region max angle
 
-        public static VelocityRudder_MaxAngleSlider maxAngleSlider;
-        static VelocityRudder_IncraseMaxAngleAction incraseMaxAngleAction;
-        static VelocityRudder_DecraseMaxAngleAction decraseMaxAngleAction;
-
-        public static string MAX_ANGLE_PROPERTY_NAME = "VelocityRudder_MaxAngle";
+        public readonly string MAX_ANGLE_PROPERTY_NAME = "VelocityRudder_MaxAngle";
 
         public double defaultMaxDegrees = 1;
-
-        public VelocityRudder(LogicComponent block) : base(block)
-        {
-        }
-
         public double maxAngle
         {
             set
             {
-                string id = GeneratatePropertyId(MAX_ANGLE_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_ANGLE_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(MAX_ANGLE_PROPERTY_NAME);
+                string id = GeneratePropertyId(MAX_ANGLE_PROPERTY_NAME);
                 double result = defaultMaxDegrees;
                 if (GetVariable<double>(id, out result))
                 {
@@ -48,17 +42,9 @@ namespace BakurRepulsorCorp
 
         #endregion
 
-        static Separator<VelocityRudder> velocityRudderSeparator;
-        static Label<VelocityRudder> velocityRudderLabel;
-
         #region use velocity rudder
 
-        static VelocityRudder_UseVelocityRudderSwitch useVelocityRudderSwitch;
-        static VelocityRudder_UseVelocityRudderToggleAction useVelocityRudderToggleAction;
-        static VelocityRudder_UseVelocityRudderEnableAction useVelocityRudderEnableAction;
-        static VelocityRudder_UseVelocityRudderDisableAction useVelocityRudderDisableAction;
-
-        public static string USE_VELOCITY_RUDDER_PROPERTY_NAME = "VelocityRudder_UseVelocityRudder";
+        public readonly string USE_VELOCITY_RUDDER_PROPERTY_NAME = "VelocityRudder_UseVelocityRudder";
 
         public bool defaultUseVelocityRudder = true;
 
@@ -66,12 +52,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(USE_VELOCITY_RUDDER_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_VELOCITY_RUDDER_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(USE_VELOCITY_RUDDER_PROPERTY_NAME);
+                string id = GeneratePropertyId(USE_VELOCITY_RUDDER_PROPERTY_NAME);
                 bool result = defaultUseVelocityRudder;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -88,12 +74,7 @@ namespace BakurRepulsorCorp
 
         #region reverse gear
 
-        static VelocityRudder_ReverseGearSwitch reverseGearSwitch;
-        static VelocityRudder_ReverseGearToggleAction reverseGearToggleAction;
-        static VelocityRudder_ReverseGearEnableAction reverseGearEnableAction;
-        static VelocityRudder_ReverseGearDisableAction reverseGearDisableAction;
-
-        public static string REVERSE_GEAR_PROPERTY_NAME = "VelocityRudder_ReverseGear";
+        public readonly string REVERSE_GEAR_PROPERTY_NAME = "VelocityRudder_ReverseGear";
 
         public bool defaultReverseGear = false;
 
@@ -101,12 +82,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(REVERSE_GEAR_PROPERTY_NAME);
+                string id = GeneratePropertyId(REVERSE_GEAR_PROPERTY_NAME);
                 SetVariable<bool>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(REVERSE_GEAR_PROPERTY_NAME);
+                string id = GeneratePropertyId(REVERSE_GEAR_PROPERTY_NAME);
                 bool result = defaultReverseGear;
                 if (GetVariable<bool>(id, out result))
                 {
@@ -124,91 +105,6 @@ namespace BakurRepulsorCorp
         public override void Initialize()
         {
 
-            // etheric rudder
-
-            if (velocityRudderSeparator == null)
-            {
-                velocityRudderSeparator = new Separator<VelocityRudder>("VelocityRudder_VelocityRudderSeparator");
-                velocityRudderSeparator.Initialize();
-            }
-
-            if (velocityRudderLabel == null)
-            {
-                velocityRudderLabel = new Label<VelocityRudder>("VelocityRudder_VelocityRudderLabel", "Velocity Rudder");
-                velocityRudderLabel.Initialize();
-            }
-
-            // use velocity rudder
-
-            if (useVelocityRudderSwitch == null)
-            {
-                useVelocityRudderSwitch = new VelocityRudder_UseVelocityRudderSwitch();
-                useVelocityRudderSwitch.Initialize();
-            }
-
-            if (useVelocityRudderToggleAction == null)
-            {
-                useVelocityRudderToggleAction = new VelocityRudder_UseVelocityRudderToggleAction();
-                useVelocityRudderToggleAction.Initialize();
-            }
-
-            if (useVelocityRudderEnableAction == null)
-            {
-                useVelocityRudderEnableAction = new VelocityRudder_UseVelocityRudderEnableAction();
-                useVelocityRudderEnableAction.Initialize();
-            }
-
-            if (useVelocityRudderDisableAction == null)
-            {
-                useVelocityRudderDisableAction = new VelocityRudder_UseVelocityRudderDisableAction();
-                useVelocityRudderDisableAction.Initialize();
-            }
-
-            // reverseGear
-
-            if (reverseGearSwitch == null)
-            {
-                reverseGearSwitch = new VelocityRudder_ReverseGearSwitch();
-                reverseGearSwitch.Initialize();
-            }
-
-            if (reverseGearToggleAction == null)
-            {
-                reverseGearToggleAction = new VelocityRudder_ReverseGearToggleAction();
-                reverseGearToggleAction.Initialize();
-            }
-
-            if (reverseGearEnableAction == null)
-            {
-                reverseGearEnableAction = new VelocityRudder_ReverseGearEnableAction();
-                reverseGearEnableAction.Initialize();
-            }
-
-            if (reverseGearDisableAction == null)
-            {
-                reverseGearDisableAction = new VelocityRudder_ReverseGearDisableAction();
-                reverseGearDisableAction.Initialize();
-            }
-
-            // max angle
-
-            if (maxAngleSlider == null)
-            {
-                maxAngleSlider = new VelocityRudder_MaxAngleSlider();
-                maxAngleSlider.Initialize();
-            }
-
-            if (incraseMaxAngleAction == null)
-            {
-                incraseMaxAngleAction = new VelocityRudder_IncraseMaxAngleAction();
-                incraseMaxAngleAction.Initialize();
-            }
-
-            if (decraseMaxAngleAction == null)
-            {
-                decraseMaxAngleAction = new VelocityRudder_DecraseMaxAngleAction();
-                decraseMaxAngleAction.Initialize();
-            }
         }
 
         public override void Destroy()
@@ -304,7 +200,7 @@ namespace BakurRepulsorCorp
             }
 
             double angle = MathHelper.ToDegrees(MyMath.AngleBetween(block.WorldMatrix.Forward, physics.LinearVelocity));
-            if (Math.Abs(angle) < double.Epsilon || angle > maxAngleSlider.max)
+            if (Math.Abs(angle) < VelocityRudderSettings.minimumMaxAngle || angle > VelocityRudderSettings.maximumMaxAngle)
             {
                 return;
             }

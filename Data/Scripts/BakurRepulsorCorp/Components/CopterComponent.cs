@@ -13,32 +13,50 @@ namespace BakurRepulsorCorp
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_UpgradeModule), true, new string[] { "SmallBlockCopter", "LargeBlockCopter" })]
     public class CopterComponent : LogicComponent
     {
+        public DefaultUIController<IMyUpgradeModule> defaultUI;
 
         Copter copter;
+        CopterUIController<IMyUpgradeModule> copterUI;
+
         AttitudeStabiliser attitudeStabiliser;
+        AttitudeStabiliserUIController<IMyUpgradeModule> attitudeStabiliserUI;
 
         #region lifecycle
 
         protected override void Initialize()
         {
-
             base.Initialize();
 
+            defaultUI = new DefaultUIController<IMyUpgradeModule>(this);
+            AddElement(defaultUI);
+
             copter = new Copter(this);
-            AddEquipment(copter);
+            AddElement(copter);
+
+            copterUI = new CopterUIController<IMyUpgradeModule>(this);
+            AddElement(copterUI);
 
             attitudeStabiliser = new AttitudeStabiliser(this);
-            AddEquipment(attitudeStabiliser);
+            AddElement(attitudeStabiliser);
+
+            attitudeStabiliserUI = new AttitudeStabiliserUIController<IMyUpgradeModule>(this);
+            AddElement(attitudeStabiliserUI);
         }
 
         protected override void Destroy()
         {
 
-            RemoveEquipment(copter);
+            RemoveElement(copter);
             copter = null;
 
-            RemoveEquipment(attitudeStabiliser);
+            RemoveElement(copterUI);
+            copterUI = null;
+
+            RemoveElement(attitudeStabiliser);
             attitudeStabiliser = null;
+
+            RemoveElement(attitudeStabiliserUI);
+            attitudeStabiliserUI = null;
 
             base.Destroy();
 
@@ -65,22 +83,9 @@ namespace BakurRepulsorCorp
             base.AppendCustomInfo(block, customInfo);
         }
 
-        protected override string[] soundIds
-        {
-            get
-            {
-                return new string[] { "copter_working_start", "copter_working_loop", "copter_working_end" };
-            }
-        }
-
-        protected override Guid blockGUID()
-        {
-            return new Guid("7d747b37-84f0-4f18-872e-a2a1d3c1ceec");
-        }
-
         Vector3D angularAcceleration;
 
-        protected override void UpdateSimulation(double physicsDeltaTime)
+        protected override void UpdateAfterSimulation(double physicsDeltaTime)
         {
 
             angularAcceleration = Vector3D.Zero;
@@ -108,5 +113,35 @@ namespace BakurRepulsorCorp
 
             rigidbody.AddAngularAcceleration(angularAcceleration);
         }
+
+        public override void DrawEmissive()
+        {
+            if (block.CubeGrid.IsStatic)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 120, 0), 1);
+            }
+            else if (!block.IsWorking || !block.IsFunctional || !enabled || !rigidbody.IsInGravity)
+            {
+                block.SetEmissiveParts("Emissive1", new Color(255, 0, 0), 1);
+            }
+            else
+            {
+                block.SetEmissiveParts("Emissive1", new Color(0, 255, 0), 1);
+            }
+        }
+
+        protected override string[] soundIds
+        {
+            get
+            {
+                return new string[] { "copter_working_start", "copter_working_loop", "copter_working_end" };
+            }
+        }
+
+        protected override Guid blockGUID()
+        {
+            return new Guid("7d747b37-84f0-4f18-872e-a2a1d3c1ceec");
+        }
+
     }
 }

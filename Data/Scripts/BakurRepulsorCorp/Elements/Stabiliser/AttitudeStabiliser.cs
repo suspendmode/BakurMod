@@ -14,16 +14,9 @@ namespace BakurRepulsorCorp
         {
         }
 
-        static Separator<AttitudeStabiliser> attitudeStabiliserSeparator;
-        static Label<AttitudeStabiliser> attitudeStabiliserLabel;
-
         #region stability
 
-        public static Stabiliser_StabilitySlider stabilitySlider;
-        static Stabiliser_DecraseStabilityAction decraseStabilityAction;
-        static Stabiliser_IncraseStabilityAction incraseStabilityAction;
-
-        public static string STABILITY_PROPERTY_NAME = "AttitudeStabiliser_Stability";
+        public readonly string STABILITY_PROPERTY_NAME = "AttitudeStabiliser_Stability";
 
         public double defaultStability = 0.3;
 
@@ -31,12 +24,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(STABILITY_PROPERTY_NAME);
+                string id = GeneratePropertyId(STABILITY_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(STABILITY_PROPERTY_NAME);
+                string id = GeneratePropertyId(STABILITY_PROPERTY_NAME);
                 double result = defaultStability;
                 if (GetVariable<double>(id, out result))
                 {
@@ -51,11 +44,7 @@ namespace BakurRepulsorCorp
 
         #region speed
 
-        public static Stabiliser_SpeedSlider speedSlider;
-        static Stabiliser_DecraseSpeedAction decraseSpeedAction;
-        static Stabiliser_IncraseSpeedAction incraseSpeedAction;
-
-        public static string SPEED_PROPERTY_NAME = "AttitudeStabiliser_Speed";
+        public readonly string SPEED_PROPERTY_NAME = "AttitudeStabiliser_Speed";
 
         public double defaultSpeed = 2;
 
@@ -63,12 +52,12 @@ namespace BakurRepulsorCorp
         {
             set
             {
-                string id = GeneratatePropertyId(SPEED_PROPERTY_NAME);
+                string id = GeneratePropertyId(SPEED_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(SPEED_PROPERTY_NAME);
+                string id = GeneratePropertyId(SPEED_PROPERTY_NAME);
                 double result = defaultSpeed;
                 if (GetVariable<double>(id, out result))
                 {
@@ -86,54 +75,7 @@ namespace BakurRepulsorCorp
         public override void Initialize()
         {
 
-            if (attitudeStabiliserSeparator == null)
-            {
-                attitudeStabiliserSeparator = new Separator<AttitudeStabiliser>("AttitudeStabiliser_AttitudeStabiliserSeparator");
-                attitudeStabiliserSeparator.Initialize();
-            }
 
-            if (attitudeStabiliserLabel == null)
-            {
-                attitudeStabiliserLabel = new Label<AttitudeStabiliser>("AttitudeStabiliser_AttitudeStabiliserLabel", "Attitude Stabiliser");
-                attitudeStabiliserLabel.Initialize();
-            }
-
-
-            if (stabilitySlider == null)
-            {
-                stabilitySlider = new Stabiliser_StabilitySlider();
-                stabilitySlider.Initialize();
-            }
-
-            if (speedSlider == null)
-            {
-                speedSlider = new Stabiliser_SpeedSlider();
-                speedSlider.Initialize();
-            }
-
-            if (decraseSpeedAction == null)
-            {
-                decraseSpeedAction = new Stabiliser_DecraseSpeedAction();
-                decraseSpeedAction.Initialize();
-            }
-
-            if (decraseStabilityAction == null)
-            {
-                decraseStabilityAction = new Stabiliser_DecraseStabilityAction();
-                decraseStabilityAction.Initialize();
-            }
-
-            if (incraseSpeedAction == null)
-            {
-                incraseSpeedAction = new Stabiliser_IncraseSpeedAction();
-                incraseSpeedAction.Initialize();
-            }
-
-            if (incraseStabilityAction == null)
-            {
-                incraseStabilityAction = new Stabiliser_IncraseStabilityAction();
-                incraseStabilityAction.Initialize();
-            }
         }
 
         public override void Destroy()
@@ -165,7 +107,7 @@ namespace BakurRepulsorCorp
 
         #endregion
 
-        public double maxAcceleration = 180;
+        public double maxAcceleration = 90;
         public Vector3D desiredAcceleration;
         public Vector3D targetForward;
         public Vector3D targetUp;

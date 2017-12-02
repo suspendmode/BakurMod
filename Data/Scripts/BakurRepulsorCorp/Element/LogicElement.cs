@@ -7,7 +7,6 @@ namespace BakurRepulsorCorp
 
     public abstract class LogicElement
     {
-
         public bool isInitialized;
 
         #region properties
@@ -53,7 +52,7 @@ namespace BakurRepulsorCorp
         public abstract void Destroy();
         public abstract void AppendCustomInfo(IMyTerminalBlock block, StringBuilder customInfo);
 
-        public string GeneratatePropertyId(string name)
+        public string GeneratePropertyId(string name)
         {
             return block.EntityId + "_" + name;
         }

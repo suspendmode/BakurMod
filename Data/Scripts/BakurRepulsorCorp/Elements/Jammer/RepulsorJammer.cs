@@ -11,30 +11,54 @@ namespace BakurRepulsorCorp
     public class RepulsorJammer : LogicElement
     {
 
-        #region rangle
-
-        public static Jammer_RangeSlider rangeSlider;
-        static Jammer_IncraseRangeAction incraseRangeAction;
-        static Jammer_DecraseRangeAction decraseRangeAction;
-
-        public static string JAMMER_PROPERTY_NAME = "RepulsorJammer_Rangle";
-
-        public double defaultRange = 20;
-
         public RepulsorJammer(LogicComponent block) : base(block)
         {
         }
+
+        #region use jammer
+
+        public readonly string USE_JAMMER_PROPERTY_NAME = "RepulsorJammer_Use";
+
+        public bool defaultUseJammer = true;
+
+        public bool useJammer
+        {
+            set
+            {
+                string id = GeneratePropertyId(USE_JAMMER_PROPERTY_NAME);
+                SetVariable<bool>(id, value);
+            }
+            get
+            {
+                string id = GeneratePropertyId(USE_JAMMER_PROPERTY_NAME);
+                bool result = defaultUseJammer;
+                if (GetVariable<bool>(id, out result))
+                {
+                    return result;
+                }
+                return defaultUseJammer;
+            }
+
+        }
+
+        #endregion
+
+        #region rangle
+
+        public readonly string JAMMER_PROPERTY_NAME = "RepulsorJammer_Rangle";
+
+        public double defaultRange = 20;
 
         public double range
         {
             set
             {
-                string id = GeneratatePropertyId(JAMMER_PROPERTY_NAME);
+                string id = GeneratePropertyId(JAMMER_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(JAMMER_PROPERTY_NAME);
+                string id = GeneratePropertyId(JAMMER_PROPERTY_NAME);
                 double result = defaultRange;
                 if (GetVariable<double>(id, out result))
                 {
@@ -47,46 +71,10 @@ namespace BakurRepulsorCorp
 
         #endregion
 
-        static Separator<RepulsorJammer> jammerSeparator;
-        static Label<RepulsorJammer> jammerLabel;
-
         #region lifecycle
 
         public override void Initialize()
         {
-
-
-            // jammer
-
-            if (jammerSeparator == null)
-            {
-                jammerSeparator = new Separator<RepulsorJammer>("RepulsorJammer_Separator");
-                jammerSeparator.Initialize();
-            }
-
-            if (jammerLabel == null)
-            {
-                jammerLabel = new Label<RepulsorJammer>("RepulsorJammer_Label", "Repulsor Jammer");
-                jammerLabel.Initialize();
-            }
-
-            if (rangeSlider == null)
-            {
-                rangeSlider = new Jammer_RangeSlider();
-                rangeSlider.Initialize();
-            }
-
-            if (incraseRangeAction == null)
-            {
-                incraseRangeAction = new Jammer_IncraseRangeAction();
-                incraseRangeAction.Initialize();
-            }
-
-            if (decraseRangeAction == null)
-            {
-                decraseRangeAction = new Jammer_DecraseRangeAction();
-                decraseRangeAction.Initialize();
-            }
 
         }
 
@@ -104,7 +92,7 @@ namespace BakurRepulsorCorp
         public void UpdateJammer()
         {
 
-            if (!logicComponent.enabled)
+            if (!logicComponent.enabled || !useJammer)
             {
                 return;
             }
@@ -164,6 +152,7 @@ namespace BakurRepulsorCorp
 
         void TypeDisableBlock(IMyCubeBlock block)
         {
+            TypeDisable<AntiGravityGeneratorComponent>(block);
             TypeDisable<RepulsorCoilComponent>(block);
             TypeDisable<RepulsorDriveComponent>(block);
             TypeDisable<RepulsorLiftComponent>(block);

@@ -10,31 +10,27 @@ namespace BakurRepulsorCorp
 
         public Vector3D surfaceNormal = Vector3D.Zero;
 
-        static Separator<PlanetSurfaceNormalSensor> separator;
-        static Label<PlanetSurfaceNormalSensor> label;
-
         public PlanetSurfaceNormalSensor(LogicComponent component) : base(component)
         {
         }
 
         #region size front
 
-        static PlanetSurfaceNormalSensor_SizeFrontSlider sizeFrontSlider;
 
-        public static string SIZE_FRONT_PROPERTY_NAME = "PlanetSurfaceNormalSensor_SizeFront";
+        public readonly string SIZE_FRONT_PROPERTY_NAME = "PlanetSurfaceNormalSensor_SizeFront";
 
-        public double defaultSizeFront = PlanetSurfaceNormalSensor_SizeFrontSlider.maxValue;
+        public double defaultSizeFront = 2.5;
 
         public double sizeFront
         {
             set
             {
-                string id = GeneratatePropertyId(SIZE_FRONT_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIZE_FRONT_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(SIZE_FRONT_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIZE_FRONT_PROPERTY_NAME);
                 double result = defaultSizeFront;
                 if (GetVariable<double>(id, out result))
                 {
@@ -48,22 +44,20 @@ namespace BakurRepulsorCorp
 
         #region size back
 
-        static PlanetSurfaceNormalSensor_SizeBackSlider sizeBackSlider;
+        public readonly string SIZE_BACK_PROPERTY_NAME = "PlanetSurfaceNormalSensor_SizeBack";
 
-        public static string SIZE_BACK_PROPERTY_NAME = "PlanetSurfaceNormalSensor_SizeBack";
-
-        public double defaultSizeBack = PlanetSurfaceNormalSensor_SizeBackSlider.minValue;
+        public double defaultSizeBack = 2.5;
 
         public double sizeBack
         {
             set
             {
-                string id = GeneratatePropertyId(SIZE_BACK_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIZE_BACK_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(SIZE_BACK_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIZE_BACK_PROPERTY_NAME);
                 double result = defaultSizeBack;
                 if (GetVariable<double>(id, out result))
                 {
@@ -77,22 +71,20 @@ namespace BakurRepulsorCorp
 
         #region size left
 
-        static PlanetSurfaceNormalSensor_SizeLeftSlider sizeLeftSlider;
+        public readonly string SIZE_LEFT_PROPERTY_NAME = "PlanetSurfaceNormalSensor_SizeLeft";
 
-        public static string SIZE_LEFT_PROPERTY_NAME = "PlanetSurfaceNormalSensor_SizeLeft";
-
-        public double defaultSizeLeft = 1;
+        public double defaultSizeLeft = 2.5;
 
         public double sizeLeft
         {
             set
             {
-                string id = GeneratatePropertyId(SIZE_LEFT_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIZE_LEFT_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(SIZE_LEFT_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIZE_LEFT_PROPERTY_NAME);
                 double result = defaultSizeLeft;
                 if (GetVariable<double>(id, out result))
                 {
@@ -106,22 +98,20 @@ namespace BakurRepulsorCorp
 
         #region size right
 
-        static PlanetSurfaceNormalSensor_SizeRightSlider sizeRightSlider;
+        public readonly string SIZE_RIGHT_PROPERTY_NAME = "PlanetSurfaceNormalSensor_SizeRight";
 
-        public static string SIZE_RIGHT_PROPERTY_NAME = "PlanetSurfaceNormalSensor_SizeRight";
-
-        public double defaultSizeRight = 1;
+        public double defaultSizeRight = 2.5;
 
         public double sizeRight
         {
             set
             {
-                string id = GeneratatePropertyId(SIZE_RIGHT_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIZE_RIGHT_PROPERTY_NAME);
                 SetVariable<double>(id, value);
             }
             get
             {
-                string id = GeneratatePropertyId(SIZE_RIGHT_PROPERTY_NAME);
+                string id = GeneratePropertyId(SIZE_RIGHT_PROPERTY_NAME);
                 double result = defaultSizeRight;
                 if (GetVariable<double>(id, out result))
                 {
@@ -267,38 +257,7 @@ namespace BakurRepulsorCorp
         public override void Initialize()
         {
 
-            if (separator == null)
-            {
-                separator = new Separator<PlanetSurfaceNormalSensor>("PlanetSurfaceNormalSensor_Separator");
-                separator.Initialize();
-            }
 
-            if (label == null)
-            {
-                label = new Label<PlanetSurfaceNormalSensor>("PlanetSurfaceNormalSensor_Label", "Planet Surface Normal");
-                label.Initialize();
-            }
-
-            if (sizeFrontSlider == null)
-            {
-                sizeFrontSlider = new PlanetSurfaceNormalSensor_SizeFrontSlider();
-                sizeFrontSlider.Initialize();
-            }
-            if (sizeBackSlider == null)
-            {
-                sizeBackSlider = new PlanetSurfaceNormalSensor_SizeBackSlider();
-                sizeBackSlider.Initialize();
-            }
-            if (sizeLeftSlider == null)
-            {
-                sizeLeftSlider = new PlanetSurfaceNormalSensor_SizeLeftSlider();
-                sizeLeftSlider.Initialize();
-            }
-            if (sizeRightSlider == null)
-            {
-                sizeRightSlider = new PlanetSurfaceNormalSensor_SizeRightSlider();
-                sizeRightSlider.Initialize();
-            }
         }
 
         public override void Destroy()
